@@ -8,34 +8,5 @@
     "summary": "<h2>Sweeping adjustments to Discipline, Holy, and Shadow, including Penance, Litany of Light, and standardized baseline utility like Fear Ward.</h2>",
     "content": "<p>The latest <strong>updates</strong> for World of Warcraft Forever introduce sweeping adjustments to the Priest class, sharpening the mechanical focus of all three specializations while standardizing crucial baseline utility like Fear Ward and Devouring Plague.</p><h2>Discipline: Damage Prevention and Mitigation</h2><p>Discipline receives a powerful hybrid identity anchored by the addition of Penance, a versatile, channeled spell capable of either dealing holy damage to enemies or providing rapid targeted healing to allies. The spec relies heavily on synergy between prevention and reactive recovery. New talents like Divine Aegis convert critical heals into absorb shields, while Renewed Hope increases critical strike chances on targets suffering from Weakened Soul. Furthermore, improved Mana regeneration through Meditation makes the shielding-and-smite loop much more viable in prolonged encounters.</p><h2>Holy: Dynamic Recovery and Resource Management</h2><p>Holy shifts away from repetitive spell spamming by introducing Litany of Light, a mechanic that restores Mana whenever the Priest casts a healing spell different from their previous one. Group management receives a major upgrade with Prayer of Mending, allowing a proactive bounce-heal to dynamically track party and raid damage. Additionally, adjustments to Spirit of Redemption and scaling adjustments give traditional reactive healers cleaner throughput tools for high-damage encounters without relying on outdated talent layouts.</p><h2>Shadow: Efficiency and Personal Scaling</h2><p>Shadow receives crucial quality-of-life adjustments focused on personal uptime and resource efficiency. Shadowform has been overhauled to drastically reduce the Mana costs of Shadow spells while boosting critical strike damage bonuses and lowering physical damage taken. Utility-wise, Shadow Weaving shifts its focus to personal damage scaling rather than forcing debuff tracking for the raid. Combined with shorter cooldowns on Vampiric Embrace and the addition of Shadow Word: Death, Shadow functions as a fluid, high-pressure damage dealer.</p>",
     "imageUrl": ""
-  },
-   {
-    "id": 1,
-    "title": "WoW Forever Patch 1.15 Priest Tier List & Meta Shift",
-    "category": "News",
-    "author": "Lawrentiueus",
-    "date": "Oct 14, 2026",
-    "summary": "Breakdown of the newest class balance updates in Patch 1.15 affecting Devouring Plague scaling and Power Infusion synergy.",
-    "content": "<h1>Patch 1.15 Overview</h1><br><p>Patch 1.15 brings massive balance adjustments to the WoW Forever ecosystem.</p><br><p>Holy Priests benefit heavily from revised Prayer of Healing coefficients, while Shadow Priests see improved mana return consistency through Vampiric Touch.</p>",
-   },
-   {
-    "id": 2,
-    "title": "Deep Dive: Spirit vs Mana per 5 Sec in 20-Man Raids",
-    "category": "Theorycrafting",
-    "author": "Lawrentiueus",
-    "date": "Oct 12, 2026",
-    "summary": "Mathematical analysis comparing Spirit tick regen during casting phases versus flat MP5 for Holy and Discipline.",
-    "content": "<h1>The 5-Second Rule</h1><br><p>Understanding the 5-second rule (5SR) is critical for maximizing healer efficiency.</p><br><p>Our mathematical matrix proves that Spirit outperforms flat MP5 on encounters with predictable movement phases.</p>",
-    "imageUrl": ""
-   },
-   {
-    "id": 3,
-    "title": "Skyborne Priest Racial Mastery & World PvP Control",
-    "category": "PvP",
-    "author": "Lawrentiueus",
-    "date": "Oct 08, 2026",
-    "summary": "How to combine Feather Fall leaps with Shadowform damage mitigation to dominate aerial and mountain battles.",
-    "content": "<h1>Skyborne Mobility</h1><br><p>The introduction of the Skyborne race has completely revolutionized World PvP mobility.</p><br><p>This guide covers key macro setups and aerial positioning tips for dominance.</p>",
-    "imageUrl": ""
-   }
+  }
 ]
