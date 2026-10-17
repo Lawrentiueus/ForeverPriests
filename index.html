@@ -626,39 +626,6 @@
     <script>
         let isSiteLive = true;
 
-        const initialArticles = [
-            {
-                id: 1,
-                title: "WoW Forever Patch 1.15 Priest Tier List & Meta Shift",
-                category: "News",
-                author: "Lawrentiueus",
-                date: "Oct 14, 2026",
-                summary: "Breakdown of the newest class balance updates in Patch 1.15 affecting Devouring Plague scaling and Power Infusion synergy.",
-                content: "Patch 1.15 brings massive balance adjustments to the WoW Forever ecosystem.\n\nHoly Priests benefit heavily from revised Prayer of Healing coefficients, while Shadow Priests see improved mana return consistency through Vampiric Touch.\n\nIn this breakdown, we analyze optimal gear setups, tier bonuses, and key encounter positioning to ensure your raid group stays at the cutting edge.",
-                imageUrl: ""
-            },
-            {
-                id: 2,
-                title: "Deep Dive: Spirit vs Mana per 5 Sec in 20-Man Raids",
-                category: "Theorycrafting",
-                author: "Lawrentiueus",
-                date: "Oct 12, 2026",
-                summary: "Mathematical analysis comparing Spirit tick regen during casting phases versus flat MP5 for Holy and Discipline.",
-                content: "Understanding the 5-second rule (5SR) is critical for maximizing healer efficiency.\n\nWhile flat MP5 provides steady baseline return, stacking Spirit combined with Meditation talents yields substantially higher returns during moderate casting downtime.\n\nOur mathematical matrix proves that Spirit outperforms flat MP5 on encounters with predictable movement phases.",
-                imageUrl: ""
-            },
-            {
-                id: 3,
-                title: "Skyborne Priest Racial Mastery & World PvP Control",
-                category: "PvP",
-                author: "Lawrentiueus",
-                date: "Oct 08, 2026",
-                summary: "How to combine Feather Fall leaps with Shadowform damage mitigation to dominate aerial and mountain battles.",
-                content: "The introduction of the Skyborne race has completely revolutionized World PvP mobility.\n\nPriests utilizing Aether Glide combined with Levitating teammates can cross massive canyon gaps and ambush unsuspecting factions from high elevations.\n\nThis guide covers key macro setups and aerial positioning tips for dominance.",
-                imageUrl: ""
-            }
-        ];
-
         const macros = [
             {
                 name: "Mouseover Flash Heal / Renew",
@@ -811,8 +778,9 @@
         let pointsSpent = { disc: {}, holy: {}, shadow: {} };
         let totalPoints = 51;
 
-        window.onload = function() {
-            renderArticles();
+        // Load articles dynamically from your json file on page load
+        window.onload = async function() {
+            await loadArticles();
             renderSpecGuides();
             renderRaces();
             renderMacros();
@@ -820,6 +788,19 @@
             renderTalentTrees();
             checkHashRoute();
         };
+
+        let cachedArticles = [];
+
+        async function loadArticles() {
+            try {
+                const response = await fetch('articles.json');
+                cachedArticles = await response.json();
+            } catch (error) {
+                console.error('Error loading articles:', error);
+                cachedArticles = []; // Fallback empty if error
+            }
+            renderArticles();
+        }
 
         window.addEventListener('hashchange', checkHashRoute);
 
@@ -855,9 +836,7 @@
 
         function renderArticles(filter = 'all') {
             const grid = document.getElementById('articles-grid');
-            const stored = JSON.parse(localStorage.getItem('fp_articles')) || initialArticles;
-            
-            const filtered = filter === 'all' ? stored : stored.filter(a => a.category === filter);
+            const filtered = filter === 'all' ? cachedArticles : cachedArticles.filter(a => a.category === filter);
 
             grid.innerHTML = filtered.map(art => `
                 <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 flex flex-col justify-between hover:border-wowGold/40 transition">
@@ -879,8 +858,7 @@
         }
 
         function openArticleModal(id) {
-            const stored = JSON.parse(localStorage.getItem('fp_articles')) || initialArticles;
-            const art = stored.find(a => a.id === id);
+            const art = cachedArticles.find(a => a.id === id);
             if (!art) return;
 
             document.getElementById('modal-category').innerText = art.category;
@@ -900,7 +878,7 @@
 
             document.getElementById('modal-content').innerHTML = `
                 <p class="font-semibold text-wowGold whitespace-pre-wrap">${art.summary}</p>
-                <div class="whitespace-pre-wrap">${art.content || art.summary}</div>
+                <div class="space-y-2">${art.content || art.summary}</div>
             `;
             document.getElementById('article-modal').classList.remove('hidden');
             document.getElementById('article-modal').classList.add('flex');
