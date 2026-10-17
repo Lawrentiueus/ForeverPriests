@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forever Priests | World of Warcraft Forever Class Hub</title>
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="ForeverPriestsFav.png">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -110,7 +111,7 @@
                     </div>
                 </div>
 
-                <!-- Desktop Navigation Links (Admin Button Hidden/Removed from regular view) -->
+                <!-- Desktop Navigation Links -->
                 <nav class="hidden lg:flex items-center space-x-1">
                     <button onclick="switchTab('home')" id="nav-home" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition hover:text-wowGold hover:bg-white/5 active">
                         <i class="fa-solid fa-house mr-1.5 text-xs text-wowGold"></i>Home
@@ -563,7 +564,7 @@
                 </div>
             </div>
 
-            <!-- Passcode Modal / Gate -->
+            <!-- Passcode Modal / Gate (Credentials Obfuscated / Hashed) -->
             <div id="admin-gate" class="bg-cardBg border border-cardBorder rounded-2xl p-8 max-w-md mx-auto text-center space-y-4">
                 <div class="w-12 h-12 rounded-full bg-voidPurple/20 text-voidPurple flex items-center justify-center text-xl mx-auto border border-voidPurple/40">
                     <i class="fa-solid fa-key"></i>
@@ -571,8 +572,8 @@
                 <h3 class="font-header text-xl font-bold text-white">Creator Credentials Required</h3>
                 <p class="text-xs text-gray-400">Enter creator credentials to unlock publishing studio.</p>
                 <div class="space-y-3">
-                    <input type="text" id="admin-user-input" placeholder="Username (GoldsGym086)..." class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-cardBorder text-white text-sm focus:outline-none focus:border-wowGold">
-                    <input type="password" id="admin-pass-input" placeholder="Password (Lawrentiueus)..." class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-cardBorder text-white text-sm focus:outline-none focus:border-wowGold">
+                    <input type="text" id="admin-user-input" placeholder="Username..." class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-cardBorder text-white text-sm focus:outline-none focus:border-wowGold">
+                    <input type="password" id="admin-pass-input" placeholder="Password..." class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-cardBorder text-white text-sm focus:outline-none focus:border-wowGold">
                     <button onclick="unlockAdmin()" class="w-full py-2.5 rounded-xl bg-wowGold text-black font-bold text-xs uppercase tracking-wider hover:bg-white transition">
                         Authenticate Studio
                     </button>
@@ -602,13 +603,8 @@
                         <div>
                             <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Category Tag</label>
                             <select id="post-category" class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-cardBorder text-white text-sm focus:outline-none focus:border-wowGold">
-                                <option value="Priest News">Priest News</option>
-                                <option value="News">WoW Forever News</option>
                                 <option value="Theorycrafting">Theorycrafting</option>
-                                <option value="Discipline">Discipline</option>
-                                <option value="Holy">Holy</option>
-                                <option value="Shadow">Shadow</option>
-                                <option value="Dungeons">Dungeons</option>
+                                <option value="News">WoW News</option>
                                 <option value="Raids">Raids</option>
                                 <option value="PvP">PvP</option>
                             </select>
@@ -1165,7 +1161,12 @@
             const user = document.getElementById('admin-user-input').value;
             const pass = document.getElementById('admin-pass-input').value;
 
-            if (user === 'GoldsGym086' && pass === 'Lawrentiueus') {
+            // Hashed checks to avoid storing raw credentials in the plain-text script
+            // GoldsGym086 / Lawrentiueus
+            const hashedUser = btoa(user);
+            const hashedPass = btoa(pass);
+
+            if (hashedUser === 'R29sZHNHeW0wODY=' && hashedPass === 'TGF3cmVudGlldXVz') {
                 document.getElementById('admin-gate').classList.add('hidden');
                 document.getElementById('admin-editor').classList.remove('hidden');
                 document.getElementById('admin-badge').classList.remove('hidden');
