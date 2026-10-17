@@ -552,7 +552,7 @@
         </section>
 
 
-        <!-- ================= TAB 8: ADMIN STUDIO (Accessible via #OmenRed.XboxS_074) ================= -->
+        <!-- ================= TAB 8: ADMIN STUDIO (Secret Route #OmenRed.XboxS_074) ================= -->
         <section id="OmenRed.XboxS_074" class="tab-content hidden space-y-8">
             <div class="border-b border-cardBorder pb-6 flex items-center justify-between">
                 <div>
@@ -570,7 +570,7 @@
                     <i class="fa-solid fa-key"></i>
                 </div>
                 <h3 class="font-header text-xl font-bold text-white">Creator Credentials Required</h3>
-                <p class="text-xs text-gray-400">Enter your credentials to unlock publishing studio.</p>
+                <p class="text-xs text-gray-400">Enter creator credentials to unlock publishing studio.</p>
                 <div class="space-y-3">
                     <input type="text" id="admin-user-input" placeholder="Username..." class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-cardBorder text-white text-sm focus:outline-none focus:border-wowGold">
                     <input type="password" id="admin-pass-input" placeholder="Password..." class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-cardBorder text-white text-sm focus:outline-none focus:border-wowGold">
@@ -580,9 +580,8 @@
                 </div>
             </div>
 
-            <!-- Admin Controls & Editor (Hidden by default) -->
+            <!-- Admin Controls & Editor -->
             <div id="admin-editor" class="hidden space-y-8">
-                <!-- Status Toggle Box -->
                 <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
                     <div>
                         <h4 class="font-header text-lg font-bold text-white">Site Operational Status Light</h4>
@@ -592,6 +591,49 @@
                         <i class="fa-solid fa-power-off"></i> Toggle Status Light
                     </button>
                 </div>
+
+                <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 sm:p-8 space-y-6">
+                    <h3 class="font-header text-xl font-bold text-wowGold border-b border-cardBorder pb-3">Create New Content Article</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Article Title</label>
+                            <input type="text" id="post-title" placeholder="e.g. Patch 1.15 Shadow Priest Bis List" class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-cardBorder text-white text-sm focus:outline-none focus:border-wowGold">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Category Tag</label>
+                            <select id="post-category" class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-cardBorder text-white text-sm focus:outline-none focus:border-wowGold">
+                                <option value="Priest News">Priest News</option>
+                                <option value="News">WoW Forever News</option>
+                                <option value="Theorycrafting">Theorycrafting</option>
+                                <option value="Discipline">Discipline</option>
+                                <option value="Holy">Holy</option>
+                                <option value="Shadow">Shadow</option>
+                                <option value="Dungeons">Dungeons</option>
+                                <option value="Raids">Raids</option>
+                                <option value="PvP">PvP</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Article Summary</label>
+                        <textarea id="post-summary" rows="3" placeholder="Brief 2-sentence summary for feed cards..." class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-cardBorder text-white text-sm focus:outline-none focus:border-wowGold"></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Full Article Content</label>
+                        <textarea id="post-content" rows="6" placeholder="Write full guide text here..." class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-cardBorder text-white text-sm focus:outline-none focus:border-wowGold"></textarea>
+                    </div>
+
+                    <div class="flex justify-end gap-3 pt-2">
+                        <button onclick="publishArticle()" class="px-6 py-3 rounded-xl bg-wowGold text-black font-bold text-xs uppercase tracking-wider hover:bg-white transition flex items-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> Publish Live
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Newsletter Section -->
         <div class="mt-16 bg-gradient-to-r from-cardBg via-cardBorder to-cardBg border border-wowGold/20 rounded-3xl p-8 text-center space-y-4">
@@ -1120,16 +1162,17 @@
             }
         }
 
+        // Admin Credentials Authentication
         function unlockAdmin() {
-            const user = document.getElementById('admin-user-input').value.trim();
-            const pass = document.getElementById('admin-pass-input').value.trim();
+            const user = document.getElementById('admin-user-input').value;
+            const pass = document.getElementById('admin-pass-input').value;
 
             if (user === 'GoldsGym086' && pass === 'Lawrentiueus') {
                 document.getElementById('admin-gate').classList.add('hidden');
                 document.getElementById('admin-editor').classList.remove('hidden');
                 document.getElementById('admin-badge').classList.remove('hidden');
             } else {
-                alert('Invalid Credentials. Please check username and password.');
+                alert('Invalid Credentials. Please check your username and password.');
             }
         }
 
