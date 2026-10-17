@@ -6,33 +6,40 @@
     <title>Forever Priests | World of Warcraft Forever Priest Class Hub</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="ForeverPriestsFav.png">
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        wowGold: '#FFD700',
-                        wowGoldDark: '#B8860B',
-                        voidPurple: '#8A2BE2',
-                        voidPurpleDark: '#4A154B',
-                        holyYellow: '#FFF59D',
-                        discOrange: '#FFB74D',
-                        shadowViolet: '#BA68C8',
-                        darkBg: '#0b0c10',
-                        cardBg: '#12141c',
-                        cardBorder: '#1f2430'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Cinzel', 'Georgia', 'serif']
-                    }
+    <!-- Tailwind CSS Play CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Tailwind Typography Plugin CDN -->
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/typography@0.5.10/dist/typography.min.js"></script>
+
+<script>
+    tailwind.config = {
+        darkMode: 'class',
+        // Enable typography plugin
+        plugins: [
+            window.tailwindcss ? window.tailwindcss.typography : undefined
+        ],
+        theme: {
+            extend: {
+                colors: {
+                    wowGold: '#FFD700',
+                    wowGoldDark: '#B8860B',
+                    voidPurple: '#8A2BE2',
+                    voidPurpleDark: '#4A154B',
+                    holyYellow: '#FFF59D',
+                    discOrange: '#FFB74D',
+                    shadowViolet: '#BA68C8',
+                    darkBg: '#0b0c10',
+                    cardBg: '#12141c',
+                    cardBorder: '#1f2430'
+                },
+                fontFamily: {
+                    sans: ['Inter', 'sans-serif'],
+                    serif: ['Cinzel', 'Georgia', 'serif']
                 }
             }
         }
-    </script>
+    }
+</script>
     <!-- Google Fonts & FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
