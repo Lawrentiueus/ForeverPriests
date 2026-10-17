@@ -219,20 +219,6 @@
 
             <!-- Spec Snapshot Navigation Grid -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Holy Spec Card -->
-                <div onclick="switchTab('specs'); filterSpec('holy');" class="group bg-cardBg border border-cardBorder hover:border-holyYellow/50 rounded-2xl p-6 transition duration-300 cursor-pointer hover:-translate-y-1 shadow-lg relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-24 h-24 bg-holyYellow/5 rounded-full blur-2xl group-hover:bg-holyYellow/10 transition"></div>
-                    <div class="w-12 h-12 rounded-xl bg-holyYellow/10 text-holyYellow flex items-center justify-center text-2xl font-bold mb-4 border border-holyYellow/30">
-                        <i class="fa-solid fa-sun"></i>
-                    </div>
-                    <span class="text-xs font-bold text-holyYellow uppercase tracking-wider">Primary Healer</span>
-                    <h3 class="font-header text-2xl font-bold text-white group-hover:text-holyYellow transition mt-1">Holy Priest</h3>
-                    <p class="text-gray-400 text-sm mt-2 leading-relaxed">Pure raw healing throughput, unmatched AOE raid sustain, and game-changing spirit form utility.</p>
-                    <div class="mt-4 flex items-center text-xs text-holyYellow font-semibold gap-1">
-                        View Guides &amp; Builds <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition"></i>
-                    </div>
-                </div>
-
                 <!-- Discipline Spec Card -->
                 <div onclick="switchTab('specs'); filterSpec('disc');" class="group bg-cardBg border border-cardBorder hover:border-discOrange/50 rounded-2xl p-6 transition duration-300 cursor-pointer hover:-translate-y-1 shadow-lg relative overflow-hidden">
                     <div class="absolute top-0 right-0 w-24 h-24 bg-discOrange/5 rounded-full blur-2xl group-hover:bg-discOrange/10 transition"></div>
@@ -243,6 +229,20 @@
                     <h3 class="font-header text-2xl font-bold text-white group-hover:text-discOrange transition mt-1">Discipline Priest</h3>
                     <p class="text-gray-400 text-sm mt-2 leading-relaxed">Proactive damage prevention with Power Word: Shield, Power Infusion, and essential PvP control.</p>
                     <div class="mt-4 flex items-center text-xs text-discOrange font-semibold gap-1">
+                        View Guides &amp; Builds <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition"></i>
+                    </div>
+                </div>
+
+                <!-- Holy Spec Card -->
+                <div onclick="switchTab('specs'); filterSpec('holy');" class="group bg-cardBg border border-cardBorder hover:border-holyYellow/50 rounded-2xl p-6 transition duration-300 cursor-pointer hover:-translate-y-1 shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-holyYellow/5 rounded-full blur-2xl group-hover:bg-holyYellow/10 transition"></div>
+                    <div class="w-12 h-12 rounded-xl bg-holyYellow/10 text-holyYellow flex items-center justify-center text-2xl font-bold mb-4 border border-holyYellow/30">
+                        <i class="fa-solid fa-sun"></i>
+                    </div>
+                    <span class="text-xs font-bold text-holyYellow uppercase tracking-wider">Primary Healer</span>
+                    <h3 class="font-header text-2xl font-bold text-white group-hover:text-holyYellow transition mt-1">Holy Priest</h3>
+                    <p class="text-gray-400 text-sm mt-2 leading-relaxed">Pure raw healing throughput, unmatched AOE raid sustain, and game-changing spirit form utility.</p>
+                    <div class="mt-4 flex items-center text-xs text-holyYellow font-semibold gap-1">
                         View Guides &amp; Builds <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition"></i>
                     </div>
                 </div>
@@ -272,8 +272,15 @@
                     <!-- Content Filter Tabs -->
                     <div class="flex flex-wrap gap-2">
                         <button onclick="filterNews('all')" id="filter-all" class="news-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-wowGold text-black">All</button>
-                        <button onclick="filterNews('News')" id="filter-News" class="news-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-cardBg text-gray-300 hover:text-white border border-cardBorder">WoW News</button>
+                        <button onclick="filterNews('Priest News')" id="filter-Priest News" class="news-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-cardBg text-gray-300 hover:text-white border border-cardBorder">Priest News</button>
+                        <button onclick="filterNews('WoW News')" id="filter-WoW News" class="news-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-cardBg text-gray-300 hover:text-white border border-cardBorder">WoW News</button>
+                        <button onclick="filterNews('Discipline')" id="filter-Discipline" class="news-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-cardBg text-gray-300 hover:text-white border border-cardBorder">Discipline</button>
+                        <button onclick="filterNews('Holy')" id="filter-Holy" class="news-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-cardBg text-gray-300 hover:text-white border border-cardBorder">Holy</button>
+                        <button onclick="filterNews('Shadow')" id="filter-Shadow" class="news-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-cardBg text-gray-300 hover:text-white border border-cardBorder">Shadow</button>
                         <button onclick="filterNews('Theorycrafting')" id="filter-Theorycrafting" class="news-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-cardBg text-gray-300 hover:text-white border border-cardBorder">Theorycrafting</button>
+                        <button onclick="filterNews('Professions')" id="filter-Professions" class="news-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-cardBg text-gray-300 hover:text-white border border-cardBorder">Professions</button>
+                        <button onclick="filterNews('Leveling')" id="filter-Leveling" class="news-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-cardBg text-gray-300 hover:text-white border border-cardBorder">Leveling</button>
+                        <button onclick="filterNews('Dungeons')" id="filter-Dungeons" class="news-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-cardBg text-gray-300 hover:text-white border border-cardBorder">Dungeons</button>
                         <button onclick="filterNews('Raids')" id="filter-Raids" class="news-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-cardBg text-gray-300 hover:text-white border border-cardBorder">Raids</button>
                         <button onclick="filterNews('PvP')" id="filter-PvP" class="news-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-cardBg text-gray-300 hover:text-white border border-cardBorder">PvP</button>
                     </div>
