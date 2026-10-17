@@ -84,6 +84,36 @@
             background-color: #0b0c10;
             color: #ffffff;
         }
+
+        /* Fixed Article Modal H2 & Spacing Typography */
+        #modal-content h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #FFD700;
+            margin-top: 1.75rem;
+            margin-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            padding-bottom: 0.35rem;
+            line-height: 1.4;
+        }
+        #modal-content h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #FFF59D;
+            margin-top: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        #modal-content p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            color: #cbd5e1;
+        }
+        #modal-content h2:first-child,
+        #modal-content p:first-child {
+            margin-top: 0;
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-wowGold selection:text-black">
@@ -576,8 +606,7 @@
 
     <!-- Article Reading Modal -->
     <div id="article-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
-        <!-- CHANGED: space-y-6 reduced to space-y-3 -->
-        <div class="bg-cardBg border border-cardBorder rounded-3xl max-w-2xl w-full p-6 sm:p-8 space-y-3 relative shadow-2xl max-h-[90vh] overflow-y-auto">
+        <div class="bg-cardBg border border-cardBorder rounded-3xl max-w-2xl w-full p-6 sm:p-8 space-y-6 relative shadow-2xl max-h-[90vh] overflow-y-auto">
             <button onclick="closeArticleModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-xl z-10">
                 <i class="fa-solid fa-xmark"></i>
             </button>
@@ -593,8 +622,9 @@
             <div id="modal-image-container" class="hidden">
                 <img id="modal-image" src="" alt="Article Image" class="w-full h-auto max-h-80 object-cover rounded-xl border border-cardBorder">
             </div>
+            <!-- Explicit modal-content container with clean formatting -->
             <div id="modal-content" class="text-gray-300 text-sm leading-relaxed space-y-4">
-                <!-- Content injected here -->
+                <!-- Content injected here via innerHTML -->
             </div>
             <div class="pt-4 border-t border-cardBorder flex justify-end">
                 <button onclick="closeArticleModal()" class="px-5 py-2.5 rounded-xl bg-wowGold text-black font-bold text-xs uppercase tracking-wider">Close Article</button>
@@ -877,11 +907,8 @@
                 imgEl.src = '';
             }
 
-            // CHANGED: Explicitly structured with summary paragraph and tight spacing
-            document.getElementById('modal-content').innerHTML = `
-                <p class="font-semibold text-wowGold -mt-1 mb-3">${art.summary}</p>
-                <div class="space-y-4 text-gray-300 text-sm leading-relaxed">${art.content || ''}</div>
-            `;
+            // Using .innerHTML ensures h2 and p tags render correctly inside modal-content
+            document.getElementById('modal-content').innerHTML = art.content || art.summary;
             
             document.getElementById('article-modal').classList.remove('hidden');
             document.getElementById('article-modal').classList.add('flex');
