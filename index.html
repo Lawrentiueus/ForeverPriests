@@ -6,40 +6,33 @@
     <title>Forever Priests | World of Warcraft Forever Priest Class Hub</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="ForeverPriestsFav.png">
-    <!-- Tailwind CSS Play CDN -->
-<script src="https://cdn.tailwindcss.com"></script>
-<!-- Tailwind Typography Plugin CDN -->
-<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/typography@0.5.10/dist/typography.min.js"></script>
-
-<script>
-    tailwind.config = {
-        darkMode: 'class',
-        // Enable typography plugin
-        plugins: [
-            window.tailwindcss ? window.tailwindcss.typography : undefined
-        ],
-        theme: {
-            extend: {
-                colors: {
-                    wowGold: '#FFD700',
-                    wowGoldDark: '#B8860B',
-                    voidPurple: '#8A2BE2',
-                    voidPurpleDark: '#4A154B',
-                    holyYellow: '#FFF59D',
-                    discOrange: '#FFB74D',
-                    shadowViolet: '#BA68C8',
-                    darkBg: '#0b0c10',
-                    cardBg: '#12141c',
-                    cardBorder: '#1f2430'
-                },
-                fontFamily: {
-                    sans: ['Inter', 'sans-serif'],
-                    serif: ['Cinzel', 'Georgia', 'serif']
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        wowGold: '#FFD700',
+                        wowGoldDark: '#B8860B',
+                        voidPurple: '#8A2BE2',
+                        voidPurpleDark: '#4A154B',
+                        holyYellow: '#FFF59D',
+                        discOrange: '#FFB74D',
+                        shadowViolet: '#BA68C8',
+                        darkBg: '#0b0c10',
+                        cardBg: '#12141c',
+                        cardBorder: '#1f2430'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Cinzel', 'Georgia', 'serif']
+                    }
                 }
             }
         }
-    }
-</script>
+    </script>
     <!-- Google Fonts & FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -68,51 +61,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
-        /* ==========================================================
-           EXPLICIT ARTICLE & MODAL TYPOGRAPHY & SPACING FIX
-           ================ ========================================== */
-        #modal-content h2, 
-        .article-html-content h2 {
-            font-family: 'Cinzel', serif;
-            font-size: 1.25rem;
-            font-weight: 800;
-            color: #FFD700;
-            margin-top: 2rem;
-            margin-bottom: 0.75rem;
-            border-bottom: 1px solid rgba(255, 215, 0, 0.25);
-            padding-bottom: 0.4rem;
-            line-height: 1.4;
-            display: block;
-        }
-        
-        #modal-content h3, 
-        .article-html-content h3 {
-            font-family: 'Cinzel', serif;
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #FFF59D;
-            margin-top: 1.5rem;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        #modal-content p, 
-        .article-html-content p {
-            margin-bottom: 1.25rem;
-            line-height: 1.75;
-            color: #cbd5e1;
-            font-size: 0.95rem;
-            display: block;
-        }
-
-        #modal-content h2:first-child,
-        #modal-content p:first-child,
-        .article-html-content h2:first-child,
-        .article-html-content p:first-child {
-            margin-top: 0;
-        }
-
         .talent-node {
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -131,6 +79,10 @@
         }
         ::-webkit-scrollbar-thumb:hover {
             background: #FFD700;
+        }
+        select option {
+            background-color: #0b0c10;
+            color: #ffffff;
         }
     </style>
 </head>
@@ -640,12 +592,9 @@
             <div id="modal-image-container" class="hidden">
                 <img id="modal-image" src="" alt="Article Image" class="w-full h-auto max-h-80 object-cover rounded-xl border border-cardBorder">
             </div>
-            
-            <!-- Modal Body Content Container -->
-            document.getElementById('modal-content').innerHTML = art.content || art.summary;
-                <!-- Injected HTML content goes here -->
+            <div id="modal-content" class="text-gray-300 text-sm leading-relaxed space-y-4 whitespace-pre-wrap">
+                <!-- Content injected here -->
             </div>
-
             <div class="pt-4 border-t border-cardBorder flex justify-end">
                 <button onclick="closeArticleModal()" class="px-5 py-2.5 rounded-xl bg-wowGold text-black font-bold text-xs uppercase tracking-wider">Close Article</button>
             </div>
@@ -848,7 +797,7 @@
                 cachedArticles = await response.json();
             } catch (error) {
                 console.error('Error loading articles:', error);
-                cachedArticles = []; 
+                cachedArticles = []; // Fallback empty if error
             }
             renderArticles();
         }
@@ -898,7 +847,7 @@
                             <span class="text-gray-500">${art.date}</span>
                         </div>
                         <h3 class="font-header text-xl font-bold text-white">${art.title}</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed">${art.summary}</p>
+                        <p class="text-gray-400 text-xs leading-relaxed whitespace-pre-wrap">${art.summary}</p>
                     </div>
                     <div class="pt-4 border-t border-cardBorder/50 mt-4 flex items-center justify-between text-xs">
                         <span class="text-gray-400">By <strong class="text-wowGold">${art.author}</strong></span>
@@ -927,9 +876,10 @@
                 imgEl.src = '';
             }
 
-            // CRITICAL FIX: Injects full HTML content including <h2> tags and spacing paragraphs
-            document.getElementById('modal-content').innerHTML = art.content || art.summary;
-            
+            document.getElementById('modal-content').innerHTML = `
+                <p class="font-semibold text-wowGold whitespace-pre-wrap">${art.summary}</p>
+                <div class="space-y-2">${art.content || art.summary}</div>
+            `;
             document.getElementById('article-modal').classList.remove('hidden');
             document.getElementById('article-modal').classList.add('flex');
         }
