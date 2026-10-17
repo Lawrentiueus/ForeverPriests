@@ -80,6 +80,10 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #FFD700;
         }
+        select option {
+            background-color: #0b0c10;
+            color: #ffffff;
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-wowGold selection:text-black">
@@ -557,7 +561,7 @@
             <div class="border-b border-cardBorder pb-6 flex items-center justify-between">
                 <div>
                     <h1 class="font-header text-3xl sm:text-4xl font-extrabold text-white">Lawrentiueus Admin Content Studio</h1>
-                    <p class="text-gray-400 text-sm mt-2">Publish new articles and toggle site status lights directly on foreverpriests.com.</p>
+                    <p class="text-gray-400 text-sm mt-2">Publish new articles, edit or delete articles, and toggle site status lights directly on foreverpriests.com.</p>
                 </div>
                 <div id="admin-badge" class="hidden px-3 py-1 bg-green-500/20 text-green-400 border border-green-500/40 rounded-full text-xs font-bold uppercase">
                     <i class="fa-solid fa-circle-check mr-1"></i> Authenticated
@@ -617,19 +621,32 @@
                     </div>
 
                     <div>
-                        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Article Summary</label>
-                        <textarea id="post-summary" rows="3" placeholder="Brief 2-sentence summary for feed cards..." class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-cardBorder text-white text-sm focus:outline-none focus:border-wowGold"></textarea>
+                        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Image URL (Optional)</label>
+                        <input type="text" id="post-image" placeholder="https://example.com/image.jpg..." class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-cardBorder text-white text-sm focus:outline-none focus:border-wowGold">
                     </div>
 
                     <div>
-                        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Full Article Content</label>
-                        <textarea id="post-content" rows="6" placeholder="Write full guide text here..." class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-cardBorder text-white text-sm focus:outline-none focus:border-wowGold"></textarea>
+                        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Article Summary</label>
+                        <textarea id="post-summary" rows="3" placeholder="Brief 2-sentence summary for feed cards..." class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-cardBorder text-white text-sm focus:outline-none focus:border-wowGold whitespace-pre-wrap"></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Full Article Content (Spaces & Line breaks preserved)</label>
+                        <textarea id="post-content" rows="6" placeholder="Write full guide text here..." class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-cardBorder text-white text-sm focus:outline-none focus:border-wowGold whitespace-pre-wrap"></textarea>
                     </div>
 
                     <div class="flex justify-end gap-3 pt-2">
                         <button onclick="publishArticle()" class="px-6 py-3 rounded-xl bg-wowGold text-black font-bold text-xs uppercase tracking-wider hover:bg-white transition flex items-center gap-2">
                             <i class="fa-solid fa-paper-plane"></i> Publish Live
                         </button>
+                    </div>
+                </div>
+
+                <!-- Manage / Delete Articles Section -->
+                <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 sm:p-8 space-y-6">
+                    <h3 class="font-header text-xl font-bold text-wowGold border-b border-cardBorder pb-3">Manage / Delete Published Articles</h3>
+                    <div id="admin-articles-list" class="space-y-3">
+                        <!-- Populated by JavaScript -->
                     </div>
                 </div>
             </div>
@@ -656,8 +673,8 @@
 
     <!-- Article Reading Modal -->
     <div id="article-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
-        <div class="bg-cardBg border border-cardBorder rounded-3xl max-w-2xl w-full p-6 sm:p-8 space-y-6 relative shadow-2xl">
-            <button onclick="closeArticleModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-xl">
+        <div class="bg-cardBg border border-cardBorder rounded-3xl max-w-2xl w-full p-6 sm:p-8 space-y-6 relative shadow-2xl max-h-[90vh] overflow-y-auto">
+            <button onclick="closeArticleModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-xl z-10">
                 <i class="fa-solid fa-xmark"></i>
             </button>
             <div class="space-y-2">
@@ -669,7 +686,10 @@
                     <span id="modal-date">Date</span>
                 </div>
             </div>
-            <div id="modal-content" class="text-gray-300 text-sm leading-relaxed space-y-4 max-h-[60vh] overflow-y-auto pr-2">
+            <div id="modal-image-container" class="hidden">
+                <img id="modal-image" src="" alt="Article Image" class="w-full h-auto max-h-80 object-cover rounded-xl border border-cardBorder">
+            </div>
+            <div id="modal-content" class="text-gray-300 text-sm leading-relaxed space-y-4 whitespace-pre-wrap">
                 <!-- Content injected here -->
             </div>
             <div class="pt-4 border-t border-cardBorder flex justify-end">
@@ -711,7 +731,8 @@
                 author: "Lawrentiueus",
                 date: "Oct 14, 2026",
                 summary: "Breakdown of the newest class balance updates in Patch 1.15 affecting Devouring Plague scaling and Power Infusion synergy.",
-                content: "Patch 1.15 brings massive balance adjustments to the WoW Forever ecosystem. Holy Priests benefit heavily from revised Prayer of Healing coefficients, while Shadow Priests see improved mana return consistency through Vampiric Touch. In this breakdown, we analyze optimal gear setups, tier bonuses, and key encounter positioning to ensure your raid group stays at the cutting edge."
+                content: "Patch 1.15 brings massive balance adjustments to the WoW Forever ecosystem.\n\nHoly Priests benefit heavily from revised Prayer of Healing coefficients, while Shadow Priests see improved mana return consistency through Vampiric Touch.\n\nIn this breakdown, we analyze optimal gear setups, tier bonuses, and key encounter positioning to ensure your raid group stays at the cutting edge.",
+                imageUrl: ""
             },
             {
                 id: 2,
@@ -720,7 +741,8 @@
                 author: "Lawrentiueus",
                 date: "Oct 12, 2026",
                 summary: "Mathematical analysis comparing Spirit tick regen during casting phases versus flat MP5 for Holy and Discipline.",
-                content: "Understanding the 5-second rule (5SR) is critical for maximizing healer efficiency. While flat MP5 provides steady baseline return, stacking Spirit combined with Meditation talents yields substantially higher returns during moderate casting downtime. Our mathematical matrix proves that Spirit outperforms flat MP5 on encounters with predictable movement phases."
+                content: "Understanding the 5-second rule (5SR) is critical for maximizing healer efficiency.\n\nWhile flat MP5 provides steady baseline return, stacking Spirit combined with Meditation talents yields substantially higher returns during moderate casting downtime.\n\nOur mathematical matrix proves that Spirit outperforms flat MP5 on encounters with predictable movement phases.",
+                imageUrl: ""
             },
             {
                 id: 3,
@@ -729,7 +751,8 @@
                 author: "Lawrentiueus",
                 date: "Oct 08, 2026",
                 summary: "How to combine Feather Fall leaps with Shadowform damage mitigation to dominate aerial and mountain battles.",
-                content: "The introduction of the Skyborne race has completely revolutionized World PvP mobility. Priests utilizing Aether Glide combined with Levitating teammates can cross massive canyon gaps and ambush unsuspecting factions from high elevations. This guide covers key macro setups and aerial positioning tips for dominance."
+                content: "The introduction of the Skyborne race has completely revolutionized World PvP mobility.\n\nPriests utilizing Aether Glide combined with Levitating teammates can cross massive canyon gaps and ambush unsuspecting factions from high elevations.\n\nThis guide covers key macro setups and aerial positioning tips for dominance.",
+                imageUrl: ""
             }
         ];
 
@@ -936,12 +959,13 @@
             grid.innerHTML = filtered.map(art => `
                 <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 flex flex-col justify-between hover:border-wowGold/40 transition">
                     <div class="space-y-3">
+                        ${art.imageUrl ? `<div class="mb-3 rounded-xl overflow-hidden h-40 bg-darkBg border border-cardBorder"><img src="${art.imageUrl}" alt="${art.title}" class="w-full h-full object-cover"></div>` : ''}
                         <div class="flex items-center justify-between text-xs">
                             <span class="px-2.5 py-1 rounded-full bg-voidPurple/20 text-voidPurple font-bold uppercase">${art.category}</span>
                             <span class="text-gray-500">${art.date}</span>
                         </div>
                         <h3 class="font-header text-xl font-bold text-white">${art.title}</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed">${art.summary}</p>
+                        <p class="text-gray-400 text-xs leading-relaxed whitespace-pre-wrap">${art.summary}</p>
                     </div>
                     <div class="pt-4 border-t border-cardBorder/50 mt-4 flex items-center justify-between text-xs">
                         <span class="text-gray-400">By <strong class="text-wowGold">${art.author}</strong></span>
@@ -960,9 +984,20 @@
             document.getElementById('modal-title').innerText = art.title;
             document.getElementById('modal-author').innerText = art.author;
             document.getElementById('modal-date').innerText = art.date;
+
+            const imgContainer = document.getElementById('modal-image-container');
+            const imgEl = document.getElementById('modal-image');
+            if (art.imageUrl) {
+                imgEl.src = art.imageUrl;
+                imgContainer.classList.remove('hidden');
+            } else {
+                imgContainer.classList.add('hidden');
+                imgEl.src = '';
+            }
+
             document.getElementById('modal-content').innerHTML = `
-                <p class="font-semibold text-wowGold">${art.summary}</p>
-                <p>${art.content || art.summary}</p>
+                <p class="font-semibold text-wowGold whitespace-pre-wrap">${art.summary}</p>
+                <div class="whitespace-pre-wrap">${art.content || art.summary}</div>
             `;
             document.getElementById('article-modal').classList.remove('hidden');
             document.getElementById('article-modal').classList.add('flex');
@@ -1171,14 +1206,47 @@
                 document.getElementById('admin-gate').classList.add('hidden');
                 document.getElementById('admin-editor').classList.remove('hidden');
                 document.getElementById('admin-badge').classList.remove('hidden');
+                renderAdminArticlesList();
             } else {
                 alert('Invalid Credentials. Please check your username and password.');
             }
         }
 
+        function renderAdminArticlesList() {
+            const listContainer = document.getElementById('admin-articles-list');
+            if (!listContainer) return;
+            
+            const stored = JSON.parse(localStorage.getItem('fp_articles')) || initialArticles;
+            
+            listContainer.innerHTML = stored.map(art => `
+                <div class="bg-darkBg border border-cardBorder p-4 rounded-xl flex items-center justify-between gap-4">
+                    <div>
+                        <span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-voidPurple/20 text-voidPurple">${art.category}</span>
+                        <h4 class="text-white font-bold text-sm mt-1">${art.title}</h4>
+                        <span class="text-xs text-gray-500">${art.date}</span>
+                    </div>
+                    <button onclick="deleteArticle(${art.id})" class="px-3 py-1.5 rounded-lg bg-red-900/40 text-red-300 hover:bg-red-900 text-xs font-bold border border-red-700/50 transition shrink-0">
+                        <i class="fa-solid fa-trash mr-1"></i> Delete
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function deleteArticle(id) {
+            if (!confirm('Are you sure you want to delete this article?')) return;
+            
+            let stored = JSON.parse(localStorage.getItem('fp_articles')) || initialArticles;
+            stored = stored.filter(a => a.id !== id);
+            localStorage.setItem('fp_articles', JSON.stringify(stored));
+            
+            renderArticles();
+            renderAdminArticlesList();
+        }
+
         function publishArticle() {
             const title = document.getElementById('post-title').value;
             const category = document.getElementById('post-category').value;
+            const imageUrl = document.getElementById('post-image').value;
             const summary = document.getElementById('post-summary').value;
             const content = document.getElementById('post-content').value;
 
@@ -1194,7 +1262,8 @@
                 author: "Lawrentiueus",
                 date: "Today",
                 summary: summary,
-                content: content || summary
+                content: content || summary,
+                imageUrl: imageUrl || ""
             };
 
             const existing = JSON.parse(localStorage.getItem('fp_articles')) || initialArticles;
@@ -1202,9 +1271,11 @@
             localStorage.setItem('fp_articles', JSON.stringify(existing));
 
             renderArticles();
+            renderAdminArticlesList();
             alert('Article successfully published to Live Feed!');
             
             document.getElementById('post-title').value = '';
+            document.getElementById('post-image').value = '';
             document.getElementById('post-summary').value = '';
             document.getElementById('post-content').value = '';
             switchTab('home');
