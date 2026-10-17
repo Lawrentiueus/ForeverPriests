@@ -592,7 +592,8 @@
             <div id="modal-image-container" class="hidden">
                 <img id="modal-image" src="" alt="Article Image" class="w-full h-auto max-h-80 object-cover rounded-xl border border-cardBorder">
             </div>
-            <div id="modal-content" class="text-gray-300 text-sm leading-relaxed space-y-4 whitespace-pre-wrap">
+            <!-- FIXED SPACING CONTAINER BELOW -->
+            <div id="modal-content" class="text-gray-300 text-sm leading-relaxed space-y-3">
                 <!-- Content injected here -->
             </div>
             <div class="pt-4 border-t border-cardBorder flex justify-end">
@@ -625,6 +626,19 @@
     <!-- JavaScript Data & Logic -->
     <script>
         let isSiteLive = true;
+
+        const initialArticles = [
+            {
+                id: 1,
+                title: "WoW Forever Patch 1.15 Priest Tier List & Meta Shift",
+                category: "News",
+                author: "Lawrentiueus",
+                date: "Oct 14, 2026",
+                summary: "Breakdown of the newest class balance updates in Patch 1.15 affecting Devouring Plague scaling and Power Infusion synergy.",
+                content: "Patch 1.15 brings massive balance adjustments to the WoW Forever ecosystem.<br><br>Holy Priests benefit heavily from revised Prayer of Healing coefficients, while Shadow Priests see improved mana return consistency through Vampiric Touch.<br><br>In this breakdown, we analyze optimal gear setups, tier bonuses, and key encounter positioning to ensure your raid group stays at the cutting edge.",
+                imageUrl: ""
+            }
+        ];
 
         const macros = [
             {
@@ -778,9 +792,8 @@
         let pointsSpent = { disc: {}, holy: {}, shadow: {} };
         let totalPoints = 51;
 
-        // Load articles dynamically from your json file on page load
-        window.onload = async function() {
-            await loadArticles();
+        window.onload = function() {
+            renderArticles();
             renderSpecGuides();
             renderRaces();
             renderMacros();
@@ -788,19 +801,6 @@
             renderTalentTrees();
             checkHashRoute();
         };
-
-        let cachedArticles = [];
-
-        async function loadArticles() {
-            try {
-                const response = await fetch('articles.json');
-                cachedArticles = await response.json();
-            } catch (error) {
-                console.error('Error loading articles:', error);
-                cachedArticles = []; // Fallback empty if error
-            }
-            renderArticles();
-        }
 
         window.addEventListener('hashchange', checkHashRoute);
 
@@ -836,7 +836,9 @@
 
         function renderArticles(filter = 'all') {
             const grid = document.getElementById('articles-grid');
-            const filtered = filter === 'all' ? cachedArticles : cachedArticles.filter(a => a.category === filter);
+            const stored = JSON.parse(localStorage.getItem('fp_articles')) || initialArticles;
+            
+            const filtered = filter === 'all' ? stored : stored.filter(a => a.category === filter);
 
             grid.innerHTML = filtered.map(art => `
                 <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 flex flex-col justify-between hover:border-wowGold/40 transition">
@@ -858,7 +860,8 @@
         }
 
         function openArticleModal(id) {
-            const art = cachedArticles.find(a => a.id === id);
+            const stored = JSON.parse(localStorage.getItem('fp_articles')) || initialArticles;
+            const art = stored.find(a => a.id === id);
             if (!art) return;
 
             document.getElementById('modal-category').innerText = art.category;
@@ -876,10 +879,10 @@
                 imgEl.src = '';
             }
 
+            // FIXED MODAL CONTENT INJECTION WITH TIGHT SPACING
             document.getElementById('modal-content').innerHTML = `
-        <p class="font-semibold text-wowGold mb-4">${art.summary}</p>
-        <div class="text-gray-300 text-sm leading-relaxed space-y-3">${art.content || art.summary}</div>
-    `;
+                <p class="font-semibold text-wowGold mb-3">${art.summary}</p>
+                <div>${art.content || art.summary}</div>
             `;
             document.getElementById('article-modal').classList.remove('hidden');
             document.getElementById('article-modal').classList.add('flex');
