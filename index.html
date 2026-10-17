@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forever Priests | World of Warcraft Forever Priest Class Hub</title>
+    <title>Forever Priests | World of Warcraft Forever Class Hub</title>
+    <link rel="icon" type="image/png" href="ForeverPriestsFav.png">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -109,7 +110,7 @@
                     </div>
                 </div>
 
-                <!-- Desktop Navigation Links (Admin Button Removed) -->
+                <!-- Desktop Navigation Links (Admin Button Hidden/Removed from regular view) -->
                 <nav class="hidden lg:flex items-center space-x-1">
                     <button onclick="switchTab('home')" id="nav-home" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition hover:text-wowGold hover:bg-white/5 active">
                         <i class="fa-solid fa-house mr-1.5 text-xs text-wowGold"></i>Home
@@ -151,7 +152,7 @@
             </div>
         </div>
 
-        <!-- Mobile Drawer Menu (Admin Button Removed) -->
+        <!-- Mobile Drawer Menu -->
         <div id="mobile-menu" class="hidden lg:hidden bg-cardBg border-b border-cardBorder px-4 pt-2 pb-6 space-y-2">
             <button onclick="switchTab('home')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Home</button>
             <button onclick="switchTab('specs')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Spec Guides & Builds</button>
@@ -283,7 +284,6 @@
             <section id="streamer" class="py-4">
                 <div class="bg-cardBg rounded-3xl p-8 lg:p-12 border border-purple-500/30 relative overflow-hidden shadow-xl">
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                        <!-- Streamer Bio & Dual Spec Avatar Display -->
                         <div class="space-y-6">
                             <div class="inline-flex items-center gap-2 bg-purple-900/60 border border-purple-400/30 rounded-full px-3 py-1 text-xs text-purple-200 font-mono">
                                 <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
@@ -296,7 +296,6 @@
                                 Dedicated WoW Forever Holy and Shadow Priest main. Join Lawrentiueus live on Twitch for Classic+ raid progression, dungeon strategy, and high-level priest theorycrafting.
                             </p>
 
-                            <!-- Avatar Dual Aspect Box -->
                             <div class="flex items-center gap-4 bg-darkBg p-4 rounded-2xl border border-cardBorder">
                                 <div class="relative w-16 h-16 rounded-full bg-gradient-to-tr from-wowGold to-voidPurple p-[2px] shrink-0">
                                     <div class="w-full h-full bg-cardBg rounded-full flex items-center justify-center text-2xl">
@@ -309,7 +308,6 @@
                                 </div>
                             </div>
 
-                            <!-- Action Buttons -->
                             <div class="flex flex-wrap items-center gap-4 pt-2">
                                 <a href="https://www.twitch.tv/lawrentiueus" target="_blank" class="bg-purple-600 hover:bg-purple-500 text-white font-bold px-6 py-3 rounded-xl text-xs flex items-center gap-2 shadow-lg transition-all">
                                     <i class="fa-brands fa-twitch text-sm"></i>
@@ -322,7 +320,6 @@
                             </div>
                         </div>
 
-                        <!-- Live Stream Embed Mock / Embed Frame -->
                         <div class="bg-darkBg rounded-2xl border border-purple-500/30 p-2 shadow-2xl relative">
                             <div class="aspect-video bg-cardBg rounded-xl overflow-hidden flex flex-col items-center justify-center text-center p-6 relative group">
                                 <div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=80');"></div>
@@ -340,7 +337,7 @@
                 </div>
             </section>
 
-            <!-- Community & Creator Callout -->
+            <!-- Community Callout -->
             <div id="discord-section" class="bg-gradient-to-r from-cardBg via-voidPurpleDark/20 to-cardBg border border-voidPurple/40 rounded-3xl p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-8">
                 <div class="space-y-3 max-w-xl text-center md:text-left">
                     <span class="text-xs font-bold text-voidPurple uppercase tracking-widest">Community Hub</span>
@@ -368,7 +365,6 @@
                 <h1 class="font-header text-3xl sm:text-4xl font-extrabold text-white">Priest Spec Guides &amp; Recommended Builds</h1>
                 <p class="text-gray-400 text-sm mt-2">Comprehensive role breakdowns, stat weight priorities, and optimized builds for Dungeons, Raids, and PvP.</p>
                 
-                <!-- Spec Filter Buttons -->
                 <div class="flex gap-3 mt-6">
                     <button onclick="filterSpec('all')" id="spec-btn-all" class="spec-tab-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-wowGold text-black">All Specs</button>
                     <button onclick="filterSpec('holy')" id="spec-btn-holy" class="spec-tab-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-cardBg border border-cardBorder text-holyYellow hover:border-holyYellow">Holy</button>
@@ -377,10 +373,7 @@
                 </div>
             </div>
 
-            <!-- Dynamic Spec Content Container -->
-            <div id="spec-cards-container" class="space-y-8">
-                <!-- Javascript will inject Holy, Disc, and Shadow sections here -->
-            </div>
+            <div id="spec-cards-container" class="space-y-8"></div>
         </section>
 
 
@@ -394,9 +387,7 @@
                 <p class="text-gray-400 text-sm mt-2">In WoW Forever, race selection plays a critical role due to unique racial abilities and Priest-exclusive racial spells.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="races-grid">
-                <!-- Populated by JavaScript -->
-            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="races-grid"></div>
         </section>
 
 
@@ -414,7 +405,6 @@
                         <h3 class="font-header text-2xl font-bold text-holyYellow"><i class="fa-solid fa-sun mr-2"></i>Holy Priest</h3>
                         <span class="text-xs bg-holyYellow/10 text-holyYellow font-bold px-2.5 py-1 rounded-full">S-Tier Raid Healing</span>
                     </div>
-
                     <div>
                         <h4 class="text-xs font-extrabold uppercase text-green-400 tracking-wider mb-3"><i class="fa-solid fa-circle-check mr-1"></i> Core Strengths</h4>
                         <ul class="space-y-2 text-xs text-gray-300">
@@ -423,7 +413,6 @@
                             <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-400 mt-0.5"></i> <span>Lightwell provides high mana efficiency for coordinated raid teams.</span></li>
                         </ul>
                     </div>
-
                     <div>
                         <h4 class="text-xs font-extrabold uppercase text-red-400 tracking-wider mb-3"><i class="fa-solid fa-circle-xmark mr-1"></i> Key Weaknesses</h4>
                         <ul class="space-y-2 text-xs text-gray-300">
@@ -439,7 +428,6 @@
                         <h3 class="font-header text-2xl font-bold text-discOrange"><i class="fa-solid fa-shield-halved mr-2"></i>Discipline</h3>
                         <span class="text-xs bg-discOrange/10 text-discOrange font-bold px-2.5 py-1 rounded-full">S-Tier PvP &amp; Buffs</span>
                     </div>
-
                     <div>
                         <h4 class="text-xs font-extrabold uppercase text-green-400 tracking-wider mb-3"><i class="fa-solid fa-circle-check mr-1"></i> Core Strengths</h4>
                         <ul class="space-y-2 text-xs text-gray-300">
@@ -448,7 +436,6 @@
                             <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-400 mt-0.5"></i> <span>Extreme damage mitigation and survivability in Arena/PvP.</span></li>
                         </ul>
                     </div>
-
                     <div>
                         <h4 class="text-xs font-extrabold uppercase text-red-400 tracking-wider mb-3"><i class="fa-solid fa-circle-xmark mr-1"></i> Key Weaknesses</h4>
                         <ul class="space-y-2 text-xs text-gray-300">
@@ -464,7 +451,6 @@
                         <h3 class="font-header text-2xl font-bold text-shadowViolet"><i class="fa-solid fa-skull mr-2"></i>Shadow Priest</h3>
                         <span class="text-xs bg-shadowViolet/10 text-shadowViolet font-bold px-2.5 py-1 rounded-full">Essential Raid Utility</span>
                     </div>
-
                     <div>
                         <h4 class="text-xs font-extrabold uppercase text-green-400 tracking-wider mb-3"><i class="fa-solid fa-circle-check mr-1"></i> Core Strengths</h4>
                         <ul class="space-y-2 text-xs text-gray-300">
@@ -473,7 +459,6 @@
                             <li class="flex items-start gap-2"><i class="fa-solid fa-check text-green-400 mt-0.5"></i> <span>Shadowform provides flat 15% physical damage reduction in PvP.</span></li>
                         </ul>
                     </div>
-
                     <div>
                         <h4 class="text-xs font-extrabold uppercase text-red-400 tracking-wider mb-3"><i class="fa-solid fa-circle-xmark mr-1"></i> Key Weaknesses</h4>
                         <ul class="space-y-2 text-xs text-gray-300">
@@ -517,7 +502,6 @@
 
             <!-- Talent Trees Grid -->
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <!-- Disc Tree -->
                 <div class="bg-cardBg border border-discOrange/30 rounded-2xl p-6 space-y-4">
                     <div class="flex items-center justify-between border-b border-cardBorder pb-3">
                         <h3 class="font-header text-xl font-bold text-discOrange"><i class="fa-solid fa-shield-halved mr-2"></i>Discipline</h3>
@@ -526,7 +510,6 @@
                     <div id="tree-disc" class="space-y-3"></div>
                 </div>
 
-                <!-- Holy Tree -->
                 <div class="bg-cardBg border border-holyYellow/30 rounded-2xl p-6 space-y-4">
                     <div class="flex items-center justify-between border-b border-cardBorder pb-3">
                         <h3 class="font-header text-xl font-bold text-holyYellow"><i class="fa-solid fa-sun mr-2"></i>Holy</h3>
@@ -535,7 +518,6 @@
                     <div id="tree-holy" class="space-y-3"></div>
                 </div>
 
-                <!-- Shadow Tree -->
                 <div class="bg-cardBg border border-shadowViolet/30 rounded-2xl p-6 space-y-4">
                     <div class="flex items-center justify-between border-b border-cardBorder pb-3">
                         <h3 class="font-header text-xl font-bold text-shadowViolet"><i class="fa-solid fa-skull mr-2"></i>Shadow</h3>
@@ -554,9 +536,7 @@
                 <p class="text-gray-400 text-sm mt-2">Essential mouseover, target-of-target, stopcasting, and power infusion macros for high-level play.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="macro-container">
-                <!-- Macro items injected by JS -->
-            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="macro-container"></div>
         </section>
 
 
@@ -567,13 +547,11 @@
                 <p class="text-gray-400 text-sm mt-2">Essential customized WeakAura strings optimized for WoW Forever Priest performance.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="weakauras-container">
-                <!-- Injected via JS -->
-            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="weakauras-container"></div>
         </section>
 
 
-        <!-- ================= TAB 8: ADMIN STUDIO (Accessible via #OmenRed.XboxS_074) ================= -->
+        <!-- ================= TAB 8: ADMIN STUDIO (Secret Route #OmenRed.XboxS_074) ================= -->
         <section id="OmenRed.XboxS_074" class="tab-content hidden space-y-8">
             <div class="border-b border-cardBorder pb-6 flex items-center justify-between">
                 <div>
@@ -591,19 +569,18 @@
                     <i class="fa-solid fa-key"></i>
                 </div>
                 <h3 class="font-header text-xl font-bold text-white">Creator Credentials Required</h3>
-                <p class="text-xs text-gray-400">Enter your credentials to unlock publishing studio.</p>
+                <p class="text-xs text-gray-400">Enter creator credentials to unlock publishing studio.</p>
                 <div class="space-y-3">
-                    <input type="text" id="admin-user-input" placeholder="Username..." class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-cardBorder text-white text-sm focus:outline-none focus:border-wowGold">
-                    <input type="password" id="admin-pass-input" placeholder="Password..." class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-cardBorder text-white text-sm focus:outline-none focus:border-wowGold">
+                    <input type="text" id="admin-user-input" placeholder="Username (GoldsGym086)..." class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-cardBorder text-white text-sm focus:outline-none focus:border-wowGold">
+                    <input type="password" id="admin-pass-input" placeholder="Password (Lawrentiueus)..." class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-cardBorder text-white text-sm focus:outline-none focus:border-wowGold">
                     <button onclick="unlockAdmin()" class="w-full py-2.5 rounded-xl bg-wowGold text-black font-bold text-xs uppercase tracking-wider hover:bg-white transition">
                         Authenticate Studio
                     </button>
                 </div>
             </div>
 
-            <!-- Admin Controls & Editor (Hidden by default) -->
+            <!-- Admin Controls & Editor -->
             <div id="admin-editor" class="hidden space-y-8">
-                <!-- Status Toggle Box -->
                 <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
                     <div>
                         <h4 class="font-header text-lg font-bold text-white">Site Operational Status Light</h4>
@@ -614,7 +591,6 @@
                     </button>
                 </div>
 
-                <!-- Article Publisher Form -->
                 <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 sm:p-8 space-y-6">
                     <h3 class="font-header text-xl font-bold text-wowGold border-b border-cardBorder pb-3">Create New Content Article</h3>
                     
@@ -626,8 +602,13 @@
                         <div>
                             <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Category Tag</label>
                             <select id="post-category" class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-cardBorder text-white text-sm focus:outline-none focus:border-wowGold">
+                                <option value="Priest News">Priest News</option>
+                                <option value="News">WoW Forever News</option>
                                 <option value="Theorycrafting">Theorycrafting</option>
-                                <option value="News">WoW News</option>
+                                <option value="Discipline">Discipline</option>
+                                <option value="Holy">Holy</option>
+                                <option value="Shadow">Shadow</option>
+                                <option value="Dungeons">Dungeons</option>
                                 <option value="Raids">Raids</option>
                                 <option value="PvP">PvP</option>
                             </select>
@@ -653,7 +634,7 @@
             </div>
         </section>
 
-        <!-- Newsletter Email Subscription Footer Bar -->
+        <!-- Newsletter Section -->
         <div class="mt-16 bg-gradient-to-r from-cardBg via-cardBorder to-cardBg border border-wowGold/20 rounded-3xl p-8 text-center space-y-4">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-wowGold/10 text-wowGold text-xs font-bold uppercase">
                 <i class="fa-solid fa-envelope"></i> Newsletter Subscription
@@ -671,6 +652,30 @@
         </div>
 
     </main>
+
+    <!-- Article Reading Modal -->
+    <div id="article-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-cardBg border border-cardBorder rounded-3xl max-w-2xl w-full p-6 sm:p-8 space-y-6 relative shadow-2xl">
+            <button onclick="closeArticleModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="space-y-2">
+                <span id="modal-category" class="px-2.5 py-1 rounded-full bg-voidPurple/20 text-voidPurple text-xs font-bold uppercase">Category</span>
+                <h2 id="modal-title" class="font-header text-2xl sm:text-3xl font-extrabold text-white">Article Title</h2>
+                <div class="text-xs text-gray-400 flex items-center gap-3 pt-1">
+                    <span>By <strong id="modal-author" class="text-wowGold">Lawrentiueus</strong></span>
+                    <span>•</span>
+                    <span id="modal-date">Date</span>
+                </div>
+            </div>
+            <div id="modal-content" class="text-gray-300 text-sm leading-relaxed space-y-4 max-h-[60vh] overflow-y-auto pr-2">
+                <!-- Content injected here -->
+            </div>
+            <div class="pt-4 border-t border-cardBorder flex justify-end">
+                <button onclick="closeArticleModal()" class="px-5 py-2.5 rounded-xl bg-wowGold text-black font-bold text-xs uppercase tracking-wider">Close Article</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Global Footer -->
     <footer class="bg-cardBg border-t border-cardBorder mt-16 py-12">
@@ -695,10 +700,8 @@
 
     <!-- JavaScript Data & Logic -->
     <script>
-        // Site operational status state
         let isSiteLive = true;
 
-        // Article Database initial state
         const initialArticles = [
             {
                 id: 1,
@@ -706,7 +709,8 @@
                 category: "News",
                 author: "Lawrentiueus",
                 date: "Oct 14, 2026",
-                summary: "Breakdown of the newest class balance updates in Patch 1.15 affecting Devouring Plague scaling and Power Infusion synergy."
+                summary: "Breakdown of the newest class balance updates in Patch 1.15 affecting Devouring Plague scaling and Power Infusion synergy.",
+                content: "Patch 1.15 brings massive balance adjustments to the WoW Forever ecosystem. Holy Priests benefit heavily from revised Prayer of Healing coefficients, while Shadow Priests see improved mana return consistency through Vampiric Touch. In this breakdown, we analyze optimal gear setups, tier bonuses, and key encounter positioning to ensure your raid group stays at the cutting edge."
             },
             {
                 id: 2,
@@ -714,7 +718,8 @@
                 category: "Theorycrafting",
                 author: "Lawrentiueus",
                 date: "Oct 12, 2026",
-                summary: "Mathematical analysis comparing Spirit tick regen during casting phases versus flat MP5 for Holy and Discipline."
+                summary: "Mathematical analysis comparing Spirit tick regen during casting phases versus flat MP5 for Holy and Discipline.",
+                content: "Understanding the 5-second rule (5SR) is critical for maximizing healer efficiency. While flat MP5 provides steady baseline return, stacking Spirit combined with Meditation talents yields substantially higher returns during moderate casting downtime. Our mathematical matrix proves that Spirit outperforms flat MP5 on encounters with predictable movement phases."
             },
             {
                 id: 3,
@@ -722,11 +727,11 @@
                 category: "PvP",
                 author: "Lawrentiueus",
                 date: "Oct 08, 2026",
-                summary: "How to combine Feather Fall leaps with Shadowform damage mitigation to dominate aerial and mountain battles."
+                summary: "How to combine Feather Fall leaps with Shadowform damage mitigation to dominate aerial and mountain battles.",
+                content: "The introduction of the Skyborne race has completely revolutionized World PvP mobility. Priests utilizing Aether Glide combined with Levitating teammates can cross massive canyon gaps and ambush unsuspecting factions from high elevations. This guide covers key macro setups and aerial positioning tips for dominance."
             }
         ];
 
-        // Macro Database
         const macros = [
             {
                 name: "Mouseover Flash Heal / Renew",
@@ -750,7 +755,6 @@
             }
         ];
 
-        // WeakAuras Database
         const weakauras = [
             {
                 name: "Power Infusion & Inner Focus Tracker",
@@ -772,7 +776,6 @@
             }
         ];
 
-        // Races Database
         const races = [
             {
                 name: "Skyborne (New WoW Forever Race)",
@@ -818,7 +821,6 @@
             }
         ];
 
-        // Spec Guides Detailed Data
         const specGuides = [
             {
                 id: "holy",
@@ -855,7 +857,6 @@
             }
         ];
 
-        // Talent Trees Definition
         const talents = {
             disc: [
                 { id: 'd1', name: 'Unbreakable Will', max: 5 },
@@ -880,11 +881,9 @@
             ]
         };
 
-        // Talent Points Spent State
         let pointsSpent = { disc: {}, holy: {}, shadow: {} };
         let totalPoints = 51;
 
-        // Initialize App & Handle Hash Navigation
         window.onload = function() {
             renderArticles();
             renderSpecGuides();
@@ -892,8 +891,6 @@
             renderMacros();
             renderWeakAuras();
             renderTalentTrees();
-
-            // Check URL hash for direct tab access (#OmenRed.XboxS_074)
             checkHashRoute();
         };
 
@@ -902,17 +899,15 @@
         function checkHashRoute() {
             const hash = window.location.hash.replace('#', '');
             if (hash) {
-                const targetTab = hash;
-                if (document.getElementById(targetTab)) {
-                    switchTab(targetTab);
+                if (document.getElementById(hash)) {
+                    switchTab(hash);
                 }
             }
         }
 
-        // Navigation Switch Tab
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-            const target = document.getElementById(tabId);
+            const target = document.getElementById(tabId) || document.getElementById('tab-' + tabId);
             if (target) {
                 target.classList.remove('hidden');
             }
@@ -926,13 +921,11 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Mobile Menu Toggle
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
         }
 
-        // Render Articles Feed
         function renderArticles(filter = 'all') {
             const grid = document.getElementById('articles-grid');
             const stored = JSON.parse(localStorage.getItem('fp_articles')) || initialArticles;
@@ -951,10 +944,32 @@
                     </div>
                     <div class="pt-4 border-t border-cardBorder/50 mt-4 flex items-center justify-between text-xs">
                         <span class="text-gray-400">By <strong class="text-wowGold">${art.author}</strong></span>
-                        <span class="text-wowGold font-bold cursor-pointer hover:underline" onclick="alert('${art.title}:\\n\\n' + '${art.summary}')">Read Article →</span>
+                        <span class="text-wowGold font-bold cursor-pointer hover:underline" onclick="openArticleModal(${art.id})">Read Article →</span>
                     </div>
                 </div>
             `).join('');
+        }
+
+        function openArticleModal(id) {
+            const stored = JSON.parse(localStorage.getItem('fp_articles')) || initialArticles;
+            const art = stored.find(a => a.id === id);
+            if (!art) return;
+
+            document.getElementById('modal-category').innerText = art.category;
+            document.getElementById('modal-title').innerText = art.title;
+            document.getElementById('modal-author').innerText = art.author;
+            document.getElementById('modal-date').innerText = art.date;
+            document.getElementById('modal-content').innerHTML = `
+                <p class="font-semibold text-wowGold">${art.summary}</p>
+                <p>${art.content || art.summary}</p>
+            `;
+            document.getElementById('article-modal').classList.remove('hidden');
+            document.getElementById('article-modal').classList.add('flex');
+        }
+
+        function closeArticleModal() {
+            document.getElementById('article-modal').classList.remove('flex');
+            document.getElementById('article-modal').classList.add('hidden');
         }
 
         function filterNews(cat) {
@@ -970,7 +985,6 @@
             renderArticles(cat);
         }
 
-        // Render Spec Guides
         function renderSpecGuides(filter = 'all') {
             const container = document.getElementById('spec-cards-container');
             const filtered = filter === 'all' ? specGuides : specGuides.filter(s => s.id === filter);
@@ -990,7 +1004,6 @@
 
                     <p class="text-gray-300 text-sm leading-relaxed">${spec.description}</p>
 
-                    <!-- Build Presets -->
                     <div>
                         <h4 class="text-xs font-bold uppercase text-gray-400 tracking-wider mb-3">Recommended Talent Build Strings</h4>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -1025,7 +1038,6 @@
             renderSpecGuides(specId);
         }
 
-        // Render Races Database
         function renderRaces() {
             const grid = document.getElementById('races-grid');
             grid.innerHTML = races.map(r => `
@@ -1043,7 +1055,6 @@
             `).join('');
         }
 
-        // Render Macro Vault
         function renderMacros() {
             const container = document.getElementById('macro-container');
             container.innerHTML = macros.map(m => `
@@ -1060,7 +1071,6 @@
             `).join('');
         }
 
-        // Render WeakAuras Vault
         function renderWeakAuras() {
             const container = document.getElementById('weakauras-container');
             container.innerHTML = weakauras.map(w => `
@@ -1078,7 +1088,6 @@
             `).join('');
         }
 
-        // Render Talent Calculator Trees
         function renderTalentTrees() {
             ['disc', 'holy', 'shadow'].forEach(tree => {
                 const el = document.getElementById('tree-' + tree);
@@ -1118,7 +1127,6 @@
 
         function updateTalentTotals() {
             document.getElementById('points-remaining').innerText = totalPoints;
-            
             const calcPoints = tree => Object.values(pointsSpent[tree]).reduce((a, b) => a + b, 0);
             
             document.getElementById('disc-points').innerText = calcPoints('disc') + ' Points';
@@ -1135,7 +1143,6 @@
             renderTalentTrees();
         }
 
-        // Toggle Site Operational Status Light
         function toggleSiteStatus() {
             isSiteLive = !isSiteLive;
             const badge = document.getElementById('site-status-badge');
@@ -1154,7 +1161,6 @@
             }
         }
 
-        // Admin Credentials Authentication
         function unlockAdmin() {
             const user = document.getElementById('admin-user-input').value;
             const pass = document.getElementById('admin-pass-input').value;
@@ -1164,15 +1170,15 @@
                 document.getElementById('admin-editor').classList.remove('hidden');
                 document.getElementById('admin-badge').classList.remove('hidden');
             } else {
-                alert('Invalid Credentials. Please check your username and password.');
+                alert('Invalid Credentials. Please check username and password.');
             }
         }
 
-        // Article Publishing Logic
         function publishArticle() {
             const title = document.getElementById('post-title').value;
             const category = document.getElementById('post-category').value;
             const summary = document.getElementById('post-summary').value;
+            const content = document.getElementById('post-content').value;
 
             if (!title || !summary) {
                 alert('Please fill out the article title and summary.');
@@ -1185,7 +1191,8 @@
                 category: category,
                 author: "Lawrentiueus",
                 date: "Today",
-                summary: summary
+                summary: summary,
+                content: content || summary
             };
 
             const existing = JSON.parse(localStorage.getItem('fp_articles')) || initialArticles;
@@ -1201,14 +1208,12 @@
             switchTab('home');
         }
 
-        // Newsletter Handler
         function handleSubscribe(e) {
             e.preventDefault();
             document.getElementById('sub-message').classList.remove('hidden');
             document.getElementById('sub-email').value = '';
         }
 
-        // Helper Clipboard Functions
         function copyMacro(btn, code) {
             copyString(code);
             const originalText = btn.innerHTML;
