@@ -85,10 +85,10 @@
             color: #ffffff;
         }
 
-        /* Fixed Article Modal H2 & Spacing Typography */
+        /* Precise Article Modal Formatting Rules */
         #modal-content h2 {
             font-family: 'Cinzel', serif;
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             font-weight: 800;
             color: #FFD700;
             margin-top: 1.75rem;
@@ -106,7 +106,7 @@
             margin-bottom: 0.5rem;
         }
         #modal-content p {
-            margin-bottom: 1rem;
+            margin-bottom: 1.1rem;
             line-height: 1.7;
             color: #cbd5e1;
         }
@@ -622,7 +622,7 @@
             <div id="modal-image-container" class="hidden">
                 <img id="modal-image" src="" alt="Article Image" class="w-full h-auto max-h-80 object-cover rounded-xl border border-cardBorder">
             </div>
-            <!-- Explicit modal-content container with clean formatting -->
+            <!-- Explicit modal-content container with proper block spacing -->
             <div id="modal-content" class="text-gray-300 text-sm leading-relaxed space-y-4">
                 <!-- Content injected here via innerHTML -->
             </div>
@@ -907,7 +907,7 @@
                 imgEl.src = '';
             }
 
-            // Using .innerHTML ensures h2 and p tags render correctly inside modal-content
+            // Using .innerHTML properly renders HTML tags like <h2> and <p>
             document.getElementById('modal-content').innerHTML = art.content || art.summary;
             
             document.getElementById('article-modal').classList.remove('hidden');
