@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forever Priests | World of Warcraft Forever Priest Class Hub</title>
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="ForeverPriestsFav.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/ForeverPriestsFav.png">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -50,6 +50,7 @@
                 radial-gradient(circle at 10% 10%, rgba(138, 43, 226, 0.08) 0%, transparent 40%),
                 radial-gradient(circle at 90% 80%, rgba(255, 215, 0, 0.05) 0%, transparent 40%);
             background-attachment: fixed;
+            overflow-x: hidden;
         }
 
         /* --- Modal Content Typography Styles --- */
@@ -235,94 +236,94 @@
         <a href="https://discord.gg/TaCD6yVhr" target="_blank" onclick="switchTab('home')" class="text-wowGold underline hover:text-white transition font-strong"><strong>Join Community</strong></a>
     </div>
 
-    <!-- Main Navigation Header -->
-    <header class="sticky top-0 z-50 bg-cardBg/95 backdrop-blur-md border-b border-cardBorder">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-28">
-                <!-- Logo & Brand -->
-                <div class="flex items-center gap-4 cursor-pointer" onclick="switchTab('home')">
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-wowGold via-voidPurple to-darkBg p-0.5 shadow-lg gold-glow flex items-center justify-center shrink-0">
-                        <div class="w-full h-full bg-cardBg rounded-[14px] flex items-center justify-center text-wowGold text-xl">
-                            <div class="w-full h-full bg-cardBg rounded-[14px] flex items-center justify-center overflow-hidden">
-                                <img src="PriestClassIcon.png" alt="Priest Class Icon" class="w-12 h-12 object-contain">
-                            </div>
+   <!-- Main Navigation Header -->
+<header class="sticky top-0 z-50 bg-cardBg/95 backdrop-blur-md border-b border-cardBorder">
+    <div class="w-full px-6 sm:px-10 lg:px-12">
+        <div class="flex items-center justify-between h-28">
+            <!-- Logo & Brand -->
+            <div class="flex items-center gap-4 cursor-pointer" onclick="switchTab('home')">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-wowGold via-voidPurple to-darkBg p-0.5 shadow-lg gold-glow flex items-center justify-center shrink-0">
+                    <div class="w-full h-full bg-cardBg rounded-[14px] flex items-center justify-center text-wowGold text-xl">
+                        <div class="w-full h-full bg-cardBg rounded-[14px] flex items-center justify-center overflow-hidden">
+                            <img src="PriestClassIcon.png" alt="Priest Class Icon" class="w-12 h-12 object-contain">
                         </div>
                     </div>
-                    <div>
-                        <span class="font-header text-xl sm:text-2xl font-black tracking-wider text-gold-gradient block leading-none">FOREVER PRIESTS</span>
-                        <div class="flex items-center gap-2 mt-1">
-                            <span class="text-[9px] tracking-widest text-gray-400 uppercase font-semibold">WoW Forever Class</span>
-                        </div>
-                        <span class="text-[9px] tracking-widest text-wowGold uppercase font-bold block leading-none mt-0.5">Sanctuary</span>
+                </div>
+                <div>
+                    <span class="font-header text-xl sm:text-2xl font-black tracking-wider text-gold-gradient block leading-none">FOREVER PRIESTS</span>
+                    <div class="flex items-center gap-2 mt-1">
+                        <span class="text-[9px] tracking-widest text-gray-400 uppercase font-semibold">WoW Forever Class</span>
                     </div>
+                    <span class="text-[9px] tracking-widest text-wowGold uppercase font-bold block leading-none mt-0.5">Sanctuary</span>
                 </div>
+            </div>
 
-                <!-- Desktop Navigation Links -->
-                <nav class="hidden xl:flex items-center space-x-1 whitespace-nowrap">
-                    <button onclick="switchTab('home')" id="nav-home" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition hover:text-wowGold hover:bg-white/5 active">
-                        <i class="fa-solid fa-house mr-1.5 text-xs text-wowGold"></i>Home
-                    </button>
-                    <button onclick="switchTab('specs')" id="nav-specs" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition hover:text-wowGold hover:bg-white/5">
-                        <i class="fa-solid fa-wand-magic-sparkles mr-1.5 text-xs text-wowGold"></i>Specs & Builds
-                    </button>
-                    <button onclick="switchTab('races')" id="nav-races" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition hover:text-wowGold hover:bg-white/5">
-                        <i class="fa-solid fa-users-rays mr-1.5 text-xs text-voidPurple"></i>Races & Racials
-                    </button>
-                    <button onclick="switchTab('analysis')" id="nav-analysis" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition hover:text-wowGold hover:bg-white/5">
-                        <i class="fa-solid fa-scale-balanced mr-1.5 text-xs text-wowGold"></i>Analysis
-                    </button>
-                    <button onclick="switchTab('calculator')" id="nav-calculator" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition hover:text-wowGold hover:bg-white/5">
-                        <i class="fa-solid fa-sitemap mr-1.5 text-xs text-wowGold"></i>Talents
-                    </button>
-                    <button onclick="switchTab('wand')" id="nav-wand" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition hover:text-wowGold hover:bg-white/5">
-                        <i class="fa-solid fa-wand-sparkles mr-1.5 text-xs text-holyYellow"></i>5SR Simulator
-                    </button>
-                    <button onclick="switchTab('macros')" id="nav-macros" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition hover:text-wowGold hover:bg-white/5">
-                        <i class="fa-solid fa-terminal mr-1.5 text-xs text-voidPurple"></i>Macros
-                    </button>
-                    <button onclick="switchTab('weakauras')" id="nav-weakauras" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition hover:text-wowGold hover:bg-white/5">
-                        <i class="fa-solid fa-code mr-1.5 text-xs text-holyYellow"></i>WeakAuras
-                    </button>
-                </nav>
-
-                <!-- Action CTA Buttons -->
-                <div class="hidden sm:flex items-center gap-2">
-                    <a href="https://streamelements.com/lawrentiueus/tip" target="_blank" class="px-3.5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-wowGold to-wowGoldDark text-black hover:brightness-110 transition shadow-md flex items-center gap-1.5">
-                        <i class="fa-solid fa-heart text-red-700"></i> Support 
-                    </a>
-                    <a href="https://discord.gg/TaCD6yVhr" target="_blank" class="px-3.5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-indigo-600 to-voidPurple text-white hover:brightness-110 transition shadow-md flex items-center gap-1.5">
-                        <i class="fa-brands fa-discord"></i> Discord
-                    </a>
-                </div>
-
-                <!-- Mobile Menu Toggle Button -->
-                <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 focus:outline-none">
-                    <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden xl:flex items-center space-x-1 whitespace-nowrap">
+                <button onclick="switchTab('home')" id="nav-home" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition hover:text-wowGold hover:bg-white/5 active">
+                    <i class="fa-solid fa-house mr-1.5 text-xs text-wowGold"></i>Home
                 </button>
-            </div>
-        </div>
+                <button onclick="switchTab('specs')" id="nav-specs" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition hover:text-wowGold hover:bg-white/5">
+                    <i class="fa-solid fa-wand-magic-sparkles mr-1.5 text-xs text-wowGold"></i>Specs & Builds
+                </button>
+                <button onclick="switchTab('races')" id="nav-races" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition hover:text-wowGold hover:bg-white/5">
+                    <i class="fa-solid fa-users-rays mr-1.5 text-xs text-voidPurple"></i>Races & Racials
+                </button>
+                <button onclick="switchTab('analysis')" id="nav-analysis" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition hover:text-wowGold hover:bg-white/5">
+                    <i class="fa-solid fa-scale-balanced mr-1.5 text-xs text-wowGold"></i>Analysis
+                </button>
+                <button onclick="switchTab('calculator')" id="nav-calculator" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition hover:text-wowGold hover:bg-white/5">
+                    <i class="fa-solid fa-sitemap mr-1.5 text-xs text-wowGold"></i>Talents
+                </button>
+                <button onclick="switchTab('wand')" id="nav-wand" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition hover:text-wowGold hover:bg-white/5">
+                    <i class="fa-solid fa-wand-sparkles mr-1.5 text-xs text-holyYellow"></i>5SR Simulator
+                </button>
+                <button onclick="switchTab('macros')" id="nav-macros" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition hover:text-wowGold hover:bg-white/5">
+                    <i class="fa-solid fa-terminal mr-1.5 text-xs text-voidPurple"></i>Macros
+                </button>
+                <button onclick="switchTab('weakauras')" id="nav-weakauras" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition hover:text-wowGold hover:bg-white/5">
+                    <i class="fa-solid fa-code mr-1.5 text-xs text-holyYellow"></i>WeakAuras
+                </button>
+            </nav>
 
-        <!-- Mobile Drawer Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-cardBg border-b border-cardBorder px-4 pt-2 pb-6 space-y-2">
-            <button onclick="switchTab('home')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Home</button>
-            <button onclick="switchTab('specs')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Spec Guides & Builds</button>
-            <button onclick="switchTab('races')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Races & Priest Racials</button>
-            <button onclick="switchTab('analysis')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Strengths & Weaknesses</button>
-            <button onclick="switchTab('calculator')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Interactive Talent Calculator</button>
-            <button onclick="switchTab('wand')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">5SR & Wand Simulator</button>
-            <button onclick="switchTab('macros')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Macro Vault</button>
-            <button onclick="switchTab('weakauras')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">WeakAuras</button>
-            
-            <div class="pt-4 border-t border-cardBorder flex flex-col gap-2">
-                <a href="https://streamelements.com/lawrentiueus/tip" target="_blank" class="w-full text-center py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider bg-wowGold text-black">
-                    <i class="fa-solid fa-heart mr-1"></i> Support the Site & Tools
+            <!-- Action CTA Buttons -->
+            <div class="hidden sm:flex items-center gap-2">
+                <a href="https://buymeacoffee.com/lawrentiueus" target="_blank" class="px-3.5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-wowGold to-wowGoldDark text-black hover:brightness-110 transition shadow-md flex items-center gap-1.5">
+                    <i class="fa-solid fa-heart text-red-700"></i> Support 
                 </a>
-                <a href="https://discord.gg/TaCD6yVhr" target="_blank" class="w-full text-center py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider bg-indigo-600 text-white">
-                    <i class="fa-brands fa-discord mr-1"></i> Join Priest Discord
+                <a href="https://discord.gg/TaCD6yVhr" target="_blank" class="px-3.5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-indigo-600 to-voidPurple text-white hover:brightness-110 transition shadow-md flex items-center gap-1.5">
+                    <i class="fa-brands fa-discord"></i> Discord
                 </a>
             </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 focus:outline-none">
+                <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+            </button>
         </div>
-    </header>
+    </div>
+</header>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-cardBg border-b border-cardBorder px-4 pt-2 pb-6 space-y-2">
+        <button onclick="switchTab('home')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Home</button>
+        <button onclick="switchTab('specs')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Spec Guides & Builds</button>
+        <button onclick="switchTab('races')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Races & Priest Racials</button>
+        <button onclick="switchTab('analysis')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Strengths & Weaknesses</button>
+        <button onclick="switchTab('calculator')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Interactive Talent Calculator</button>
+        <button onclick="switchTab('wand')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">5SR & Wand Simulator</button>
+        <button onclick="switchTab('macros')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Macro Vault</button>
+        <button onclick="switchTab('weakauras')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">WeakAuras</button>
+        
+        <div class="pt-4 border-t border-cardBorder flex flex-col gap-2">
+            <a href="https://streamelements.com/lawrentiueus/tip" target="_blank" class="w-full text-center py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider bg-wowGold text-black">
+                <i class="fa-solid fa-heart mr-1"></i> Support the Site & Tools
+            </a>
+            <a href="https://discord.gg/TaCD6yVhr" target="_blank" class="w-full text-center py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider bg-indigo-600 text-white">
+                <i class="fa-brands fa-discord mr-1"></i> Join Priest Discord
+            </a>
+        </div>
+    </div>
 
     <!-- Main Dynamic Content Region -->
     <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -367,9 +368,9 @@
             <!-- Spec Snapshot Navigation Grid -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Discipline Spec Card -->
-                <div onclick="switchTab('specs'); filterSpec('disc');" class="group bg-cardBg border border-cardBorder hover:border-discOrange/50 rounded-none p-6 transition duration-300 cursor-pointer hover:-translate-y-1 shadow-lg relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-24 h-24 bg-discOrange/5 rounded-none blur-2xl group-hover:bg-discOrange/10 transition"></div>
-                    <div class="w-12 h-12 rounded-none bg-discOrange/10 text-discOrange flex items-center justify-center text-2xl font-bold mb-4 border border-discOrange/30">
+                <div onclick="switchTab('specs'); filterSpec('disc');" class="group bg-cardBg border border-cardBorder hover:border-discOrange/50 rounded-2xl p-6 transition duration-300 cursor-pointer hover:-translate-y-1 shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-discOrange/5 rounded-2xl blur-2xl group-hover:bg-discOrange/10 transition"></div>
+                    <div class="w-12 h-12 rounded-xl bg-discOrange/10 text-discOrange flex items-center justify-center text-2xl font-bold mb-4 border border-discOrange/30">
                         <img src="Discipline.png" alt="Discipline Priest Class Icon" class="w-10 h-10 object-contain">
                     </div>
                     <span class="text-xs font-bold text-discOrange uppercase tracking-wider">Mitigation &amp; Buffs</span>
@@ -381,9 +382,9 @@
                 </div>
 
                 <!-- Holy Spec Card -->
-                <div onclick="switchTab('specs'); filterSpec('holy');" class="group bg-cardBg border border-cardBorder hover:border-holyYellow/50 rounded-none p-6 transition duration-300 cursor-pointer hover:-translate-y-1 shadow-lg relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-24 h-24 bg-holyYellow/5 rounded-none blur-2xl group-hover:bg-holyYellow/10 transition"></div>
-                    <div class="w-12 h-12 rounded-none bg-holyYellow/10 text-holyYellow flex items-center justify-center text-2xl font-bold mb-4 border border-holyYellow/30">
+                <div onclick="switchTab('specs'); filterSpec('holy');" class="group bg-cardBg border border-cardBorder hover:border-holyYellow/50 rounded-2xl p-6 transition duration-300 cursor-pointer hover:-translate-y-1 shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-holyYellow/5 rounded-2xl blur-2xl group-hover:bg-holyYellow/10 transition"></div>
+                    <div class="w-12 h-12 rounded-xl bg-holyYellow/10 text-holyYellow flex items-center justify-center text-2xl font-bold mb-4 border border-holyYellow/30">
                         <img src="Holy.png" alt="Holy Priest Class Icon" class="w-10 h-10 object-contain">
                     </div>
                     <span class="text-xs font-bold text-holyYellow uppercase tracking-wider">Primary Healer</span>
@@ -395,9 +396,9 @@
                 </div>
 
                 <!-- Shadow Spec Card -->
-                <div onclick="switchTab('specs'); filterSpec('shadow');" class="group bg-cardBg border border-cardBorder hover:border-shadowViolet/50 rounded-none p-6 transition duration-300 cursor-pointer hover:-translate-y-1 shadow-lg relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-24 h-24 bg-shadowViolet/5 rounded-none blur-2xl group-hover:bg-shadowViolet/10 transition"></div>
-                    <div class="w-12 h-12 rounded-none bg-shadowViolet/10 text-shadowViolet flex items-center justify-center text-2xl font-bold mb-4 border border-shadowViolet/30">
+                <div onclick="switchTab('specs'); filterSpec('shadow');" class="group bg-cardBg border border-cardBorder hover:border-shadowViolet/50 rounded-2xl p-6 transition duration-300 cursor-pointer hover:-translate-y-1 shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-shadowViolet/5 rounded-2xl blur-2xl group-hover:bg-shadowViolet/10 transition"></div>
+                    <div class="w-12 h-12 rounded-xl bg-shadowViolet/10 text-shadowViolet flex items-center justify-center text-2xl font-bold mb-4 border border-shadowViolet/30">
                         <img src="Shadow.png" alt="Shadow Priest Class Icon" class="w-10 h-10 object-contain">
                     </div>
                     <span class="text-xs font-bold text-shadowViolet uppercase tracking-wider">Ranged Damage &amp; Mana Battery</span>
@@ -957,8 +958,8 @@
             
             <div class="flex items-center space-x-6 text-xs text-gray-400">
                 <a href="https://discord.gg/TaCD6yVhr" target="_blank" onclick="switchTab('home')" class="hover:text-white transition">Discord</a>
-                <a href="https://streamelements.com/lawrentiueus/tip" class="hover:text-wowGold transition">Support / Tip</a>
-                <a href="mailto:foreverpriests.admin@proton.me" class="hover:text-white transition">Contact Admin</a>
+                <a href="https://buymeacoffee.com/lawrentiueus" class="hover:text-wowGold transition">Support the Site</a>
+                <a href="mailto:lawrentiueus@foreverpriests.com" class="hover:text-white transition">Contact Us</a>
             </div>
 
             <div class="text-xs text-gray-500">
@@ -1329,6 +1330,12 @@
             const activeNav = document.getElementById('nav-' + tabId);
             if(activeNav) activeNav.classList.add('text-wowGold', 'bg-white/5');
 
+            // Automatically close the mobile menu drawer when any tab/link is clicked
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+            }
+
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -1407,12 +1414,10 @@
             if (!container) return;
             const filtered = filter === 'all' ? specGuides : specGuides.filter(s => s.id === filter);
 
-            // FULL FLEXIBILITY: Change these variables anytime to instantly resize the box and icon!
-            const boxSize = 'w-14 h-14';   // Outer wrapper box size (14)
-            const iconSize = 'w-12 h-12';  // Inner icon picture size (12)
+            const boxSize = 'w-14 h-14';
+            const iconSize = 'w-12 h-12';
 
             container.innerHTML = filtered.map(spec => {
-                // Define unique background and border hex styling per spec
                 let iconBgHex = '#12141c';
                 let iconBorderHex = '#1f2430';
                 if (spec.id === 'disc') {
@@ -1427,11 +1432,11 @@
                 }
 
                 return `
-                    <div class="bg-cardBg border border-cardBorder rounded-none p-6 sm:p-8 space-y-6 shadow-lg">
+                    <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 sm:p-8 space-y-6 shadow-lg">
                         <!-- Header Row -->
                         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-cardBorder pb-5">
                             <div class="flex items-center gap-4">
-                                <div class="${boxSize} rounded-none flex items-center justify-center p-1 shrink-0" style="background-color: ${iconBgHex}; border: 1px solid ${iconBorderHex};">
+                                <div class="${boxSize} rounded-xl flex items-center justify-center p-1 shrink-0" style="background-color: ${iconBgHex}; border: 1px solid ${iconBorderHex};">
                                     <img src="${spec.icon}" alt="${spec.name} Icon" class="${iconSize} object-contain">
                                 </div>
                                 <div>
@@ -1439,7 +1444,7 @@
                                     <h2 class="font-header text-2xl sm:text-3xl font-extrabold text-white mt-0.5">${spec.name}</h2>
                                 </div>
                             </div>
-                            <div class="px-4 py-2.5 bg-darkBg border border-cardBorder rounded-none text-xs">
+                            <div class="px-4 py-2.5 bg-darkBg border border-cardBorder rounded-xl text-xs">
                                 <span class="text-gray-400 block font-semibold mb-0.5">Stat Priority:</span>
                                 <strong class="text-wowGold font-mono">${spec.statPriority}</strong>
                             </div>
@@ -1452,17 +1457,17 @@
                         <div>
                             <h4 class="text-xs font-bold uppercase text-gray-400 tracking-wider mb-3">Recommended Talent Build Strings</h4>
                             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                                <div class="bg-darkBg p-3 rounded-none border border-cardBorder flex items-center justify-between">
+                                <div class="bg-darkBg p-3 rounded-xl border border-cardBorder flex items-center justify-between">
                                     <span class="text-xs font-bold text-white flex items-center gap-2"><i class="fa-solid fa-dungeon text-holyYellow"></i> Dungeon Build</span>
-                                    <button onclick="copyString('${spec.dungeonBuild}')" class="px-2.5 py-1 rounded-none bg-wowGold text-black font-bold text-[10px] hover:bg-white transition">Copy</button>
+                                    <button onclick="copyString('${spec.dungeonBuild}')" class="px-2.5 py-1 rounded-lg bg-wowGold text-black font-bold text-[10px] hover:bg-white transition">Copy</button>
                                 </div>
-                                <div class="bg-darkBg p-3 rounded-none border border-cardBorder flex items-center justify-between">
+                                <div class="bg-darkBg p-3 rounded-xl border border-cardBorder flex items-center justify-between">
                                     <span class="text-xs font-bold text-white flex items-center gap-2"><i class="fa-solid fa-dragon text-discOrange"></i> Raid Build</span>
-                                    <button onclick="copyString('${spec.raidBuild}')" class="px-2.5 py-1 rounded-none bg-wowGold text-black font-bold text-[10px] hover:bg-white transition">Copy</button>
+                                    <button onclick="copyString('${spec.raidBuild}')" class="px-2.5 py-1 rounded-lg bg-wowGold text-black font-bold text-[10px] hover:bg-white transition">Copy</button>
                                 </div>
-                                <div class="bg-darkBg p-3 rounded-none border border-cardBorder flex items-center justify-between">
+                                <div class="bg-darkBg p-3 rounded-xl border border-cardBorder flex items-center justify-between">
                                     <span class="text-xs font-bold text-white flex items-center gap-2"><i class="fa-solid fa-swords text-shadowViolet"></i> PvP Build</span>
-                                    <button onclick="copyString('${spec.pvpBuild}')" class="px-2.5 py-1 rounded-none bg-wowGold text-black font-bold text-[10px] hover:bg-white transition">Copy</button>
+                                    <button onclick="copyString('${spec.pvpBuild}')" class="px-2.5 py-1 rounded-lg bg-wowGold text-black font-bold text-[10px] hover:bg-white transition">Copy</button>
                                 </div>
                             </div>
                         </div>
@@ -1471,22 +1476,20 @@
             }).join('');
         }
 
-function filterSpec(filter) {
-    // Render the matching spec cards
-    renderSpecGuides(filter);
+        function filterSpec(filter) {
+            renderSpecGuides(filter);
 
-    // Update active styling on the filter buttons
-    document.querySelectorAll('.spec-tab-btn').forEach(btn => {
-        btn.classList.remove('bg-wowGold', 'text-black');
-        btn.classList.add('bg-cardBg', 'border', 'text-gray-300');
-    });
+            document.querySelectorAll('.spec-tab-btn').forEach(btn => {
+                btn.classList.remove('bg-wowGold', 'text-black');
+                btn.classList.add('bg-cardBg', 'border', 'text-gray-300');
+            });
 
-    const activeBtn = document.getElementById('spec-btn-' + filter);
-    if (activeBtn) {
-        activeBtn.classList.remove('bg-cardBg', 'border', 'text-gray-300');
-        activeBtn.classList.add('bg-wowGold', 'text-black');
-    }
-}
+            const activeBtn = document.getElementById('spec-btn-' + filter);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-cardBg', 'border', 'text-gray-300');
+                activeBtn.classList.add('bg-wowGold', 'text-black');
+            }
+        }
 
         function renderRaces() {
             const grid = document.getElementById('races-grid');
@@ -1632,7 +1635,7 @@ function filterSpec(filter) {
             const baseRegen = 5 + (spirit / 4);
             const meditationPct = (parseFloat(document.getElementById('sim-meditation').value) || 45) / 100;
             const castRegen = baseRegen * meditationPct;
-            const fullRegenTick = baseRegen * 2; // Every 2 seconds tick
+            const fullRegenTick = baseRegen * 2;
 
             document.getElementById('stat-base-regen').innerText = baseRegen.toFixed(1) + ' / sec';
             document.getElementById('stat-cast-regen').innerText = castRegen.toFixed(2) + ' / sec';
@@ -1699,24 +1702,16 @@ function filterSpec(filter) {
                     }
                 }
 
-                // Only accumulate if we haven't hit max mana yet
                 if (totalManaGained < maxMana) {
-                    let regenRate = 0;
-                    if (isCastingActive) {
-                        regenRate = baseRegen * meditationPct;
-                    } else {
-                        regenRate = baseRegen;
-                    }
-
+                    let regenRate = isCastingActive ? (baseRegen * meditationPct) : baseRegen;
                     totalManaGained += regenRate * delta;
                     if (totalManaGained > maxMana) {
-                        totalManaGained = maxMana; // Cap it exactly at max pool
+                        totalManaGained = maxMana;
                     }
                 }
 
                 document.getElementById('sim-mana-gained').innerText = `+${Math.floor(totalManaGained)} Mana`;
 
-                // Update Progress bar (0s to 5s)
                 let progressPct = isCastingActive ? ((5.0 - simTimer) / 5.0) * 100 : 100;
                 let barEl = document.getElementById('sim-progress-bar');
                 barEl.style.width = progressPct + '%';
@@ -1751,23 +1746,21 @@ function filterSpec(filter) {
         }
 
         function handleSubscribe(e) {
-    e.preventDefault();
-    const form = e.target;
-    const formData = new FormData(form);
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
 
-    // Silently submits data to Netlify in the background
-    fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString()
-    }).catch((error) => console.error("Form submission error:", error));
+            fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(formData).toString()
+            }).catch((error) => console.error("Form submission error:", error));
 
-    // Shows your green success message and resets the input field
-    const subMessage = document.getElementById('sub-message');
-    const subEmail = document.getElementById('sub-email');
-    if (subMessage) subMessage.classList.remove('hidden');
-    if (subEmail) subEmail.value = '';
-}s
+            const subMessage = document.getElementById('sub-message');
+            const subEmail = document.getElementById('sub-email');
+            if (subMessage) subMessage.classList.remove('hidden');
+            if (subEmail) subEmail.value = '';
+        }
 
         function copyMacro(btn, code) {
             copyString(code);
