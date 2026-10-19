@@ -368,9 +368,9 @@
             <!-- Spec Snapshot Navigation Grid -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Discipline Spec Card -->
-                <div onclick="switchTab('specs'); filterSpec('disc');" class="group bg-cardBg border border-cardBorder hover:border-discOrange/50 rounded-2xl p-6 transition duration-300 cursor-pointer hover:-translate-y-1 shadow-lg relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-24 h-24 bg-discOrange/5 rounded-2xl blur-2xl group-hover:bg-discOrange/10 transition"></div>
-                    <div class="w-12 h-12 rounded-xl bg-discOrange/10 text-discOrange flex items-center justify-center text-2xl font-bold mb-4 border border-discOrange/30">
+                <div onclick="switchTab('specs'); filterSpec('disc');" class="group bg-cardBg border border-cardBorder hover:border-discOrange/50 rounded-none p-6 transition duration-300 cursor-pointer hover:-translate-y-1 shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-discOrange/5 rounded-none blur-2xl group-hover:bg-discOrange/10 transition"></div>
+                    <div class="w-12 h-12 rounded-none bg-discOrange/10 text-discOrange flex items-center justify-center text-2xl font-bold mb-4 border border-discOrange/30">
                         <img src="Discipline.png" alt="Discipline Priest Class Icon" class="w-10 h-10 object-contain">
                     </div>
                     <span class="text-xs font-bold text-discOrange uppercase tracking-wider">Mitigation &amp; Buffs</span>
@@ -382,9 +382,9 @@
                 </div>
 
                 <!-- Holy Spec Card -->
-                <div onclick="switchTab('specs'); filterSpec('holy');" class="group bg-cardBg border border-cardBorder hover:border-holyYellow/50 rounded-2xl p-6 transition duration-300 cursor-pointer hover:-translate-y-1 shadow-lg relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-24 h-24 bg-holyYellow/5 rounded-2xl blur-2xl group-hover:bg-holyYellow/10 transition"></div>
-                    <div class="w-12 h-12 rounded-xl bg-holyYellow/10 text-holyYellow flex items-center justify-center text-2xl font-bold mb-4 border border-holyYellow/30">
+                <div onclick="switchTab('specs'); filterSpec('holy');" class="group bg-cardBg border border-cardBorder hover:border-holyYellow/50 rounded-none p-6 transition duration-300 cursor-pointer hover:-translate-y-1 shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-holyYellow/5 rounded-none blur-2xl group-hover:bg-holyYellow/10 transition"></div>
+                    <div class="w-12 h-12 rounded-none bg-holyYellow/10 text-holyYellow flex items-center justify-center text-2xl font-bold mb-4 border border-holyYellow/30">
                         <img src="Holy.png" alt="Holy Priest Class Icon" class="w-10 h-10 object-contain">
                     </div>
                     <span class="text-xs font-bold text-holyYellow uppercase tracking-wider">Primary Healer</span>
@@ -396,9 +396,9 @@
                 </div>
 
                 <!-- Shadow Spec Card -->
-                <div onclick="switchTab('specs'); filterSpec('shadow');" class="group bg-cardBg border border-cardBorder hover:border-shadowViolet/50 rounded-2xl p-6 transition duration-300 cursor-pointer hover:-translate-y-1 shadow-lg relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-24 h-24 bg-shadowViolet/5 rounded-2xl blur-2xl group-hover:bg-shadowViolet/10 transition"></div>
-                    <div class="w-12 h-12 rounded-xl bg-shadowViolet/10 text-shadowViolet flex items-center justify-center text-2xl font-bold mb-4 border border-shadowViolet/30">
+                <div onclick="switchTab('specs'); filterSpec('shadow');" class="group bg-cardBg border border-cardBorder hover:border-shadowViolet/50 rounded-none p-6 transition duration-300 cursor-pointer hover:-translate-y-1 shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-shadowViolet/5 rounded-none blur-2xl group-hover:bg-shadowViolet/10 transition"></div>
+                    <div class="w-12 h-12 rounded-none bg-shadowViolet/10 text-shadowViolet flex items-center justify-center text-2xl font-bold mb-4 border border-shadowViolet/30">
                         <img src="Shadow.png" alt="Shadow Priest Class Icon" class="w-10 h-10 object-contain">
                     </div>
                     <span class="text-xs font-bold text-shadowViolet uppercase tracking-wider">Ranged Damage &amp; Mana Battery</span>
@@ -1410,71 +1410,69 @@
         }
 
         function renderSpecGuides(filter = 'all') {
-            const container = document.getElementById('spec-cards-container');
-            if (!container) return;
-            const filtered = filter === 'all' ? specGuides : specGuides.filter(s => s.id === filter);
+    const container = document.getElementById('spec-cards-container');
+    if (!container) return;
+    const filtered = filter === 'all' ? specGuides : specGuides.filter(s => s.id === filter);
 
-            const boxSize = 'w-14 h-14';
-            const iconSize = 'w-12 h-12';
+    container.innerHTML = filtered.map(spec => {
+        let iconBgHex = '#12141c';
+        let iconBorderHex = '#1f2430';
+        if (spec.id === 'disc') {
+            iconBgHex = 'rgba(255, 183, 77, 0.1)';
+            iconBorderHex = '#FFB74D';
+        } else if (spec.id === 'holy') {
+            iconBgHex = 'rgba(255, 245, 157, 0.1)';
+            iconBorderHex = '#FFF59D';
+        } else if (spec.id === 'shadow') {
+            iconBgHex = 'rgba(186, 104, 200, 0.1)';
+            iconBorderHex = '#BA68C8';
+        }
 
-            container.innerHTML = filtered.map(spec => {
-                let iconBgHex = '#12141c';
-                let iconBorderHex = '#1f2430';
-                if (spec.id === 'disc') {
-                    iconBgHex = 'rgba(255, 183, 77, 0.1)';
-                    iconBorderHex = '#FFB74D';
-                } else if (spec.id === 'holy') {
-                    iconBgHex = 'rgba(255, 245, 157, 0.1)';
-                    iconBorderHex = '#FFF59D';
-                } else if (spec.id === 'shadow') {
-                    iconBgHex = 'rgba(186, 104, 200, 0.1)';
-                    iconBorderHex = '#BA68C8';
-                }
-
-                return `
-                    <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 sm:p-8 space-y-6 shadow-lg">
-                        <!-- Header Row -->
-                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-cardBorder pb-5">
-                            <div class="flex items-center gap-4">
-                                <div class="${boxSize} rounded-xl flex items-center justify-center p-1 shrink-0" style="background-color: ${iconBgHex}; border: 1px solid ${iconBorderHex};">
-                                    <img src="${spec.icon}" alt="${spec.name} Icon" class="${iconSize} object-contain">
-                                </div>
-                                <div>
-                                    <span class="text-xs font-bold text-wowGold uppercase tracking-wider">${spec.tagline}</span>
-                                    <h2 class="font-header text-2xl sm:text-3xl font-extrabold text-white mt-0.5">${spec.name}</h2>
-                                </div>
-                            </div>
-                            <div class="px-4 py-2.5 bg-darkBg border border-cardBorder rounded-xl text-xs">
-                                <span class="text-gray-400 block font-semibold mb-0.5">Stat Priority:</span>
-                                <strong class="text-wowGold font-mono">${spec.statPriority}</strong>
-                            </div>
+        return `
+            <div class="bg-cardBg border border-cardBorder rounded-none p-6 sm:p-8 space-y-6 shadow-lg w-full">
+                <!-- Header Row -->
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-cardBorder pb-5">
+                    <div class="flex items-center gap-4">
+                        <!-- Square Box Wrapper -->
+                        <div class="w-14 h-14 rounded-none flex items-center justify-center p-1 shrink-0" style="background-color: ${iconBgHex}; border: 1px solid ${iconBorderHex};">
+                            <img src="${spec.icon}" alt="${spec.name} Icon" class="w-12 h-12 object-contain rounded-none">
                         </div>
-
-                        <!-- Overview Description -->
-                        <p class="text-gray-300 text-sm leading-relaxed">${spec.description}</p>
-
-                        <!-- Talent Build Strings -->
                         <div>
-                            <h4 class="text-xs font-bold uppercase text-gray-400 tracking-wider mb-3">Recommended Talent Build Strings</h4>
-                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                                <div class="bg-darkBg p-3 rounded-xl border border-cardBorder flex items-center justify-between">
-                                    <span class="text-xs font-bold text-white flex items-center gap-2"><i class="fa-solid fa-dungeon text-holyYellow"></i> Dungeon Build</span>
-                                    <button onclick="copyString('${spec.dungeonBuild}')" class="px-2.5 py-1 rounded-lg bg-wowGold text-black font-bold text-[10px] hover:bg-white transition">Copy</button>
-                                </div>
-                                <div class="bg-darkBg p-3 rounded-xl border border-cardBorder flex items-center justify-between">
-                                    <span class="text-xs font-bold text-white flex items-center gap-2"><i class="fa-solid fa-dragon text-discOrange"></i> Raid Build</span>
-                                    <button onclick="copyString('${spec.raidBuild}')" class="px-2.5 py-1 rounded-lg bg-wowGold text-black font-bold text-[10px] hover:bg-white transition">Copy</button>
-                                </div>
-                                <div class="bg-darkBg p-3 rounded-xl border border-cardBorder flex items-center justify-between">
-                                    <span class="text-xs font-bold text-white flex items-center gap-2"><i class="fa-solid fa-swords text-shadowViolet"></i> PvP Build</span>
-                                    <button onclick="copyString('${spec.pvpBuild}')" class="px-2.5 py-1 rounded-lg bg-wowGold text-black font-bold text-[10px] hover:bg-white transition">Copy</button>
-                                </div>
-                            </div>
+                            <span class="text-xs font-bold text-wowGold uppercase tracking-wider">${spec.tagline}</span>
+                            <h2 class="font-header text-2xl sm:text-3xl font-extrabold text-white mt-0.5">${spec.name}</h2>
                         </div>
                     </div>
-                `;
-            }).join('');
-        }
+                    <div class="px-4 py-2.5 bg-darkBg border border-cardBorder rounded-none text-xs">
+                        <span class="text-gray-400 block font-semibold mb-0.5">Stat Priority:</span>
+                        <strong class="text-wowGold font-mono">${spec.statPriority}</strong>
+                    </div>
+                </div>
+
+                <!-- Overview Description -->
+                <p class="text-gray-300 text-sm leading-relaxed">${spec.description}</p>
+
+                <!-- Talent Build Strings -->
+                <div>
+                    <h4 class="text-xs font-bold uppercase text-gray-400 tracking-wider mb-3">Recommended Talent Build Strings</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div class="bg-darkBg p-3 rounded-none border border-cardBorder flex items-center justify-between">
+                            <span class="text-xs font-bold text-white flex items-center gap-2"><i class="fa-solid fa-dungeon text-holyYellow"></i> Dungeon Build</span>
+                            <button onclick="copyString('${spec.dungeonBuild}')" class="px-2.5 py-1 rounded-none bg-wowGold text-black font-bold text-[10px] hover:bg-white transition">Copy</button>
+                        </div>
+                        <div class="bg-darkBg p-3 rounded-none border border-cardBorder flex items-center justify-between">
+                            <span class="text-xs font-bold text-white flex items-center gap-2"><i class="fa-solid fa-dragon text-discOrange"></i> Raid Build</span>
+                            <button onclick="copyString('${spec.raidBuild}')" class="px-2.5 py-1 rounded-none bg-wowGold text-black font-bold text-[10px] hover:bg-white transition">Copy</button>
+                        </div>
+                        <div class="bg-darkBg p-3 rounded-none border border-cardBorder flex items-center justify-between">
+                            <span class="text-xs font-bold text-white flex items-center gap-2"><i class="fa-solid fa-swords text-shadowViolet"></i> PvP Build</span>
+                            <button onclick="copyString('${spec.pvpBuild}')" class="px-2.5 py-1 rounded-none bg-wowGold text-black font-bold text-[10px] hover:bg-white transition">Copy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
 
         function filterSpec(filter) {
             renderSpecGuides(filter);
