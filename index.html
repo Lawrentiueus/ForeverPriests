@@ -50,6 +50,7 @@
                 radial-gradient(circle at 10% 10%, rgba(138, 43, 226, 0.08) 0%, transparent 40%),
                 radial-gradient(circle at 90% 80%, rgba(255, 215, 0, 0.05) 0%, transparent 40%);
             background-attachment: fixed;
+            overflow-x: hidden;
         }
 
         /* --- Modal Content Typography Styles --- */
@@ -304,27 +305,27 @@
     </div>
 </header>
 
-        <!-- Mobile Drawer Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-cardBg border-b border-cardBorder px-4 pt-2 pb-6 space-y-2">
-            <button onclick="switchTab('home')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Home</button>
-            <button onclick="switchTab('specs')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Spec Guides & Builds</button>
-            <button onclick="switchTab('races')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Races & Priest Racials</button>
-            <button onclick="switchTab('analysis')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Strengths & Weaknesses</button>
-            <button onclick="switchTab('calculator')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Interactive Talent Calculator</button>
-            <button onclick="switchTab('wand')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">5SR & Wand Simulator</button>
-            <button onclick="switchTab('macros')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Macro Vault</button>
-            <button onclick="switchTab('weakauras')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">WeakAuras</button>
-            
-            <div class="pt-4 border-t border-cardBorder flex flex-col gap-2">
-                <a href="https://streamelements.com/lawrentiueus/tip" target="_blank" class="w-full text-center py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider bg-wowGold text-black">
-                    <i class="fa-solid fa-heart mr-1"></i> Support the Site & Tools
-                </a>
-                <a href="https://discord.gg/TaCD6yVhr" target="_blank" class="w-full text-center py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider bg-indigo-600 text-white">
-                    <i class="fa-brands fa-discord mr-1"></i> Join Priest Discord
-                </a>
-            </div>
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-cardBg border-b border-cardBorder px-4 pt-2 pb-6 space-y-2">
+        <button onclick="switchTab('home')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Home</button>
+        <button onclick="switchTab('specs')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Spec Guides & Builds</button>
+        <button onclick="switchTab('races')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Races & Priest Racials</button>
+        <button onclick="switchTab('analysis')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Strengths & Weaknesses</button>
+        <button onclick="switchTab('calculator')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Interactive Talent Calculator</button>
+        <button onclick="switchTab('wand')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">5SR & Wand Simulator</button>
+        <button onclick="switchTab('macros')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Macro Vault</button>
+        <button onclick="switchTab('weakauras')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">WeakAuras</button>
+        
+        <div class="pt-4 border-t border-cardBorder flex flex-col gap-2">
+            <a href="https://streamelements.com/lawrentiueus/tip" target="_blank" class="w-full text-center py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider bg-wowGold text-black">
+                <i class="fa-solid fa-heart mr-1"></i> Support the Site & Tools
+            </a>
+            <a href="https://discord.gg/TaCD6yVhr" target="_blank" class="w-full text-center py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider bg-indigo-600 text-white">
+                <i class="fa-brands fa-discord mr-1"></i> Join Priest Discord
+            </a>
         </div>
-    </header>
+    </div>
+
 
     <!-- Main Dynamic Content Region -->
     <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -1330,12 +1331,27 @@
             const activeNav = document.getElementById('nav-' + tabId);
             if(activeNav) activeNav.classList.add('text-wowGold', 'bg-white/5');
 
+            // Automatically close the mobile menu drawer when any tab/link is clicked
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+            }
+
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
+        }
+
+        // Helper to close the mobile menu automatically when an item is selected
+        function handleMobileNav(tabId) {
+            switchTab(tabId);
+            const menu = document.getElementById('mobile-menu');
+            if (!menu.classList.contains('hidden')) {
+                menu.classList.add('hidden');
+            }
         }
 
         function renderArticles(filter = 'all') {
