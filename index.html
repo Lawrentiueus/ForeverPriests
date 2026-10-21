@@ -226,6 +226,98 @@
             color: #ffffff;
         }
     </style>
+
+    <!-- Schema JSON-LD Block inside Head -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://foreverpriests.com/#website",
+          "url": "https://foreverpriests.com/",
+          "name": "Forever Priests",
+          "description": "World of Warcraft Forever Priest Class Hub optimized for PvE and PvP",
+          "publisher": {
+            "@type": "Person",
+            "name": "Lawrentiueus"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://foreverpriests.com/#home",
+          "url": "https://foreverpriests.com/",
+          "name": "Home | Forever Priests",
+          "isPartOf": { "@id": "https://foreverpriests.com/#website" },
+          "description": "Welcome to Forever Priests home hub featuring theorycrafting, news feed, and streamer hub."
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://foreverpriests.com/#specs",
+          "url": "https://foreverpriests.com/#specs",
+          "name": "Spec Guides & Builds | Forever Priests",
+          "isPartOf": { "@id": "https://foreverpriests.com/#website" },
+          "description": "Comprehensive role breakdowns, stat weight priorities, and optimized builds for Discipline, Holy, and Shadow priests."
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://foreverpriests.com/#races",
+          "url": "https://foreverpriests.com/#races",
+          "name": "Races & Racials | Forever Priests",
+          "isPartOf": { "@id": "https://foreverpriests.com/#website" },
+          "description": "Priest races, faction breakdowns, and signature priest-exclusive racial abilities."
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://foreverpriests.com/#professions",
+          "url": "https://foreverpriests.com/#professions",
+          "name": "Professions & Weapons | Forever Priests",
+          "isPartOf": { "@id": "https://foreverpriests.com/#website" },
+          "description": "Best professions, leveling pairing tips, and weapon/armor training trainers for WoW Forever priests."
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://foreverpriests.com/#analysis",
+          "url": "https://foreverpriests.com/#analysis",
+          "name": "Analysis & Comparison | Forever Priests",
+          "isPartOf": { "@id": "https://foreverpriests.com/#website" },
+          "description": "Side-by-side analysis of core strengths and key weaknesses for each priest spec."
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://foreverpriests.com/#calculator",
+          "url": "https://foreverpriests.com/#calculator",
+          "name": "Talent Calculator | Forever Priests",
+          "isPartOf": { "@id": "https://foreverpriests.com/#website" },
+          "description": "Interactive 3-spec talent tree calculator to spend 51 points and share build strings."
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://foreverpriests.com/#wand",
+          "url": "https://foreverpriests.com/#wand",
+          "name": "5SR Simulator | Forever Priests",
+          "isPartOf": { "@id": "https://foreverpriests.com/#website" },
+          "description": "Interactive 5-second rule and wand mana simulator for efficient priest mana management."
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://foreverpriests.com/#macros",
+          "url": "https://foreverpriests.com/#macros",
+          "name": "Macro Vault | Forever Priests",
+          "isPartOf": { "@id": "https://foreverpriests.com/#website" },
+          "description": "Essential mouseover, target-of-target, and utility macro vault for priests."
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://foreverpriests.com/#weakauras",
+          "url": "https://foreverpriests.com/#weakauras",
+          "name": "WeakAuras | Forever Priests",
+          "isPartOf": { "@id": "https://foreverpriests.com/#website" },
+          "description": "Optimized customized WeakAura strings directory for WoW Forever priests."
+        }
+      ]
+    }
+    </script>
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-wowGold selection:text-black">
 
@@ -270,6 +362,9 @@
                 <button onclick="switchTab('races')" id="nav-races" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition hover:text-wowGold hover:bg-white/5">
                     <i class="fa-solid fa-users-rays mr-1.5 text-xs text-voidPurple"></i>Races & Racials
                 </button>
+                <button onclick="switchTab('professions')" id="nav-professions" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition hover:text-wowGold hover:bg-white/5">
+                    <i class="fa-solid fa-hammer mr-1.5 text-xs text-wowGold"></i>Professions
+                </button>
                 <button onclick="switchTab('analysis')" id="nav-analysis" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition hover:text-wowGold hover:bg-white/5">
                     <i class="fa-solid fa-scale-balanced mr-1.5 text-xs text-wowGold"></i>Analysis
                 </button>
@@ -310,6 +405,7 @@
         <button onclick="switchTab('home')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Home</button>
         <button onclick="switchTab('specs')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Spec Guides & Builds</button>
         <button onclick="switchTab('races')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Races & Priest Racials</button>
+        <button onclick="switchTab('professions')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Professions & Weapons</button>
         <button onclick="switchTab('analysis')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Strengths & Weaknesses</button>
         <button onclick="switchTab('calculator')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Interactive Talent Calculator</button>
         <button onclick="switchTab('wand')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">5SR & Wand Simulator</button>
@@ -442,62 +538,62 @@
                 </div>
             </div>
 
-            <!-- Creator / Stream Hub (Lawrentiueus) -->
-            <section id="streamer" class="py-4">
-                <div class="bg-cardBg rounded-3xl p-8 lg:p-12 border border-purple-500/30 relative overflow-hidden shadow-xl">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                        <div class="space-y-6">
-                            <div class="inline-flex items-center gap-2 bg-purple-900/60 border border-purple-400/30 rounded-full px-3 py-1 text-xs text-purple-200 font-mono">
-                                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-                                <span>Twitch Affiliate Streamer</span>
-                            </div>
-                            <h2 class="font-header text-3xl lg:text-4xl font-extrabold text-gold-gradient">
-                                LAWRENTIUEUS
-                            </h2>
-                            <p class="text-slate-300 text-sm leading-relaxed">
-                                Dedicated WoW Forever Holy and Shadow Priest main. Join Lawrentiueus live on Twitch for Classic+ raid progression, dungeon strategy, and high-level priest theorycrafting.
-                            </p>
+           <!-- Creator / Stream Hub (Lawrentiueus) -->
+<section id="streamer" class="py-4">
+    <div class="bg-cardBg rounded-3xl p-8 lg:p-12 border border-purple-500/30 relative overflow-hidden shadow-xl">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div class="space-y-6">
+                <div class="inline-flex items-center gap-2 bg-purple-900/60 border border-purple-400/30 rounded-full px-3 py-1 text-xs text-purple-200 font-mono">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                    <span>Twitch Streamer & Avid WoW Player</span>
+                </div>
+                <h2 class="font-header text-3xl lg:text-4xl font-extrabold text-gold-gradient">
+                    LAWRENTIUEUS
+                </h2>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                    Dedicated WoW Forever Shadow Priest main. Join Lawrentiueus live on Twitch for Classic+ raid progression, dungeon strategy, and high-level priest theorycrafting.
+                </p>
 
-                            <div class="flex items-center gap-4 bg-darkBg p-4 rounded-2xl border border-cardBorder">
-                                <div class="relative w-16 h-16 rounded-full bg-gradient-to-tr from-wowGold to-voidPurple p-[2px] shrink-0">
-                                    <div class="w-full h-full bg-cardBg rounded-full flex items-center justify-center text-2xl">
-                                        👑
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="text-sm font-bold text-wowGold font-header">Holy / Shadow PNGtuber Avatar</div>
-                                    <div class="text-xs text-slate-400">Embodying the Lawrence + Zeus mythic priest dualism.</div>
-                                </div>
-                            </div>
-
-                            <div class="flex flex-wrap items-center gap-4 pt-2">
-                                <a href="https://www.twitch.tv/lawrentiueus" target="_blank" class="bg-purple-600 hover:bg-purple-500 text-white font-bold px-6 py-3 rounded-xl text-xs flex items-center gap-2 shadow-lg transition-all">
-                                    <i class="fa-brands fa-twitch text-sm"></i>
-                                    <span>Watch Live on Twitch</span>
-                                </a>
-                                <a href="https://streamelements.com/lawrentiueus/tip" target="_blank" class="bg-gradient-to-r from-wowGold to-wowGoldDark text-black font-bold px-6 py-3 rounded-xl text-xs flex items-center gap-2 shadow-lg transition-all">
-                                    <i class="fa-solid fa-heart text-sm"></i>
-                                    <span>Send Tip via StreamElements</span>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="bg-darkBg rounded-2xl border border-purple-500/30 p-2 shadow-2xl relative">
-                            <div class="aspect-video bg-cardBg rounded-xl overflow-hidden flex flex-col items-center justify-center text-center p-6 relative group">
-                                <div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=80');"></div>
-                                <div class="relative z-10 space-y-3">
-                                    <div class="w-16 h-16 mx-auto rounded-full bg-purple-600/80 flex items-center justify-center text-white text-2xl void-glow">
-                                        <i class="fa-solid fa-play"></i>
-                                    </div>
-                                    <div class="font-header font-bold text-lg text-slate-100">LAWRENTIUEUS IS LIVE</div>
-                                    <div class="text-xs font-mono text-purple-300">WoW Forever Raid Progression & Theorycrafting</div>
-                                    <a href="https://www.twitch.tv/lawrentiueus" target="_blank" class="inline-block text-xs text-wowGold hover:underline font-mono">Open Twitch Channel &rarr;</a>
-                                </div>
-                            </div>
+                <div class="flex items-center gap-4 bg-darkBg p-4 rounded-2xl border border-cardBorder">
+                    <div class="relative w-16 h-16 rounded-full bg-gradient-to-tr from-wowGold to-voidPurple p-[2px] shrink-0">
+                        <div class="w-full h-full bg-cardBg rounded-full flex items-center justify-center overflow-hidden">
+                            <img src="LawrentiueusSmallLogo.png" alt="Lawrentiueus Logo" class="w-full h-full object-cover">
                         </div>
                     </div>
+                    <div>
+                        <div class="text-sm font-bold text-wowGold font-header">Been playing World of Warcraft since 2020</div>
+                        <div class="text-xs text-slate-400">Priest is always getting tweaked, but we adapt and push the spec to its absolute limit.</div>
+                    </div>
                 </div>
-            </section>
+
+                <div class="flex flex-wrap items-center gap-4 pt-2">
+                    <a href="https://www.twitch.tv/lawrentiueus" target="_blank" class="bg-purple-600 hover:bg-purple-500 text-white font-bold px-6 py-3 rounded-xl text-xs flex items-center gap-2 shadow-lg transition-all">
+                        <i class="fa-brands fa-twitch text-sm"></i>
+                        <span>Watch Live on Twitch</span>
+                    </a>
+                    <a href="https://streamelements.com/lawrentiueus/tip" target="_blank" class="bg-gradient-to-r from-wowGold to-wowGoldDark text-black font-bold px-6 py-3 rounded-xl text-xs flex items-center gap-2 shadow-lg transition-all">
+                        <i class="fa-solid fa-heart text-sm"></i>
+                        <span>Send Tip via StreamElements</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-darkBg rounded-2xl border border-purple-500/30 p-2 shadow-2xl relative">
+                <div class="aspect-video bg-cardBg rounded-xl overflow-hidden flex flex-col items-center justify-center text-center p-6 relative group">
+                    <div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="relative z-10 space-y-3">
+                        <div class="w-16 h-16 mx-auto rounded-full bg-purple-600/80 flex items-center justify-center text-white text-2xl void-glow">
+                            <i class="fa-solid fa-play"></i>
+                        </div>
+                        <div class="font-header font-bold text-lg text-slate-100">LAWRENTIUEUS IS LIVE</div>
+                        <div class="text-xs font-mono text-purple-300">WoW Forever Priest Class Gameplay and Theorycrafting</div>
+                        <a href="https://www.twitch.tv/lawrentiueus" target="_blank" class="inline-block text-xs text-wowGold hover:underline font-mono">Open Twitch Channel &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
             <!-- Community Callout -->
             <div id="discord-section" class="bg-gradient-to-r from-cardBg via-voidPurpleDark/20 to-cardBg border border-voidPurple/40 rounded-3xl p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-8">
@@ -505,7 +601,7 @@
                     <span class="text-xs font-bold text-voidPurple uppercase tracking-widest">Community Hub</span>
                     <h3 class="font-header text-3xl font-extrabold text-white">Join the Forever Priests Discord &amp; Support the Site & Tools</h3>
                     <p class="text-gray-300 text-sm leading-relaxed">
-                        Connect with fellow priest mains, ask Lawrentiueus questions live, compare log performance, and catch theorycrafting sessions live on Twitch.
+                        Connect with fellow priest mains, catch live theorycrafting, and get an exclusive Discord supporter role when you subscribe via Buy Me a Coffee.
                     </p>
                 </div>
                 <div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
@@ -524,15 +620,19 @@
         <!-- ================= TAB 2: SPEC GUIDES & BUILDS ================= -->
         <section id="tab-specs" class="tab-content hidden space-y-8">
             <div class="border-b border-cardBorder pb-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-wowGold/10 border border-wowGold/30 text-wowGold text-xs font-bold uppercase tracking-wider mb-2">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> PVE & PVP ROTATIONS
+                </div>
                 <h1 class="font-header text-3xl sm:text-4xl font-extrabold text-white">Priest Spec Guides &amp; Recommended Builds</h1>
                 <p class="text-gray-400 text-sm mt-2">Comprehensive role breakdowns, stat weight priorities, and optimized builds for Dungeons, Raids, and PvP.</p>
                 
                 <div class="flex gap-3 mt-6">
-    <button onclick="filterSpec('all')" id="spec-btn-all" class="spec-tab-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-wowGold text-black transition-colors">All Specs</button>
-    <button onclick="filterSpec('disc')" id="spec-btn-disc" class="spec-tab-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-cardBg border border-cardBorder text-discOrange hover:border-discOrange transition-colors">Discipline</button>
-    <button onclick="filterSpec('holy')" id="spec-btn-holy" class="spec-tab-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-cardBg border border-cardBorder text-holyYellow hover:border-holyYellow transition-colors">Holy</button>
-    <button onclick="filterSpec('shadow')" id="spec-btn-shadow" class="spec-tab-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-cardBg border border-cardBorder text-shadowViolet hover:border-shadowViolet transition-colors">Shadow</button>
-</div>
+                    <button onclick="filterSpec('all')" id="spec-btn-all" class="spec-tab-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-wowGold text-black transition-colors">All Specs</button>
+                    <button onclick="filterSpec('disc')" id="spec-btn-disc" class="spec-tab-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-cardBg border border-cardBorder text-discOrange hover:border-discOrange transition-colors">Discipline</button>
+                    <button onclick="filterSpec('holy')" id="spec-btn-holy" class="spec-tab-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-cardBg border border-cardBorder text-holyYellow hover:border-holyYellow transition-colors">Holy</button>
+                    <button onclick="filterSpec('shadow')" id="spec-btn-shadow" class="spec-tab-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-cardBg border border-cardBorder text-shadowViolet hover:border-shadowViolet transition-colors">Shadow</button>
+                </div>
+            </div>
 
             <div id="spec-cards-container" class="space-y-8"></div>
         </section>
@@ -552,9 +652,135 @@
         </section>
 
 
-        <!-- ================= TAB 4: STRENGTHS & WEAKNESSES ================= -->
+        <!-- ================= TAB 4: PROFESSIONS & WEAPONS ================= -->
+        <section id="tab-professions" class="tab-content hidden space-y-8">
+            <div class="border-b border-cardBorder pb-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-wowGold/10 border border-wowGold/30 text-wowGold text-xs font-bold uppercase tracking-wider mb-2">
+                    <i class="fa-solid fa-hammer"></i> Crafting & Gear Optimization
+                </div>
+                <h1 class="font-header text-3xl sm:text-4xl font-extrabold text-white">Professions &amp; Weapon Training</h1>
+                <p class="text-gray-400 text-sm mt-2">Discover the best profession paths, campsite contributions, pairing tips, and weapon/armor training trainers for your Priest in WoW Forever.</p>
+            </div>
+
+            <!-- Best Professions Overview Grid -->
+            <div class="space-y-6">
+                <h2 class="font-header text-2xl font-bold text-white border-b border-cardBorder pb-2">Best Professions for Priests</h2>
+                <p class="text-gray-300 text-sm leading-relaxed">
+                    Professions received a major overhaul in Forever, bringing a wealth of new recipes and mechanics—including beneficial campsite contributions. While almost all professions offer advantages, four stand out as exceptional choices for Priests:
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 space-y-3 hover:border-wowGold/40 transition">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-wowGold/10 border border-wowGold/30 text-wowGold flex items-center justify-center font-bold text-lg">
+                                <i class="fa-solid fa-shirt"></i>
+                            </div>
+                            <h3 class="font-header text-xl font-bold text-wowGold">Tailoring</h3>
+                        </div>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            Since Priests exclusively wear Cloth gear, Tailoring is a natural fit. Forever introduces a heap of new patterns ranging from school-specific damage gear to level 10 Belts that impact Spell Power.
+                        </p>
+                    </div>
+
+                    <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 space-y-3 hover:border-wowGold/40 transition">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-wowGold/10 border border-wowGold/30 text-wowGold flex items-center justify-center font-bold text-lg">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            </div>
+                            <h3 class="font-header text-xl font-bold text-wowGold">Enchanting</h3>
+                        </div>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            Ideal for self-sufficiency, Enchanters can upgrade their own gear and craft early-game wands, positioning you as an indispensable asset to your guild thanks to a slate of new enchanting formulas.
+                        </p>
+                    </div>
+
+                    <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 space-y-3 hover:border-wowGold/40 transition">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-wowGold/10 border border-wowGold/30 text-wowGold flex items-center justify-center font-bold text-lg">
+                                <i class="fa-solid fa-gears"></i>
+                            </div>
+                            <h3 class="font-header text-xl font-bold text-wowGold">Engineering</h3>
+                        </div>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            A classic favorite that becomes even stronger in Forever due to new schematics, utility gadgets, and specialized engineering trinkets.
+                        </p>
+                    </div>
+
+                    <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 space-y-3 hover:border-wowGold/40 transition">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-wowGold/10 border border-wowGold/30 text-wowGold flex items-center justify-center font-bold text-lg">
+                                <i class="fa-solid fa-flask"></i>
+                            </div>
+                            <h3 class="font-header text-xl font-bold text-wowGold">Alchemy</h3>
+                        </div>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            Priests have always relied heavily on consumables, and Forever makes this profession even more enticing with new recipes designed to buff stats, boost damage output, or provide crowd-control utility.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Profession Pairing Tip Box -->
+                <div class="bg-darkBg border border-wowGold/30 rounded-2xl p-6 flex items-start gap-4">
+                    <div class="text-wowGold text-xl shrink-0 mt-0.5">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <div class="space-y-1 text-xs text-gray-300 leading-relaxed">
+                        <strong class="text-wowGold font-header text-sm block">Profession Pairing Tip</strong>
+                        During leveling, pair your crafting choice with its matching gathering profession (such as Herbalism for Alchemy or Mining for Engineering). Once level-capped and established, you can drop the gathering profession for a second crafting path.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Priest Weapons & Armor Table -->
+            <div class="space-y-6 pt-6">
+                <div>
+                    <h2 class="font-header text-2xl font-bold text-white">Priest Weapons &amp; Armor Training</h2>
+                    <p class="text-gray-400 text-sm mt-1">Priests are limited to Cloth armor and cannot equip Shields or Relics.</p>
+                </div>
+
+                <div class="overflow-x-auto rounded-2xl border border-cardBorder bg-cardBg shadow-lg">
+                    <table class="w-full text-left border-collapse text-xs">
+                        <thead>
+                            <tr class="bg-darkBg border-b border-cardBorder text-wowGold font-header uppercase tracking-wider">
+                                <th class="p-4">Weapon Type</th>
+                                <th class="p-4">Alliance Trainers</th>
+                                <th class="p-4">Horde Trainers</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-cardBorder text-gray-300">
+                            <tr>
+                                <td class="p-4 font-bold text-white">Daggers</td>
+                                <td class="p-4">Ilyenia Moonfire (Darnassus)<br>Bixi Wobblebonk (Ironforge)<br>Woo Ping (Stormwind)</td>
+                                <td class="p-4">Sayoc (Orgrimmar)<br>Archibald (Undercity)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-bold text-white">One-Handed Maces</td>
+                                <td class="p-4">Default</td>
+                                <td class="p-4">Default</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-bold text-white">Staves</td>
+                                <td class="p-4">Ilyenia Moonfire (Darnassus)<br>Woo Ping (Stormwind)</td>
+                                <td class="p-4">Hanashi (Orgrimmar)<br>Sayoc (Orgrimmar)<br>Ansekhwa (Thunder Bluff)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-bold text-white">Wands</td>
+                                <td class="p-4">Default</td>
+                                <td class="p-4">Default</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= TAB 5: STRENGTHS & WEAKNESSES ================= -->
         <section id="tab-analysis" class="tab-content hidden space-y-8">
             <div class="border-b border-cardBorder pb-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-wowGold/10 border border-wowGold/30 text-wowGold text-xs font-bold uppercase tracking-wider mb-2">
+                    <i class="fa-solid fa-scale-balanced"></i> PERFORMANCE BENCHMARKS
+                </div>
                 <h1 class="font-header text-3xl sm:text-4xl font-extrabold text-white">Spec Comparison: Strengths &amp; Weaknesses</h1>
                 <p class="text-gray-400 text-sm mt-2">Side-by-side analysis of how each Priest spec performs across WoW Forever content.</p>
             </div>
@@ -641,10 +867,13 @@
         </section>
 
 
-        <!-- ================= TAB 5: TALENT CALCULATOR ================= -->
+        <!-- ================= TAB 6: TALENT CALCULATOR ================= -->
         <section id="tab-calculator" class="tab-content hidden space-y-8">
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-cardBorder pb-6">
                 <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-wowGold/10 border border-wowGold/30 text-wowGold text-xs font-bold uppercase tracking-wider mb-2">
+                        <i class="fa-solid fa-sitemap"></i> TREE CUSTOMIZATION & BUILDS
+                    </div>
                     <h1 class="font-header text-3xl sm:text-4xl font-extrabold text-white">Interactive 3-Spec Talent Calculator</h1>
                     <p class="text-gray-400 text-sm mt-2">Spend 51 talent points across Discipline, Holy, and Shadow trees. Share build URL strings directly.</p>
                 </div>
@@ -756,7 +985,7 @@
         </section>
 
 
-        <!-- ================= TAB 6: 5-SECOND RULE SIMULATOR ================= -->
+        <!-- ================= TAB 7: 5-SECOND RULE SIMULATOR ================= -->
         <section id="tab-wand" class="tab-content hidden space-y-8">
             <div class="border-b border-cardBorder pb-6">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-holyYellow/10 border border-holyYellow/30 text-holyYellow text-xs font-bold uppercase tracking-wider mb-2">
@@ -878,9 +1107,12 @@
         </section>
 
 
-        <!-- ================= TAB 7: MACRO VAULT ================= -->
+        <!-- ================= TAB 8: MACRO VAULT ================= -->
         <section id="tab-macros" class="tab-content hidden space-y-8">
             <div class="border-b border-cardBorder pb-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-voidPurple/20 border border-voidPurple/40 text-voidPurple text-xs font-bold uppercase tracking-wider mb-2">
+                    <i class="fa-solid fa-terminal"></i> UTILITY & SCRIPT BINDINGS
+                </div>
                 <h1 class="font-header text-3xl sm:text-4xl font-extrabold text-white">Priest Macro Vault</h1>
                 <p class="text-gray-400 text-sm mt-2">Essential mouseover, target-of-target, stopcasting, and power infusion macros for high-level play.</p>
             </div>
@@ -889,9 +1121,12 @@
         </section>
 
 
-        <!-- ================= TAB 8: WEAKAURAS ================= -->
+        <!-- ================= TAB 9: WEAKAURAS ================= -->
         <section id="tab-weakauras" class="tab-content hidden space-y-8">
             <div class="border-b border-cardBorder pb-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-holyYellow/10 border border-holyYellow/30 text-holyYellow text-xs font-bold uppercase tracking-wider mb-2">
+                    <i class="fa-solid fa-code"></i> CUSTOMIZED STRINGS & VISUALS
+                </div>
                 <h1 class="font-header text-3xl sm:text-4xl font-extrabold text-white">WeakAuras Directory</h1>
                 <p class="text-gray-400 text-sm mt-2">Essential customized WeakAura strings optimized for WoW Forever Priest performance.</p>
             </div>
@@ -1424,12 +1659,10 @@
             if (!container) return;
             const filtered = filter === 'all' ? specGuides : specGuides.filter(s => s.id === filter);
 
-            // FULL FLEXIBILITY: Change these variables anytime to instantly resize the box and icon!
-            const boxSize = 'w-14 h-14';   // Outer wrapper box size (14)
-            const iconSize = 'w-12 h-12';  // Inner icon picture size (12)
+            const boxSize = 'w-14 h-14';
+            const iconSize = 'w-12 h-12';
 
             container.innerHTML = filtered.map(spec => {
-                // Define unique background and border hex styling per spec
                 let iconBgHex = '#12141c';
                 let iconBorderHex = '#1f2430';
                 if (spec.id === 'disc') {
@@ -1445,7 +1678,6 @@
 
                 return `
                     <div class="bg-cardBg border border-cardBorder rounded-none p-6 sm:p-8 space-y-6 shadow-lg">
-                        <!-- Header Row -->
                         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-cardBorder pb-5">
                             <div class="flex items-center gap-4">
                                 <div class="${boxSize} rounded-none flex items-center justify-center p-1 shrink-0" style="background-color: ${iconBgHex}; border: 1px solid ${iconBorderHex};">
@@ -1462,10 +1694,8 @@
                             </div>
                         </div>
 
-                        <!-- Overview Description -->
                         <p class="text-gray-300 text-sm leading-relaxed">${spec.description}</p>
 
-                        <!-- Talent Build Strings -->
                         <div>
                             <h4 class="text-xs font-bold uppercase text-gray-400 tracking-wider mb-3">Recommended Talent Build Strings</h4>
                             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -1489,17 +1719,12 @@
         }
 
 function filterSpec(filter) {
-    // Render the matching spec cards
     renderSpecGuides(filter);
 
-    // Update active styling on the filter buttons
     document.querySelectorAll('.spec-tab-btn').forEach(btn => {
-        // Remove active background colors and black text
         btn.classList.remove('bg-wowGold', 'bg-discOrange', 'bg-holyYellow', 'bg-shadowViolet', 'text-black');
-        // Add inactive background and border
         btn.classList.add('bg-cardBg', 'border', 'border-cardBorder');
         
-        // Restore their individual spec text colors and hover states
         if (btn.id.includes('disc')) btn.className += ' text-discOrange hover:border-discOrange';
         else if (btn.id.includes('holy')) btn.className += ' text-holyYellow hover:border-holyYellow';
         else if (btn.id.includes('shadow')) btn.className += ' text-shadowViolet hover:border-shadowViolet';
@@ -1508,10 +1733,8 @@ function filterSpec(filter) {
 
     const activeBtn = document.getElementById('spec-btn-' + filter);
     if (activeBtn) {
-        // Remove inactive styling
         activeBtn.classList.remove('bg-cardBg', 'border', 'border-cardBorder', 'text-discOrange', 'text-holyYellow', 'text-shadowViolet', 'text-wowGold');
         
-        // Apply the correct active fill and black text based on the selected filter
         if (filter === 'all') {
             activeBtn.classList.add('bg-wowGold', 'text-black');
         } else if (filter === 'disc') {
@@ -1668,7 +1891,7 @@ function filterSpec(filter) {
             const baseRegen = 5 + (spirit / 4);
             const meditationPct = (parseFloat(document.getElementById('sim-meditation').value) || 45) / 100;
             const castRegen = baseRegen * meditationPct;
-            const fullRegenTick = baseRegen * 2; // Every 2 seconds tick
+            const fullRegenTick = baseRegen * 2;
 
             document.getElementById('stat-base-regen').innerText = baseRegen.toFixed(1) + ' / sec';
             document.getElementById('stat-cast-regen').innerText = castRegen.toFixed(2) + ' / sec';
@@ -1735,7 +1958,6 @@ function filterSpec(filter) {
                     }
                 }
 
-                // Only accumulate if we haven't hit max mana yet
                 if (totalManaGained < maxMana) {
                     let regenRate = 0;
                     if (isCastingActive) {
@@ -1746,13 +1968,12 @@ function filterSpec(filter) {
 
                     totalManaGained += regenRate * delta;
                     if (totalManaGained > maxMana) {
-                        totalManaGained = maxMana; // Cap it exactly at max pool
+                        totalManaGained = maxMana;
                     }
                 }
 
                 document.getElementById('sim-mana-gained').innerText = `+${Math.floor(totalManaGained)} Mana`;
 
-                // Update Progress bar (0s to 5s)
                 let progressPct = isCastingActive ? ((5.0 - simTimer) / 5.0) * 100 : 100;
                 let barEl = document.getElementById('sim-progress-bar');
                 barEl.style.width = progressPct + '%';
@@ -1787,23 +2008,21 @@ function filterSpec(filter) {
         }
 
         function handleSubscribe(e) {
-    e.preventDefault();
-    const form = e.target;
-    const formData = new FormData(form);
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
 
-    // Silently submits data to Netlify in the background
-    fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString()
-    }).catch((error) => console.error("Form submission error:", error));
+            fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(formData).toString()
+            }).catch((error) => console.error("Form submission error:", error));
 
-    // Shows your green success message and resets the input field
-    const subMessage = document.getElementById('sub-message');
-    const subEmail = document.getElementById('sub-email');
-    if (subMessage) subMessage.classList.remove('hidden');
-    if (subEmail) subEmail.value = '';
-}
+            const subMessage = document.getElementById('sub-message');
+            const subEmail = document.getElementById('sub-email');
+            if (subMessage) subMessage.classList.remove('hidden');
+            if (subEmail) subEmail.value = '';
+        }
 
         function copyMacro(btn, code) {
             copyString(code);
