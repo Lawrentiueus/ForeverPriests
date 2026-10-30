@@ -53,6 +53,16 @@
             overflow-x: hidden;
         }
 
+        /* Prevent image saving / dragging globally */
+        img {
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
         /* --- Modal Content Typography Styles --- */
         #modal-content h2 {
             font-family: 'Cinzel', serif;
@@ -338,7 +348,7 @@
                 <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-wowGold via-voidPurple to-darkBg p-0.5 shadow-lg gold-glow flex items-center justify-center shrink-0">
                     <div class="w-full h-full bg-cardBg rounded-[14px] flex items-center justify-center text-wowGold text-xl">
                         <div class="w-full h-full bg-cardBg rounded-[14px] flex items-center justify-center overflow-hidden">
-                            <img src="PriestClassIcon.png" alt="Priest Class Icon" class="w-12 h-12 object-contain">
+                            <img src="PriestClassIcon.png" draggable="false" oncontextmenu="return false;" alt="Priest Class Icon" class="w-12 h-12 object-contain">
                         </div>
                     </div>
                 </div>
@@ -469,7 +479,7 @@
                 <div onclick="switchTab('specs'); filterSpec('disc');" class="group bg-cardBg border border-cardBorder hover:border-discOrange/50 rounded-none p-6 transition duration-300 cursor-pointer hover:-translate-y-1 shadow-lg relative overflow-hidden">
                     <div class="absolute top-0 right-0 w-24 h-24 bg-discOrange/5 rounded-none blur-2xl group-hover:bg-discOrange/10 transition"></div>
                     <div class="w-12 h-12 rounded-none bg-discOrange/10 text-discOrange flex items-center justify-center text-2xl font-bold mb-4 border border-discOrange/30">
-                        <img src="Discipline.png" alt="Discipline Priest Class Icon" class="w-10 h-10 object-contain">
+                        <img src="Discipline.png" draggable="false" oncontextmenu="return false;" alt="Discipline Priest Class Icon" class="w-10 h-10 object-contain">
                     </div>
                     <span class="text-xs font-bold text-discOrange uppercase tracking-wider">Mitigation &amp; Buffs</span>
                     <h3 class="font-header text-2xl font-bold text-white group-hover:text-discOrange transition mt-1">Discipline Priest</h3>
@@ -483,7 +493,7 @@
                 <div onclick="switchTab('specs'); filterSpec('holy');" class="group bg-cardBg border border-cardBorder hover:border-holyYellow/50 rounded-none p-6 transition duration-300 cursor-pointer hover:-translate-y-1 shadow-lg relative overflow-hidden">
                     <div class="absolute top-0 right-0 w-24 h-24 bg-holyYellow/5 rounded-none blur-2xl group-hover:bg-holyYellow/10 transition"></div>
                     <div class="w-12 h-12 rounded-none bg-holyYellow/10 text-holyYellow flex items-center justify-center text-2xl font-bold mb-4 border border-holyYellow/30">
-                        <img src="Holy.png" alt="Holy Priest Class Icon" class="w-10 h-10 object-contain">
+                        <img src="Holy.png" draggable="false" oncontextmenu="return false;" alt="Holy Priest Class Icon" class="w-10 h-10 object-contain">
                     </div>
                     <span class="text-xs font-bold text-holyYellow uppercase tracking-wider">Primary Healer</span>
                     <h3 class="font-header text-2xl font-bold text-white group-hover:text-holyYellow transition mt-1">Holy Priest</h3>
@@ -497,7 +507,7 @@
                 <div onclick="switchTab('specs'); filterSpec('shadow');" class="group bg-cardBg border border-cardBorder hover:border-shadowViolet/50 rounded-none p-6 transition duration-300 cursor-pointer hover:-translate-y-1 shadow-lg relative overflow-hidden">
                     <div class="absolute top-0 right-0 w-24 h-24 bg-shadowViolet/5 rounded-none blur-2xl group-hover:bg-shadowViolet/10 transition"></div>
                     <div class="w-12 h-12 rounded-none bg-shadowViolet/10 text-shadowViolet flex items-center justify-center text-2xl font-bold mb-4 border border-shadowViolet/30">
-                        <img src="Shadow.png" alt="Shadow Priest Class Icon" class="w-10 h-10 object-contain">
+                        <img src="Shadow.png" draggable="false" oncontextmenu="return false;" alt="Shadow Priest Class Icon" class="w-10 h-10 object-contain">
                     </div>
                     <span class="text-xs font-bold text-shadowViolet uppercase tracking-wider">Ranged Damage &amp; Utility</span>
                     <h3 class="font-header text-2xl font-bold text-white group-hover:text-shadowViolet transition mt-1">Shadow Priest</h3>
@@ -557,7 +567,7 @@
                 <div class="flex items-center gap-4 bg-darkBg p-4 rounded-2xl border border-cardBorder">
                     <div class="relative w-16 h-16 rounded-full bg-gradient-to-tr from-wowGold to-voidPurple p-[2px] shrink-0">
                         <div class="w-full h-full bg-cardBg rounded-full flex items-center justify-center overflow-hidden">
-                            <img src="/LawrentiueusSmallLogo.png" alt="Lawrentiueus Logo" class="w-full h-full object-cover">
+                            <img src="/LawrentiueusSmallLogo.png" draggable="false" oncontextmenu="return false;" alt="Lawrentiueus Logo" class="w-full h-full object-cover">
                         </div>
                     </div>
                     <div>
@@ -599,7 +609,7 @@
             <div id="addon-section" class="bg-cardBg border border-voidPurple/40 rounded-3xl p-8 sm:p-10 shadow-xl relative overflow-hidden">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                     <div class="lg:col-span-4 flex justify-center">
-                        <img src="SPE.png" alt="Spirit Tap Engine Addon Preview" class="rounded-2xl border border-cardBorder shadow-2xl max-h-64 object-contain">
+                        <img src="SPE.png" draggable="false" oncontextmenu="return false;" alt="Spirit Tap Engine Addon Preview" class="rounded-2xl border border-cardBorder shadow-2xl max-h-64 object-contain">
                     </div>
                     <div class="lg:col-span-8 space-y-4">
                         <div class="flex items-center gap-2 flex-wrap">
@@ -837,7 +847,7 @@
                 <div class="bg-cardBg border border-discOrange/30 rounded-2xl p-6 space-y-6">
                     <div class="flex items-center justify-between border-b border-cardBorder pb-4">
                         <h3 class="flex items-center gap-2 font-header text-2xl font-bold text-discOrange">
-                          <img src="Discipline.png" alt="Discipline Priest Class Icon" class="w-8 h-8 object-contain">
+                          <img src="Discipline.png" draggable="false" oncontextmenu="return false;" alt="Discipline Priest Class Icon" class="w-8 h-8 object-contain">
                           <span>Discipline Priest</span>
                         </h3>
                         <span class="text-xs bg-discOrange/10 text-discOrange font-bold px-2.5 py-1 rounded-full">S-Tier Utility &amp; DPS Hybrid</span>
@@ -863,7 +873,7 @@
                 <div class="bg-cardBg border border-holyYellow/30 rounded-2xl p-6 space-y-6">
                     <div class="flex items-center justify-between border-b border-cardBorder pb-4">
                         <h3 class="flex items-center gap-2 font-header text-2xl font-bold text-holyYellow">
-                          <img src="Holy.png" alt="Holy Priest Class Icon" class="w-8 h-8 object-contain">
+                          <img src="Holy.png" draggable="false" oncontextmenu="return false;" alt="Holy Priest Class Icon" class="w-8 h-8 object-contain">
                           <span>Holy Priest</span>
                         </h3>
                         <span class="text-xs bg-holyYellow/10 text-holyYellow font-bold px-2.5 py-1 rounded-full">S-Tier Raid Healing</span>
@@ -889,7 +899,7 @@
                 <div class="bg-cardBg border border-shadowViolet/30 rounded-2xl p-6 space-y-6">
                     <div class="flex items-center justify-between border-b border-cardBorder pb-4">
                         <h3 class="flex items-center gap-2 font-header text-2xl font-bold text-shadowViolet">
-                          <img src="Shadow.png" alt="Shadow Priest Class Icon" class="w-8 h-8 object-contain">
+                          <img src="Shadow.png" draggable="false" oncontextmenu="return false;" alt="Shadow Priest Class Icon" class="w-8 h-8 object-contain">
                           <span>Shadow Priest</span>
                         </h3>
                         <span class="text-xs bg-shadowViolet/10 text-shadowViolet font-bold px-2.5 py-1 rounded-full">S-Tier Ranged Burst & Utility</span>
@@ -953,7 +963,7 @@
                 <div class="spec-tree-card discipline">
                     <div class="spec-header flex items-center justify-between px-4 py-3 bg-[#0b0c0e] border-b border-cardBorder">
                         <div class="flex items-center gap-2">
-                            <img src="Discipline.png" alt="Discipline Priest Class Icon" class="w-5 h-5 object-contain">
+                            <img src="Discipline.png" draggable="false" oncontextmenu="return false;" alt="Discipline Priest Class Icon" class="w-5 h-5 object-contain">
                             <span class="font-header font-bold text-white text-sm">Discipline</span>
                         </div>
                         <div class="flex items-center gap-3">
@@ -980,7 +990,7 @@
                 <div class="spec-tree-card holy">
                     <div class="spec-header flex items-center justify-between px-4 py-3 bg-[#0b0c0e] border-b border-cardBorder">
                         <div class="flex items-center gap-2">
-                            <img src="Holy.png" alt="Holy Priest Class Icon" class="w-5 h-5 object-contain">
+                            <img src="Holy.png" draggable="false" oncontextmenu="return false;" alt="Holy Priest Class Icon" class="w-5 h-5 object-contain">
                             <span class="font-header font-bold text-white text-sm">Holy</span>
                         </div>
                         <div class="flex items-center gap-3">
@@ -1006,7 +1016,7 @@
                 <div class="spec-tree-card shadow">
                     <div class="spec-header flex items-center justify-between px-4 py-3 bg-[#0b0c0e] border-b border-cardBorder">
                         <div class="flex items-center gap-2">
-                            <img src="Shadow.png" alt="Shadow Priest Class Icon" class="w-5 h-5 object-contain">
+                            <img src="Shadow.png" draggable="false" oncontextmenu="return false;" alt="Shadow Priest Class Icon" class="w-5 h-5 object-contain">
                             <span class="font-header font-bold text-white text-sm">Shadow</span>
                         </div>
                         <div class="flex items-center gap-3">
@@ -1222,7 +1232,7 @@
                 </div>
             </div>
             <div id="modal-image-container" class="hidden">
-                <img id="modal-image" src="" alt="Article Image" class="w-full h-auto max-h-80 object-cover rounded-xl border border-cardBorder">
+                <img id="modal-image" src="" draggable="false" oncontextmenu="return false;" alt="Article Image" class="w-full h-auto max-h-80 object-cover rounded-xl border border-cardBorder">
             </div>
             <div id="modal-content" class="text-gray-300 text-sm leading-relaxed space-y-4">
                 <!-- Content injected here -->
@@ -1257,6 +1267,14 @@
     <!-- JavaScript Data & Logic -->
     <script>
         let isSiteLive = true;
+
+        // Disable right-click globally on all images via JavaScript
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('img').forEach(img => {
+                img.setAttribute('draggable', 'false');
+                img.addEventListener('contextmenu', e => e.preventDefault());
+            });
+        });
 
         const macros = [
     // --- CLASS-WIDE & UTILITY MACROS ---
@@ -1646,7 +1664,7 @@
             grid.innerHTML = filtered.map(art => `
                 <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 flex flex-col justify-between hover:border-wowGold/40 transition">
                     <div class="space-y-3">
-                        ${art.imageUrl ? `<div class="mb-3 rounded-xl overflow-hidden h-40 bg-darkBg border border-cardBorder"><img src="${art.imageUrl}" alt="${art.title}" class="w-full h-full object-cover"></div>` : ''}
+                        ${art.imageUrl ? `<div class="mb-3 rounded-xl overflow-hidden h-40 bg-darkBg border border-cardBorder"><img src="${art.imageUrl}" draggable="false" oncontextmenu="return false;" alt="${art.title}" class="w-full h-full object-cover"></div>` : ''}
                         <div class="flex items-center justify-between text-xs">
                             <span class="px-2.5 py-1 rounded-full bg-voidPurple/20 text-voidPurple font-bold uppercase">${art.category}</span>
                             <span class="text-gray-500">${art.date}</span>
@@ -1731,7 +1749,7 @@
                         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-cardBorder pb-5">
                             <div class="flex items-center gap-4">
                                 <div class="${boxSize} rounded-none flex items-center justify-center p-1 shrink-0" style="background-color: ${iconBgHex}; border: 1px solid ${iconBorderHex};">
-                                    <img src="${spec.icon}" alt="${spec.name} Icon" class="${iconSize} object-contain">
+                                    <img src="${spec.icon}" draggable="false" oncontextmenu="return false;" alt="${spec.name} Icon" class="${iconSize} object-contain">
                                 </div>
                                 <div>
                                     <span class="text-xs font-bold text-wowGold uppercase tracking-wider">${spec.tagline}</span>
@@ -1863,7 +1881,7 @@ function filterSpec(filter) {
                     html += `
                         <div class="talent-slot ${hasPointsClass}" style="grid-row: ${t.r}; grid-column: ${t.c};" onclick="handleTalentClick('${tree}', '${t.id}', event)" oncontextmenu="handleTalentRightClick('${tree}', '${t.id}', event)">
                             <a href="https://www.wowhead.com/classic/spell=${t.spell}">
-                                <img src="${iconUrl}" alt="${t.name}" class="talent-icon-img" />
+                                <img src="${iconUrl}" draggable="false" oncontextmenu="return false;" alt="${t.name}" class="talent-icon-img" />
                             </a>
                             <span class="talent-rank-badge">${spent}/${t.max}</span>
                         </div>
