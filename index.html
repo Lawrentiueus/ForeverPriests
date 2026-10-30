@@ -1615,13 +1615,13 @@
         function checkHashRoute() {
             const hash = window.location.hash.replace('#', '');
             if (hash) {
-                if (document.getElementById(hash)) {
-                    switchTab(hash);
+                if (document.getElementById('tab-' + hash) || document.getElementById(hash)) {
+                    switchTab(hash, false);
                 }
             }
         }
 
-        function switchTab(tabId) {
+        function switchTab(tabId, updateHistory = true) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
             const target = document.getElementById(tabId) || document.getElementById('tab-' + tabId);
             if (target) {
@@ -1633,6 +1633,15 @@
             });
             const activeNav = document.getElementById('nav-' + tabId);
             if(activeNav) activeNav.classList.add('text-wowGold', 'bg-white/5');
+
+            // Updates the URL slug/hash cleanly in the browser address bar
+            if (updateHistory) {
+                if (tabId === 'home') {
+                    history.pushState(null, null, window.location.pathname);
+                } else {
+                    window.location.hash = tabId;
+                }
+            }
 
             // Automatically close the mobile menu drawer when any tab/link is clicked
             const mobileMenu = document.getElementById('mobile-menu');
@@ -1646,15 +1655,6 @@
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
-        }
-
-        // Helper to close the mobile menu automatically when an item is selected
-        function handleMobileNav(tabId) {
-            switchTab(tabId);
-            const menu = document.getElementById('mobile-menu');
-            if (!menu.classList.contains('hidden')) {
-                menu.classList.add('hidden');
-            }
         }
 
         function renderArticles(filter = 'all') {
