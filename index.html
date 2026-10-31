@@ -61,6 +61,7 @@
             -o-user-select: none;
             user-select: none;
             -webkit-user-drag: none;
+            -webkit-touch-callout: none;
         }
 
         /* --- Modal Content Typography Styles --- */
@@ -1613,8 +1614,13 @@
             document.querySelectorAll('img').forEach(img => {
                 img.setAttribute('draggable', 'false');
                 img.addEventListener('contextmenu', e => e.preventDefault());
-            });
-        });
+
+        // Prevents long-press save/download menu on mobile touch screens
+        img.addEventListener('touchstart', e => {
+            // Optional: allows normal scrolling/tapping, but blocks long-press context prompts if desired
+        }, { passive: true });
+    });
+});
 
         const wowheadCustomSpells = {
             "1317006": { name: "Litany of Light", icon: "inv_scroll_07", type: "Holy Talent", desc: "Varies healing spell casts to build stacks, providing targeted mana recovery over extended encounter periods." },
