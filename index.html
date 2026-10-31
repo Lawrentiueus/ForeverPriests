@@ -235,6 +235,63 @@
             background-color: #0b0c10;
             color: #ffffff;
         }
+
+        /* --- CUSTOM WOWHEAD OVERRIDE TOOLTIP STYLES --- */
+        #custom-wowhead-tooltip {
+            position: absolute;
+            display: none;
+            z-index: 100000;
+            width: 310px;
+            background: #070d19;
+            border: 1px solid #374151;
+            border-radius: 5px;
+            padding: 10px 12px;
+            color: #ffd100;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.9);
+            pointer-events: none;
+        }
+        #custom-wowhead-tooltip .tip-header {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #1f2937;
+            padding-bottom: 8px;
+        }
+        #custom-wowhead-tooltip img {
+            width: 38px;
+            height: 38px;
+            border: 1px solid #FFD700;
+            border-radius: 4px;
+            object-fit: cover;
+        }
+        #custom-wowhead-tooltip .tip-title {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 14px;
+            color: #ffffff;
+            line-height: 1.2;
+        }
+        #custom-wowhead-tooltip .tip-type {
+            color: #FFB74D;
+            font-size: 11px;
+            margin-top: 2px;
+            font-weight: 600;
+        }
+        #custom-wowhead-tooltip .tip-body {
+            color: #ffd100;
+            line-height: 1.4;
+            margin-bottom: 6px;
+        }
+        #custom-wowhead-tooltip .tip-footer {
+            color: #10b981;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
     </style>
 
     <!-- Schema JSON-LD Block inside Head -->
@@ -287,6 +344,14 @@
         },
         {
           "@type": "WebPage",
+          "@id": "https://foreverpriests.com/#spells",
+          "url": "https://foreverpriests.com/#spells",
+          "name": "Leveling & Core Spells | Forever Priests",
+          "isPartOf": { "@id": "https://foreverpriests.com/#website" },
+          "description": "Streamlined spell progression, racial unlocks, baseline ability mana costs, and key talent level milestones for WoW Forever Priests."
+},
+        {
+          "@type": "WebPage",
           "@id": "https://foreverpriests.com/#analysis",
           "url": "https://foreverpriests.com/#analysis",
           "name": "Analysis & Comparison | Forever Priests",
@@ -331,6 +396,19 @@
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-wowGold selection:text-black">
 
+    <!-- Custom Wowhead-styled Tooltip Overlay Container -->
+    <div id="custom-wowhead-tooltip">
+        <div class="tip-header">
+            <img id="tip-icon" src="" alt="Spell Icon">
+            <div>
+                <div id="tip-name" class="tip-title"></div>
+                <div id="tip-type" class="tip-type"></div>
+            </div>
+        </div>
+        <div id="tip-desc" class="tip-body"></div>
+        <div id="tip-rank" class="tip-footer"></div>
+    </div>
+
     <!-- Announcement Bar -->
     <div class="bg-gradient-to-r from-voidPurpleDark via-cardBg to-voidPurpleDark border-b border-voidPurple/30 text-xs py-2 px-4 text-center flex items-center justify-center gap-3">
         <span class="bg-wowGold text-black font-extrabold px-2 py-0.5 rounded uppercase tracking-wider text-[10px]">WoW Forever</span>
@@ -340,7 +418,6 @@
 
    <!-- Main Navigation Header -->
 <header class="sticky top-0 z-50 bg-cardBg/95 backdrop-blur-md border-b border-cardBorder">
-    <!-- Changed 'max-w-7xl mx-auto' to 'w-full' and added custom left padding/spacing control -->
     <div class="w-full px-6 sm:px-10 lg:px-12">
         <div class="flex items-center justify-between h-28">
             <!-- Logo & Brand -->
@@ -374,6 +451,9 @@
                 </button>
                 <button onclick="switchTab('professions')" id="nav-professions" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition hover:text-wowGold hover:bg-white/5">
                     <i class="fa-solid fa-hammer mr-1.5 text-xs text-wowGold"></i>Professions
+                </button>
+                <button onclick="switchTab('spells')" id="nav-spells" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition hover:text-wowGold hover:bg-white/5">
+    <i class="fa-solid fa-book-bookmark mr-1.5 text-xs text-wowGold"></i>Leveling & Spells
                 </button>
                 <button onclick="switchTab('analysis')" id="nav-analysis" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition hover:text-wowGold hover:bg-white/5">
                     <i class="fa-solid fa-scale-balanced mr-1.5 text-xs text-wowGold"></i>Analysis
@@ -416,6 +496,7 @@
         <button onclick="switchTab('specs')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Spec Guides & Builds</button>
         <button onclick="switchTab('races')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Races & Priest Racials</button>
         <button onclick="switchTab('professions')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Professions & Weapons</button>
+        <button onclick="switchTab('spells')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Leveling & Spells</button>
         <button onclick="switchTab('analysis')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Strengths & Weaknesses</button>
         <button onclick="switchTab('calculator')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Interactive Talent Calculator</button>
         <button onclick="switchTab('wand')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">5SR & Wand Simulator</button>
@@ -431,7 +512,6 @@
             </a>
         </div>
     </div>
-
 
     <!-- Main Dynamic Content Region -->
     <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -543,9 +623,7 @@
                 </div>
 
                 <!-- Dynamic News Feed Grid -->
-                <div id="articles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Populated by JavaScript -->
-                </div>
+                <div id="articles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
             </div>
 
            <!-- Creator / Stream Hub (Lawrentiueus) -->
@@ -719,7 +797,6 @@
                 <p class="text-gray-400 text-sm mt-2">Discover the best profession paths, campsite contributions, pairing tips, and weapon/armor training trainers for your Priest in WoW Forever.</p>
             </div>
 
-            <!-- Best Professions Overview Grid -->
             <div class="space-y-6">
                 <h2 class="font-header text-2xl font-bold text-white border-b border-cardBorder pb-2">Best Professions for Priests</h2>
                 <p class="text-gray-300 text-sm leading-relaxed">
@@ -776,7 +853,6 @@
                     </div>
                 </div>
 
-                <!-- Profession Pairing Tip Box -->
                 <div class="bg-darkBg border border-wowGold/30 rounded-2xl p-6 flex items-start gap-4">
                     <div class="text-wowGold text-xl shrink-0 mt-0.5">
                         <i class="fa-solid fa-lightbulb"></i>
@@ -788,7 +864,6 @@
                 </div>
             </div>
 
-            <!-- Priest Weapons & Armor Table -->
             <div class="space-y-6 pt-6">
                 <div>
                     <h2 class="font-header text-2xl font-bold text-white">Priest Weapons &amp; Armor Training</h2>
@@ -831,6 +906,174 @@
             </div>
         </section>
 
+
+        <!-- ================= TAB 10: LEVELING & SPELLS ================= -->
+<section id="tab-spells" class="tab-content hidden space-y-10">
+    <!-- Header Banner -->
+    <div class="border-b border-cardBorder pb-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-wowGold/10 border border-wowGold/30 text-wowGold text-xs font-bold uppercase tracking-wider mb-2">
+            <i class="fa-solid fa-scroll"></i> Progression Overhaul
+        </div>
+        <h1 class="font-header text-3xl sm:text-4xl font-extrabold text-white">Priest Baseline Spells &amp; Progression</h1>
+        <p class="text-gray-400 text-sm mt-2">In World of Warcraft Forever, Priest spell unlocks, initial mana costs, cast times, racial spells, and talent milestones have been streamlined.</p>
+    </div>
+
+    <!-- 1. Baseline Core Spells -->
+    <div class="space-y-4">
+        <div class="flex items-center justify-between border-b border-cardBorder pb-2">
+            <h2 class="font-header text-2xl font-bold text-white">Baseline Core Spells</h2>
+            <span class="text-xs text-wowGold font-semibold">Levels 1 – 60</span>
+        </div>
+
+        <div class="overflow-x-auto rounded-2xl border border-cardBorder bg-cardBg shadow-lg">
+            <table class="w-full text-left border-collapse text-xs">
+                <thead>
+                    <tr class="bg-darkBg border-b border-cardBorder text-wowGold font-header uppercase tracking-wider">
+                        <th class="p-3.5">Spell Name</th>
+                        <th class="p-3.5">Unlock Level</th>
+                        <th class="p-3.5">Initial Mana Cost</th>
+                        <th class="p-3.5">Cast Type / Description</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-cardBorder text-gray-300 font-mono">
+                    <tr class="hover:bg-white/5 transition"><td class="p-3.5 font-bold text-white font-sans">Smite</td><td class="p-3.5 text-wowGold">Level 1</td><td class="p-3.5">20 Mana</td><td class="p-3.5 font-sans">2.5 sec cast; direct Holy damage.</td></tr>
+                    <tr class="hover:bg-white/5 transition"><td class="p-3.5 font-bold text-white font-sans">Lesser Heal</td><td class="p-3.5 text-wowGold">Level 1</td><td class="p-3.5">35 Mana</td><td class="p-3.5 font-sans">2.5 sec cast; introductory direct heal.</td></tr>
+                    <tr class="hover:bg-white/5 transition"><td class="p-3.5 font-bold text-white font-sans">Power Word: Fortitude</td><td class="p-3.5 text-wowGold">Level 1</td><td class="p-3.5">60 Mana</td><td class="p-3.5 font-sans">Instant buff; increases Stamina.</td></tr>
+                    <tr class="hover:bg-white/5 transition"><td class="p-3.5 font-bold text-white font-sans">Shadow Word: Pain</td><td class="p-3.5 text-wowGold">Level 4</td><td class="p-3.5">25 Mana</td><td class="p-3.5 font-sans">Instant; Shadow damage-over-time.</td></tr>
+                    <tr class="hover:bg-white/5 transition"><td class="p-3.5 font-bold text-white font-sans">Power Word: Shield</td><td class="p-3.5 text-wowGold">Level 6</td><td class="p-3.5">45 Mana</td><td class="p-3.5 font-sans">Instant; absorbs physical/magical damage.</td></tr>
+                    <tr class="hover:bg-white/5 transition"><td class="p-3.5 font-bold text-white font-sans">Renew</td><td class="p-3.5 text-wowGold">Level 8</td><td class="p-3.5">30 Mana</td><td class="p-3.5 font-sans">Instant; Holy heal-over-time.</td></tr>
+                    <tr class="hover:bg-white/5 transition"><td class="p-3.5 font-bold text-white font-sans">Fade</td><td class="p-3.5 text-wowGold">Level 8</td><td class="p-3.5">50 Mana</td><td class="p-3.5 font-sans">Instant; temporarily reduces threat.</td></tr>
+                    <tr class="hover:bg-white/5 transition"><td class="p-3.5 font-bold text-white font-sans">Mind Blast</td><td class="p-3.5 text-wowGold">Level 10</td><td class="p-3.5">50 Mana</td><td class="p-3.5 font-sans">1.5 sec cast; high Shadow damage with a cooldown.</td></tr>
+                    <tr class="hover:bg-white/5 transition"><td class="p-3.5 font-bold text-white font-sans">Resurrection</td><td class="p-3.5 text-wowGold">Level 10</td><td class="p-3.5">35% Base Mana</td><td class="p-3.5 font-sans">10 sec cast; brings a dead ally back to life.</td></tr>
+                    <tr class="hover:bg-white/5 transition"><td class="p-3.5 font-bold text-white font-sans">Inner Fire</td><td class="p-3.5 text-wowGold">Level 12</td><td class="p-3.5">75 Mana</td><td class="p-3.5 font-sans">Instant self-buff; increases Armor and Attack/Spell Power.</td></tr>
+                    <tr class="hover:bg-white/5 transition"><td class="p-3.5 font-bold text-white font-sans">Psychic Scream</td><td class="p-3.5 text-wowGold">Level 14</td><td class="p-3.5">80 Mana</td><td class="p-3.5 font-sans">Instant AoE fear for up to 5 nearby targets.</td></tr>
+                    <tr class="hover:bg-white/5 transition"><td class="p-3.5 font-bold text-white font-sans">Cure Disease</td><td class="p-3.5 text-wowGold">Level 14</td><td class="p-3.5">60 Mana</td><td class="p-3.5 font-sans">Instant; cures 1 disease effect from an ally.</td></tr>
+                    <tr class="hover:bg-white/5 transition"><td class="p-3.5 font-bold text-white font-sans">Heal</td><td class="p-3.5 text-wowGold">Level 16</td><td class="p-3.5">155 Mana</td><td class="p-3.5 font-sans">3.0 sec cast; heavy direct heal replacing Lesser Heal.</td></tr>
+                    <tr class="hover:bg-white/5 transition"><td class="p-3.5 font-bold text-white font-sans">Dispel Magic</td><td class="p-3.5 text-wowGold">Level 18</td><td class="p-3.5">75 Mana</td><td class="p-3.5 font-sans">Instant; removes harmful magical effects or offensive buffs.</td></tr>
+                    <tr class="hover:bg-white/5 transition"><td class="p-3.5 font-bold text-white font-sans">Flash Heal</td><td class="p-3.5 text-wowGold">Level 20</td><td class="p-3.5">125 Mana</td><td class="p-3.5 font-sans">1.5 sec cast; fast, high-cost single-target emergency heal.</td></tr>
+                    <tr class="hover:bg-white/5 transition"><td class="p-3.5 font-bold text-white font-sans">Holy Fire</td><td class="p-3.5 text-wowGold">Level 20</td><td class="p-3.5">85 Mana</td><td class="p-3.5 font-sans">3.5 sec cast; upfront Holy damage + burn DoT.</td></tr>
+                    <tr class="hover:bg-white/5 transition"><td class="p-3.5 font-bold text-white font-sans">Fear Ward</td><td class="p-3.5 text-wowGold">Level 20</td><td class="p-3.5">100 Mana</td><td class="p-3.5 font-sans">Instant; immunizes the target against the next Fear effect.</td></tr>
+                    <tr class="hover:bg-white/5 transition"><td class="p-3.5 font-bold text-white font-sans">Devouring Plague</td><td class="p-3.5 text-wowGold">Level 20</td><td class="p-3.5">215 Mana</td><td class="p-3.5 font-sans">Instant; Shadow DoT that heals the caster for damage dealt.</td></tr>
+                    <tr class="hover:bg-white/5 transition"><td class="p-3.5 font-bold text-white font-sans">Mind Soothe</td><td class="p-3.5 text-wowGold">Level 20</td><td class="p-3.5">50 Mana</td><td class="p-3.5 font-sans">Instant; reduces the aggro range of Humanoids.</td></tr>
+                    <tr class="hover:bg-white/5 transition"><td class="p-3.5 font-bold text-white font-sans">Shackle Undead</td><td class="p-3.5 text-wowGold">Level 20</td><td class="p-3.5">100 Mana</td><td class="p-3.5 font-sans">1.5 sec cast; crowd controls an Undead target.</td></tr>
+                    <tr class="hover:bg-white/5 transition"><td class="p-3.5 font-bold text-white font-sans">Mind Vision</td><td class="p-3.5 text-wowGold">Level 22</td><td class="p-3.5">50 Mana</td><td class="p-3.5 font-sans">Channeled; allows sight through the target's eyes.</td></tr>
+                    <tr class="hover:bg-white/5 transition"><td class="p-3.5 font-bold text-white font-sans">Mana Burn</td><td class="p-3.5 text-wowGold">Level 24</td><td class="p-3.5">180 Mana</td><td class="p-3.5 font-sans">3.0 sec cast; drains mana from an enemy and deals damage.</td></tr>
+                    <tr class="hover:bg-white/5 transition"><td class="p-3.5 font-bold text-white font-sans">Divine Spirit</td><td class="p-3.5 text-wowGold">Level 30</td><td class="p-3.5">150 Mana</td><td class="p-3.5 font-sans">Instant buff; increases Spirit.</td></tr>
+                    <tr class="hover:bg-white/5 transition"><td class="p-3.5 font-bold text-white font-sans">Prayer of Healing</td><td class="p-3.5 text-wowGold">Level 30</td><td class="p-3.5">410 Mana</td><td class="p-3.5 font-sans">3.0 sec cast; party-wide area heal.</td></tr>
+                    <tr class="hover:bg-white/5 transition"><td class="p-3.5 font-bold text-white font-sans">Mind Control</td><td class="p-3.5 text-wowGold">Level 30</td><td class="p-3.5">240 Mana</td><td class="p-3.5 font-sans">Channeled; takes control of a target up to +1 level.</td></tr>
+                    <tr class="hover:bg-white/5 transition"><td class="p-3.5 font-bold text-white font-sans">Shadow Protection</td><td class="p-3.5 text-wowGold">Level 30</td><td class="p-3.5">160 Mana</td><td class="p-3.5 font-sans">Instant buff; increases Shadow Resistance.</td></tr>
+                    <tr class="hover:bg-white/5 transition"><td class="p-3.5 font-bold text-white font-sans">Shadow Word: Death</td><td class="p-3.5 text-wowGold">Level 32</td><td class="p-3.5">130 Mana</td><td class="p-3.5 font-sans">Instant high-damage execute spell.</td></tr>
+                    <tr class="hover:bg-white/5 transition"><td class="p-3.5 font-bold text-white font-sans">Abolish Disease</td><td class="p-3.5 text-wowGold">Level 32</td><td class="p-3.5">90 Mana</td><td class="p-3.5 font-sans">Instant; cures disease and continues cleansing over 20s.</td></tr>
+                    <tr class="hover:bg-white/5 transition"><td class="p-3.5 font-bold text-white font-sans">Levitate</td><td class="p-3.5 text-wowGold">Level 34</td><td class="p-3.5">60 Mana</td><td class="p-3.5 font-sans">Instant; slow fall and water walking effect.</td></tr>
+                    <tr class="hover:bg-white/5 transition"><td class="p-3.5 font-bold text-white font-sans">Greater Heal</td><td class="p-3.5 text-wowGold">Level 40</td><td class="p-3.5">370 Mana</td><td class="p-3.5 font-sans">3.0 sec cast; massive single-target direct heal.</td></tr>
+                    <tr class="hover:bg-white/5 transition"><td class="p-3.5 font-bold text-white font-sans">Prayer of Fortitude</td><td class="p-3.5 text-wowGold">Level 48</td><td class="p-3.5">850 Mana</td><td class="p-3.5 font-sans">Group-wide Stamina buff.</td></tr>
+                    <tr class="hover:bg-white/5 transition"><td class="p-3.5 font-bold text-white font-sans">Prayer of Shadow Protection</td><td class="p-3.5 text-wowGold">Level 56</td><td class="p-3.5">750 Mana</td><td class="p-3.5 font-sans">Group-wide Shadow Resistance buff.</td></tr>
+                    <tr class="hover:bg-white/5 transition"><td class="p-3.5 font-bold text-white font-sans">Prayer of Spirit</td><td class="p-3.5 text-wowGold">Level 60</td><td class="p-3.5">900 Mana</td><td class="p-3.5 font-sans">Group-wide Spirit buff.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 2. Racial Spells Unlocks -->
+    <div class="space-y-4">
+        <div class="flex items-center justify-between border-b border-cardBorder pb-2">
+            <h2 class="font-header text-2xl font-bold text-white">Priest Racial Spell Unlocks</h2>
+            <span class="text-xs text-voidPurple font-semibold">Levels 10 &amp; 20</span>
+        </div>
+
+        <div class="overflow-x-auto rounded-2xl border border-cardBorder bg-cardBg shadow-lg">
+            <table class="w-full text-left border-collapse text-xs">
+                <thead>
+                    <tr class="bg-darkBg border-b border-cardBorder text-wowGold font-header uppercase tracking-wider">
+                        <th class="p-3.5">Race</th>
+                        <th class="p-3.5">Level 10 Unlock</th>
+                        <th class="p-3.5">Level 20 Unlock</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-cardBorder text-gray-300">
+                    <tr class="hover:bg-white/5 transition">
+                        <td class="p-3.5 font-bold text-white">Human</td>
+                        <td class="p-3.5"><strong class="text-wowGold">Divine Grace</strong> <span class="text-gray-400 font-mono">(100 Mana)</span><br><span class="text-gray-300">Instant emergency heal for targets below 50% health.</span></td>
+                        <td class="p-3.5"><strong class="text-wowGold">Feedback</strong> <span class="text-gray-400 font-mono">(120 Mana)</span><br><span class="text-gray-300">Weapon buff that burns mana on target spellcasts.</span></td>
+                    </tr>
+                    <tr class="hover:bg-white/5 transition">
+                        <td class="p-3.5 font-bold text-white">Dwarf</td>
+                        <td class="p-3.5"><strong class="text-wowGold">Desperate Prayer</strong> <span class="text-gray-400 font-mono">(0 Mana)</span><br><span class="text-gray-300">Instant self-heal on a 2-minute cooldown.</span></td>
+                        <td class="p-3.5"><strong class="text-wowGold">Chastise</strong> <span class="text-gray-400 font-mono">(80 Mana)</span><br><span class="text-gray-300">Holy damage and 2-second root on Humanoids.</span></td>
+                    </tr>
+                    <tr class="hover:bg-white/5 transition">
+                        <td class="p-3.5 font-bold text-white">Night Elf</td>
+                        <td class="p-3.5"><strong class="text-wowGold">Starshards</strong> <span class="text-gray-400 font-mono">(135 Mana)</span><br><span class="text-gray-300">30-sec cooldown Arcane channel.</span></td>
+                        <td class="p-3.5"><strong class="text-wowGold">Elune's Grace</strong> <span class="text-gray-400 font-mono">(50 Mana)</span><br><span class="text-gray-300">Defensive buff increasing dodge/miss chance.</span></td>
+                    </tr>
+                    <tr class="hover:bg-white/5 transition">
+                        <td class="p-3.5 font-bold text-white">Gnome</td>
+                        <td class="p-3.5"><strong class="text-wowGold">Confounding Flash</strong> <span class="text-gray-400 font-mono">(90 Mana)</span><br><span class="text-gray-300">Instant; confuses up to 5 nearby enemies for 3 seconds.</span></td>
+                        <td class="p-3.5"><strong class="text-wowGold">Contingency Plan</strong> <span class="text-gray-400 font-mono">(110 Mana)</span><br><span class="text-gray-300">Protective ward triggering a shield/heal when critical.</span></td>
+                    </tr>
+                    <tr class="hover:bg-white/5 transition">
+                        <td class="p-3.5 font-bold text-white">Troll</td>
+                        <td class="p-3.5"><strong class="text-wowGold">Hex of Weakness</strong> <span class="text-gray-400 font-mono">(45 Mana)</span><br><span class="text-gray-300">Reduces enemy physical damage and healing received.</span></td>
+                        <td class="p-3.5"><strong class="text-wowGold">Shadowguard</strong> <span class="text-gray-400 font-mono">(70 Mana)</span><br><span class="text-gray-300">Orbs dealing Shadow damage when hit.</span></td>
+                    </tr>
+                    <tr class="hover:bg-white/5 transition">
+                        <td class="p-3.5 font-bold text-white">Undead</td>
+                        <td class="p-3.5"><strong class="text-wowGold">Touch of Weakness</strong> <span class="text-gray-400 font-mono">(60 Mana)</span><br><span class="text-gray-300">Next melee attacker takes Shadow damage and incurs a debuff.</span></td>
+                        <td class="p-3.5"><strong class="text-wowGold">Dark Sacrifice</strong> <span class="text-gray-400 font-mono">(0 Mana)</span><br><span class="text-gray-300">Trades caster health over time to regenerate mana.</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 3. Key Talent Unlocks -->
+    <div class="space-y-4">
+        <div class="flex items-center justify-between border-b border-cardBorder pb-2">
+            <h2 class="font-header text-2xl font-bold text-white">Key Talent Unlocks Across Spec Trees</h2>
+            <span class="text-xs text-holyYellow font-semibold">Levels 20, 30 &amp; 40</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Level 20 -->
+            <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 space-y-3">
+                <div class="flex items-center justify-between border-b border-cardBorder pb-2">
+                    <span class="font-header text-xl font-bold text-wowGold">Level 20</span>
+                    <span class="text-[10px] font-bold uppercase bg-wowGold/10 text-wowGold px-2 py-0.5 rounded">Tier 3</span>
+                </div>
+                <ul class="space-y-2 text-xs text-gray-300">
+                    <li class="flex items-start justify-between"><strong class="text-holyYellow">Holy Nova (Holy)</strong> <span class="font-mono text-gray-400">185 Mana</span></li>
+                    <li class="flex items-start justify-between"><strong class="text-shadowViolet">Mind Flay (Shadow)</strong> <span class="font-mono text-gray-400">45 Mana (Channeled)</span></li>
+                </ul>
+            </div>
+
+            <!-- Level 30 -->
+            <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 space-y-3">
+                <div class="flex items-center justify-between border-b border-cardBorder pb-2">
+                    <span class="font-header text-xl font-bold text-wowGold">Level 30</span>
+                    <span class="text-[10px] font-bold uppercase bg-wowGold/10 text-wowGold px-2 py-0.5 rounded">Tier 5</span>
+                </div>
+                <ul class="space-y-2 text-xs text-gray-300">
+                    <li class="flex items-start justify-between"><strong class="text-shadowViolet">Vampiric Embrace (Shadow)</strong> <span class="font-mono text-gray-400">40 Mana</span></li>
+                    <li class="flex items-start justify-between"><strong class="text-shadowViolet">Silence (Shadow)</strong> <span class="font-mono text-gray-400">75 Mana</span></li>
+                </ul>
+            </div>
+
+            <!-- Level 40 -->
+            <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 space-y-3">
+                <div class="flex items-center justify-between border-b border-cardBorder pb-2">
+                    <span class="font-header text-xl font-bold text-wowGold">Level 40</span>
+                    <span class="text-[10px] font-bold uppercase bg-wowGold/10 text-wowGold px-2 py-0.5 rounded">Capstones</span>
+                </div>
+                <ul class="space-y-2 text-xs text-gray-300">
+                    <li class="flex items-start justify-between"><strong class="text-discOrange">Power Infusion (Discipline)</strong> <span class="font-mono text-gray-400">100 Mana</span></li>
+                    <li class="flex items-start justify-between"><strong class="text-holyYellow">Lightwell (Holy)</strong> <span class="font-mono text-gray-400">225 Mana</span></li>
+                    <li class="flex items-start justify-between"><strong class="text-shadowViolet">Shadowform (Shadow)</strong> <span class="font-mono text-gray-400">100 Mana*</span></li>
+                </ul>
+                <p class="text-[10px] text-gray-400 border-t border-cardBorder pt-2 mt-1">*Shadowform also reduces mana cost on Shadow spells by 50%.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
         <!-- ================= TAB 5: STRENGTHS & WEAKNESSES ================= -->
         <section id="tab-analysis" class="tab-content hidden space-y-8">
@@ -956,7 +1199,7 @@
                 </button>
             </div>
 
-            <!-- Talent Trees Grid Container (Warcraft Tavern Layout Side-by-Side) -->
+            <!-- Talent Trees Grid Container -->
             <div class="talent-calculator-trees">
                 
                 <!-- DISCIPLINE TREE -->
@@ -1053,7 +1296,6 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Controls & Stats Panel -->
                 <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 space-y-6 lg:col-span-1">
                     <h3 class="font-header text-xl font-bold text-wowGold border-b border-cardBorder pb-3">Character Stats</h3>
                     
@@ -1094,7 +1336,6 @@
                     </div>
                 </div>
 
-                <!-- Visual Simulation Display -->
                 <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 lg:col-span-2 space-y-6 flex flex-col justify-between">
                     <div class="space-y-6">
                         <div class="flex items-center justify-between border-b border-cardBorder pb-4">
@@ -1108,7 +1349,6 @@
                             </div>
                         </div>
 
-                        <!-- 5SR Progress Bar -->
                         <div class="space-y-2">
                             <div class="flex justify-between text-xs font-mono">
                                 <span class="text-gray-400">5-Second Rule Timer</span>
@@ -1122,7 +1362,6 @@
                             </div>
                         </div>
 
-                        <!-- Wand Action Visualizer -->
                         <div class="bg-darkBg p-4 rounded-xl border border-cardBorder flex items-center justify-between">
                             <div class="flex items-center gap-3">
                                 <div id="wand-icon-box" class="w-10 h-10 rounded-lg bg-cardBorder flex items-center justify-center text-gray-500 text-lg">
@@ -1138,7 +1377,6 @@
                             </div>
                         </div>
 
-                        <!-- Stat Breakdown Box -->
                         <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs bg-darkBg p-4 rounded-xl border border-cardBorder">
                             <div>
                                 <span class="text-gray-400 block">Base Spirit Regen:</span>
@@ -1200,11 +1438,8 @@
             <p class="text-gray-400 text-sm max-w-xl mx-auto">Get exclusive Priest talent builds, tier updates, and theorycrafting breakdowns delivered straight to your email inbox.</p>
 
             <form name="newsletter" method="POST" data-netlify="true" onsubmit="handleSubscribe(event)" class="max-w-md mx-auto flex flex-col sm:flex-row gap-2 pt-2">
-                <!-- Hidden input required for Netlify form processing -->
                 <input type="hidden" name="form-name" value="newsletter">
-
-                <!-- ADD THIS LINE FOR AJAX/JS SUBMISSIONS -->
-    <input type="hidden" name="bot-field">
+                <input type="hidden" name="bot-field">
                 
                 <input type="email" name="email" required id="sub-email" placeholder="Enter your email address..." class="flex-grow px-4 py-3 rounded-xl bg-darkBg border border-cardBorder text-white text-sm focus:outline-none focus:border-wowGold">
                 <button type="submit" class="px-6 py-3 rounded-xl bg-wowGold text-black font-bold text-xs uppercase tracking-wider hover:bg-white transition shrink-0">
@@ -1234,9 +1469,7 @@
             <div id="modal-image-container" class="hidden">
                 <img id="modal-image" src="" draggable="false" oncontextmenu="return false;" alt="Article Image" class="w-full h-auto max-h-80 object-cover rounded-xl border border-cardBorder">
             </div>
-            <div id="modal-content" class="text-gray-300 text-sm leading-relaxed space-y-4">
-                <!-- Content injected here -->
-            </div>
+            <div id="modal-content" class="text-gray-300 text-sm leading-relaxed space-y-4"></div>
             <div class="pt-4 border-t border-cardBorder flex justify-end">
                 <button onclick="closeArticleModal()" class="px-5 py-2.5 rounded-xl bg-wowGold text-black font-bold text-xs uppercase tracking-wider">Close Article</button>
             </div>
@@ -1268,7 +1501,6 @@
     <script>
         let isSiteLive = true;
 
-        // Disable right-click globally on all images via JavaScript
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('img').forEach(img => {
                 img.setAttribute('draggable', 'false');
@@ -1276,244 +1508,99 @@
             });
         });
 
+        const wowheadCustomSpells = {
+            "1317006": { name: "Litany of Light", icon: "inv_scroll_07", type: "Holy Talent", desc: "Varies healing spell casts to build stacks, providing targeted mana recovery over extended encounter periods." },
+            "1309969": { name: "Power in Light", icon: "spell_holy_searinglight", type: "Discipline Talent", desc: "Increases the damage of your Smite and Holy Fire spells and grants a chance to make your next heal instant." },
+            "1309957": { name: "Holy Precision", icon: "spell_holy_divineillumination", type: "Discipline Talent", desc: "Reduces the spell hit chance penalty of Holy spells by a percentage and increases spell damage." },
+            "1309950": { name: "Devouring Contagion", icon: "spell_shadow_devouringplague", type: "Shadow Talent", desc: "Amplifies shadow damage over time effects and causes critical periodic ticks to refund a portion of base mana." },
+            "1310076": { name: "Early Demise", icon: "spell_shadow_demonicfortitude", type: "Shadow Talent", desc: "Reduces the total duration of your damage-over-time spells while compressing their total damage into a shorter window." },
+            "1326159": { name: "Dark Inspiration", icon: "spell_warlock_demonsoul", type: "Shadow Talent", desc: "Increases your shadow spell haste and reduces threat generation while in Shadowform." },
+            "1225139": { name: "Improved Mind Flay", icon: "spell_shadow_soulleech_2", type: "Shadow Talent", desc: "Increases the range of Mind Flay and adds a slow effect to targets caught in the stream." },
+            "1225132": { name: "Twin Disciplines", icon: "spell_holy_sealofvengeance", type: "Discipline Talent", desc: "Increases the damage and healing done by your instant and channeled spells by a flat percentage." }
+        };
+
+        document.addEventListener('mouseover', function(e) {
+            const link = e.target.closest('a[href*="spell="]');
+            if (!link) return;
+
+            const match = link.href.match(/spell=(\d+)/);
+            if (!match) return;
+            const spellId = match[1];
+
+            if (wowheadCustomSpells[spellId]) {
+                const data = wowheadCustomSpells[spellId];
+                const tooltip = document.getElementById('custom-wowhead-tooltip');
+                
+                document.getElementById('tip-icon').src = `https://wow.zamimg.com/images/wow/icons/large/${data.icon}.jpg`;
+                document.getElementById('tip-name').innerText = data.name;
+                document.getElementById('tip-type').innerText = data.type;
+                document.getElementById('tip-desc').innerText = data.desc;
+                document.getElementById('tip-rank').innerText = `Spell ID: ${spellId} (WoW Forever Custom)`;
+
+                tooltip.style.display = 'block';
+            }
+        });
+
+        document.addEventListener('mousemove', function(e) {
+            const tooltip = document.getElementById('custom-wowhead-tooltip');
+            if (tooltip.style.display === 'block') {
+                tooltip.style.left = (e.pageX + 15) + 'px';
+                tooltip.style.top = (e.pageY + 15) + 'px';
+            }
+        });
+
+        document.addEventListener('mouseout', function(e) {
+            const link = e.target.closest('a[href*="spell="]');
+            if (link) {
+                document.getElementById('custom-wowhead-tooltip').style.display = 'none';
+            }
+        });
+
         const macros = [
-    // --- CLASS-WIDE & UTILITY MACROS ---
-    {
-        name: "Universal Mouseover Power Word: Shield",
-        spec: "All Specs",
-        code: "#showtooltip\n/cast [@mouseover,help,nodead][help,nodead][@player] Power Word: Shield"
-    },
-    {
-        name: "Smart Wand Toggle",
-        spec: "All Specs",
-        code: "#showtooltip 18\n/cast !Shoot"
-    },
-    {
-        name: "Target-of-Target Smite",
-        spec: "All Specs",
-        code: "#showtooltip\n/cast [@targettarget,harm,nodead][] Smite"
-    },
-    {
-        name: "Dismount & Emergency Levitate",
-        spec: "All Specs",
-        code: "#showtooltip\n/dismount\n/cast [@player] Levitate"
-    },
-
-    // --- DISCIPLINE MACROS ---
-    {
-        name: "Power Infusion Burst Announce",
-        spec: "Discipline",
-        code: "#showtooltip Power Infusion\n/cast [@mouseover,help,nodead][help,nodead][@player] Power Infusion\n/run SendChatMessage(\"You have Power Infusion!\",\"WHISPER\",nil,GetUnitName(\"mouseover\",1))"
-    },
-    {
-        name: "Penance Heal / Damage Modifier",
-        spec: "Discipline",
-        code: "#showtooltip Penance\n/stopmacro [channeling:Penance]\n/cast [mod:shift,harm,nodead][@mouseover,help,nodead][help,nodead][@player] Penance"
-    },
-    {
-        name: "Inner Focus Free Greater Heal",
-        spec: "Discipline",
-        code: "#showtooltip Greater Heal\n/cast Inner Focus\n/cast [@mouseover,help,nodead][help,nodead][@player] Greater Heal"
-    },
-
-    // --- HOLY MACROS ---
-    {
-        name: "Mouseover Prayer of Mending",
-        spec: "Holy",
-        code: "#showtooltip\n/cast [@mouseover,help,nodead][help,nodead][@player] Prayer of Mending"
-    },
-    {
-        name: "Mouseover Binding Heal",
-        spec: "Holy",
-        code: "#showtooltip\n/cast [@mouseover,help,nodead][help,nodead] Binding Heal"
-    },
-    {
-        name: "Emergency Heal Stopcast",
-        spec: "Holy",
-        code: "/stopcasting"
-    },
-
-    // --- SHADOW MACROS ---
-    {
-        name: "No-Clip Mind Flay",
-        spec: "Shadow",
-        code: "#showtooltip Mind Flay\n/cast [nochanneling:Mind Flay] Mind Flay"
-    },
-    {
-        name: "Mouseover Shadow Word: Death",
-        spec: "Shadow",
-        code: "#showtooltip Shadow Word: Death\n/cast [@mouseover,harm,nodead][harm,nodead] Shadow Word: Death"
-    },
-    {
-        name: "Drop Shadowform for Emergency Heal",
-        spec: "Shadow",
-        code: "#showtooltip Flash Heal\n/cancelaura Shadowform\n/cast [@mouseover,help,nodead][help,nodead][@player] Flash Heal"
-    },
-
-    // --- RACIAL PRIEST MACROS ---
-    {
-        name: "Human Divine Grace",
-        spec: "All Specs",
-        code: "#showtooltip\n/cast [@mouseover,help,nodead][help,nodead] Divine Grace"
-    },
-    {
-        name: "Gnome Contingency Plan",
-        spec: "All Specs",
-        code: "#showtooltip\n/cast [@mouseover,help,nodead][help,nodead][@player] Contingency Plan"
-    },
-    {
-        name: "Dwarf Clean Desperate Prayer",
-        spec: "All Specs",
-        code: "#showtooltip Desperate Prayer\n/stopcasting\n/cast Desperate Prayer"
-    }
-];
+            { name: "Universal Mouseover Power Word: Shield", spec: "All Specs", code: "#showtooltip\n/cast [@mouseover,help,nodead][help,nodead][@player] Power Word: Shield" },
+            { name: "Smart Wand Toggle", spec: "All Specs", code: "#showtooltip 18\n/cast !Shoot" },
+            { name: "Target-of-Target Smite", spec: "All Specs", code: "#showtooltip\n/cast [@targettarget,harm,nodead][] Smite" },
+            { name: "Dismount & Emergency Levitate", spec: "All Specs", code: "#showtooltip\n/dismount\n/cast [@player] Levitate" },
+            { name: "Power Infusion Burst Announce", spec: "Discipline", code: "#showtooltip Power Infusion\n/cast [@mouseover,help,nodead][help,nodead][@player] Power Infusion\n/run SendChatMessage(\"You have Power Infusion!\",\"WHISPER\",nil,GetUnitName(\"mouseover\",1))" },
+            { name: "Penance Heal / Damage Modifier", spec: "Discipline", code: "#showtooltip Penance\n/stopmacro [channeling:Penance]\n/cast [mod:shift,harm,nodead][@mouseover,help,nodead][help,nodead][@player] Penance" },
+            { name: "Inner Focus Free Greater Heal", spec: "Discipline", code: "#showtooltip Greater Heal\n/cast Inner Focus\n/cast [@mouseover,help,nodead][help,nodead][@player] Greater Heal" },
+            { name: "Mouseover Prayer of Mending", spec: "Holy", code: "#showtooltip\n/cast [@mouseover,help,nodead][help,nodead][@player] Prayer of Mending" },
+            { name: "Mouseover Binding Heal", spec: "Holy", code: "#showtooltip\n/cast [@mouseover,help,nodead][help,nodead] Binding Heal" },
+            { name: "Emergency Heal Stopcast", spec: "Holy", code: "/stopcasting" },
+            { name: "No-Clip Mind Flay", spec: "Shadow", code: "#showtooltip Mind Flay\n/cast [nochanneling:Mind Flay] Mind Flay" },
+            { name: "Mouseover Shadow Word: Death", spec: "Shadow", code: "#showtooltip Shadow Word: Death\n/cast [@mouseover,harm,nodead][harm,nodead] Shadow Word: Death" },
+            { name: "Drop Shadowform for Emergency Heal", spec: "Shadow", code: "#showtooltip Flash Heal\n/cancelaura Shadowform\n/cast [@mouseover,help,nodead][help,nodead][@player] Flash Heal" },
+            { name: "Human Divine Grace", spec: "All Specs", code: "#showtooltip\n/cast [@mouseover,help,nodead][help,nodead] Divine Grace" },
+            { name: "Gnome Contingency Plan", spec: "All Specs", code: "#showtooltip\n/cast [@mouseover,help,nodead][help,nodead][@player] Contingency Plan" },
+            { name: "Dwarf Clean Desperate Prayer", spec: "All Specs", code: "#showtooltip Desperate Prayer\n/stopcasting\n/cast Desperate Prayer" }
+        ];
 
         const weakauras = [
-    // --- CLASS & UTILITY WEAKAURAS ---
-    {
-        name: "Power Word: Shield & Weakened Soul Tracker",
-        spec: "All Specs",
-        desc: "Monitors active Power Word: Shield absorption along with Weakened Soul debuff timers across friendly target and party frames.",
-        string: "!WA:2!1v1sVTTXv8isUuKO2G2O2vffGjba(v0vbbObejjOqWjkdYmOjiO9fS7wW3s27SpjD16nSjj1w(P0f35pif4k48wJ1o0y9gW8BwF8h17B9m(3W7Z7C)B7e)"
-    },
-    {
-        name: "Five-Second Rule Mana Regen Bar",
-        spec: "All Specs",
-        desc: "Displays the 5-second rule mana tick timer to help you time hard casts and maximize passive Spirit regeneration.",
-        string: "!WA:2!n1v7VTTXv4isUuLO2G2O2vffGjba(v0vbbObejjOqWjkdYmOjiO9fS7wW3s27SpjD16nSjj1w(P0f35pif4k48wJ1o0y9gW8BwF8h17B9m(3W7Z7C)B7e)"
-    },
-
-    // --- DISCIPLINE WEAKAURAS ---
-    {
-        name: "Power Infusion & Inner Focus Cooldown Tracker",
-        spec: "Discipline",
-        desc: "Tracks active cooldown durations and remaining buff timers for Power Infusion and Inner Focus.",
-        string: "!WA:2!TV15VTTXv0isUeLw2G2k9GvvjbaL(v(jbbObejjOqWjkdYmOjiO9fS7wW3s27SpjD16nSjj1w(P0f35pif4k48wJ1o0y9gW8BwF8h17B9m(3W7Z7C)B7e)"
-    },
-    {
-        name: "Smite DPS Holy Precision & Power in Light Procs",
-        spec: "Discipline",
-        desc: "Alerts when Power in Light proc windows and Holy Precision multipliers trigger for Discipline Smite builds.",
-        string: "!WA:2!2v1sVTTXv8isUuKO2G2O2vffGjba(v0vbbObejjOqWjkdYmOjiO9fS7wW3s27SpjD16nSjj1w(P0f35pif4k48wJ1o0y9gW8BwF8h17B9m(3W7Z7C)B7e)"
-    },
-
-    // --- HOLY WEAKAURAS ---
-    {
-        name: "Prayer of Mending Jump & Stack Tracker",
-        spec: "Holy",
-        desc: "Tracks active Prayer of Mending charges, current target, and remaining jump durations across party/raid frames.",
-        string: "!WA:2!3v1sVTTXv8isUuKO2G2O2vffGjba(v0vbbObejjOqWjkdYmOjiO9fS7wW3s27SpjD16nSjj1w(P0f35pif4k48wJ1o0y9gW8BwF8h17B9m(3W7Z7C)B7e)"
-    },
-    {
-        name: "Litany of Light Mana Recovery Alert",
-        spec: "Holy",
-        desc: "Monitors Litany of Light stacks and signals when to vary healing spell casts for maximum mana recovery.",
-        string: "!WA:2!4v1sVTTXv8isUuKO2G2O2vffGjba(v0vbbObejjOqWjkdYmOjiO9fS7wW3s27SpjD16nSjj1w(P0f35pif4k48wJ1o0y9gW8BwF8h17B9m(3W7Z7C)B7e)"
-    },
-
-    // --- SHADOW WEAKAURAS ---
-    {
-        name: "Shadow Priest Multi-DoT & Shadowform Bar",
-        spec: "Shadow",
-        desc: "Monitors remaining durations of Shadow Word: Pain and Devouring Plague alongside Shadowform crit bonuses.",
-        string: "!WA:2!5v1sVTTXv8isUuKO2G2O2vffGjba(v0vbbObejjOqWjkdYmOjiO9fS7wW3s27SpjD16nSjj1w(P0f35pif4k48wJ1o0y9gW8BwF8h17B9m(3W7Z7C)B7e)"
-    },
-    {
-        name: "Shadow Word: Death Execute Threshold Alert",
-        spec: "Shadow",
-        desc: "Flashes an icon and plays an audio cue when your target drops into Shadow Word: Death execute range.",
-        string: "!WA:2!6v1sVTTXv8isUuKO2G2O2vffGjba(v0vbbObejjOqWjkdYmOjiO9fS7wW3s27SpjD16nSjj1w(P0f35pif4k48wJ1o0y9gW8BwF8h17B9m(3W7Z7C)B7e)"
-    },
-
-    // --- RACIAL WEAKAURAS ---
-    {
-        name: "Priest Racial Cooldown & Active Buff Tracker",
-        spec: "All Specs",
-        desc: "Tracks cooldowns and active states for priest racials including Dark Sacrifice, Divine Grace, Contingency Plan, and Starshards.",
-        string: "!WA:2!7v1sVTTXv8isUuKO2G2O2vffGjba(v0vbbObejjOqWjkdYmOjiO9fS7wW3s27SpjD16nSjj1w(P0f35pif4k48wJ1o0y9gW8BwF8h17B9m(3W7Z7C)B7e)"
-    }
-];
+            { name: "Power Word: Shield & Weakened Soul Tracker", spec: "All Specs", desc: "Monitors active Power Word: Shield absorption along with Weakened Soul debuff timers across friendly target and party frames.", string: "!WA:2!1v1sVTTXv8isUuKO2G2O2vffGjba(v0vbbObejjOqWjkdYmOjiO9fS7wW3s27SpjD16nSjj1w(P0f35pif4k48wJ1o0y9gW8BwF8h17B9m(3W7Z7C)B7e)" },
+            { name: "Five-Second Rule Mana Regen Bar", spec: "All Specs", desc: "Displays the 5-second rule mana tick timer to help you time hard casts and maximize passive Spirit regeneration.", string: "!WA:2!n1v7VTTXv4isUuLO2G2O2vffGjba(v0vbbObejjOqWjkdYmOjiO9fS7wW3s27SpjD16nSjj1w(P0f35pif4k48wJ1o0y9gW8BwF8h17B9m(3W7Z7C)B7e)" },
+            { name: "Power Infusion & Inner Focus Cooldown Tracker", spec: "Discipline", desc: "Tracks active cooldown durations and remaining buff timers for Power Infusion and Inner Focus.", string: "!WA:2!TV15VTTXv0isUeLw2G2k9GvvjbaL(v(jbbObejjOqWjkdYmOjiO9fS7wW3s27SpjD16nSjj1w(P0f35pif4k48wJ1o0y9gW8BwF8h17B9m(3W7Z7C)B7e)" },
+            { name: "Smite DPS Holy Precision & Power in Light Procs", spec: "Discipline", desc: "Alerts when Power in Light proc windows and Holy Precision multipliers trigger for Discipline Smite builds.", string: "!WA:2!2v1sVTTXv8isUuKO2G2O2vffGjba(v0vbbObejjOqWjkdYmOjiO9fS7wW3s27SpjD16nSjj1w(P0f35pif4k48wJ1o0y9gW8BwF8h17B9m(3W7Z7C)B7e)" },
+            { name: "Prayer of Mending Jump & Stack Tracker", spec: "Holy", desc: "Tracks active Prayer of Mending charges, current target, and remaining jump durations across party/raid frames.", string: "!WA:2!3v1sVTTXv8isUuKO2G2O2vffGjba(v0vbbObejjOqWjkdYmOjiO9fS7wW3s27SpjD16nSjj1w(P0f35pif4k48wJ1o0y9gW8BwF8h17B9m(3W7Z7C)B7e)" },
+            { name: "Litany of Light Mana Recovery Alert", spec: "Holy", desc: "Monitors Litany of Light stacks and signals when to vary healing spell casts for maximum mana recovery.", string: "!WA:2!4v1sVTTXv8isUuKO2G2O2vffGjba(v0vbbObejjOqWjkdYmOjiO9fS7wW3s27SpjD16nSjj1w(P0f35pif4k48wJ1o0y9gW8BwF8h17B9m(3W7Z7C)B7e)" },
+            { name: "Shadow Priest Multi-DoT & Shadowform Bar", spec: "Shadow", desc: "Monitors remaining durations of Shadow Word: Pain and Devouring Plague alongside Shadowform crit bonuses.", string: "!WA:2!5v1sVTTXv8isUuKO2G2O2vffGjba(v0vbbObejjOqWjkdYmOjiO9fS7wW3s27SpjD16nSjj1w(P0f35pif4k48wJ1o0y9gW8BwF8h17B9m(3W7Z7C)B7e)" },
+            { name: "Shadow Word: Death Execute Threshold Alert", spec: "Shadow", desc: "Flashes an icon and plays an audio cue when your target drops into Shadow Word: Death execute range.", string: "!WA:2!6v1sVTTXv8isUuKO2G2O2vffGjba(v0vbbObejjOqWjkdYmOjiO9fS7wW3s27SpjD16nSjj1w(P0f35pif4k48wJ1o0y9gW8BwF8h17B9m(3W7Z7C)B7e)" },
+            { name: "Priest Racial Cooldown & Active Buff Tracker", spec: "All Specs", desc: "Tracks cooldowns and active states for priest racials including Dark Sacrifice, Divine Grace, Contingency Plan, and Starshards.", string: "!WA:2!7v1sVTTXv8isUuKO2G2O2vffGjba(v0vbbObejjOqWjkdYmOjiO9fS7wW3s27SpjD16nSjj1w(P0f35pif4k48wJ1o0y9gW8BwF8h17B9m(3W7Z7C)B7e)" }
+        ];
 
         const races = [
-             {
-                name: "Human",
-                faction: "Alliance",
-                racial: "Perception, The Human Spirit, Ruthless, and the Human Spirit",
-                priestRacial: `<br><br><strong>Divine Grace:</strong> Instantly heals a friendly target below 50% Health for [220 to 257] and removes Weakened Soul from that target. Cannot be cast on self.<br><br><strong>Feedback:</strong> The priest becomes surrounded with anti-magic energy. Any successful spell cast against the priest will burn [18] of the attacker’s Mana, causing 1 Shadow damage for each point of Mana burned. Lasts 15 sec.`,
-                desc: "Will to Survive breaks control, Perception spots stealth, Ruthless boosts throughput, The Human Spirit increases spirit, Divine Grace heals low-health allies, and Feedback burns enemy mana."
-             },
-             {
-                name: "Dwarf",
-                faction: "Alliance",
-                racial: "Stoneform, Find Treasure, Earth Fury, and Big Game Hunter",
-                priestRacial: `<br><br><strong>Chastise:</strong> Chastise the target, causing [50 to 57] Holy damage and Immobilizing them for up to 2 sec. Only works against Humanoids. This spell causes very low threat. <br><br><strong>Desperate Prayer:</strong> Instantly heals the caster for [220 to 257].`,
-                desc: "Stoneform cleanses debuffs, Find Treasure tracks loot, Earth Fury boosts throughput, Big Game Hunter boosts DPS, Chastise roots humanoids, and Desperate Prayer self-heals."
-             },
-             {
-                name: "Night Elf",
-                faction: "Alliance",
-                racial: "Elune's Light, Shadowmeld, Quickness, and Wisp Spirit",
-                priestRacial: `<br><br><strong>Elune’s Grace:</strong> Reduces the chance you’ll be hit by melee and ranged attacks by 50% for 15 sec or until you are missed 3 times. <br><br><strong>Starshards:</strong> Rains starshards down on the enemy target’s head, causing [216] Arcane damage over 6 sec. `,
-                desc: "Elune's Light aids burst, Shadowmeld drops aggro, Quickness boosts dodge, Wisp Spirit speeds resurrects, Elune's Grace reduces incoming hits, and Starshards deals Arcane damage."
-            },
-            {
-                name: "Gnome",
-                faction: "Alliance",
-                racial: "Escape Artist, Eureka!, Expansive Mind, and Engineering Specialization",
-                priestRacial: `<br><br><strong>Confounding Flash:</strong> Confuses up to 5 enemies within 8 yds for 3 sec. Any damage taken will break the effect. <br><br><strong>Contingency Plan:</strong> Place a Holy ward on an ally for 15 sec. The next time this ally takes damage dropping their Health below 35%, they will gain a shield absorbing [155] damage and begin healing for [300] Health over 15 sec. A target may be affected by only one Contingency Plan. `,
-                desc: "Escape Artist breaks roots, Eureka! fuels burst, Expansive Mind increases mana, Engineering Specialization improves crafting, Confounding Flash confuses groups, and Contingency Plan shields low-health allies."
-            },
-            {
-                name: "Undead",
-                faction: "Horde",
-                racial: "Will of the Forsaken, Cannibalize, Underwater Breathing, and Touch of the Grave",
-                priestRacial: `<br><br><strong>Dark Sacrifice:</strong> Cannibalize [532] of your own Health over 15 sec to gain [440] Mana. <br><br><strong>Touch of Weakness:</strong> The next melee attack against the caster will cause [20] Shadow damage and reduce the attacker’s melee attack power by 43 for 2 min. `,
-                desc: "Will of the Forsaken breaks control, Cannibalize eats corpses, Underwater Breathing extends submersions, Touch of the Grave drains health, Dark Sacrifice converts health into mana, and Touch of Weakness weakens melee attackers."
-            },
-            {
-                name: "Troll",
-                faction: "Horde",
-                racial: "Berserking, Rapid Regeneration, Beast Slaying, and Regeneration",
-                priestRacial: `<br><br><strong>Hex of Weakness:</strong> Weakens the target enemy, reducing melee attack power by [43] and reducing the effectiveness of any healing by 20%. Lasts 2 min. <br><br><strong>Shadowguard:</strong> The caster is surrounded by shadows. When a spell, melee or ranged attack hits the caster, the attacker will be struck for [34] Shadow damage. Attackers can only be damaged once every few seconds. This damage causes no threat. 3 charges. Lasts 10 min. `,
-                desc: "Berserking boosts haste, Rapid Regeneration aids recovery, Beast Slaying boosts beast damage, Regeneration heals passively, Hex of Weakness reduces enemy power/healing, and Shadowguard counters attackers."
-            }
+             { name: "Human", faction: "Alliance", racial: "Perception, The Human Spirit, Ruthless, and the Human Spirit", priestRacial: `<br><br><strong>Divine Grace:</strong> Instantly heals a friendly target below 50% Health for [220 to 257] and removes Weakened Soul from that target. Cannot be cast on self.<br><br><strong>Feedback:</strong> The priest becomes surrounded with anti-magic energy. Any successful spell cast against the priest will burn [18] of the attacker’s Mana, causing 1 Shadow damage for each point of Mana burned. Lasts 15 sec.`, desc: "Will to Survive breaks control, Perception spots stealth, Ruthless boosts throughput, The Human Spirit increases spirit, Divine Grace heals low-health allies, and Feedback burns enemy mana." },
+             { name: "Dwarf", faction: "Alliance", racial: "Stoneform, Find Treasure, Earth Fury, and Big Game Hunter", priestRacial: `<br><br><strong>Chastise:</strong> Chastise the target, causing [50 to 57] Holy damage and Immobilizing them for up to 2 sec. Only works against Humanoids. This spell causes very low threat. <br><br><strong>Desperate Prayer:</strong> Instantly heals the caster for [220 to 257].`, desc: "Stoneform cleanses debuffs, Find Treasure tracks loot, Earth Fury boosts throughput, Big Game Hunter boosts DPS, Chastise roots humanoids, and Desperate Prayer self-heals." },
+             { name: "Night Elf", faction: "Alliance", racial: "Elune's Light, Shadowmeld, Quickness, and Wisp Spirit", priestRacial: `<br><br><strong>Elune’s Grace:</strong> Reduces the chance you’ll be hit by melee and ranged attacks by 50% for 15 sec or until you are missed 3 times. <br><br><strong>Starshards:</strong> Rains starshards down on the enemy target’s head, causing [216] Arcane damage over 6 sec. `, desc: "Elune's Light aids burst, Shadowmeld drops aggro, Quickness boosts dodge, Wisp Spirit speeds resurrects, Elune's Grace reduces incoming hits, and Starshards deals Arcane damage." },
+             { name: "Gnome", faction: "Alliance", racial: "Escape Artist, Eureka!, Expansive Mind, and Engineering Specialization", priestRacial: `<br><br><strong>Confounding Flash:</strong> Confuses up to 5 enemies within 8 yds for 3 sec. Any damage taken will break the effect. <br><br><strong>Contingency Plan:</strong> Place a Holy ward on an ally for 15 sec. The next time this ally takes damage dropping their Health below 35%, they will gain a shield absorbing [155] damage and begin healing for [300] Health over 15 sec. A target may be affected by only one Contingency Plan. `, desc: "Escape Artist breaks roots, Eureka! fuels burst, Expansive Mind increases mana, Engineering Specialization improves crafting, Confounding Flash confuses groups, and Contingency Plan shields low-health allies." },
+             { name: "Undead", faction: "Horde", racial: "Will of the Forsaken, Cannibalize, Underwater Breathing, and Touch of the Grave", priestRacial: `<br><br><strong>Dark Sacrifice:</strong> Cannibalize [532] of your own Health over 15 sec to gain [440] Mana. <br><br><strong>Touch of Weakness:</strong> The next melee attack against the caster will cause [20] Shadow damage and reduce the attacker’s melee attack power by 43 for 2 min. `, desc: "Will of the Forsaken breaks control, Cannibalize eats corpses, Underwater Breathing extends submersions, Touch of the Grave drains health, Dark Sacrifice converts health into mana, and Touch of Weakness weakens melee attackers." },
+             { name: "Troll", faction: "Horde", racial: "Berserking, Rapid Regeneration, Beast Slaying, and Regeneration", priestRacial: `<br><br><strong>Hex of Weakness:</strong> Weakens the target enemy, reducing melee attack power by [43] and reducing the effectiveness of any healing by 20%. Lasts 2 min. <br><br><strong>Shadowguard:</strong> The caster is surrounded by shadows. When a spell, melee or ranged attack hits the caster, the attacker will be struck for [34] Shadow damage. Attackers can only be damaged once every few seconds. This damage causes no threat. 3 charges. Lasts 10 min. `, desc: "Berserking boosts haste, Rapid Regeneration aids recovery, Beast Slaying boosts beast damage, Regeneration heals passively, Hex of Weakness reduces enemy power/healing, and Shadowguard counters attackers." }
          ];
 
         const specGuides = [
-    {
-        id: "disc",
-        name: "Discipline Priest",
-        tagline: "S-Tier Utility & DPS Hybrid",
-        icon: "Discipline.png",
-        statPriority: "Spell Power / Holy Power > Hit Chance > Intellect > Critical Strike",
-        description: "Discipline mitigates damage proactively using Power Word: Shield, empowers allies with Power Infusion, and unlocks a viable Smite DPS hybrid playstyle via talents like Power in Light and Holy Precision.",
-        dungeonBuild: "https://foreverpriests.com/calc?build=31-20-0",
-        raidBuild: "https://foreverpriests.com/calc?build=28-23-0",
-        pvpBuild: "https://foreverpriests.com/calc?build=36-15-0"
-    },
-    {
-        id: "holy",
-        name: "Holy Priest",
-        tagline: "S-Tier Raid Healing",
-        icon: "Holy.png",
-        statPriority: "Healing Power > Intellect > MP5 > Spirit > Critical Strike",
-        description: "Holy remains the ultimate backline support pillar, balancing heavy throughput output with sustained mana management across long encounters using Prayer of Mending and Litany of Light.",
-        dungeonBuild: "https://foreverpriests.com/calc?build=14-37-0",
-        raidBuild: "https://foreverpriests.com/calc?build=11-40-0",
-        pvpBuild: "https://foreverpriests.com/calc?build=21-30-0"
-    },
-    {
-        id: "shadow",
-        name: "Shadow Priest",
-        tagline: "S-Tier Ranged Burst & Utility",
-        icon: "Shadow.png",
-        statPriority: "Spell Power / Shadow Power > Hit Chance > Intellect > Critical Strike",
-        description: "Shadow is a highly offensive caster spec centered on maintaining high uptime, managing shadow dots, and maximizing burst windows powered by a revamped Shadowform and Improved Mind Flay.",
-        dungeonBuild: "https://foreverpriests.com/calc?build=0-13-38",
-        raidBuild: "https://foreverpriests.com/calc?build=0-7-44",
-        pvpBuild: "https://foreverpriests.com/calc?build=15-0-36"
-    }
-];
+            { id: "disc", name: "Discipline Priest", tagline: "S-Tier Utility & DPS Hybrid", icon: "Discipline.png", statPriority: "Spell Power / Holy Power > Hit Chance > Intellect > Critical Strike", description: "Discipline mitigates damage proactively using Power Word: Shield, empowers allies with Power Infusion, and unlocks a viable Smite DPS hybrid playstyle via talents like Power in Light and Holy Precision.", dungeonBuild: "https://foreverpriests.com/calc?build=31-20-0", raidBuild: "https://foreverpriests.com/calc?build=28-23-0", pvpBuild: "https://foreverpriests.com/calc?build=36-15-0" },
+            { id: "holy", name: "Holy Priest", tagline: "S-Tier Raid Healing", icon: "Holy.png", statPriority: "Healing Power > Intellect > MP5 > Spirit > Critical Strike", description: "Holy remains the ultimate backline support pillar, balancing heavy throughput output with sustained mana management across long encounters using Prayer of Mending and Litany of Light.", dungeonBuild: "https://foreverpriests.com/calc?build=14-37-0", raidBuild: "https://foreverpriests.com/calc?build=11-40-0", pvpBuild: "https://foreverpriests.com/calc?build=21-30-0" },
+            { id: "shadow", name: "Shadow Priest", tagline: "S-Tier Ranged Burst & Utility", icon: "Shadow.png", statPriority: "Spell Power / Shadow Power > Hit Chance > Intellect > Critical Strike", description: "Shadow is a highly offensive caster spec centered on maintaining high uptime, managing shadow dots, and maximizing burst windows powered by a revamped Shadowform and Improved Mind Flay.", dungeonBuild: "https://foreverpriests.com/calc?build=0-13-38", raidBuild: "https://foreverpriests.com/calc?build=0-7-44", pvpBuild: "https://foreverpriests.com/calc?build=15-0-36" }
+        ];
 
         const talents = {
             disc: [
@@ -1579,7 +1666,6 @@
         let pointsSpent = { disc: {}, holy: {}, shadow: {} };
         let totalPoints = 51;
 
-        // Simulator State Variables
         let simTimer = 0;
         let isCastingActive = false;
         let isAutoWandActive = false;
@@ -1634,7 +1720,6 @@
             const activeNav = document.getElementById('nav-' + tabId);
             if(activeNav) activeNav.classList.add('text-wowGold', 'bg-white/5');
 
-            // Updates the URL slug/hash cleanly in the browser address bar
             if (updateHistory) {
                 if (tabId === 'home') {
                     history.pushState(null, null, window.location.pathname);
@@ -1643,7 +1728,6 @@
                 }
             }
 
-            // Automatically close the mobile menu drawer when any tab/link is clicked
             const mobileMenu = document.getElementById('mobile-menu');
             if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
                 mobileMenu.classList.add('hidden');
@@ -1786,34 +1870,34 @@
             }).join('');
         }
 
-function filterSpec(filter) {
-    renderSpecGuides(filter);
+        function filterSpec(filter) {
+            renderSpecGuides(filter);
 
-    document.querySelectorAll('.spec-tab-btn').forEach(btn => {
-        btn.classList.remove('bg-wowGold', 'bg-discOrange', 'bg-holyYellow', 'bg-shadowViolet', 'text-black');
-        btn.classList.add('bg-cardBg', 'border', 'border-cardBorder');
-        
-        if (btn.id.includes('disc')) btn.className += ' text-discOrange hover:border-discOrange';
-        else if (btn.id.includes('holy')) btn.className += ' text-holyYellow hover:border-holyYellow';
-        else if (btn.id.includes('shadow')) btn.className += ' text-shadowViolet hover:border-shadowViolet';
-        else if (btn.id.includes('all')) btn.className += ' text-wowGold hover:border-wowGold';
-    });
+            document.querySelectorAll('.spec-tab-btn').forEach(btn => {
+                btn.classList.remove('bg-wowGold', 'bg-discOrange', 'bg-holyYellow', 'bg-shadowViolet', 'text-black');
+                btn.classList.add('bg-cardBg', 'border', 'border-cardBorder');
+                
+                if (btn.id.includes('disc')) btn.className += ' text-discOrange hover:border-discOrange';
+                else if (btn.id.includes('holy')) btn.className += ' text-holyYellow hover:border-holyYellow';
+                else if (btn.id.includes('shadow')) btn.className += ' text-shadowViolet hover:border-shadowViolet';
+                else if (btn.id.includes('all')) btn.className += ' text-wowGold hover:border-wowGold';
+            });
 
-    const activeBtn = document.getElementById('spec-btn-' + filter);
-    if (activeBtn) {
-        activeBtn.classList.remove('bg-cardBg', 'border', 'border-cardBorder', 'text-discOrange', 'text-holyYellow', 'text-shadowViolet', 'text-wowGold');
-        
-        if (filter === 'all') {
-            activeBtn.classList.add('bg-wowGold', 'text-black');
-        } else if (filter === 'disc') {
-            activeBtn.classList.add('bg-discOrange', 'text-black');
-        } else if (filter === 'holy') {
-            activeBtn.classList.add('bg-holyYellow', 'text-black');
-        } else if (filter === 'shadow') {
-            activeBtn.classList.add('bg-shadowViolet', 'text-black');
+            const activeBtn = document.getElementById('spec-btn-' + filter);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-cardBg', 'border', 'border-cardBorder', 'text-discOrange', 'text-holyYellow', 'text-shadowViolet', 'text-wowGold');
+                
+                if (filter === 'all') {
+                    activeBtn.classList.add('bg-wowGold', 'text-black');
+                } else if (filter === 'disc') {
+                    activeBtn.classList.add('bg-discOrange', 'text-black');
+                } else if (filter === 'holy') {
+                    activeBtn.classList.add('bg-holyYellow', 'text-black');
+                } else if (filter === 'shadow') {
+                    activeBtn.classList.add('bg-shadowViolet', 'text-black');
+                }
+            }
         }
-    }
-}
 
         function renderRaces() {
             const grid = document.getElementById('races-grid');
@@ -1953,7 +2037,6 @@ function filterSpec(filter) {
             renderTalentTrees();
         }
 
-        // --- 5-Second Rule & Wand Simulator Logic ---
         function updateSimStats() {
             const spirit = parseFloat(document.getElementById('sim-spirit').value) || 150;
             const baseRegen = 5 + (spirit / 4);
