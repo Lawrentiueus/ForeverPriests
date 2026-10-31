@@ -389,6 +389,14 @@
           "name": "WeakAuras | Forever Priests",
           "isPartOf": { "@id": "https://foreverpriests.com/#website" },
           "description": "Optimized customized WeakAura strings directory for WoW Forever priests."
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://foreverpriests.com/#supporters",
+          "url": "https://foreverpriests.com/#supporters",
+          "name": "Class Hall Roster & Supporter Wall | Forever Priests",
+          "isPartOf": { "@id": "https://foreverpriests.com/#website" },
+          "description": "Sanctuary Hall of Champions honoring High Priests, Sanctum Council members, and Acolytes backing Forever Priests via Buy Me a Coffee."
         }
       ]
     }
@@ -470,6 +478,9 @@
                 <button onclick="switchTab('weakauras')" id="nav-weakauras" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition hover:text-wowGold hover:bg-white/5">
                     <i class="fa-solid fa-code mr-1.5 text-xs text-holyYellow"></i>WeakAuras
                 </button>
+                <button onclick="switchTab('supporters')" id="nav-supporters" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition hover:text-wowGold hover:bg-white/5">
+    <i class="fa-solid fa-scroll mr-1.5 text-xs text-wowGold"></i>Supporter Roster
+                </button>
             </nav>
 
             <!-- Action CTA Buttons -->
@@ -502,6 +513,7 @@
         <button onclick="switchTab('wand')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">5SR & Wand Simulator</button>
         <button onclick="switchTab('macros')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Macro Vault</button>
         <button onclick="switchTab('weakauras')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">WeakAuras</button>
+        <button onclick="switchTab('supporters')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Supporter   Roster</button>
         
         <div class="pt-4 border-t border-cardBorder flex flex-col gap-2">
             <a href="https://streamelements.com/lawrentiueus/tip" target="_blank" class="w-full text-center py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider bg-wowGold text-black">
@@ -752,7 +764,7 @@
         </section>
 
 
-        <!-- ================= TAB 2: SPEC GUIDES & BUILDS ================= -->
+        <!-- ================= TAB: SPEC GUIDES & BUILDS ================= -->
         <section id="tab-specs" class="tab-content hidden space-y-8">
             <div class="border-b border-cardBorder pb-6">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-wowGold/10 border border-wowGold/30 text-wowGold text-xs font-bold uppercase tracking-wider mb-2">
@@ -773,7 +785,7 @@
         </section>
 
 
-        <!-- ================= TAB 3: RACES & RACIALS ================= -->
+        <!-- ================= TAB: RACES & RACIALS ================= -->
         <section id="tab-races" class="tab-content hidden space-y-8">
             <div class="border-b border-cardBorder pb-6">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-voidPurple/20 border border-voidPurple/40 text-voidPurple text-xs font-bold uppercase tracking-wider mb-2">
@@ -787,7 +799,7 @@
         </section>
 
 
-        <!-- ================= TAB 4: PROFESSIONS & WEAPONS ================= -->
+        <!-- ================= TAB: PROFESSIONS & WEAPONS ================= -->
         <section id="tab-professions" class="tab-content hidden space-y-8">
             <div class="border-b border-cardBorder pb-6">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-wowGold/10 border border-wowGold/30 text-wowGold text-xs font-bold uppercase tracking-wider mb-2">
@@ -907,7 +919,7 @@
         </section>
 
 
-        <!-- ================= TAB 10: LEVELING & SPELLS ================= -->
+        <!-- ================= TAB: Spells & Mana Cost ================= -->
 <section id="tab-spells" class="tab-content hidden space-y-10">
     <!-- Header Banner -->
     <div class="border-b border-cardBorder pb-6">
@@ -1075,7 +1087,7 @@
     </div>
 </section>
 
-        <!-- ================= TAB 5: STRENGTHS & WEAKNESSES ================= -->
+        <!-- ================= TAB: STRENGTHS & WEAKNESSES ================= -->
         <section id="tab-analysis" class="tab-content hidden space-y-8">
             <div class="border-b border-cardBorder pb-6">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-wowGold/10 border border-wowGold/30 text-wowGold text-xs font-bold uppercase tracking-wider mb-2">
@@ -1167,7 +1179,7 @@
         </section>
 
 
-        <!-- ================= TAB 6: TALENT CALCULATOR ================= -->
+        <!-- ================= TAB: TALENT CALCULATOR ================= -->
         <section id="tab-calculator" class="tab-content hidden space-y-8">
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-cardBorder pb-6">
                 <div>
@@ -1285,7 +1297,7 @@
         </section>
 
 
-        <!-- ================= TAB 7: 5-SECOND RULE SIMULATOR ================= -->
+        <!-- ================= TAB: 5-SECOND RULE SIMULATOR ================= -->
         <section id="tab-wand" class="tab-content hidden space-y-8">
             <div class="border-b border-cardBorder pb-6">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-holyYellow/10 border border-holyYellow/30 text-holyYellow text-xs font-bold uppercase tracking-wider mb-2">
@@ -1402,7 +1414,7 @@
         </section>
 
 
-        <!-- ================= TAB 8: MACRO VAULT ================= -->
+        <!-- ================= TAB: MACRO VAULT ================= -->
         <section id="tab-macros" class="tab-content hidden space-y-8">
             <div class="border-b border-cardBorder pb-6">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-voidPurple/20 border border-voidPurple/40 text-voidPurple text-xs font-bold uppercase tracking-wider mb-2">
@@ -1416,7 +1428,7 @@
         </section>
 
 
-        <!-- ================= TAB 9: WEAKAURAS ================= -->
+        <!-- ================= TAB: WEAKAURAS ================= -->
         <section id="tab-weakauras" class="tab-content hidden space-y-8">
             <div class="border-b border-cardBorder pb-6">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-holyYellow/10 border border-holyYellow/30 text-holyYellow text-xs font-bold uppercase tracking-wider mb-2">
@@ -1428,6 +1440,102 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="weakauras-container"></div>
         </section>
+
+ <!-- ================= TAB: SUPPORTER ROSTER ================= -->
+<section id="tab-supporters" class="tab-content hidden space-y-8">
+    <div class="border-b border-cardBorder pb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-wowGold/10 border border-wowGold/30 text-wowGold text-xs font-bold uppercase tracking-wider mb-2">
+                <i class="fa-solid fa-scroll"></i> Sanctuary Hall of Champions
+            </div>
+            <h1 class="font-header text-3xl sm:text-4xl font-extrabold text-white">Class Hall Roster</h1>
+            <p class="text-gray-400 text-sm mt-1">Honoring the High Priests, Sanctum Council members, and Acolytes supporting the hub via Buy Me a Coffee[cite: 2].</p>
+        </div>
+        <a href="https://buymeacoffee.com/lawrentiueus" target="_blank" class="px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-wowGold text-black hover:bg-white transition shadow-lg flex items-center gap-2 shrink-0">
+            <i class="fa-solid fa-heart text-red-700"></i> Join the Roster
+        </a>
+    </div>
+
+    <!-- Roster Grid Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- High Priests Roster (Tier 3) -->
+        <div class="bg-cardBg border border-wowGold/40 rounded-2xl overflow-hidden shadow-xl">
+            <div class="bg-darkBg border-b border-cardBorder px-6 py-4 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-wowGold/10 border border-wowGold/30 text-wowGold flex items-center justify-center">
+                        <i class="fa-solid fa-crown text-sm"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-header font-bold text-white text-base">High Priests</h3>
+                        <span class="text-[10px] text-wowGold font-mono">$25 / Month Tier[cite: 2]</span>
+                    </div>
+                </div>
+                <span class="px-2 py-0.5 rounded bg-wowGold/20 text-wowGold font-mono text-xs font-bold">VIP</span>
+            </div>
+            <div class="p-6 space-y-3">
+                <p class="text-xs text-gray-400 mb-4">Core sanctuary patrons funding permanent high-tier site infrastructure and live theorycrafting[cite: 2].</p>
+                <div class="space-y-2 font-mono text-xs">
+                    <div class="flex items-center justify-between bg-darkBg px-3 py-2.5 rounded-xl border border-cardBorder">
+                        <span class="text-white font-bold"><i class="fa-solid fa-shield-halved text-wowGold mr-2"></i> [Supporter Name]</span>
+                        <span class="text-[10px] text-wowGold">Founder</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sanctum Council Roster (Tier 2) -->
+        <div class="bg-cardBg border border-voidPurple/40 rounded-2xl overflow-hidden shadow-xl">
+            <div class="bg-darkBg border-b border-cardBorder px-6 py-4 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-voidPurple/20 border border-voidPurple/40 text-voidPurple flex items-center justify-center">
+                        <i class="fa-solid fa-users-gear text-sm"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-header font-bold text-white text-base">Sanctum Council</h3>
+                        <span class="text-[10px] text-voidPurple font-mono">$15 / Month Tier[cite: 2]</span>
+                    </div>
+                </div>
+                <span class="px-2 py-0.5 rounded bg-voidPurple/20 text-voidPurple font-mono text-xs font-bold">Council</span>
+            </div>
+            <div class="p-6 space-y-3">
+                <p class="text-xs text-gray-400 mb-4">Direct backing for new web tool development, WeakAura suites, and macro vault updates[cite: 2].</p>
+                <div class="space-y-2 font-mono text-xs">
+                    <div class="flex items-center justify-between bg-darkBg px-3 py-2.5 rounded-xl border border-cardBorder">
+                        <span class="text-slate-200"><i class="fa-solid fa-star text-voidPurple mr-2"></i> [Supporter Name]</span>
+                        <span class="text-[10px] text-gray-400">Backer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Acolytes Roster (Tier 1) -->
+        <div class="bg-cardBg border border-cardBorder rounded-2xl overflow-hidden shadow-xl">
+            <div class="bg-darkBg border-b border-cardBorder px-6 py-4 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-cardBorder text-gray-400 flex items-center justify-center">
+                        <i class="fa-solid fa-fire-flame-curved text-sm"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-header font-bold text-white text-base">Acolytes</h3>
+                        <span class="text-[10px] text-gray-400 font-mono">$5 / Month Tier[cite: 2]</span>
+                    </div>
+                </div>
+                <span class="px-2 py-0.5 rounded bg-cardBorder text-gray-300 font-mono text-xs font-bold">Member</span>
+            </div>
+            <div class="p-6 space-y-3">
+                <p class="text-xs text-gray-400 mb-4">Helps keep the site 100% ad-free & covers monthly server host fees[cite: 2].</p>
+                <div class="space-y-2 font-mono text-xs">
+                    <div class="flex items-center justify-between bg-darkBg px-3 py-2.5 rounded-xl border border-cardBorder">
+                        <span class="text-gray-300"><i class="fa-solid fa-circle text-[6px] text-gray-500 mr-2"></i> [Supporter Name]</span>
+                        <span class="text-[10px] text-gray-500">Acolyte</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
 
         <!-- Newsletter Section -->
         <div class="mt-16 bg-gradient-to-r from-cardBg via-cardBorder to-cardBg border border-wowGold/20 rounded-3xl p-8 text-center space-y-4">
@@ -1786,8 +1894,40 @@
             document.getElementById('modal-content').innerHTML = art.content || `<p>${art.summary}</p>`;
             document.getElementById('article-modal').classList.remove('hidden');
             document.getElementById('article-modal').classList.add('flex');
-        }
+        
+// --- DYNAMIC SCHEMA INJECTION ---
+    let existingSchema = document.getElementById('dynamic-article-schema');
+    if (existingSchema) {
+        existingSchema.remove();
+    }
 
+const schemaData = {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": art.title,
+        "image": art.imageUrl ? [art.imageUrl] : ["https://foreverpriests.com/ForeverPriestsFav.png"],
+        "datePublished": art.date,
+        "author": {
+            "@type": "Person",
+            "name": art.author || "Lawrentiueus"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Forever Priests",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://foreverpriests.com/ForeverPriestsFav.png"
+            }
+        },
+        "description": art.summary
+    };
+
+    const scriptTag = document.createElement('script');
+    scriptTag.type = 'application/ld+json';
+    scriptTag.id = 'dynamic-article-schema';
+    scriptTag.text = JSON.stringify(schemaData);
+    document.head.appendChild(scriptTag);
+}
         function closeArticleModal() {
             document.getElementById('article-modal').classList.remove('flex');
             document.getElementById('article-modal').classList.add('hidden');
