@@ -464,6 +464,9 @@
                 <button onclick="switchTab('spells')" id="nav-spells" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition hover:text-wowGold hover:bg-white/5">
     <i class="fa-solid fa-book-bookmark mr-1.5 text-xs text-wowGold"></i>Spells & Mana Cost
                 </button>
+                <button onclick="switchTab('wands')" id="nav-wands" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition hover:text-wowGold hover:bg-white/5">
+    <i class="fa-solid fa-wand-magic-sparkles mr-1.5 text-xs text-holyYellow"></i>Wands
+                </button>
                 <button onclick="switchTab('analysis')" id="nav-analysis" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition hover:text-wowGold hover:bg-white/5">
                     <i class="fa-solid fa-scale-balanced mr-1.5 text-xs text-wowGold"></i>Analysis
                 </button>
@@ -509,7 +512,8 @@
         <button onclick="switchTab('races')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Races & Priest Racials</button>
         <button onclick="switchTab('professions')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Professions & Weapons</button>
         <button onclick="switchTab('spells')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Spells & Mana Cost</button>
-        <button onclick="switchTab('analysis')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Strengths & Weaknesses</button>
+        <button onclick="switchTab('wands')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Wands</button>
+        <button onclick="switchTab('analysis')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Analysis</button>
         <button onclick="switchTab('calculator')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Interactive Talent Calculator</button>
         <button onclick="switchTab('wand')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">5SR & Wand Simulator</button>
         <button onclick="switchTab('macros')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Macro Vault</button>
@@ -757,7 +761,7 @@
                         <i class="fa-brands fa-discord text-base"></i> Join Discord Server
                     </a>
                     <a href="https://buymeacoffee.com/lawrentiueus" target="_blank" class="px-6 py-3.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-wowGold hover:bg-white text-black transition text-center shadow-lg flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-heart text-red-700 text-base"></i> Become a Member
+                        <i class="fa-solid fa-heart text-red-700 text-base"></i> Buy Me a Coffee
                     </a>
                 </div>
             </div>
@@ -1085,6 +1089,136 @@
                 <p class="text-[10px] text-gray-400 border-t border-cardBorder pt-2 mt-1">*Shadowform also reduces mana cost on Shadow spells by 50%.</p>
             </div>
         </div>
+    </div>
+</section>
+
+<!-- ================= TAB: WANDS ================= -->
+<section id="tab-wands" class="tab-content hidden space-y-8">
+    <!-- Header & Dynamic Launch Disclaimer -->
+    <div class="border-b border-cardBorder pb-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-holyYellow/10 border border-holyYellow/30 text-holyYellow text-xs font-bold uppercase tracking-wider mb-2">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Essential Priest Mechanics
+        </div>
+        <h1 class="font-header text-3xl sm:text-4xl font-extrabold text-white">Wands: The Priest Leveling &amp; Mana Economy Engine</h1>
+        <p class="text-gray-400 text-sm mt-2 italic">
+            Wand stats, quest rewards, and locations reflect currently available launch data and are subject to change as new discoverable content and quests are uncovered.
+        </p>
+    </div>
+
+    <!-- 1. Why Wands Matter & The 5SR Synergy -->
+    <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 sm:p-8 space-y-4 shadow-lg">
+        <h2 class="font-header text-2xl font-bold text-wowGold border-b border-cardBorder pb-3">
+            Why Wands Drive Your Mana Economy
+        </h2>
+        <p class="text-gray-300 text-sm leading-relaxed">
+            For leveling a Priest, wands are your primary engine for zero-downtime pulling. Passive mana regeneration pauses the instant a mana-spending spell completes and remains locked out for 5 seconds (the 5-Second Rule). Because wand auto-attacks cost 0 mana, weaving your wand at the tail end of combat allows that 5-second lockout to expire mid-fight while you deal continuous ranged damage.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div class="bg-darkBg p-4 rounded-xl border border-cardBorder text-xs text-gray-300 space-y-1">
+                <strong class="text-holyYellow font-header text-sm block">The 5-Second Rule (5SR)</strong>
+                Natural mana regen is suppressed while casting and for 5 seconds following any mana expenditure. Wanding lets this clock run down to zero while maintaining damage output.
+            </div>
+            <div class="bg-darkBg p-4 rounded-xl border border-cardBorder text-xs text-gray-300 space-y-1">
+                <strong class="text-shadowViolet font-header text-sm block">Zero-Mana Damage</strong>
+                Wand auto-attacks act as ranged physical/elemental strikes without incurring GCD or mana costs, keeping your character constantly active while your mana pool refills.
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. The Un-Toggleable Wand Macro -->
+    <div class="bg-cardBg border border-voidPurple/40 rounded-2xl p-6 sm:p-8 space-y-4 shadow-lg">
+        <div class="flex items-center justify-between border-b border-cardBorder pb-3">
+            <h2 class="font-header text-2xl font-bold text-white">
+                GCD Optimization: The Un-Toggleable Wand Macro
+            </h2>
+            <span class="text-xs bg-voidPurple/20 text-voidPurple font-bold px-2.5 py-1 rounded-full uppercase">Macro Vault Snippet</span>
+        </div>
+        <p class="text-gray-300 text-sm leading-relaxed">
+            The default <code class="text-wowGold">Shoot</code> icon acts as an auto-attack toggle—spamming it turns wanding on and immediately cancels it. Use this macro to force the game engine to execute wanding on the exact microsecond your Global Cooldown (GCD) expires without accidental cancellations:
+        </p>
+        <div class="bg-darkBg border border-cardBorder rounded-xl p-4 space-y-3">
+            <pre class="font-mono text-xs text-wowGold overflow-x-auto">#showtooltip Shoot
+/castsequence !Shoot, null</pre>
+            <div class="flex justify-between items-center pt-2 border-t border-cardBorder/50 text-xs text-gray-400">
+                <span>Queue this key ~0.2s before your spell cast or GCD ends for maximum responsiveness.</span>
+                <button onclick="copyString('#showtooltip Shoot\n/castsequence !Shoot, null')" class="px-3 py-1 rounded bg-wowGold text-black font-bold text-[10px] hover:bg-white transition">Copy Macro</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Wand Progression Roadmap Table -->
+    <div class="space-y-4">
+        <h2 class="font-header text-2xl font-bold text-white border-b border-cardBorder pb-2">
+            Leveling Wand Progression Roadmap
+        </h2>
+        <div class="overflow-x-auto rounded-2xl border border-cardBorder bg-cardBg shadow-lg">
+            <table class="w-full text-left border-collapse text-xs">
+                <thead>
+                    <tr class="bg-darkBg border-b border-cardBorder text-wowGold font-header uppercase tracking-wider">
+                        <th class="p-3.5">Level Tier</th>
+                        <th class="p-3.5">Wand Name</th>
+                        <th class="p-3.5">Base DPS</th>
+                        <th class="p-3.5">Source / Method</th>
+                        <th class="p-3.5">Key Notes</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-cardBorder text-gray-300 font-mono">
+                    <tr class="hover:bg-white/5 transition">
+                        <td class="p-3.5 text-wowGold font-bold">Lvl 5</td>
+                        <td class="p-3.5 font-bold text-white font-sans">Lesser Magic Wand</td>
+                        <td class="p-3.5">11.3</td>
+                        <td class="p-3.5 font-sans">Enchanting / Auction House</td>
+                        <td class="p-3.5 font-sans">First huge power spike. Buy or craft immediately at level 5.</td>
+                    </tr>
+                    <tr class="hover:bg-white/5 transition">
+                        <td class="p-3.5 text-wowGold font-bold">Lvl 13</td>
+                        <td class="p-3.5 font-bold text-white font-sans">Greater Magic Wand</td>
+                        <td class="p-3.5">17.5</td>
+                        <td class="p-3.5 font-sans">Enchanting / Auction House</td>
+                        <td class="p-3.5 font-sans">Doubles starter wand damage output.</td>
+                    </tr>
+                    <tr class="hover:bg-white/5 transition">
+                        <td class="p-3.5 text-wowGold font-bold">Lvl 18–27</td>
+                        <td class="p-3.5 font-bold text-holyYellow font-sans">Gravestone Scepter</td>
+                        <td class="p-3.5 text-holyYellow font-bold">29.0</td>
+                        <td class="p-3.5 font-sans">Quest: <em>Blackfathom Villainy</em> (BFD)</td>
+                        <td class="p-3.5 font-sans"><strong>Best early wand.</strong> Outperforms almost all alternatives until level 35+.</td>
+                    </tr>
+                    <tr class="hover:bg-white/5 transition">
+                        <td class="p-3.5 text-wowGold font-bold">Lvl 30–40</td>
+                        <td class="p-3.5 font-bold text-white font-sans">Rod of Sorrow / Burning Sliver</td>
+                        <td class="p-3.5">31.8 – 32.7</td>
+                        <td class="p-3.5 font-sans">Quests: Arathi / Alterac Mountains</td>
+                        <td class="p-3.5 font-sans">Reliable mid-game quest rewards.</td>
+                    </tr>
+                    <tr class="hover:bg-white/5 transition">
+                        <td class="p-3.5 text-wowGold font-bold">Lvl 41</td>
+                        <td class="p-3.5 font-bold text-white font-sans">Blackbone Wand</td>
+                        <td class="p-3.5">35.3</td>
+                        <td class="p-3.5 font-sans">Capital City Wand Vendors</td>
+                        <td class="p-3.5 font-sans">Purchasable directly for gold in Stormwind/Orgrimmar.</td>
+                    </tr>
+                    <tr class="hover:bg-white/5 transition">
+                        <td class="p-3.5 text-wowGold font-bold">Lvl 54+</td>
+                        <td class="p-3.5 font-bold text-white font-sans">Smokey's Fireshooter</td>
+                        <td class="p-3.5">53.2</td>
+                        <td class="p-3.5 font-sans">Quest: <em>When Smokey Sings, I Get Violent</em> (EPL)</td>
+                        <td class="p-3.5 font-sans">Top-tier quest wand heading into end-game pre-raid gearing.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 4. Addon CTA / Cross-Promotion Banner -->
+    <div class="bg-gradient-to-r from-cardBg via-voidPurpleDark/30 to-cardBg border border-voidPurple/40 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-lg">
+        <div class="space-y-1 text-center sm:text-left">
+            <h3 class="font-header text-lg font-bold text-white">Want to automate your wand execution and 5SR timings?</h3>
+            <p class="text-xs text-gray-400">Check out the custom <strong>Spirit Tap Engine</strong> addon featured on our homepage for real-time combat tracking.</p>
+        </div>
+        <button onclick="switchTab('home')" class="px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-wowGold text-black hover:bg-white transition shrink-0 shadow-md">
+            View Addon Hub
+        </button>
     </div>
 </section>
 
@@ -1450,7 +1584,7 @@
                 <i class="fa-solid fa-scroll"></i> Sanctuary Hall of Champions
             </div>
             <h1 class="font-header text-3xl sm:text-4xl font-extrabold text-white">Class Hall Roster</h1>
-            <p class="text-gray-400 text-sm mt-1">Honoring the High Priests, Sanctum Council members, and Acolytes supporting the hub via Buy Me a Coffee.</p>
+            <p class="text-gray-400 text-sm mt-1">Honoring the High Priests, Sanctum Council members, and Acolytes supporting the hub via Buy Me a Coffee[cite: 2].</p>
         </div>
         <a href="https://buymeacoffee.com/lawrentiueus" target="_blank" class="px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-wowGold text-black hover:bg-white transition shadow-lg flex items-center gap-2 shrink-0">
             <i class="fa-solid fa-heart text-red-700"></i> Join the Roster
@@ -1469,7 +1603,7 @@
                     </div>
                     <div>
                         <h3 class="font-header font-bold text-white text-base">High Priests</h3>
-                        <span class="text-[10px] text-wowGold font-mono">$25 / Month Tier[cite: 2]</span>
+                        <span class="text-[10px] text-wowGold font-mono">$25 / Month Tier</span>
                     </div>
                 </div>
                 <span class="px-2 py-0.5 rounded bg-wowGold/20 text-wowGold font-mono text-xs font-bold">VIP</span>
@@ -1494,7 +1628,7 @@
                     </div>
                     <div>
                         <h3 class="font-header font-bold text-white text-base">Sanctum Council</h3>
-                        <span class="text-[10px] text-voidPurple font-mono">$15 / Month Tier[cite: 2]</span>
+                        <span class="text-[10px] text-voidPurple font-mono">$15 / Month Tier</span>
                     </div>
                 </div>
                 <span class="px-2 py-0.5 rounded bg-voidPurple/20 text-voidPurple font-mono text-xs font-bold">Council</span>
@@ -1519,7 +1653,7 @@
                     </div>
                     <div>
                         <h3 class="font-header font-bold text-white text-base">Acolytes</h3>
-                        <span class="text-[10px] text-gray-400 font-mono">$5 / Month Tier[cite: 2]</span>
+                        <span class="text-[10px] text-gray-400 font-mono">$5 / Month Tier</span>
                     </div>
                 </div>
                 <span class="px-2 py-0.5 rounded bg-cardBorder text-gray-300 font-mono text-xs font-bold">Member</span>
@@ -1614,7 +1748,7 @@
             document.querySelectorAll('img').forEach(img => {
                 img.setAttribute('draggable', 'false');
                 img.addEventListener('contextmenu', e => e.preventDefault());
-
+           
         // Prevents long-press save/download menu on mobile touch screens
         img.addEventListener('touchstart', e => {
             // Optional: allows normal scrolling/tapping, but blocks long-press context prompts if desired
