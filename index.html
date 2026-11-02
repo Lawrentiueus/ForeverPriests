@@ -1935,8 +1935,8 @@
 
         async function loadArticles() {
             try {
-                // Fetch directly from your GitHub raw URL so Netlify never has to build it
-                const response = await fetch('https://raw.githubusercontent.com/Lawrentiueus/YOUR-REPO-NAME/main/articles.json');
+                // Uses jsDelivr to fetch directly from your GitHub repo without CORS blocks or Netlify builds
+                const response = await fetch('https://cdn.jsdelivr.net/gh/Lawrentiueus/YOUR-REPO-NAME@main/articles.json');
                 cachedArticles = await response.json();
             } catch (error) {
                 console.error('Error loading articles:', error);
