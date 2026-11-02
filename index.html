@@ -1935,8 +1935,7 @@
 
         async function loadArticles() {
             try {
-                // Uses jsDelivr to fetch directly from your GitHub repo without CORS blocks or Netlify builds
-                const response = await fetch('https://cdn.jsdelivr.net/gh/Lawrentiueus/YOUR-REPO-NAME@main/articles.json');
+                const response = await fetch('articles.json');
                 cachedArticles = await response.json();
             } catch (error) {
                 console.error('Error loading articles:', error);
