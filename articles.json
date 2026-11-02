@@ -1,5 +1,15 @@
 [
   {
+  "id": 4,
+  "title": "WoW Forever Class Tuning Update 11/01: Priest Adjustments",
+  "category": "Priest News",
+  "author": "Lawrentiueus",
+  "date": "Nov 1, 2026",
+  "imageUrl": "",
+  "summary": "The November 1 class tuning update introduces a major backlash damage increase for Shadow Word: Death alongside a brand-new talent addition for the Holy tree: Holy Binding.",
+  "content": "<h2>General Priest Changes</h2><ul><li><span style='display:inline-flex;align-items:center;gap:5px;'><img src='https://wow.zamimg.com/images/wow/icons/medium/spell_shadow_demonicfortitude.jpg' width='18' height='18' style='border-radius:3px;' /><strong><a href='https://www.wowhead.com/spell=32379/shadow-word-death'>Shadow Word: Death</a>:</strong></span> Backlash self-damage increased to <mark>30%</mark> (was 10%).</li></ul><h2>Holy Spec Changes</h2><ul><li><mark>NEW TALENT</mark> <span style='display:inline-flex;align-items:center;gap:5px;'><img src='https://wow.zamimg.com/images/wow/icons/medium/spell_holy_blindingheal.jpg' width='18' height='18' style='border-radius:3px;' /><strong>Holy Binding:</strong></span> Added as a new talent to the Holy tree.</li></ul><hr /><h3>🎁 Class Hall Member Bonus</h3><p><strong>Want to adapt your raid rotation to these changes?</strong> Supporters on <strong>Buy Me a Coffee</strong> get instant access to updated <strong>WeakAura strings</strong> for tracking high-backlash execute windows and maximum throughput talent builds!</p>"
+  },
+  {
   "id": 3,
   "title": "Spell Power, Hit & Crit: Maximizing Priest Damage and Shield Scaling",
   "category": "Theorycrafting",
