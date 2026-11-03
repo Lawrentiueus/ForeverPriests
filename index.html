@@ -337,6 +337,14 @@
         },
         {
           "@type": "WebPage",
+          "@id": "https://foreverpriests.com/#leveling",
+          "url": "https://foreverpriests.com/#leveling",
+          "name": "Leveling Codex | Forever Priests",
+          "isPartOf": { "@id": "https://foreverpriests.com/#website" },
+          "description": "Comprehensive 1-60 Priest leveling guide covering Disc, Shadow, and Holy pathways with SpiritTap Engine."
+        },
+        {
+          "@type": "WebPage",
           "@id": "https://foreverpriests.com/#professions",
           "url": "https://foreverpriests.com/#professions",
           "name": "Professions & Weapons | Forever Priests",
@@ -458,6 +466,9 @@
                 <button onclick="switchTab('races')" id="nav-races" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition hover:text-wowGold hover:bg-white/5">
                     <i class="fa-solid fa-users-rays mr-1.5 text-xs text-voidPurple"></i>Races & Racials
                 </button>
+                <button onclick="switchTab('leveling')" id="nav-leveling" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition hover:text-wowGold hover:bg-white/5">
+    <i class="fa-solid fa-arrow-trend-up mr-1.5 text-xs text-wowGold"></i>Leveling
+                </button>
                 <button onclick="switchTab('professions')" id="nav-professions" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition hover:text-wowGold hover:bg-white/5">
                     <i class="fa-solid fa-hammer mr-1.5 text-xs text-wowGold"></i>Professions
                 </button>
@@ -510,6 +521,7 @@
         <button onclick="switchTab('home')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Home</button>
         <button onclick="switchTab('specs')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Spec Guides & Builds</button>
         <button onclick="switchTab('races')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Races & Priest Racials</button>
+        <button onclick="switchTab('leveling')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Leveling</button>
         <button onclick="switchTab('professions')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Professions & Weapons</button>
         <button onclick="switchTab('spells')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Spells & Mana Cost</button>
         <button onclick="switchTab('wands')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Wands</button>
@@ -766,28 +778,54 @@
                 </div>
             </div>
 
+           <!-- WoW Forever 2026/2027 Roadmap Section -->
+<div class="mt-16 bg-cardBg border border-wowGold/30 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
+    
+    <!-- Header Title & Subtitle -->
+    <div class="text-center space-y-2">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-wowGold/10 text-wowGold text-xs font-bold uppercase tracking-wider">
+            <i class="fa-solid fa-map"></i> Development Timeline
+        </div>
+        <h2 class="font-header text-2xl sm:text-3xl font-extrabold text-white">WoW Forever Roadmap (2026/2027)</h2>
+        <p class="text-gray-400 text-sm max-w-xl mx-auto">A look ahead at upcoming feature rollouts, talent updates, and milestone releases for WoW
+    </div>
+
+    <!-- Roadmap Image Container -->
+    <div class="rounded-2xl overflow-hidden border border-cardBorder bg-darkBg p-2 shadow-inner">
+        <img src="WoWFRM.png" draggable="false" oncontextmenu="return false;" alt="WoW Forever Priest Roadmap 2026-2027" class="w-full h-auto rounded-xl object-cover">
+    </div>
+
+</div>
+
         </section>
 
 
         <!-- ================= TAB: SPEC GUIDES & BUILDS ================= -->
-        <section id="tab-specs" class="tab-content hidden space-y-8">
-            <div class="border-b border-cardBorder pb-6">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-wowGold/10 border border-wowGold/30 text-wowGold text-xs font-bold uppercase tracking-wider mb-2">
-                    <i class="fa-solid fa-wand-magic-sparkles"></i> PVE & PVP ROTATIONS
-                </div>
-                <h1 class="font-header text-3xl sm:text-4xl font-extrabold text-white">Priest Spec Guides &amp; Recommended Builds</h1>
-                <p class="text-gray-400 text-sm mt-2">Comprehensive role breakdowns, stat weight priorities, and optimized builds for Dungeons, Raids, and PvP.</p>
-                
-                <div class="flex gap-3 mt-6">
-                    <button onclick="filterSpec('all')" id="spec-btn-all" class="spec-tab-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-wowGold text-black transition-colors">All Specs</button>
-                    <button onclick="filterSpec('disc')" id="spec-btn-disc" class="spec-tab-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-cardBg border border-cardBorder text-discOrange hover:border-discOrange transition-colors">Discipline</button>
-                    <button onclick="filterSpec('holy')" id="spec-btn-holy" class="spec-tab-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-cardBg border border-cardBorder text-holyYellow hover:border-holyYellow transition-colors">Holy</button>
-                    <button onclick="filterSpec('shadow')" id="spec-btn-shadow" class="spec-tab-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-cardBg border border-cardBorder text-shadowViolet hover:border-shadowViolet transition-colors">Shadow</button>
-                </div>
+<section id="tab-specs" class="tab-content hidden space-y-8">
+    <div class="border-b border-cardBorder pb-6">
+        <!-- Top Pill Tag & Coming Soon Badge Header Line -->
+        <div class="flex items-center justify-between flex-wrap gap-2 mb-2">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-wowGold/10 border border-wowGold/30 text-wowGold text-xs font-bold uppercase tracking-wider">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> PVE &amp; PVP ROTATIONS
             </div>
+            <span class="px-3 py-1 rounded-full bg-voidPurple/20 border border-voidPurple/40 text-voidPurple text-xs font-bold uppercase tracking-wider">
+                <i class="fa-solid fa-clock mr-1"></i> Talent Build Strings Coming Soon
+            </span>
+        </div>
 
-            <div id="spec-cards-container" class="space-y-8"></div>
-        </section>
+        <h1 class="font-header text-3xl sm:text-4xl font-extrabold text-white">Priest Spec Guides &amp; Recommended Builds</h1>
+        <p class="text-gray-400 text-sm mt-2">Comprehensive role breakdowns, stat weight priorities, and optimized builds for Dungeons, Raids, and PvP.</p>
+        
+        <div class="flex gap-3 mt-6">
+            <button onclick="filterSpec('all')" id="spec-btn-all" class="spec-tab-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-wowGold text-black transition-colors">All Specs</button>
+            <button onclick="filterSpec('disc')" id="spec-btn-disc" class="spec-tab-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-cardBg border border-cardBorder text-discOrange hover:border-discOrange transition-colors">Discipline</button>
+            <button onclick="filterSpec('holy')" id="spec-btn-holy" class="spec-tab-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-cardBg border border-cardBorder text-holyYellow hover:border-holyYellow transition-colors">Holy</button>
+            <button onclick="filterSpec('shadow')" id="spec-btn-shadow" class="spec-tab-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-cardBg border border-cardBorder text-shadowViolet hover:border-shadowViolet transition-colors">Shadow</button>
+        </div>
+    </div>
+
+    <div id="spec-cards-container" class="space-y-8"></div>
+</section>
 
 
         <!-- ================= TAB: RACES & RACIALS ================= -->
@@ -805,124 +843,243 @@
 
 
         <!-- ================= TAB: PROFESSIONS & WEAPONS ================= -->
-        <section id="tab-professions" class="tab-content hidden space-y-8">
-            <div class="border-b border-cardBorder pb-6">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-wowGold/10 border border-wowGold/30 text-wowGold text-xs font-bold uppercase tracking-wider mb-2">
-                    <i class="fa-solid fa-hammer"></i> Crafting & Gear Optimization
-                </div>
-                <h1 class="font-header text-3xl sm:text-4xl font-extrabold text-white">Professions &amp; Weapon Training</h1>
-                <p class="text-gray-400 text-sm mt-2">Discover the best profession paths, campsite contributions, pairing tips, and weapon/armor training trainers for your Priest in WoW Forever.</p>
-            </div>
+<section id="tab-professions" class="tab-content hidden space-y-8">
+    <div class="border-b border-cardBorder pb-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-wowGold/10 border border-wowGold/30 text-wowGold text-xs font-bold uppercase tracking-wider mb-2">
+            <i class="fa-solid fa-hammer"></i> Crafting & Gear Optimization
+        </div>
+        <h1 class="font-header text-3xl sm:text-4xl font-extrabold text-white">Professions &amp; Weapon Training</h1>
+        <p class="text-gray-400 text-sm mt-2">Discover the best profession paths, campsite contributions, pairing tips, and weapon/armor training trainers for your Priest in WoW Forever.</p>
+    </div>
 
-            <div class="space-y-6">
-                <h2 class="font-header text-2xl font-bold text-white border-b border-cardBorder pb-2">Best Professions for Priests</h2>
-                <p class="text-gray-300 text-sm leading-relaxed">
-                    Professions received a major overhaul in Forever, bringing a wealth of new recipes and mechanics—including beneficial campsite contributions. While almost all professions offer advantages, four stand out as exceptional choices for Priests:
+    <div class="space-y-6">
+        <p class="text-gray-300 text-sm leading-relaxed">
+            Professions received a major overhaul in Forever, bringing a wealth of new recipes and mechanics, including beneficial campsite contributions. While almost all professions offer advantages, five stand out as exceptional choices for Priests:
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Tailoring -->
+            <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 space-y-3 hover:border-wowGold/40 transition">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-wowGold/10 border border-wowGold/30 text-wowGold flex items-center justify-center font-bold text-lg">
+                        <i class="fa-solid fa-shirt"></i>
+                    </div>
+                    <h3 class="font-header text-xl font-bold text-wowGold">Tailoring</h3>
+                </div>
+                <p class="text-xs text-gray-300 leading-relaxed">
+                    Since Priests exclusively wear Cloth gear, Tailoring is a natural fit. Forever introduces a heap of new patterns ranging from school-specific damage gear to level 10 Belts that impact Spell Power.
                 </p>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 space-y-3 hover:border-wowGold/40 transition">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-xl bg-wowGold/10 border border-wowGold/30 text-wowGold flex items-center justify-center font-bold text-lg">
-                                <i class="fa-solid fa-shirt"></i>
-                            </div>
-                            <h3 class="font-header text-xl font-bold text-wowGold">Tailoring</h3>
-                        </div>
-                        <p class="text-xs text-gray-300 leading-relaxed">
-                            Since Priests exclusively wear Cloth gear, Tailoring is a natural fit. Forever introduces a heap of new patterns ranging from school-specific damage gear to level 10 Belts that impact Spell Power.
-                        </p>
-                    </div>
-
-                    <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 space-y-3 hover:border-wowGold/40 transition">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-xl bg-wowGold/10 border border-wowGold/30 text-wowGold flex items-center justify-center font-bold text-lg">
-                                <i class="fa-solid fa-wand-magic-sparkles"></i>
-                            </div>
-                            <h3 class="font-header text-xl font-bold text-wowGold">Enchanting</h3>
-                        </div>
-                        <p class="text-xs text-gray-300 leading-relaxed">
-                            Ideal for self-sufficiency, Enchanters can upgrade their own gear and craft early-game wands, positioning you as an indispensable asset to your guild thanks to a slate of new enchanting formulas.
-                        </p>
-                    </div>
-
-                    <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 space-y-3 hover:border-wowGold/40 transition">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-xl bg-wowGold/10 border border-wowGold/30 text-wowGold flex items-center justify-center font-bold text-lg">
-                                <i class="fa-solid fa-gears"></i>
-                            </div>
-                            <h3 class="font-header text-xl font-bold text-wowGold">Engineering</h3>
-                        </div>
-                        <p class="text-xs text-gray-300 leading-relaxed">
-                            A classic favorite that becomes even stronger in Forever due to new schematics, utility gadgets, and specialized engineering trinkets.
-                        </p>
-                    </div>
-
-                    <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 space-y-3 hover:border-wowGold/40 transition">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-xl bg-wowGold/10 border border-wowGold/30 text-wowGold flex items-center justify-center font-bold text-lg">
-                                <i class="fa-solid fa-flask"></i>
-                            </div>
-                            <h3 class="font-header text-xl font-bold text-wowGold">Alchemy</h3>
-                        </div>
-                        <p class="text-xs text-gray-300 leading-relaxed">
-                            Priests have always relied heavily on consumables, and Forever makes this profession even more enticing with new recipes designed to buff stats, boost damage output, or provide crowd-control utility.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="bg-darkBg border border-wowGold/30 rounded-2xl p-6 flex items-start gap-4">
-                    <div class="text-wowGold text-xl shrink-0 mt-0.5">
-                        <i class="fa-solid fa-lightbulb"></i>
-                    </div>
-                    <div class="space-y-1 text-xs text-gray-300 leading-relaxed">
-                        <strong class="text-wowGold font-header text-sm block">Profession Pairing Tip</strong>
-                        During leveling, pair your crafting choice with its matching gathering profession (such as Herbalism for Alchemy or Mining for Engineering). Once level-capped and established, you can drop the gathering profession for a second crafting path.
-                    </div>
-                </div>
             </div>
 
-            <div class="space-y-6 pt-6">
-                <div>
-                    <h2 class="font-header text-2xl font-bold text-white">Priest Weapons &amp; Armor Training</h2>
-                    <p class="text-gray-400 text-sm mt-1">Priests are limited to Cloth armor and cannot equip Shields or Relics.</p>
+            <!-- Enchanting -->
+            <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 space-y-3 hover:border-wowGold/40 transition">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-wowGold/10 border border-wowGold/30 text-wowGold flex items-center justify-center font-bold text-lg">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h3 class="font-header text-xl font-bold text-wowGold">Enchanting</h3>
                 </div>
+                <p class="text-xs text-gray-300 leading-relaxed">
+                    Ideal for self-sufficiency, Enchanters can upgrade their own gear and craft early-game wands, positioning you as an indispensable asset to your guild thanks to a slate of new enchanting formulas.
+                </p>
+            </div>
 
-                <div class="overflow-x-auto rounded-2xl border border-cardBorder bg-cardBg shadow-lg">
-                    <table class="w-full text-left border-collapse text-xs">
-                        <thead>
-                            <tr class="bg-darkBg border-b border-cardBorder text-wowGold font-header uppercase tracking-wider">
-                                <th class="p-4">Weapon Type</th>
-                                <th class="p-4">Alliance Trainers</th>
-                                <th class="p-4">Horde Trainers</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-cardBorder text-gray-300">
-                            <tr>
-                                <td class="p-4 font-bold text-white">Daggers</td>
-                                <td class="p-4">Ilyenia Moonfire (Darnassus)<br>Bixi Wobblebonk (Ironforge)<br>Woo Ping (Stormwind)</td>
-                                <td class="p-4">Sayoc (Orgrimmar)<br>Archibald (Undercity)</td>
-                            </tr>
-                            <tr>
-                                <td class="p-4 font-bold text-white">One-Handed Maces</td>
-                                <td class="p-4">Default</td>
-                                <td class="p-4">Default</td>
-                            </tr>
-                            <tr>
-                                <td class="p-4 font-bold text-white">Staves</td>
-                                <td class="p-4">Ilyenia Moonfire (Darnassus)<br>Woo Ping (Stormwind)</td>
-                                <td class="p-4">Hanashi (Orgrimmar)<br>Sayoc (Orgrimmar)<br>Ansekhwa (Thunder Bluff)</td>
-                            </tr>
-                            <tr>
-                                <td class="p-4 font-bold text-white">Wands</td>
-                                <td class="p-4">Default</td>
-                                <td class="p-4">Default</td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <!-- Engineering -->
+            <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 space-y-3 hover:border-wowGold/40 transition">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-wowGold/10 border border-wowGold/30 text-wowGold flex items-center justify-center font-bold text-lg">
+                        <i class="fa-solid fa-gears"></i>
+                    </div>
+                    <h3 class="font-header text-xl font-bold text-wowGold">Engineering</h3>
+                </div>
+                <p class="text-xs text-gray-300 leading-relaxed">
+                    A classic favorite that becomes even stronger in Forever due to new schematics, utility gadgets, and specialized engineering trinkets.
+                </p>
+            </div>
+
+            <!-- Alchemy -->
+            <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 space-y-3 hover:border-wowGold/40 transition">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-wowGold/10 border border-wowGold/30 text-wowGold flex items-center justify-center font-bold text-lg">
+                        <i class="fa-solid fa-flask"></i>
+                    </div>
+                    <h3 class="font-header text-xl font-bold text-wowGold">Alchemy</h3>
+                </div>
+                <p class="text-xs text-gray-300 leading-relaxed">
+                    Priests rely heavily on consumables, and Forever makes this profession even more enticing with new recipes designed to buff stats, brew mana potions, boost damage output, or provide crowd-control utility.
+                </p>
+            </div>
+
+            <!-- Herbalism -->
+            <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 space-y-3 hover:border-wowGold/40 transition">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-wowGold/10 border border-wowGold/30 text-wowGold flex items-center justify-center font-bold text-lg">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+                    <h3 class="font-header text-xl font-bold text-wowGold">Herbalism</h3>
+                </div>
+                <p class="text-xs text-gray-300 leading-relaxed">
+                    The ultimate gathering partner for Alchemy. Harvesting wild herbs across the open world supplies the raw ingredients needed to brew Mana Potions and elixirs, ensuring zero downtime and keeping your gold pouch intact.
+                </p>
+            </div>
+        </div>
+
+        <div class="bg-darkBg border border-wowGold/30 rounded-2xl p-6 flex items-start gap-4">
+            <div class="text-wowGold text-xl shrink-0 mt-0.5">
+                <i class="fa-solid fa-lightbulb"></i>
+            </div>
+            <div class="space-y-1 text-xs text-gray-300 leading-relaxed">
+                <strong class="text-wowGold font-header text-sm block">Profession Pairing Tip</strong>
+                During leveling, pair your crafting choice with its matching gathering profession (such as Herbalism for Alchemy or Mining for Engineering). Once level-capped and established, you can drop the gathering profession for a second crafting path.
+            </div>
+        </div>
+    </div>
+
+    <div class="space-y-6 pt-6">
+        <div>
+            <h2 class="font-header text-2xl font-bold text-white">Priest Weapons &amp; Armor Training</h2>
+            <p class="text-gray-400 text-sm mt-1">Priests are limited to Cloth armor and cannot equip Shields or Relics.</p>
+        </div>
+
+        <div class="overflow-x-auto rounded-2xl border border-cardBorder bg-cardBg shadow-lg">
+            <table class="w-full text-left border-collapse text-xs">
+                <thead>
+                    <tr class="bg-darkBg border-b border-cardBorder text-wowGold font-header uppercase tracking-wider">
+                        <th class="p-4">Weapon Type</th>
+                        <th class="p-4">Alliance Trainers</th>
+                        <th class="p-4">Horde Trainers</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-cardBorder text-gray-300">
+                    <tr>
+                        <td class="p-4 font-bold text-white">Daggers</td>
+                        <td class="p-4">Ilyenia Moonfire (Darnassus)<br>Bixi Wobblebonk (Ironforge)<br>Woo Ping (Stormwind)</td>
+                        <td class="p-4">Sayoc (Orgrimmar)<br>Archibald (Undercity)</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4 font-bold text-white">One-Handed Maces</td>
+                        <td class="p-4">Default</td>
+                        <td class="p-4">Default</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4 font-bold text-white">Staves</td>
+                        <td class="p-4">Ilyenia Moonfire (Darnassus)<br>Woo Ping (Stormwind)</td>
+                        <td class="p-4">Hanashi (Orgrimmar)<br>Sayoc (Orgrimmar)<br>Ansekhwa (Thunder Bluff)</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4 font-bold text-white">Wands</td>
+                        <td class="p-4">Default</td>
+                        <td class="p-4">Default</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+        <!-- ================= TAB: LEVELING GUIDE ================= -->
+<section id="tab-leveling" class="tab-content hidden space-y-8">
+    <!-- Header Banner -->
+    <div class="border-b border-cardBorder pb-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-wowGold/10 border border-wowGold/30 text-wowGold text-xs font-bold uppercase tracking-wider mb-2">
+            <i class="fa-solid fa-bolt"></i> Ultimate 1-60 Guide
+        </div>
+        <h1 class="font-header text-3xl sm:text-4xl font-extrabold text-white">Priest Leveling Guide (1–60)</h1>
+        <p class="text-gray-400 text-sm mt-2">
+            Disc vs. Shadow vs. Holy pathways optimized for World of Warcraft Forever using the 5-Second Rule and SpiritTap Engine.
+        </p>
+    </div>
+
+    <!-- Core Breakdown & Spirit Tap Engine Banner -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 lg:col-span-2 space-y-4 shadow-lg">
+            <h2 class="font-header text-2xl font-bold text-wowGold border-b border-cardBorder pb-3">
+                Rethinking Disc vs. Shadow vs. Holy
+            </h2>
+            <p class="text-gray-300 text-sm leading-relaxed">
+                Standard Classic guides insist you must play Discipline until Level 40 to avoid drinking breaks. However, anchoring your rotation around <strong>5/5 Spirit Tap</strong> and managing the 5-Second Rule allows any spec to level with minimal downtime.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs pt-2">
+                <div class="bg-darkBg p-3 rounded-xl border border-cardBorder">
+                    <strong class="text-discOrange block mb-1 font-header">Discipline (1–39)</strong>
+                    High durability and max wand damage via 5/5 Wand Spec. Solves early mana issues through passive efficiency.
+                </div>
+                <div class="bg-darkBg p-3 rounded-xl border border-cardBorder">
+                    <strong class="text-shadowViolet block mb-1 font-header">Shadow (1–39)</strong>
+                    Fast single-target kills using Mind Blast and Mind Flay. Requires strict 5SR discipline to avoid mana burnout.
+                </div>
+                <div class="bg-darkBg p-3 rounded-xl border border-cardBorder">
+                    <strong class="text-holyYellow block mb-1 font-header">Holy (Dungeon-Grinder)</strong>
+                    Combines Spirit Tap questing with high dungeon healing throughput using Divine Fury and Searing Light.
                 </div>
             </div>
-        </section>
+        </div>
 
+        <div class="bg-gradient-to-br from-cardBg via-voidPurpleDark/30 to-cardBg border border-voidPurple/40 rounded-2xl p-6 flex flex-col justify-between shadow-lg">
+            <div class="space-y-3">
+                <span class="px-2.5 py-1 rounded-full bg-voidPurple/20 text-voidPurple text-[10px] font-bold uppercase border border-voidPurple/30">Official Addon</span>
+                <h3 class="font-header text-xl font-bold text-white">SpiritTap Engine</h3>
+                <p class="text-xs text-gray-300 leading-relaxed">
+                    Automates your execute phase with real-time 5SR tracking (Void Purple → Holy Gold) and off-target Spirit Tap countdowns (Emerald Green).
+                </p>
+            </div>
+            <a href="https://www.curseforge.com/wow/addons/spirit-tap-engine" target="_blank" class="mt-4 w-full py-2.5 rounded-xl bg-wowGold text-black font-bold text-xs uppercase tracking-wider hover:bg-white transition text-center shadow-md block">
+                Download on CurseForge
+            </a>
+        </div>
+    </div>
+
+    <!-- 3 Leveling Pathways Table -->
+    <div class="space-y-4">
+        <h2 class="font-header text-2xl font-bold text-white border-b border-cardBorder pb-2">
+            Recommended 1–60 Talent Paths
+        </h2>
+        <div class="overflow-x-auto rounded-2xl border border-cardBorder bg-cardBg shadow-lg">
+            <table class="w-full text-left border-collapse text-xs">
+                <thead>
+                    <tr class="bg-darkBg border-b border-cardBorder text-wowGold font-header uppercase tracking-wider">
+                        <th class="p-3.5">Level Tier</th>
+                        <th class="p-3.5 text-shadowViolet">Option A: Deep Shadow (Fast Solo)</th>
+                        <th class="p-3.5 text-discOrange">Option B: Disc / Shadow (Wand Heavy)</th>
+                        <th class="p-3.5 text-holyYellow">Option C: Holy / Disc (Dungeon Hybrid)</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-cardBorder text-gray-300 font-mono">
+                    <tr class="hover:bg-white/5 transition">
+                        <td class="p-3.5 text-white font-bold font-sans">10–14</td>
+                        <td class="p-3.5">5/5 Spirit Tap</td>
+                        <td class="p-3.5">5/5 Spirit Tap</td>
+                        <td class="p-3.5">5/5 Spirit Tap</td>
+                    </tr>
+                    <tr class="hover:bg-white/5 transition">
+                        <td class="p-3.5 text-white font-bold font-sans">15–19</td>
+                        <td class="p-3.5">5/5 Wand Specialization</td>
+                        <td class="p-3.5">5/5 Wand Specialization</td>
+                        <td class="p-3.5">5/5 Wand Specialization</td>
+                    </tr>
+                    <tr class="hover:bg-white/5 transition">
+                        <td class="p-3.5 text-white font-bold font-sans">20–39</td>
+                        <td class="p-3.5">Mind Flay → Deep Shadow</td>
+                        <td class="p-3.5">Deep Disc (Meditation / Inner Focus)</td>
+                        <td class="p-3.5">Divine Fury → Searing Light</td>
+                    </tr>
+                    <tr class="hover:bg-white/5 transition">
+                        <td class="p-3.5 text-white font-bold font-sans">40</td>
+                        <td class="p-3.5 text-wowGold font-bold">Shadowform (31 Shadow)</td>
+                        <td class="p-3.5">Respec to Shadowform OR Deep Disc</td>
+                        <td class="p-3.5">Respec to Shadowform OR Holy Nova</td>
+                    </tr>
+                    <tr class="hover:bg-white/5 transition">
+                        <td class="p-3.5 text-white font-bold font-sans">41–60</td>
+                        <td class="p-3.5">Fill Discipline for Mana Efficiency</td>
+                        <td class="p-3.5">Fill Shadow Tree</td>
+                        <td class="p-3.5">Fill Discipline for Mana Efficiency</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
 
         <!-- ================= TAB: Spells & Mana Cost ================= -->
 <section id="tab-spells" class="tab-content hidden space-y-10">
@@ -1659,7 +1816,7 @@
                 <span class="px-2 py-0.5 rounded bg-cardBorder text-gray-300 font-mono text-xs font-bold">Member</span>
             </div>
             <div class="p-6 space-y-3">
-                <p class="text-xs text-gray-400 mb-4">Helps keep the site 100% ad-free & covers monthly server host fees[cite: 2].</p>
+                <p class="text-xs text-gray-400 mb-4">Helps keep the site 100% ad-free & covers monthly server host fees.</p>
                 <div class="space-y-2 font-mono text-xs">
                     <div class="flex items-center justify-between bg-darkBg px-3 py-2.5 rounded-xl border border-cardBorder">
                         <span class="text-gray-300"><i class="fa-solid fa-circle text-[6px] text-gray-500 mr-2"></i> [Supporter Name]</span>
@@ -1671,7 +1828,7 @@
 
     </div>
 </section>
-
+        
         <!-- Newsletter Section -->
         <div class="mt-16 bg-gradient-to-r from-cardBg via-cardBorder to-cardBg border border-wowGold/20 rounded-3xl p-8 text-center space-y-4">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-wowGold/10 text-wowGold text-xs font-bold uppercase">
