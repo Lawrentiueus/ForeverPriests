@@ -401,6 +401,14 @@
         },
         {
           "@type": "WebPage",
+          "@id": "https://foreverpriests.com/#weekly",
+          "url": "https://foreverpriests.com/#weekly",
+          "name": "Weekly Quests | Forever Priests",
+          "isPartOf": { "@id": "https://foreverpriests.com/#website" },
+          "description": "Weekly Quests for WoW Forever Priests Discord Members."
+        },
+        {
+          "@type": "WebPage",
           "@id": "https://foreverpriests.com/#supporters",
           "url": "https://foreverpriests.com/#supporters",
           "name": "Class Hall Roster & Supporter Wall | Forever Priests",
@@ -493,6 +501,9 @@
                 <button onclick="switchTab('weakauras')" id="nav-weakauras" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition hover:text-wowGold hover:bg-white/5">
                     <i class="fa-solid fa-code mr-1.5 text-xs text-holyYellow"></i>WeakAuras
                 </button>
+                 <button onclick="switchTab('weekly')" id="nav-weekly" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition hover:text-wowGold hover:bg-white/5">
+    <i class="fa-solid fa-scroll mr-1.5 text-xs text-wowGold"></i>Weekly Quests
+                </button>
                 <button onclick="switchTab('supporters')" id="nav-supporters" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition hover:text-wowGold hover:bg-white/5">
     <i class="fa-solid fa-scroll mr-1.5 text-xs text-wowGold"></i>Supporter Roster
                 </button>
@@ -530,6 +541,7 @@
         <button onclick="switchTab('wand')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">5SR & Wand Simulator</button>
         <button onclick="switchTab('macros')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Macro Vault</button>
         <button onclick="switchTab('weakauras')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">WeakAuras</button>
+        <button onclick="switchTab('weekly')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Weekly Quests</button>
         <button onclick="switchTab('supporters')" class="w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-white/5">Supporter   Roster</button>
         
         <div class="pt-4 border-t border-cardBorder flex flex-col gap-2">
@@ -734,7 +746,7 @@
                             </li>
                             <li class="flex items-start gap-2">
                                 <i class="fa-solid fa-check text-wowGold mt-0.5"></i>
-                                <span><strong>Smart Wand Execute:</strong> Tells you exactly when to stop casting and wand (only triggers when a mob is under 25% HP and within 1–2 wand hits so you don't waste mana finishing off low-health mobs) (WoW Classic Only).</span>
+                                <span><strong>Smart Wand Execute:</strong> Tells you exactly when to stop casting and wand (only triggers when a mob is under 25% HP and within 1–2 wand hits so you don't waste mana finishing off low-health mobs).</span>
                             </li>
                             <li class="flex items-start gap-2">
                                 <i class="fa-solid fa-check text-wowGold mt-0.5"></i>
@@ -1732,6 +1744,147 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="weakauras-container"></div>
         </section>
+
+<!-- ================= WEEKLY QUESTS ================= -->
+<section id="tab-weekly" class="tab-content hidden space-y-8">
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-cardBorder pb-4">
+        <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-wowGold/10 border border-wowGold/30 text-wowGold text-xs font-bold uppercase tracking-wider mb-2">
+                <i class="fa-solid fa-trophy"></i> Week 1 Live
+            </div>
+            <h2 class="font-header text-2xl sm:text-3xl font-extrabold text-white">Community Weekly Quests</h2>
+            <p class="text-gray-400 text-sm">Complete the 5 weekly quests in Discord to earn points and climb the standings.</p>
+        </div>
+        <a href="https://discord.gg/TaCD6yVhr" target="_blank" class="px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-indigo-600 hover:bg-indigo-500 text-white transition shadow-lg flex items-center gap-2 shrink-0">
+            <i class="fa-brands fa-discord"></i> Submit Quests in Discord
+        </a>
+    </div>
+
+    <!-- Active Quests Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="bg-darkBg border border-cardBorder p-4 rounded-xl space-y-2">
+            <span class="text-[10px] font-bold uppercase bg-wowGold/10 text-wowGold px-2 py-0.5 rounded">Quest 1 (Personal)</span>
+            <h4 class="font-header text-sm font-bold text-white">First Logon Memory</h4>
+            <p class="text-xs text-gray-400">What was the first thing you were excited to do when you logged into WoW Forever for the first time?</p>
+        </div>
+        <div class="bg-darkBg border border-cardBorder p-4 rounded-xl space-y-2">
+            <span class="text-[10px] font-bold uppercase bg-wowGold/10 text-wowGold px-2 py-0.5 rounded">Quest 2 (Progress)</span>
+            <h4 class="font-header text-sm font-bold text-white">Leveling Trajectory</h4>
+            <p class="text-xs text-gray-400">What level is your Priest currently sitting at today and what is your level goal for the end of the week?</p>
+        </div>
+        <div class="bg-darkBg border border-cardBorder p-4 rounded-xl space-y-2">
+            <span class="text-[10px] font-bold uppercase bg-wowGold/10 text-wowGold px-2 py-0.5 rounded">Quest 3 (Visual Proof)</span>
+            <h4 class="font-header text-sm font-bold text-white">Wand Check</h4>
+            <p class="text-xs text-gray-400">Post a screenshot of your wand that is equipped to your priest.</p>
+        </div>
+        <div class="bg-darkBg border border-cardBorder p-4 rounded-xl space-y-2">
+            <span class="text-[10px] font-bold uppercase bg-wowGold/10 text-wowGold px-2 py-0.5 rounded">Quest 4 (First Close Call)</span>
+            <h4 class="font-header text-sm font-bold text-white">Combat Life</h4>
+            <p class="text-xs text-gray-400">Share the story of your closest brush with death while fighting mobs in the early zones and how you survived it.</p>
+        </div>
+        <div class="bg-darkBg border border-cardBorder p-4 rounded-xl space-y-2 md:col-span-2 lg:col-span-1">
+            <span class="text-[10px] font-bold uppercase bg-wowGold/10 text-wowGold px-2 py-0.5 rounded">Quest 5 (Social)</span>
+            <h4 class="font-header text-sm font-bold text-white">Community Engagement</h4>
+            <p class="text-xs text-gray-400">Drop a reaction or comment on the weekly community post to set the tone.</p>
+        </div>
+    </div>
+
+    <!-- Season Standings Table -->
+    <div class="space-y-3 pt-4">
+        <h3 class="font-header text-xl font-bold text-white">Season 1 Standings (Version 1.60.1)</h3>
+        <div class="overflow-x-auto rounded-2xl border border-cardBorder bg-darkBg shadow-inner">
+            <table class="w-full text-left border-collapse text-xs">
+                <thead>
+                    <tr class="bg-cardBg border-b border-cardBorder text-wowGold font-header uppercase tracking-wider">
+                        <th class="p-3.5">Rank</th>
+                        <th class="p-3.5">Priest Name</th>
+                        <th class="p-3.5">Quests Completed</th>
+                        <th class="p-3.5 text-right">Total Points</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-cardBorder text-gray-300 font-mono">
+                    <tr class="hover:bg-white/5 transition">
+                        <td class="p-3.5 font-bold text-wowGold font-sans">#1</td>
+                        <td class="p-3.5 font-bold text-white font-sans">[Waiting for Week 1 Submissions]</td>
+                        <td class="p-3.5">0 / 5</td>
+                        <td class="p-3.5 text-right text-wowGold font-bold">0 pts</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+<!-- ================= SEASON 1 TIER RANKS ================= -->
+    <div class="space-y-3 pt-6 border-t border-cardBorder">
+        <div class="flex items-center gap-2">
+            <h3 class="font-header text-xl font-bold text-white">Season 1 Tier Ranks (Path to December 9th)</h3>
+        </div>
+        <p class="text-gray-400 text-xs">Accumulate points across the patch window to unlock permanent community titles and roles.</p>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="bg-darkBg border border-cardBorder p-4 rounded-xl space-y-1">
+                <span class="text-[10px] font-bold text-wowGold uppercase block">Initiate</span>
+                <div class="font-header text-sm font-bold text-white">[TBD]</div>
+                <span class="text-[10px] text-gray-500 font-mono">Requirement: 50 Pts</span>
+            </div>
+            <div class="bg-darkBg border border-cardBorder p-4 rounded-xl space-y-1">
+                <span class="text-[10px] font-bold text-wowGold uppercase block">Channeler</span>
+                <div class="font-header text-sm font-bold text-white">[TBD]</div>
+                <span class="text-[10px] text-gray-500 font-mono">Requirement: 100 Pts</span>
+            </div>
+            <div class="bg-darkBg border border-cardBorder p-4 rounded-xl space-y-1">
+                <span class="text-[10px] font-bold text-wowGold uppercase block">Harvester</span>
+                <div class="font-header text-sm font-bold text-white">[TBD]</div>
+                <span class="text-[10px] text-gray-500 font-mono">Requirement: 150 Pts</span>
+            </div>
+            <div class="bg-darkBg border border-cardBorder p-4 rounded-xl space-y-1">
+                <span class="text-[10px] font-bold text-wowGold uppercase block">Ascendant</span>
+                <div class="font-header text-sm font-bold text-white">[TBD]</div>
+                <span class="text-[10px] text-gray-500 font-mono">Requirement: 200 Pts</span>
+            </div>
+        </div>
+
+      <!-- ================= HALL OF FAME ================= -->
+<div class="space-y-4 pt-8 border-t border-cardBorder mt-6">
+    <div class="flex items-center justify-between">
+        <div>
+            <h3 class="font-header text-xl font-bold text-white">Hall of Fame</h3>
+            <p class="text-gray-400 text-xs">Chronicles of the elite Ascendants who carved their names into history across the ages.</p>
+        </div>
+        <span class="text-xs font-mono text-wowGold bg-darkBg border border-cardBorder px-3 py-1 rounded-lg">Historical Records</span>
+    </div>
+    
+    <div class="space-y-3">
+        <!-- Season 1 Entry -->
+        <div class="bg-darkBg border border-wowGold/30 p-4 rounded-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4 relative overflow-hidden">
+            <div class="absolute top-0 right-0 bg-wowGold/10 text-wowGold text-[9px] font-mono px-2 py-0.5 rounded-bl">Season 1 Concluded</div>
+            <div class="space-y-1">
+                <span class="text-[10px] font-bold text-wowGold uppercase block font-mono">Season 1: Path to December 9th</span>
+                <div class="flex items-center gap-3">
+                    <span class="font-header text-base font-bold text-white">[TBD]</span>
+                    <span class="text-[10px] font-mono text-gray-400 bg-cardBorder/50 px-2 py-0.5 rounded">Score: 200 Pts</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-4 text-xs font-mono text-gray-400 w-full md:w-auto justify-between md:justify-end pt-2 md:pt-0 border-t md:border-t-0 border-cardBorder">
+            </div>
+        </div>
+
+        <!-- Future Season Template -->
+        <div class="bg-darkBg border border-cardBorder p-4 rounded-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4 relative overflow-hidden opacity-60">
+            <div class="absolute top-0 right-0 bg-cardBorder text-gray-400 text-[9px] font-mono px-2 py-0.5 rounded-bl">Upcoming</div>
+            <div class="space-y-1">
+                <span class="text-[10px] font-bold text-gray-400 uppercase block font-mono">Season 2</span>
+                <div class="flex items-center gap-3">
+                    <span class="font-header text-base font-bold text-gray-300">[Awaiting Commencement]</span>
+                </div>
+            </div>
+            <div class="text-xs font-mono text-gray-500">
+                <span>Status: Pending</span>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
 
  <!-- ================= TAB: SUPPORTER ROSTER ================= -->
 <section id="tab-supporters" class="tab-content hidden space-y-8">
