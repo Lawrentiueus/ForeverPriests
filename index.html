@@ -771,6 +771,53 @@
                 </div>
             </div>
 
+<!-- Wand Tracker Add-on Card -->
+            <div id="wandtracker-section" class="bg-cardBg border border-voidPurple/40 rounded-3xl p-8 sm:p-10 shadow-xl relative overflow-hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-4 flex justify-center">
+                        <img src="WTP.png" draggable="false" oncontextmenu="return false;" alt="Wand Tracker Addon Preview" class="rounded-2xl border border-cardBorder shadow-2xl max-h-64 object-contain">
+                    </div>
+                    <div class="lg:col-span-8 space-y-4">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <span class="px-3 py-1 rounded-full bg-voidPurple/20 text-voidPurple text-xs font-bold uppercase tracking-wider border border-voidPurple/30">Priest Addon</span>
+                            <span class="px-3 py-1 rounded-full bg-wowGold/10 text-wowGold text-xs font-bold uppercase tracking-wider border border-wowGold/30">WoW Forever</span>
+                        </div>
+                        <h2 class="font-header text-3xl font-extrabold text-white">Wand Tracker</h2>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            A World of Warcraft Forever addon designed to help Priests optimize ranged DPS cadence and mana conservation while leveling. WandTracker is a lightweight, standalone auto-repeat monitor and ranged swing timer, giving you crystal-clear visual feedback right where you need it whether you're managing your mana pool or maximizing your ranged uptime.
+                        </p>
+                        <ul class="space-y-2 text-xs text-gray-300">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-wowGold mt-0.5"></i>
+                                <span><strong>Real-Time Swing Tracking:</strong> A dynamic progress bar that accurately tracks your ranged attack cadence.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-wowGold mt-0.5"></i>
+                                <span><strong>Smart Status Indicators:</strong> Dynamic states shift based on your active Priest spec and wanding activity. Right-click the bar at any time to cycle through spec color profiles: <strong>Discipline</strong> (Silver lettering / Orange border), <strong>Holy</strong> (Silver lettering / Holy Gold border), and <strong>Shadow</strong> (Gold lettering / Purple border). While actively wanding, each profile swaps its lettering and border colors.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-wowGold mt-0.5"></i>
+                                <span><strong>Automatic Equipment Detection:</strong> Instantly recognizes your currently equipped ranged weapon and reads its speed profile.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-wowGold mt-0.5"></i>
+                                <span><strong>Zero-Overflow Layout:</strong> A clean, widened frame design built to prevent text clipping.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-wowGold mt-0.5"></i>
+                                <span><strong>Movable Frame:</strong> Built on a native, slim WoW status bar, so you can drag and drop it anywhere on your interface to fit your layout.</span>
+                            </li>
+                        </ul>
+                        <div class="pt-2 flex items-center gap-4 flex-wrap">
+                            <a href="https://www.curseforge.com/wow/addons/wand-tracker" target="_blank" class="px-6 py-3.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-wowGold text-black hover:bg-white transition shadow-lg flex items-center gap-2">
+                                <i class="fa-solid fa-download"></i> Download Now on CurseForge
+                            </a>
+                            <span class="text-xs text-gray-400">Made for World of Warcraft Forever only</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Community Callout -->
             <div id="discord-section" class="bg-gradient-to-r from-cardBg via-voidPurpleDark/20 to-cardBg border border-voidPurple/40 rounded-3xl p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-8">
                 <div class="space-y-3 max-w-xl text-center md:text-left">
@@ -1327,52 +1374,107 @@
                         <th class="p-3.5">Level Tier</th>
                         <th class="p-3.5">Wand Name</th>
                         <th class="p-3.5">Base DPS</th>
+                        <th class="p-3.5">Speed</th>
+                        <th class="p-3.5">Faction</th>
                         <th class="p-3.5">Source / Method</th>
-                        <th class="p-3.5">Key Notes</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-cardBorder text-gray-300 font-mono">
                     <tr class="hover:bg-white/5 transition">
+                        <td class="p-3.5 text-wowGold font-bold">Lvl 1</td>
+                        <td class="p-3.5 font-bold text-white font-sans">Novice’s Practice Wand</td>
+                        <td class="p-3.5">4.0</td>
+                        <td class="p-3.5">1.50</td>
+                        <td class="p-3.5 font-sans">Both</td>
+                        <td class="p-3.5 font-sans">Enchanting / Auction House</td>
+                    </tr>
+                    <tr class="hover:bg-white/5 transition">
                         <td class="p-3.5 text-wowGold font-bold">Lvl 5</td>
                         <td class="p-3.5 font-bold text-white font-sans">Lesser Magic Wand</td>
                         <td class="p-3.5">11.3</td>
-                        <td class="p-3.5 font-sans">Enchanting / Auction House</td>
-                        <td class="p-3.5 font-sans">First huge power spike. Buy or craft immediately at level 5.</td>
+                        <td class="p-3.5">1.50</td>
+                        <td class="p-3.5 font-sans">Both</td>
+                        <td class="p-3.5 font-sans">Enchanting (10) trainer recipe / Auction House</td>
                     </tr>
                     <tr class="hover:bg-white/5 transition">
                         <td class="p-3.5 text-wowGold font-bold">Lvl 13</td>
                         <td class="p-3.5 font-bold text-white font-sans">Greater Magic Wand</td>
                         <td class="p-3.5">17.5</td>
-                        <td class="p-3.5 font-sans">Enchanting / Auction House</td>
-                        <td class="p-3.5 font-sans">Doubles starter wand damage output.</td>
+                        <td class="p-3.5">1.80</td>
+                        <td class="p-3.5 font-sans">Both</td>
+                        <td class="p-3.5 font-sans">Enchanting (70) trainer recipe / Auction House</td>
+                    </tr>
+                     <tr class="hover:bg-white/5 transition">
+                        <td class="p-3.5 text-wowGold font-bold">Lvl 28</td>
+                        <td class="p-3.5 font-bold text-white font-sans">Charred Wand</td>
+                        <td class="p-3.5">22.2</td>
+                        <td class="p-3.5">1.80</td>
+                        <td class="p-3.5 font-sans font-bold text-red-400">Horde</td>
+                        <td class="p-3.5 font-sans">Quest: <em>Dangerous!</em> (Hillsbrad Foothills)</td>
+                    </tr>
+                     <tr class="hover:bg-white/5 transition">
+                        <td class="p-3.5 text-wowGold font-bold">Lvl 29</td>
+                        <td class="p-3.5 font-bold text-white font-sans">Gravestone Scepter</td>
+                        <td class="p-3.5">29.0</td>
+                        <td class="p-3.5">1.50</td>
+                        <td class="p-3.5 font-sans font-bold text-red-400">Horde</td>
+                        <td class="p-3.5 font-sans">Dungeon quest: <em>Blackfathom Villainy</em> (Blackfathom Deeps)</td>
                     </tr>
                     <tr class="hover:bg-white/5 transition">
-                        <td class="p-3.5 text-wowGold font-bold">Lvl 18–27</td>
-                        <td class="p-3.5 font-bold text-holyYellow font-sans">Gravestone Scepter</td>
-                        <td class="p-3.5 text-holyYellow font-bold">29.0</td>
-                        <td class="p-3.5 font-sans">Quest: <em>Blackfathom Villainy</em> (BFD)</td>
-                        <td class="p-3.5 font-sans"><strong>Best early wand.</strong> Outperforms almost all alternatives until level 35+.</td>
+                        <td class="p-3.5 text-wowGold font-bold">Lvl 32</td>
+                        <td class="p-3.5 font-bold text-holyYellow font-sans">Wand of Mana Concentration</td>
+                        <td class="p-3.5 text-holyYellow font-bold">31.2</td>
+                        <td class="p-3.5">1.70</td>
+                        <td class="p-3.5 font-sans">Both</td>
+                        <td class="p-3.5 font-sans">Dungeon drop: Arcanic Enigma (Dalaran City)</td>
                     </tr>
                     <tr class="hover:bg-white/5 transition">
-                        <td class="p-3.5 text-wowGold font-bold">Lvl 30–40</td>
-                        <td class="p-3.5 font-bold text-white font-sans">Rod of Sorrow / Burning Sliver</td>
-                        <td class="p-3.5">31.8 – 32.7</td>
-                        <td class="p-3.5 font-sans">Quests: Arathi / Alterac Mountains</td>
-                        <td class="p-3.5 font-sans">Reliable mid-game quest rewards.</td>
+                        <td class="p-3.5 text-wowGold font-bold">Lvl 35</td>
+                        <td class="p-3.5 font-bold text-white font-sans">Necrotic Wand</td>
+                        <td class="p-3.5">33.2</td>
+                        <td class="p-3.5">1.40</td>
+                        <td class="p-3.5 font-sans">Both</td>
+                        <td class="p-3.5 font-sans">Rare drop: Azshir the Sleepless (Scarlet Monastery Graveyard)</td>
                     </tr>
                     <tr class="hover:bg-white/5 transition">
-                        <td class="p-3.5 text-wowGold font-bold">Lvl 41</td>
-                        <td class="p-3.5 font-bold text-white font-sans">Blackbone Wand</td>
-                        <td class="p-3.5">35.3</td>
-                        <td class="p-3.5 font-sans">Capital City Wand Vendors</td>
-                        <td class="p-3.5 font-sans">Purchasable directly for gold in Stormwind/Orgrimmar.</td>
+                        <td class="p-3.5 text-wowGold font-bold">Lvl 42</td>
+                        <td class="p-3.5 font-bold text-white font-sans">Plaguerot Sprig</td>
+                        <td class="p-3.5">39.4</td>
+                        <td class="p-3.5">1.60</td>
+                        <td class="p-3.5 font-sans">Both</td>
+                        <td class="p-3.5 font-sans">Dungeon drop: Plaguemaw the Rotting (Razorfen Downs)</td>
                     </tr>
                     <tr class="hover:bg-white/5 transition">
-                        <td class="p-3.5 text-wowGold font-bold">Lvl 54+</td>
-                        <td class="p-3.5 font-bold text-white font-sans">Smokey's Fireshooter</td>
+                        <td class="p-3.5 text-wowGold font-bold">Lvl 50</td>
+                        <td class="p-3.5 font-bold text-white font-sans">Cairnstone Sliver</td>
+                        <td class="p-3.5">41.4</td>
+                        <td class="p-3.5">1.80</td>
+                        <td class="p-3.5 font-sans font-bold text-blue-400">Alliance</td>
+                        <td class="p-3.5 font-sans">Quest: <em>The Morrow Stone</em> (Feralas)</td>
+                    </tr>
+                    <tr class="hover:bg-white/5 transition">
+                        <td class="p-3.5 text-wowGold font-bold">Lvl 60</td>
+                        <td class="p-3.5 font-bold text-white font-sans">Brilliant Wand</td>
+                        <td class="p-3.5">59.6</td>
+                        <td class="p-3.5">1.20</td>
+                        <td class="p-3.5 font-sans">Both</td>
+                        <td class="p-3.5 font-sans">Enchanting (320), formula from a vendor</td>
+                    </tr>
+                    <tr class="hover:bg-white/5 transition">
+                        <td class="p-3.5 text-wowGold font-bold">Lvl 60</td>
+                        <td class="p-3.5 font-bold text-white font-sans">Smokey’s Fireshooter</td>
                         <td class="p-3.5">53.2</td>
-                        <td class="p-3.5 font-sans">Quest: <em>When Smokey Sings, I Get Violent</em> (EPL)</td>
-                        <td class="p-3.5 font-sans">Top-tier quest wand heading into end-game pre-raid gearing.</td>
+                        <td class="p-3.5">1.90</td>
+                        <td class="p-3.5 font-sans">Unconfirmed</td>
+                        <td class="p-3.5 font-sans">Elite quest: <em>When Smokey Sings, I Get Violent</em> (Eastern Plaguelands)</td>
+                    </tr>
+                    <tr class="hover:bg-white/5 transition">
+                        <td class="p-3.5 text-wowGold font-bold">Lvl 65</td>
+                        <td class="p-3.5 font-bold text-holyYellow font-sans">Torch of Light</td>
+                        <td class="p-3.5 text-holyYellow font-bold">76.8</td>
+                        <td class="p-3.5">1.70</td>
+                        <td class="p-3.5 font-sans">Both</td>
+                        <td class="p-3.5 font-sans">Enchanting (300), formula</td>
                     </tr>
                 </tbody>
             </table>
