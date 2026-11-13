@@ -3257,6 +3257,16 @@ const schemaData = {
             const cta = document.getElementById('twitch-cta');
             if (!status) return;
             let live = false, info = null;
+            // Your switch: settings.json in the GitHub repo. "auto" = detect, "on" = always live, "off" = always offline.
+            let mode = 'auto';
+            try {
+                const minute = Math.floor(Date.now() / 60000);
+                const r = await fetch('https://raw.githubusercontent.com/Lawrentiueus/ForeverPriests/main/settings.json?v=' + minute, { cache: 'no-store' });
+                if (r.ok) { const cfg = await r.json(); mode = String(cfg.twitchLive || 'auto').toLowerCase().trim(); }
+            } catch (e) { mode = 'auto'; }
+            if (mode === 'on' || mode === 'true' || mode === 'live') { live = true; }
+            else if (mode === 'off' || mode === 'false' || mode === 'offline') { live = false; }
+            else
             // 1st: IVR's public Twitch lookup (accurate, no key needed).
             try {
                 const res = await fetch('https://api.ivr.fi/v2/twitch/user?login=lawrentiueus', { cache: 'no-store' });
