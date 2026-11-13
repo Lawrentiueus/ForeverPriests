@@ -14,6 +14,12 @@
     <meta property="og:image" content="https://foreverpriests.com/ForeverPriestsFav.png">
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="https://foreverpriests.com/ForeverPriestsFav.png">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="apple-touch-icon" href="/WandTrackerSite.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Forever Priests">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="theme-color" content="#0c0a12">
     <script>(function(){var t='priest';try{t=localStorage.getItem('fp-theme')||t}catch(e){}if(!/^(priest|disc|holy|shadow)$/.test(t))t='priest';document.documentElement.setAttribute('data-theme',t)})();</script>
     <!-- Tailwind CSS -->
@@ -581,6 +587,27 @@ html.modal-open body{position:fixed;left:0;right:0;width:100%}
  #article-panel{max-height:calc(100dvh - 20px);border-radius:14px!important;padding:20px 16px!important}
  #article-panel>button.absolute{top:12px;right:12px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(0,0,0,.45);position:sticky;float:right;margin:-6px -4px 0 0}
 }
+
+/* ===== Install the app ===== */
+.sb-install{padding:12px 14px 0;border-top:1px solid rgba(var(--g-rgb),.15)}
+.sb-install[hidden]{display:none}
+#install-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:9px;padding:10px 12px;border-radius:8px;border:1px solid rgba(var(--g-rgb),.5);background:linear-gradient(180deg,rgba(var(--g-rgb),.16),rgba(var(--g-rgb),.05));color:var(--gold);font-family:Cinzel,serif;font-size:.72rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;transition:.2s}
+#install-btn:hover{border-color:var(--gold);box-shadow:0 0 18px rgba(var(--g-rgb),.3);background:rgba(var(--g-rgb),.2)}
+.sb-install+.sb-cta{border-top:0}
+#ios-install{position:fixed;inset:0;z-index:97;display:flex;align-items:flex-end;justify-content:center;padding:14px;background:rgba(0,0,0,.7);backdrop-filter:blur(4px)}
+#ios-install[hidden]{display:none}
+#ios-install .ios-card{position:relative;width:100%;max-width:380px;padding:26px 22px 20px;border-radius:16px;text-align:center;background:var(--corners),var(--noise),var(--panel);border:1px solid rgba(var(--g-rgb),.5);box-shadow:0 20px 50px rgba(0,0,0,.7);margin-bottom:env(safe-area-inset-bottom)}
+#ios-install .ios-icon{width:72px;height:72px;margin:0 auto 10px;border-radius:18px;background:var(--bg-deep);border:1px solid rgba(var(--g-rgb),.5);object-fit:contain;padding:6px}
+#ios-install h3{font-family:Cinzel,serif;font-size:1.15rem;font-weight:800;color:var(--gold);margin-bottom:6px}
+#ios-install p{font-size:.85rem;color:#c9c2b4}
+#ios-install ol{text-align:left;margin:14px 0;display:grid;gap:10px}
+#ios-install li{display:flex;align-items:center;gap:10px;font-size:.85rem;color:#e7e1d3;background:rgba(0,0,0,.25);border:1px solid rgba(var(--g-rgb),.18);border-radius:10px;padding:10px}
+#ios-install li i{color:var(--gold);margin-left:4px}
+#ios-install .ios-n{flex:none;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--gold);color:var(--on-gold);font-weight:800;font-size:.75rem}
+#ios-install .ios-note{font-size:.75rem;color:#9ca3af}
+#ios-install .ios-x{position:absolute;top:10px;right:12px;color:#9ca3af;font-size:1.1rem;width:32px;height:32px}
+/* When opened as an installed app */
+@media (display-mode: standalone){ #topbar{padding-top:env(safe-area-inset-top)} }
 </style>
 
     <!-- Schema JSON-LD Block inside Head -->
@@ -742,6 +769,7 @@ html.modal-open body{position:fixed;left:0;right:0;width:100%}
 <body class="min-h-screen flex flex-col justify-between selection:bg-wowGold selection:text-black">
 
 <button type="button" id="theme-fab" onclick="toggleThemePop(event)" aria-haspopup="menu" aria-expanded="false" aria-controls="theme-pop" aria-label="Change theme"><img id="theme-fab-icon" src="/PriestClassIcon.png" alt="" draggable="false"><span id="theme-fab-name">Priest</span><i class="fa-solid fa-chevron-down"></i></button><div id="theme-pop" role="menu" aria-label="Choose a theme" hidden><div class="tp-title">Choose your path</div><button type="button" role="menuitemradio" class="theme-opt" data-theme-opt="priest" style="--tc:#F4CE63" aria-checked="false" onclick="setTheme('priest');closeThemePop()"><img src="/PriestClassIcon.png" alt="" draggable="false"><div><b>Priest</b><span>The Light and the Void, in balance</span></div><i class="fa-solid fa-check"></i></button><button type="button" role="menuitemradio" class="theme-opt" data-theme-opt="disc" style="--tc:#FFB74D" aria-checked="false" onclick="setTheme('disc');closeThemePop()"><img src="/Discipline.png" alt="" draggable="false"><div><b>Discipline</b><span>Ember and bronze</span></div><i class="fa-solid fa-check"></i></button><button type="button" role="menuitemradio" class="theme-opt" data-theme-opt="holy" style="--tc:#FFF59D" aria-checked="false" onclick="setTheme('holy');closeThemePop()"><img src="/Holy.png" alt="" draggable="false"><div><b>Holy</b><span>Radiant gold and white</span></div><i class="fa-solid fa-check"></i></button><button type="button" role="menuitemradio" class="theme-opt" data-theme-opt="shadow" style="--tc:#BA68C8" aria-checked="false" onclick="setTheme('shadow');closeThemePop()"><img src="/Shadow.png" alt="" draggable="false"><div><b>Shadow</b><span>Violet void</span></div><i class="fa-solid fa-check"></i></button></div><div id="tts-bar" role="region" aria-label="Audio reader" aria-hidden="true"><div class="tts-eq" aria-hidden="true"><i></i><i></i><i></i></div><div class="tts-info"><b id="tts-title">Reading</b><span id="tts-progress">1 / 1</span></div><button type="button" id="tts-prev" onclick="ttsSkip(-1)" aria-label="Previous paragraph"><i class="fa-solid fa-backward-step"></i></button><button type="button" id="tts-play" onclick="ttsPlayPause()" aria-label="Pause"><i class="fa-solid fa-pause"></i></button><button type="button" id="tts-next" onclick="ttsSkip(1)" aria-label="Next paragraph"><i class="fa-solid fa-forward-step"></i></button><button type="button" id="tts-speed" onclick="ttsSpeed()" aria-label="Reading speed">1x</button><button type="button" id="tts-stop" onclick="ttsStop()" aria-label="Stop reading"><i class="fa-solid fa-xmark"></i></button></div>
+<div id="ios-install" role="dialog" aria-modal="true" aria-labelledby="ios-install-title" hidden onclick="if(event.target===this)closeIosInstall()"><div class="ios-card"><button type="button" class="ios-x" onclick="closeIosInstall()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button><img src="/WandTrackerSite.png" alt="" class="ios-icon" draggable="false"><h3 id="ios-install-title">Install Forever Priests</h3><p>Add the app to your Home Screen in two taps:</p><ol><li><span class="ios-n">1</span><span>Tap the <b>Share</b> button <i class="fa-solid fa-arrow-up-from-bracket"></i> in Safari's toolbar.</span></li><li><span class="ios-n">2</span><span>Scroll down and tap <b>Add to Home Screen</b> <i class="fa-regular fa-square-plus"></i>.</span></li></ol><p class="ios-note">It opens full screen with its own icon, just like an app.</p></div></div>
 <canvas id="embers"></canvas><div id="progress"></div>
 
 <div id="topbar"><button onclick="toggleMobileMenu()" aria-label="Menu"><i class="fa-solid fa-bars" id="menu-icon"></i></button><a href="/" id="tb-home" class="font-header text-gold-gradient" onclick="event.preventDefault();switchTab('home');window.scrollTo(0,0)" aria-label="Forever Priests home">FOREVER PRIESTS</a><div style="display:flex;align-items:center;gap:14px"><button type="button" id="tb-theme" onclick="toggleThemePop(event)" aria-haspopup="menu" aria-expanded="false" aria-controls="theme-pop" aria-label="Change theme"><img id="tb-theme-icon" src="/PriestClassIcon.png" alt="" draggable="false"></button><a href="https://discord.gg/TaCD6yVhr" target="_blank"><i class="fa-brands fa-discord"></i></a></div></div>
@@ -750,6 +778,7 @@ html.modal-open body{position:fixed;left:0;right:0;width:100%}
  <div class="sb-brand" onclick="switchTab('home')"><div class="sb-crest"><img src="/PriestClassIcon.png" draggable="false" alt="Priest"></div><div><b class="font-header text-gold-gradient">FOREVER<br>PRIESTS</b><small>WoW Forever · Sanctuary</small></div></div><div class="theme-box"><small>Theme: <b id="theme-name">Priest</b></small><div class="theme-row" role="group" aria-label="Site theme"><button type="button" class="theme-btn" data-theme-btn="priest" style="--tc:#F4CE63" onclick="setTheme('priest')" title="Priest theme" aria-label="Priest theme" aria-pressed="false"><img src="/PriestClassIcon.png" alt="" draggable="false"></button><button type="button" class="theme-btn" data-theme-btn="disc" style="--tc:#FFB74D" onclick="setTheme('disc')" title="Discipline theme" aria-label="Discipline theme" aria-pressed="false"><img src="/Discipline.png" alt="" draggable="false"></button><button type="button" class="theme-btn" data-theme-btn="holy" style="--tc:#FFF59D" onclick="setTheme('holy')" title="Holy theme" aria-label="Holy theme" aria-pressed="false"><img src="/Holy.png" alt="" draggable="false"></button><button type="button" class="theme-btn" data-theme-btn="shadow" style="--tc:#BA68C8" onclick="setTheme('shadow')" title="Shadow theme" aria-label="Shadow theme" aria-pressed="false"><img src="/Shadow.png" alt="" draggable="false"></button></div></div>
  <button onclick="switchTab('home')" id="nav-home" class="nav-btn sb-link"><i class="fa-solid fa-house"></i><span>Sanctuary Home</span></button>
  <div class="sb-scroll"><div class="sb-group"><div class="sb-title"><i class="fa-solid fa-graduation-cap"></i>Class Trainer</div><button onclick="switchTab('overview')" id="nav-overview" class="nav-btn sb-link"><i class="fa-solid fa-book-open"></i><span>Priest Overview</span></button><button onclick="switchTab('leveling')" id="nav-leveling" class="nav-btn sb-link"><i class="fa-solid fa-route"></i><span>Leveling Guides</span></button><button onclick="switchTab('rotations')" id="nav-rotations" class="nav-btn sb-link"><i class="fa-solid fa-arrows-spin"></i><span>Rotations</span></button><button onclick="switchTab('races')" id="nav-races" class="nav-btn sb-link"><i class="fa-solid fa-users"></i><span>Races & Racials</span></button><button onclick="switchTab('trainers')" id="nav-trainers" class="nav-btn sb-link"><i class="fa-solid fa-location-dot"></i><span>Trainer Locations</span></button></div><div class="sb-group"><div class="sb-title"><i class="fa-solid fa-dungeon"></i>Endgame</div><button onclick="switchTab('dungeons')" id="nav-dungeons" class="nav-btn sb-link"><i class="fa-solid fa-dungeon"></i><span>Dungeon Builds</span></button><button onclick="switchTab('raids')" id="nav-raids" class="nav-btn sb-link"><i class="fa-solid fa-dragon"></i><span>Raid Builds</span></button><button onclick="switchTab('pvp')" id="nav-pvp" class="nav-btn sb-link"><i class="fa-solid fa-khanda"></i><span>PvP Guide</span></button></div><div class="sb-group"><div class="sb-title"><i class="fa-solid fa-shield-halved"></i>Armory</div><button onclick="switchTab('professions')" id="nav-professions" class="nav-btn sb-link"><i class="fa-solid fa-hammer"></i><span>Professions</span></button><button onclick="switchTab('proflevel')" id="nav-proflevel" class="nav-btn sb-link"><i class="fa-solid fa-arrow-trend-up"></i><span>Profession Leveling</span></button><button onclick="switchTab('campsites')" id="nav-campsites" class="nav-btn sb-link"><i class="fa-solid fa-campground"></i><span>Campsites</span></button><button onclick="switchTab('spells')" id="nav-spells" class="nav-btn sb-link"><i class="fa-solid fa-book-bookmark"></i><span>Spells & Mana</span></button><button onclick="switchTab('wands')" id="nav-wands" class="nav-btn sb-link"><i class="fa-solid fa-wand-magic-sparkles"></i><span>Wands</span></button></div><div class="sb-group"><div class="sb-title"><i class="fa-solid fa-hat-wizard"></i>Spellbook</div><button onclick="switchTab('calculator')" id="nav-calculator" class="nav-btn sb-link"><i class="fa-solid fa-sitemap"></i><span>Talent Calculator</span></button><button onclick="switchTab('wand')" id="nav-wand" class="nav-btn sb-link"><i class="fa-solid fa-wand-sparkles"></i><span>5SR Simulator</span></button><button onclick="switchTab('macros')" id="nav-macros" class="nav-btn sb-link"><i class="fa-solid fa-terminal"></i><span>Macro Vault</span></button></div><div class="sb-group"><div class="sb-title"><i class="fa-solid fa-landmark"></i>Guild Hall</div><button onclick="switchTab('supporters')" id="nav-supporters" class="nav-btn sb-link"><i class="fa-solid fa-crown"></i><span>Class Hall Roster</span></button></div></div>
+ <div class="sb-install" id="install-wrap" hidden><button type="button" id="install-btn" onclick="installApp()"><i class="fa-solid fa-mobile-screen-button"></i><span>Install the App</span></button></div>
  <div class="sb-cta"><a href="https://buymeacoffee.com/lawrentiueus" target="_blank" class="cta-gold"><i class="fa-solid fa-heart"></i> Support</a><a href="https://discord.gg/TaCD6yVhr" target="_blank" class="cta-void"><i class="fa-brands fa-discord"></i> Discord</a></div>
 </aside>
     <!-- Main Dynamic Content Region -->
@@ -2684,7 +2713,7 @@ html.modal-open body{position:fixed;left:0;right:0;width:100%}
     </main>
 
     <!-- Article Reading Modal -->
-    <div id="article-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div id="article-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4" onclick="if(event.target===this)closeArticleModal()">
         <div id="article-panel" class="bg-cardBg border border-cardBorder rounded-3xl max-w-2xl w-full p-6 sm:p-8 space-y-6 relative shadow-2xl max-h-[90vh] overflow-y-auto">
             <button onclick="closeArticleModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-xl z-10">
                 <i class="fa-solid fa-xmark"></i>
@@ -3015,7 +3044,10 @@ html.modal-open body{position:fixed;left:0;right:0;width:100%}
             if (tabId === 'calculator' && build) loadBuildCode(build);
             setRoute(tabId, sub, 'replace', tabId === 'calculator' && build ? '?build=' + encodeURIComponent(build) : '');
         }
-        window.addEventListener('popstate', routeFromLocation);
+        window.addEventListener('popstate', () => {
+            routeFromLocation();
+            if (window.__restoreY != null) { const y = window.__restoreY; window.__restoreY = null; jumpTo(y); setTimeout(() => jumpTo(y), 60); }
+        });
         window.addEventListener('hashchange', routeFromLocation);
         // Kept so any old inline calls still work.
         function checkHashRoute() { routeFromLocation(); }
@@ -3169,6 +3201,14 @@ const schemaData = {
 
         // Stop the page behind the article from scrolling (works on iPhone too).
         let __lockY = 0;
+        // Put the page back exactly where it was: instantly, no smooth scrolling.
+        function jumpTo(y) {
+            const html = document.documentElement, prev = html.style.scrollBehavior;
+            html.style.scrollBehavior = 'auto';
+            window.scrollTo({ top: y, left: 0, behavior: 'instant' });
+            requestAnimationFrame(() => { window.scrollTo({ top: y, left: 0, behavior: 'instant' }); html.style.scrollBehavior = prev; });
+        }
+        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
         function lockPageScroll(on) {
             const html = document.documentElement, body = document.body;
             if (on && !html.classList.contains('modal-open')) {
@@ -3178,7 +3218,7 @@ const schemaData = {
             } else if (!on && html.classList.contains('modal-open')) {
                 html.classList.remove('modal-open');
                 body.style.top = '';
-                window.scrollTo(0, __lockY);
+                jumpTo(__lockY);
             }
         }
         // Dragging on the dark backdrop shouldn't move anything.
@@ -3200,8 +3240,9 @@ const schemaData = {
         function closeArticleModal() {
             const wasArticleUrl = location.pathname.startsWith('/articles/');
             const wasHomeBehind = !document.getElementById('tab-home').classList.contains('hidden');
+            const keepY = __lockY;
             hideArticleModal();
-            if (wasArticleUrl && wasHomeBehind) window.__keepScroll = true;   // stay where you were in the list
+            if (wasArticleUrl && wasHomeBehind) { window.__keepScroll = true; window.__restoreY = keepY; }   // stay where you were in the list
             if (wasArticleUrl) {
                 // Back to the homepage, keeping the visitor's place in the articles list.
                 if (history.state && history.state.article) history.back();
@@ -3832,6 +3873,30 @@ if(location.protocol==='file:'){document.querySelectorAll('img[src^="/"]').forEa
  });
  window.addEventListener('beforeunload', () => { if (SUPPORTED) synth.cancel(); });
  document.addEventListener('visibilitychange', () => { /* keep reading in the background like a podcast */ });
+})();
+</script>
+<script>
+/* ===== Forever Priests app: offline helper + install button ===== */
+(function(){
+ const isStandalone = () => window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+ const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+ const wrap = document.getElementById('install-wrap');
+ let deferred = null;
+ if ('serviceWorker' in navigator && location.protocol === 'https:') {
+  window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js').catch(() => {}); });
+ }
+ // Chrome, Edge and Android: the browser tells us when the app can be installed.
+ window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferred = e; if (!isStandalone()) wrap.hidden = false; });
+ window.addEventListener('appinstalled', () => { deferred = null; wrap.hidden = true; });
+ // iPhone and iPad: no automatic prompt, so show the button with how-to steps.
+ if (isIOS && !isStandalone()) wrap.hidden = false;
+ window.installApp = async function(){
+  if (deferred) { deferred.prompt(); try { await deferred.userChoice; } catch(e) {} deferred = null; wrap.hidden = true; return; }
+  if (isIOS) { document.getElementById('ios-install').hidden = false; return; }
+ };
+ window.closeIosInstall = function(){ document.getElementById('ios-install').hidden = true; };
+ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeIosInstall(); });
+ if (isStandalone()) document.documentElement.classList.add('is-app');
 })();
 </script>
 </body>
