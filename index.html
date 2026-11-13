@@ -3689,7 +3689,7 @@ const schemaData = {
  window.closeMobileMenu=function(){document.getElementById('sidebar').classList.remove('open');document.getElementById('scrim').classList.remove('open');const mi=document.getElementById('menu-icon');if(mi)mi.className='fa-solid fa-bars';};
  window.switchTab=function(t,h){_sw(t,h);closeMobileMenu();observeReveal();};
  window.toggleMobileMenu=function(){const o=document.getElementById('sidebar').classList.toggle('open');document.getElementById('scrim').classList.toggle('open',o);document.getElementById('menu-icon').className='fa-solid '+(o?'fa-xmark':'fa-bars');};
- const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});
+ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:0,rootMargin:'0px 0px -40px 0px'});
  function observeReveal(){document.querySelectorAll('.tab-content:not(.hidden) > *, #tab-home .grid > *, #articles-grid > *').forEach(el=>{if(!el.classList.contains('reveal')&&!el.classList.contains('hero')){el.classList.add('reveal');}io.observe(el)});}
  setTimeout(observeReveal,300);new MutationObserver(()=>observeReveal()).observe(document.getElementById('articles-grid')||document.body,{childList:true});
  document.querySelectorAll('.portal').forEach(p=>p.addEventListener('mousemove',e=>{const r=p.getBoundingClientRect();p.style.setProperty('--mx',(e.clientX-r.left)+'px');p.style.setProperty('--my',(e.clientY-r.top)+'px')}));
@@ -3726,4 +3726,7 @@ const schemaData = {
 <script>
 /* Local preview: when the file is opened straight from your computer (file://), "/Image.png" points at the drive root.
    Point images back at the folder this file lives in. On the live site this does nothing. */
-if(location.protocol==='file:'){document.querySelectorAll('img[src^="/"]').forEach(function(i){i.src=i.get
+if(location.protocol==='file:'){document.querySelectorAll('img[src^="/"]').forEach(function(i){i.src=i.getAttribute('src').slice(1)});}
+</script>
+</body>
+</html>
