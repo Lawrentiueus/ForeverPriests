@@ -1,0 +1,2 @@
+# Clean URLs: send every page address to index.html (real files like articles.json and images are served first)
+/*    /index.html    200
