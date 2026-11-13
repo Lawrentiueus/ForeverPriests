@@ -569,6 +569,18 @@ div.bg-cardBg.rounded-2xl:not(.overflow-x-auto),div.bg-cardBg.rounded-3xl,.spec-
 #tts-bar #tts-speed{width:auto;padding:0 10px;border-radius:99px;font-size:.65rem;font-weight:800}
 .tts-reading{outline:2px solid rgba(var(--g-rgb),.55);outline-offset:4px;border-radius:4px;background:rgba(var(--g-rgb),.06);transition:outline-color .2s}
 @media(max-width:640px){#tts-bar{bottom:12px;gap:6px;padding:6px 6px 6px 10px}#tts-bar .tts-info b{max-width:34vw}}
+
+/* Article window: page behind it stays still, window always fits the screen */
+html.modal-open,html.modal-open body{overflow:hidden}
+html.modal-open body{position:fixed;left:0;right:0;width:100%}
+#article-modal{overscroll-behavior:contain;z-index:90!important}
+#tts-bar{z-index:95}
+#article-panel{overscroll-behavior:contain;-webkit-overflow-scrolling:touch;max-height:calc(100dvh - 2rem)}
+@media(max-width:640px){
+ #article-modal{align-items:flex-start!important;padding:10px!important;padding-top:max(10px,env(safe-area-inset-top))!important}
+ #article-panel{max-height:calc(100dvh - 20px);border-radius:14px!important;padding:20px 16px!important}
+ #article-panel>button.absolute{top:12px;right:12px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(0,0,0,.45);position:sticky;float:right;margin:-6px -4px 0 0}
+}
 </style>
 
     <!-- Schema JSON-LD Block inside Head -->
@@ -2673,7 +2685,7 @@ div.bg-cardBg.rounded-2xl:not(.overflow-x-auto),div.bg-cardBg.rounded-3xl,.spec-
 
     <!-- Article Reading Modal -->
     <div id="article-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
-        <div class="bg-cardBg border border-cardBorder rounded-3xl max-w-2xl w-full p-6 sm:p-8 space-y-6 relative shadow-2xl max-h-[90vh] overflow-y-auto">
+        <div id="article-panel" class="bg-cardBg border border-cardBorder rounded-3xl max-w-2xl w-full p-6 sm:p-8 space-y-6 relative shadow-2xl max-h-[90vh] overflow-y-auto">
             <button onclick="closeArticleModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-xl z-10">
                 <i class="fa-solid fa-xmark"></i>
             </button>
@@ -3028,7 +3040,7 @@ div.bg-cardBg.rounded-2xl:not(.overflow-x-auto),div.bg-cardBg.rounded-3xl,.spec-
                 mobileMenu.classList.add('hidden');
             }
 
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (window.__keepScroll) window.__keepScroll = false; else window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function toggleMobileMenu() {
@@ -3088,6 +3100,11 @@ div.bg-cardBg.rounded-2xl:not(.overflow-x-auto),div.bg-cardBg.rounded-3xl,.spec-
             document.getElementById('modal-content').innerHTML = art.content || `<p>${art.summary}</p>`;
             document.getElementById('article-modal').classList.remove('hidden');
             document.getElementById('article-modal').classList.add('flex');
+            // Always start at the top of the article, and freeze the page behind it.
+            const panel = document.getElementById('article-panel');
+            panel.scrollTop = 0;
+            requestAnimationFrame(() => { panel.scrollTop = 0; });
+            lockPageScroll(true);
         
 // --- DYNAMIC SCHEMA INJECTION ---
     let existingSchema = document.getElementById('dynamic-article-schema');
@@ -3150,18 +3167,41 @@ const schemaData = {
         checkTwitchLive();
         setInterval(checkTwitchLive, 120000);
 
+        // Stop the page behind the article from scrolling (works on iPhone too).
+        let __lockY = 0;
+        function lockPageScroll(on) {
+            const html = document.documentElement, body = document.body;
+            if (on && !html.classList.contains('modal-open')) {
+                __lockY = window.scrollY;
+                html.classList.add('modal-open');
+                body.style.top = (-__lockY) + 'px';
+            } else if (!on && html.classList.contains('modal-open')) {
+                html.classList.remove('modal-open');
+                body.style.top = '';
+                window.scrollTo(0, __lockY);
+            }
+        }
+        // Dragging on the dark backdrop shouldn't move anything.
+        document.addEventListener('touchmove', e => {
+            const m = document.getElementById('article-modal');
+            if (m && !m.classList.contains('hidden') && !e.target.closest('#article-panel')) e.preventDefault();
+        }, { passive: false });
+
         function hideArticleModal() {
             const m = document.getElementById('article-modal');
             if (!m) return;
             m.classList.remove('flex');
             m.classList.add('hidden');
+            lockPageScroll(false);
             window.__openArticleId = null;
             const sc = document.getElementById('dynamic-article-schema');
             if (sc) sc.remove();
         }
         function closeArticleModal() {
             const wasArticleUrl = location.pathname.startsWith('/articles/');
+            const wasHomeBehind = !document.getElementById('tab-home').classList.contains('hidden');
             hideArticleModal();
+            if (wasArticleUrl && wasHomeBehind) window.__keepScroll = true;   // stay where you were in the list
             if (wasArticleUrl) {
                 // Back to the homepage, keeping the visitor's place in the articles list.
                 if (history.state && history.state.article) history.back();
