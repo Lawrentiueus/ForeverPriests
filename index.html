@@ -404,7 +404,7 @@ main{max-width:1360px!important;padding-top:2rem!important}
 @keyframes spin{to{transform:translate(var(--tx,0),var(--ty,0)) rotate(360deg)}}
 .rays{--tx:-50%}.rune{--tx:-50%;--ty:-50%}
 @keyframes shine{to{background-position:-250% 0}}
-@keyframes float{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-12px,0)}}
+@keyframes float{50%{transform:translateY(-12px)}}
 @keyframes bob{50%{transform:translate(-50%,8px)}}
 @keyframes breathe{to{transform:scale(1.08)}}
 @keyframes rise{from{opacity:0;transform:translateY(30px)}}
@@ -547,14 +547,6 @@ div.bg-cardBg.rounded-2xl:not(.overflow-x-auto),div.bg-cardBg.rounded-3xl,.spec-
 #tb-theme img{width:28px;height:28px;border-radius:50%;padding:3px;border:1px solid var(--gold);background:var(--bg-deep);object-fit:contain}
 @media(max-width:1023px){#theme-fab{display:none}#theme-pop{position:fixed;top:62px;right:10px}}
 
-/* Firefox: keep the hero animations smooth (own GPU layers, lighter filters while animating) */
-.orb,.wand-scene .wand,.rune,.rays,.wand-scene .rings,.wand-scene .tome .halo{will-change:transform;backface-visibility:hidden}
-@supports (-moz-appearance:none){
- .orb img{box-shadow:0 0 22px color-mix(in srgb,var(--c) 45%,transparent)}
- .rune{filter:none}
- .wand-scene .wand{filter:none}
- .hero-sky{animation:none}
-}
 </style>
 
     <!-- Schema JSON-LD Block inside Head -->
