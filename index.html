@@ -2871,8 +2871,25 @@ div.bg-cardBg.rounded-2xl:not(.overflow-x-auto),div.bg-cardBg.rounded-3xl,.spec-
 
         async function loadArticles() {
             try {
-                const response = await fetch('/articles.json');
-                cachedArticles = await response.json();
+                // Articles load straight from GitHub, so posting one doesn't need a Netlify deploy.
+                // Order: GitHub raw -> jsDelivr mirror -> the copy on this site.
+                const bucket = Math.floor(Date.now() / 300000); // changes every 5 min
+                const sources = [
+                    'https://raw.githubusercontent.com/Lawrentiueus/ForeverPriests/main/articles.json?v=' + bucket,
+                    'https://cdn.jsdelivr.net/gh/Lawrentiueus/ForeverPriests@main/articles.json?v=' + bucket,
+                    '/articles.json'
+                ];
+                let data = null;
+                for (const url of sources) {
+                    try {
+                        const r = await fetch(url, { cache: 'no-cache' });
+                        if (!r.ok) continue;
+                        const j = await r.json();
+                        if (Array.isArray(j)) { data = j; break; }
+                    } catch (e) { /* try the next source */ }
+                }
+                if (!data) throw new Error('No article source reachable');
+                cachedArticles = data;
             } catch (error) {
                 console.error('Error loading articles:', error);
                 cachedArticles = [];
