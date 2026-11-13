@@ -2668,7 +2668,7 @@ div.bg-cardBg.rounded-2xl:not(.overflow-x-auto),div.bg-cardBg.rounded-3xl,.spec-
             </div>
             <div id="modal-content" class="text-gray-300 text-sm leading-relaxed space-y-4"></div>
             <div class="pt-4 border-t border-cardBorder flex justify-end">
-                <button onclick="closeArticleModal()" class="px-5 py-2.5 rounded-xl bg-wowGold text-black font-bold text-xs uppercase tracking-wider">Close Article</button>
+                <button onclick="copyArticleLink(this)" class="px-5 py-2.5 rounded-xl border border-wowGold/40 text-wowGold font-bold text-xs uppercase tracking-wider hover:bg-wowGold/10 transition mr-2"><i class="fa-solid fa-link mr-1"></i> Copy Link</button><button onclick="closeArticleModal()" class="px-5 py-2.5 rounded-xl bg-wowGold text-black font-bold text-xs uppercase tracking-wider">Close Article</button>
             </div>
         </div>
     </div>
@@ -2973,8 +2973,41 @@ div.bg-cardBg.rounded-2xl:not(.overflow-x-auto),div.bg-cardBg.rounded-3xl,.spec-
             return null;
         }
 
+        // ---------- Article slugs: /articles/<slug> ----------
+        // Uses the article's "slug" field if it has one, otherwise one is made from the title.
+        function articleSlug(art) {
+            if (art.slug) return String(art.slug).toLowerCase().trim().replace(/[^a-z0-9-]+/g, '-').replace(/^-+|-+$/g, '');
+            let s = String(art.title || ('article-' + art.id)).toLowerCase()
+                .replace(/&/g, ' and ').replace(/['’]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+            if (s.length > 80) s = s.slice(0, 80).replace(/-[^-]*$/, '');
+            return s || ('article-' + art.id);
+        }
+        function findArticleBySlug(slug) {
+            slug = decodeURIComponent(slug || '').toLowerCase();
+            return cachedArticles.find(a => articleSlug(a) === slug)
+                || cachedArticles.find(a => String(a.id) === slug)
+                || null;
+        }
+        function articleUrl(art) { return SITE_URL + '/articles/' + articleSlug(art); }
+        function copyArticleLink(btn) {
+            const art = cachedArticles.find(a => a.id === window.__openArticleId);
+            if (!art) return;
+            copyString(articleUrl(art));
+            flashButton(btn, 'Link Copied!');
+        }
+
         // Render whatever the current address points at.
         function routeFromLocation() {
+            const am = location.pathname.match(/^\/articles\/([^\/]+)\/?$/);
+            if (am) {
+                const art = findArticleBySlug(am[1]);
+                if (art) {
+                    switchTab('home', false);
+                    openArticleModal(art.id, false);
+                    return;
+                }
+            }
+            hideArticleModal();
             const legacy = legacyHashToPath(location.hash);
             if (legacy) history.replaceState(null, '', legacy);
             const parts = location.pathname.replace(/^\/+|\/+$/g, '').split('/');
@@ -3043,15 +3076,22 @@ div.bg-cardBg.rounded-2xl:not(.overflow-x-auto),div.bg-cardBg.rounded-3xl,.spec-
                     </div>
                     <div class="pt-4 border-t border-cardBorder/50 mt-4 flex items-center justify-between text-xs">
                         <span class="text-gray-400">By <strong class="text-wowGold">${art.author}</strong></span>
-                        <span class="text-wowGold font-bold cursor-pointer hover:underline" onclick="openArticleModal(${art.id})">Read Article →</span>
+                        <a href="/articles/${articleSlug(art)}" class="text-wowGold font-bold cursor-pointer hover:underline" onclick="event.preventDefault();openArticleModal(${art.id})">Read Article →</a>
                     </div>
                 </div>
             `).join('');
         }
 
-        function openArticleModal(id) {
+        function openArticleModal(id, updateHistory = true) {
             const art = cachedArticles.find(a => a.id === id);
             if (!art) return;
+            window.__openArticleId = art.id;
+            const path = '/articles/' + articleSlug(art);
+            if (updateHistory && location.pathname !== path) history.pushState({ article: art.id }, '', path);
+            else if (!updateHistory && location.pathname !== path) history.replaceState({ article: art.id }, '', path);
+            setPageMeta(path, art.title + ' | Forever Priests', art.summary || ROUTES.home.desc);
+            const ogi = document.querySelector('meta[property="og:image"]');
+            if (ogi && art.imageUrl) ogi.setAttribute('content', new URL(art.imageUrl, SITE_URL).href);
 
             document.getElementById('modal-category').innerText = art.category;
             document.getElementById('modal-title').innerText = art.title;
@@ -3133,10 +3173,27 @@ const schemaData = {
         checkTwitchLive();
         setInterval(checkTwitchLive, 120000);
 
-        function closeArticleModal() {
-            document.getElementById('article-modal').classList.remove('flex');
-            document.getElementById('article-modal').classList.add('hidden');
+        function hideArticleModal() {
+            const m = document.getElementById('article-modal');
+            if (!m) return;
+            m.classList.remove('flex');
+            m.classList.add('hidden');
+            window.__openArticleId = null;
+            const sc = document.getElementById('dynamic-article-schema');
+            if (sc) sc.remove();
         }
+        function closeArticleModal() {
+            const wasArticleUrl = location.pathname.startsWith('/articles/');
+            hideArticleModal();
+            if (wasArticleUrl) {
+                // Back to the homepage, keeping the visitor's place in the articles list.
+                if (history.state && history.state.article) history.back();
+                else { history.replaceState(null, '', '/'); setRoute('home', null, 'replace'); }
+            }
+        }
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && !document.getElementById('article-modal').classList.contains('hidden')) closeArticleModal();
+        });
 
         function showProfLevel(prof, updateHash = true) {
             document.querySelectorAll('.pl-panel').forEach(p => p.classList.add('hidden'));
