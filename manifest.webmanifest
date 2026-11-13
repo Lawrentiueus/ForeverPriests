@@ -1,0 +1,23 @@
+{
+  "name": "Forever Priests",
+  "short_name": "Forever Priests",
+  "description": "The WoW Forever Priest hub: leveling, rotations, builds, PvP, professions, talent calculator and articles.",
+  "id": "/",
+  "start_url": "/?source=app",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "any",
+  "background_color": "#0c0a12",
+  "theme_color": "#0c0a12",
+  "categories": ["games", "entertainment", "education"],
+  "icons": [
+    { "src": "/WandTrackerSite.png", "sizes": "1024x1024", "type": "image/png", "purpose": "any" }
+  ],
+  "shortcuts": [
+    { "name": "Leveling Guides", "url": "/leveling", "icons": [{ "src": "/PriestClassIcon.png", "sizes": "448x448", "type": "image/png" }] },
+    { "name": "Talent Calculator", "url": "/talent-calculator", "icons": [{ "src": "/PriestClassIcon.png", "sizes": "448x448", "type": "image/png" }] },
+    { "name": "PvP Guide", "url": "/pvp", "icons": [{ "src": "/PriestClassIcon.png", "sizes": "448x448", "type": "image/png" }] },
+    { "name": "Rotations", "url": "/rotations", "icons": [{ "src": "/PriestClassIcon.png", "sizes": "448x448", "type": "image/png" }] }
+  ]
+}
