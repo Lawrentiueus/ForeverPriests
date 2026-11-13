@@ -667,6 +667,14 @@ html.modal-open body{position:fixed;left:0;right:0;width:100%}
           "description": "Level 60 Discipline, Holy, and Shadow Priest talent builds for WoW Forever raids."
         },
         {
+          "@type": "CollectionPage",
+          "@id": "https://foreverpriests.com/articles#webpage",
+          "url": "https://foreverpriests.com/articles",
+          "name": "All Articles | Forever Priests",
+          "isPartOf": { "@id": "https://foreverpriests.com/#website" },
+          "description": "Every Forever Priests article: WoW Forever Priest news, guides and theorycrafting."
+        },
+        {
           "@type": "WebPage",
           "@id": "https://foreverpriests.com/pvp#webpage",
           "url": "https://foreverpriests.com/pvp",
@@ -776,7 +784,7 @@ html.modal-open body{position:fixed;left:0;right:0;width:100%}
 <div id="mobile-menu" class="hidden"></div><div id="scrim" onclick="toggleMobileMenu()"></div>
 <aside id="sidebar">
  <div class="sb-brand" onclick="switchTab('home')"><div class="sb-crest"><img src="/PriestClassIcon.png" draggable="false" alt="Priest"></div><div><b class="font-header text-gold-gradient">FOREVER<br>PRIESTS</b><small>WoW Forever · Sanctuary</small></div></div><div class="theme-box"><small>Theme: <b id="theme-name">Priest</b></small><div class="theme-row" role="group" aria-label="Site theme"><button type="button" class="theme-btn" data-theme-btn="priest" style="--tc:#F4CE63" onclick="setTheme('priest')" title="Priest theme" aria-label="Priest theme" aria-pressed="false"><img src="/PriestClassIcon.png" alt="" draggable="false"></button><button type="button" class="theme-btn" data-theme-btn="disc" style="--tc:#FFB74D" onclick="setTheme('disc')" title="Discipline theme" aria-label="Discipline theme" aria-pressed="false"><img src="/Discipline.png" alt="" draggable="false"></button><button type="button" class="theme-btn" data-theme-btn="holy" style="--tc:#FFF59D" onclick="setTheme('holy')" title="Holy theme" aria-label="Holy theme" aria-pressed="false"><img src="/Holy.png" alt="" draggable="false"></button><button type="button" class="theme-btn" data-theme-btn="shadow" style="--tc:#BA68C8" onclick="setTheme('shadow')" title="Shadow theme" aria-label="Shadow theme" aria-pressed="false"><img src="/Shadow.png" alt="" draggable="false"></button></div></div>
- <button onclick="switchTab('home')" id="nav-home" class="nav-btn sb-link"><i class="fa-solid fa-house"></i><span>Sanctuary Home</span></button>
+ <button onclick="switchTab('home')" id="nav-home" class="nav-btn sb-link"><i class="fa-solid fa-house"></i><span>Sanctuary Home</span></button><button onclick="switchTab('articles')" id="nav-articles" class="nav-btn sb-link"><i class="fa-solid fa-feather-pointed"></i><span>Articles</span></button>
  <div class="sb-scroll"><div class="sb-group"><div class="sb-title"><i class="fa-solid fa-graduation-cap"></i>Class Trainer</div><button onclick="switchTab('overview')" id="nav-overview" class="nav-btn sb-link"><i class="fa-solid fa-book-open"></i><span>Priest Overview</span></button><button onclick="switchTab('leveling')" id="nav-leveling" class="nav-btn sb-link"><i class="fa-solid fa-route"></i><span>Leveling Guides</span></button><button onclick="switchTab('rotations')" id="nav-rotations" class="nav-btn sb-link"><i class="fa-solid fa-arrows-spin"></i><span>Rotations</span></button><button onclick="switchTab('races')" id="nav-races" class="nav-btn sb-link"><i class="fa-solid fa-users"></i><span>Races & Racials</span></button><button onclick="switchTab('trainers')" id="nav-trainers" class="nav-btn sb-link"><i class="fa-solid fa-location-dot"></i><span>Trainer Locations</span></button></div><div class="sb-group"><div class="sb-title"><i class="fa-solid fa-dungeon"></i>Endgame</div><button onclick="switchTab('dungeons')" id="nav-dungeons" class="nav-btn sb-link"><i class="fa-solid fa-dungeon"></i><span>Dungeon Builds</span></button><button onclick="switchTab('raids')" id="nav-raids" class="nav-btn sb-link"><i class="fa-solid fa-dragon"></i><span>Raid Builds</span></button><button onclick="switchTab('pvp')" id="nav-pvp" class="nav-btn sb-link"><i class="fa-solid fa-khanda"></i><span>PvP Guide</span></button></div><div class="sb-group"><div class="sb-title"><i class="fa-solid fa-shield-halved"></i>Armory</div><button onclick="switchTab('professions')" id="nav-professions" class="nav-btn sb-link"><i class="fa-solid fa-hammer"></i><span>Professions</span></button><button onclick="switchTab('proflevel')" id="nav-proflevel" class="nav-btn sb-link"><i class="fa-solid fa-arrow-trend-up"></i><span>Profession Leveling</span></button><button onclick="switchTab('campsites')" id="nav-campsites" class="nav-btn sb-link"><i class="fa-solid fa-campground"></i><span>Campsites</span></button><button onclick="switchTab('spells')" id="nav-spells" class="nav-btn sb-link"><i class="fa-solid fa-book-bookmark"></i><span>Spells & Mana</span></button><button onclick="switchTab('wands')" id="nav-wands" class="nav-btn sb-link"><i class="fa-solid fa-wand-magic-sparkles"></i><span>Wands</span></button></div><div class="sb-group"><div class="sb-title"><i class="fa-solid fa-hat-wizard"></i>Spellbook</div><button onclick="switchTab('calculator')" id="nav-calculator" class="nav-btn sb-link"><i class="fa-solid fa-sitemap"></i><span>Talent Calculator</span></button><button onclick="switchTab('wand')" id="nav-wand" class="nav-btn sb-link"><i class="fa-solid fa-wand-sparkles"></i><span>5SR Simulator</span></button><button onclick="switchTab('macros')" id="nav-macros" class="nav-btn sb-link"><i class="fa-solid fa-terminal"></i><span>Macro Vault</span></button></div><div class="sb-group"><div class="sb-title"><i class="fa-solid fa-landmark"></i>Guild Hall</div><button onclick="switchTab('supporters')" id="nav-supporters" class="nav-btn sb-link"><i class="fa-solid fa-crown"></i><span>Class Hall Roster</span></button></div></div>
  <div class="sb-install" id="install-wrap" hidden><button type="button" id="install-btn" onclick="installApp()"><i class="fa-solid fa-mobile-screen-button"></i><span>Install the App</span></button></div>
  <div class="sb-cta"><a href="https://buymeacoffee.com/lawrentiueus" target="_blank" class="cta-gold"><i class="fa-solid fa-heart"></i> Support</a><a href="https://discord.gg/TaCD6yVhr" target="_blank" class="cta-void"><i class="fa-brands fa-discord"></i> Discord</a></div>
@@ -899,6 +907,11 @@ html.modal-open body{position:fixed;left:0;right:0;width:100%}
 
                 <!-- Dynamic News Feed Grid -->
                 <div id="articles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+                <div id="articles-more" class="flex justify-center pt-2 hidden">
+                    <a href="/articles" onclick="event.preventDefault();openArticlesPage()" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-wowGold text-black font-bold text-xs uppercase tracking-wider">
+                        <i class="fa-solid fa-book-open"></i> <span id="articles-more-text">View All Articles</span> <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
 
            <!-- Creator Bio (Lawrentiueus) -->
@@ -1082,6 +1095,28 @@ html.modal-open body{position:fixed;left:0;right:0;width:100%}
 
 
         <!-- ================= TAB: RACES & RACIALS ================= -->
+<!-- ================= TAB: ALL ARTICLES ================= -->
+<section id="tab-articles" class="tab-content hidden space-y-8">
+    <div class="border-b border-cardBorder pb-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-voidPurple/15 border border-voidPurple/40 text-voidPurple text-xs font-bold uppercase tracking-wider mb-2">
+            <i class="fa-solid fa-feather-pointed"></i> News, Guides &amp; Theorycrafting
+        </div>
+        <h1 class="font-header text-3xl sm:text-4xl font-extrabold text-white">All Articles</h1>
+        <p class="text-gray-400 text-sm mt-2">Every Forever Priests article, newest first. Filter by topic or search by title.</p>
+    </div>
+    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div id="archive-filters" class="flex flex-wrap gap-2"></div>
+        <label class="relative block lg:w-72 shrink-0">
+            <span class="sr-only">Search articles</span>
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-xs"></i>
+            <input id="archive-search" type="search" placeholder="Search articles..." oninput="renderArchive()" class="w-full bg-darkBg border border-cardBorder rounded-xl pl-9 pr-3 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-wowGold">
+        </label>
+    </div>
+    <p id="archive-count" class="text-xs text-gray-500 -mt-4"></p>
+    <div id="archive-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    <div id="archive-empty" class="hidden text-center text-gray-400 text-sm py-12 border border-dashed border-cardBorder rounded-2xl">No articles match that search yet.</div>
+</section>
+
         <section id="tab-races" class="tab-content hidden space-y-8">
             <div class="border-b border-cardBorder pb-6">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-voidPurple/20 border border-voidPurple/40 text-voidPurple text-xs font-bold uppercase tracking-wider mb-2">
@@ -2919,6 +2954,7 @@ html.modal-open body{position:fixed;left:0;right:0;width:100%}
         const SITE_URL = 'https://foreverpriests.com';
         const ROUTES = {
             home:       { slug: '',                    title: 'Forever Priests | World of Warcraft Forever Priest Class Hub', desc: 'The WoW Forever Priest hub: leveling guides, rotations, dungeon and raid builds, talent calculator, professions, trainers and tools for Discipline, Holy and Shadow.' },
+            articles:   { slug: 'articles',            title: 'All Articles | Forever Priests', desc: 'Every Forever Priests article: WoW Forever Priest news, guides and theorycrafting for Discipline, Holy and Shadow.' },
             overview:   { slug: 'overview',            title: 'Priest Overview | Forever Priests', desc: 'WoW Forever Priest class overview: what Discipline, Holy and Shadow do, strengths and weaknesses, and every talent change from Classic.', sub: 'overview' },
             leveling:   { slug: 'leveling',            title: 'Priest Leveling Guides 1-60 | Forever Priests', desc: 'WoW Forever Priest leveling guides for Discipline, Holy and Shadow: talents by level, pull order, stats, zones and gear.', sub: 'spec' },
             rotations:  { slug: 'rotations',           title: 'Priest Rotations | Forever Priests', desc: 'Discipline, Holy and Shadow Priest PvE rotations for WoW Forever: healing priorities, openers and damage priority lists.', sub: 'spec' },
@@ -3080,11 +3116,10 @@ html.modal-open body{position:fixed;left:0;right:0;width:100%}
             menu.classList.toggle('hidden');
         }
 
-        function renderArticles(filter = 'all') {
-            const grid = document.getElementById('articles-grid');
-            const filtered = filter === 'all' ? cachedArticles : cachedArticles.filter(a => a.category === filter);
-
-            grid.innerHTML = filtered.map(art => `
+        const HOME_ARTICLE_LIMIT = 9;
+        let homeFilter = 'all', archiveFilter = 'all';
+        function articleCard(art) {
+            return `
                 <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 flex flex-col justify-between hover:border-wowGold/40 transition">
                     <div class="space-y-3">
                         ${art.imageUrl ? `<div class="mb-3 rounded-xl overflow-hidden h-40 bg-darkBg border border-cardBorder"><img src="${art.imageUrl}" draggable="false" oncontextmenu="return false;" alt="${art.title}" class="w-full h-full object-cover"></div>` : ''}
@@ -3100,7 +3135,48 @@ html.modal-open body{position:fixed;left:0;right:0;width:100%}
                         <a href="/articles/${articleSlug(art)}" class="text-wowGold font-bold cursor-pointer hover:underline" onclick="event.preventDefault();openArticleModal(${art.id})">Read Article →</a>
                     </div>
                 </div>
-            `).join('');
+            `;
+        }
+        function renderArticles(filter = homeFilter) {
+            homeFilter = filter;
+            const grid = document.getElementById('articles-grid');
+            const filtered = filter === 'all' ? cachedArticles : cachedArticles.filter(a => a.category === filter);
+            grid.innerHTML = filtered.slice(0, HOME_ARTICLE_LIMIT).map(articleCard).join('');
+            const more = document.getElementById('articles-more');
+            if (more) {
+                more.classList.toggle('hidden', cachedArticles.length <= HOME_ARTICLE_LIMIT && filtered.length <= HOME_ARTICLE_LIMIT);
+                document.getElementById('articles-more-text').textContent = filtered.length > HOME_ARTICLE_LIMIT
+                    ? `View All ${filtered.length} ${filter === 'all' ? '' : filter + ' '}Articles`.replace('  ', ' ')
+                    : `View All ${cachedArticles.length} Articles`;
+            }
+            if (document.getElementById('tab-articles') && !document.getElementById('archive-filters').children.length) buildArchiveFilters();
+            renderArchive();
+        }
+        function buildArchiveFilters() {
+            const box = document.getElementById('archive-filters');
+            const cats = ['all', ...[...document.querySelectorAll('#tab-home .news-filter-btn')].map(b => b.id.replace('filter-', '')).filter(c => c !== 'all')];
+            box.innerHTML = cats.map(c => `<button type="button" data-cat="${c}" onclick="filterArchive(this.dataset.cat)" class="news-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold${c === archiveFilter ? ' is-active' : ''}">${c === 'all' ? 'All' : c}</button>`).join('');
+        }
+        function filterArchive(cat) {
+            archiveFilter = cat;
+            document.querySelectorAll('#archive-filters .news-filter-btn').forEach(b => b.classList.toggle('is-active', b.dataset.cat === cat));
+            renderArchive();
+        }
+        function renderArchive() {
+            const grid = document.getElementById('archive-grid');
+            if (!grid) return;
+            const q = (document.getElementById('archive-search').value || '').trim().toLowerCase();
+            let list = archiveFilter === 'all' ? cachedArticles : cachedArticles.filter(a => a.category === archiveFilter);
+            if (q) list = list.filter(a => [a.title, a.summary, a.category, a.author].join(' ').toLowerCase().includes(q));
+            grid.innerHTML = list.map(articleCard).join('');
+            document.getElementById('archive-empty').classList.toggle('hidden', list.length > 0);
+            document.getElementById('archive-count').textContent = `${list.length} article${list.length === 1 ? '' : 's'}`;
+        }
+        // Opens the All Articles page, carrying over the topic picked on the homepage.
+        function openArticlesPage() {
+            if (!document.getElementById('archive-filters').children.length) buildArchiveFilters();
+            filterArchive(homeFilter);
+            switchTab('articles');
         }
 
         function openArticleModal(id, updateHistory = true) {
@@ -3109,7 +3185,7 @@ html.modal-open body{position:fixed;left:0;right:0;width:100%}
             window.__openArticleId = art.id;
             const path = '/articles/' + articleSlug(art);
             if (updateHistory && location.pathname !== path) history.pushState({ article: art.id }, '', path);
-            else if (!updateHistory && location.pathname !== path) history.replaceState({ article: art.id }, '', path);
+            else if (!updateHistory) history.replaceState({ article: art.id, direct: true }, '', path);
             setPageMeta(path, art.title + ' | Forever Priests', art.summary || ROUTES.home.desc);
             const ogi = document.querySelector('meta[property="og:image"]');
             if (ogi && art.imageUrl) ogi.setAttribute('content', new URL(art.imageUrl, SITE_URL).href);
@@ -3180,16 +3256,27 @@ const schemaData = {
             const text = document.getElementById('live-text');
             const cta = document.getElementById('twitch-cta');
             if (!status) return;
-            let live = false;
+            let live = false, info = null;
+            // 1st: IVR's public Twitch lookup (accurate, no key needed).
             try {
-                const res = await fetch('https://decapi.me/twitch/uptime/lawrentiueus', { cache: 'no-store' });
-                const body = (await res.text()).toLowerCase();
-                live = res.ok && !body.includes('offline') && !body.includes('error') && !body.includes('not found');
-            } catch (e) { live = false; }
+                const res = await fetch('https://api.ivr.fi/v2/twitch/user?login=lawrentiueus', { cache: 'no-store' });
+                if (res.ok) {
+                    const u = (await res.json())[0];
+                    if (u) { live = !!(u.stream && u.stream.type === 'live'); info = u.stream; }
+                } else throw new Error('ivr ' + res.status);
+            } catch (e) {
+                // 2nd: DecAPI as a backup.
+                try {
+                    const res = await fetch('https://decapi.me/twitch/uptime/lawrentiueus?offline_msg=__OFF__', { cache: 'no-store' });
+                    const body = (await res.text()).toLowerCase();
+                    live = res.ok && !body.includes('__off__') && !body.includes('offline') && !body.includes('error') && !body.includes('not found');
+                } catch (e2) { live = false; }
+            }
+            if (status) status.title = live && info ? (info.title || '') + (info.game ? ' · ' + info.game.displayName : '') : '';
             pill.classList.toggle('hidden', !live);
             pill.classList.toggle('inline-flex', live);
             dot.className = 'w-2 h-2 rounded-full ' + (live ? 'bg-emerald-400 animate-pulse' : 'bg-gray-500');
-            text.textContent = live ? 'Live now' : 'Offline';
+            text.textContent = live ? ('Live now' + (info && info.game ? ' · ' + info.game.displayName : '')) : 'Offline';
             status.classList.toggle('text-emerald-300', live);
             status.classList.toggle('border-emerald-500/50', live);
             status.classList.toggle('text-gray-400', !live);
@@ -3239,13 +3326,14 @@ const schemaData = {
         }
         function closeArticleModal() {
             const wasArticleUrl = location.pathname.startsWith('/articles/');
-            const wasHomeBehind = !document.getElementById('tab-home').classList.contains('hidden');
+            const wasHomeBehind = true; // keep the visitor's place on whatever page is behind the article
             const keepY = __lockY;
             hideArticleModal();
-            if (wasArticleUrl && wasHomeBehind) { window.__keepScroll = true; window.__restoreY = keepY; }   // stay where you were in the list
+            const openedHere = history.state && history.state.article && !history.state.direct;
+            if (wasArticleUrl && wasHomeBehind && openedHere) { window.__keepScroll = true; window.__restoreY = keepY; }   // stay where you were in the list
             if (wasArticleUrl) {
-                // Back to the homepage, keeping the visitor's place in the articles list.
-                if (history.state && history.state.article) history.back();
+                // Opened from a list on this site: step back to it. Opened from a shared link: stay on the site, on the homepage.
+                if (openedHere) history.back();
                 else { history.replaceState(null, '', '/'); setRoute('home', null, 'replace'); }
             }
         }
@@ -3720,7 +3808,7 @@ if(location.protocol==='file:'){document.querySelectorAll('img[src^="/"]').forEa
 (function(){
  const synth = window.speechSynthesis;
  const SUPPORTED = !!(synth && window.SpeechSynthesisUtterance);
- const SKIP_TABS = ['tab-home','tab-calculator','tab-wand','tab-supporters','tab-macros','tab-spells','tab-wands'];
+ const SKIP_TABS = ['tab-home','tab-articles','tab-calculator','tab-wand','tab-supporters','tab-macros','tab-spells','tab-wands'];
  const SPEEDS = [1, 1.25, 1.5, 1.75, 2, 0.75];
  let speedIdx = 0; try { const sv = parseFloat(localStorage.getItem('fp-tts-speed')); const k = SPEEDS.indexOf(sv); if (k >= 0) speedIdx = k; } catch(e) {}
  let queue = [], pos = 0, playing = false, source = null, activeBtn = null, voice = null, runId = 0;
