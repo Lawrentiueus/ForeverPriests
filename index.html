@@ -708,7 +708,7 @@ div.bg-cardBg.rounded-2xl:not(.overflow-x-auto),div.bg-cardBg.rounded-3xl,.spec-
 <body class="min-h-screen flex flex-col justify-between selection:bg-wowGold selection:text-black">
 
 <button type="button" id="theme-fab" onclick="toggleThemePop(event)" aria-haspopup="menu" aria-expanded="false" aria-controls="theme-pop" aria-label="Change theme"><img id="theme-fab-icon" src="/PriestClassIcon.png" alt="" draggable="false"><span id="theme-fab-name">Priest</span><i class="fa-solid fa-chevron-down"></i></button><div id="theme-pop" role="menu" aria-label="Choose a theme" hidden><div class="tp-title">Choose your path</div><button type="button" role="menuitemradio" class="theme-opt" data-theme-opt="priest" style="--tc:#F4CE63" aria-checked="false" onclick="setTheme('priest');closeThemePop()"><img src="/PriestClassIcon.png" alt="" draggable="false"><div><b>Priest</b><span>The Light and the Void, in balance</span></div><i class="fa-solid fa-check"></i></button><button type="button" role="menuitemradio" class="theme-opt" data-theme-opt="disc" style="--tc:#FFB74D" aria-checked="false" onclick="setTheme('disc');closeThemePop()"><img src="/Discipline.png" alt="" draggable="false"><div><b>Discipline</b><span>Ember and bronze</span></div><i class="fa-solid fa-check"></i></button><button type="button" role="menuitemradio" class="theme-opt" data-theme-opt="holy" style="--tc:#FFF59D" aria-checked="false" onclick="setTheme('holy');closeThemePop()"><img src="/Holy.png" alt="" draggable="false"><div><b>Holy</b><span>Radiant gold and white</span></div><i class="fa-solid fa-check"></i></button><button type="button" role="menuitemradio" class="theme-opt" data-theme-opt="shadow" style="--tc:#BA68C8" aria-checked="false" onclick="setTheme('shadow');closeThemePop()"><img src="/Shadow.png" alt="" draggable="false"><div><b>Shadow</b><span>Violet void</span></div><i class="fa-solid fa-check"></i></button></div><canvas id="embers"></canvas><div id="progress"></div>
-<div id="custom-wowhead-tooltip"><div class="tip-header"><img id="tip-icon" src="" alt="Spell Icon"><div><div id="tip-name" class="tip-title"></div><div id="tip-type" class="tip-type"></div></div></div><div id="tip-desc" class="tip-body"></div><div id="tip-rank" class="tip-footer"></div></div>
+
 <div id="topbar"><button onclick="toggleMobileMenu()" aria-label="Menu"><i class="fa-solid fa-bars" id="menu-icon"></i></button><a href="/" id="tb-home" class="font-header text-gold-gradient" onclick="event.preventDefault();switchTab('home');window.scrollTo(0,0)" aria-label="Forever Priests home">FOREVER PRIESTS</a><div style="display:flex;align-items:center;gap:14px"><button type="button" id="tb-theme" onclick="toggleThemePop(event)" aria-haspopup="menu" aria-expanded="false" aria-controls="theme-pop" aria-label="Change theme"><img id="tb-theme-icon" src="/PriestClassIcon.png" alt="" draggable="false"></button><a href="https://discord.gg/TaCD6yVhr" target="_blank"><i class="fa-brands fa-discord"></i></a></div></div>
 <div id="mobile-menu" class="hidden"></div><div id="scrim" onclick="toggleMobileMenu()"></div>
 <aside id="sidebar">
@@ -2710,53 +2710,6 @@ div.bg-cardBg.rounded-2xl:not(.overflow-x-auto),div.bg-cardBg.rounded-3xl,.spec-
     });
 });
 
-        const wowheadCustomSpells = {
-            "1317006": { name: "Litany of Light", icon: "inv_scroll_07", type: "Holy Talent", desc: "Varies healing spell casts to build stacks, providing targeted mana recovery over extended encounter periods." },
-            "1309969": { name: "Power in Light", icon: "spell_holy_searinglight", type: "Discipline Talent", desc: "Increases the damage of your Smite and Holy Fire spells and grants a chance to make your next heal instant." },
-            "1309957": { name: "Holy Precision", icon: "spell_holy_divineillumination", type: "Discipline Talent", desc: "Reduces the spell hit chance penalty of Holy spells by a percentage and increases spell damage." },
-            "1309950": { name: "Devouring Contagion", icon: "spell_shadow_devouringplague", type: "Shadow Talent", desc: "Amplifies shadow damage over time effects and causes critical periodic ticks to refund a portion of base mana." },
-            "1310076": { name: "Early Demise", icon: "spell_shadow_demonicfortitude", type: "Shadow Talent", desc: "Reduces the total duration of your damage-over-time spells while compressing their total damage into a shorter window." },
-            "1326159": { name: "Dark Inspiration", icon: "spell_warlock_demonsoul", type: "Shadow Talent", desc: "Increases your shadow spell haste and reduces threat generation while in Shadowform." },
-            "1225139": { name: "Improved Mind Flay", icon: "spell_shadow_soulleech_2", type: "Shadow Talent", desc: "Increases the range of Mind Flay and adds a slow effect to targets caught in the stream." },
-            "1225132": { name: "Twin Disciplines", icon: "spell_holy_sealofvengeance", type: "Discipline Talent", desc: "Increases the damage and healing done by your instant and channeled spells by a flat percentage." }
-        };
-
-        document.addEventListener('mouseover', function(e) {
-            const link = e.target.closest('a[href*="spell="]');
-            if (!link) return;
-
-            const match = link.href.match(/spell=(\d+)/);
-            if (!match) return;
-            const spellId = match[1];
-
-            if (wowheadCustomSpells[spellId]) {
-                const data = wowheadCustomSpells[spellId];
-                const tooltip = document.getElementById('custom-wowhead-tooltip');
-                
-                document.getElementById('tip-icon').src = `https://wow.zamimg.com/images/wow/icons/large/${data.icon}.jpg`;
-                document.getElementById('tip-name').innerText = data.name;
-                document.getElementById('tip-type').innerText = data.type;
-                document.getElementById('tip-desc').innerText = data.desc;
-                document.getElementById('tip-rank').innerText = `Spell ID: ${spellId} (WoW Forever Custom)`;
-
-                tooltip.style.display = 'block';
-            }
-        });
-
-        document.addEventListener('mousemove', function(e) {
-            const tooltip = document.getElementById('custom-wowhead-tooltip');
-            if (tooltip.style.display === 'block') {
-                tooltip.style.left = (e.pageX + 15) + 'px';
-                tooltip.style.top = (e.pageY + 15) + 'px';
-            }
-        });
-
-        document.addEventListener('mouseout', function(e) {
-            const link = e.target.closest('a[href*="spell="]');
-            if (link) {
-                document.getElementById('custom-wowhead-tooltip').style.display = 'none';
-            }
-        });
 
         const macros = [
             { name: "Universal Mouseover Power Word: Shield", spec: "All Specs", code: "#showtooltip\n/cast [@mouseover,help,nodead][help,nodead][@player] Power Word: Shield" },
@@ -3309,7 +3262,7 @@ const schemaData = {
                     
                     html += `
                         <div class="talent-slot ${hasPointsClass}" style="grid-row: ${t.r}; grid-column: ${t.c};" onclick="handleTalentClick('${tree}', '${t.id}', event)" oncontextmenu="handleTalentRightClick('${tree}', '${t.id}', event)">
-                            <a href="https://www.wowhead.com/classic/spell=${t.spell}">
+                            <a href="https://www.wowhead.com/forever/spell=${t.spell}" onclick="event.preventDefault()">
                                 <img src="${iconUrl}" draggable="false" oncontextmenu="return false;" alt="${t.name}" class="talent-icon-img" />
                             </a>
                             <span class="talent-rank-badge">${spent}/${t.max}</span>
