@@ -345,6 +345,7 @@ main{max-width:1360px!important;padding-top:2rem!important}
 @media(max-width:1023px){
  #topbar{display:flex;position:fixed;top:0;left:0;right:0;height:56px;z-index:70;align-items:center;justify-content:space-between;padding:0 16px;background:rgba(var(--bg-rgb),.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(var(--g-rgb),.25)}
  #topbar button,#topbar a{color:var(--gold);font-size:1.3rem}
+ #topbar #tb-home{font-size:1rem;letter-spacing:.08em;-webkit-text-fill-color:transparent}
  #sidebar{transform:translateX(-100%)}#sidebar.open{transform:none}
  #scrim.open{display:block;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:55}
 }
@@ -403,7 +404,7 @@ main{max-width:1360px!important;padding-top:2rem!important}
 @keyframes spin{to{transform:translate(var(--tx,0),var(--ty,0)) rotate(360deg)}}
 .rays{--tx:-50%}.rune{--tx:-50%;--ty:-50%}
 @keyframes shine{to{background-position:-250% 0}}
-@keyframes float{50%{transform:translateY(-12px)}}
+@keyframes float{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-12px,0)}}
 @keyframes bob{50%{transform:translate(-50%,8px)}}
 @keyframes breathe{to{transform:scale(1.08)}}
 @keyframes rise{from{opacity:0;transform:translateY(30px)}}
@@ -545,6 +546,15 @@ div.bg-cardBg.rounded-2xl:not(.overflow-x-auto),div.bg-cardBg.rounded-3xl,.spec-
 .theme-opt .fa-check{margin-left:auto;color:var(--tc);opacity:0}.theme-opt[aria-checked="true"] .fa-check{opacity:1}
 #tb-theme img{width:28px;height:28px;border-radius:50%;padding:3px;border:1px solid var(--gold);background:var(--bg-deep);object-fit:contain}
 @media(max-width:1023px){#theme-fab{display:none}#theme-pop{position:fixed;top:62px;right:10px}}
+
+/* Firefox: keep the hero animations smooth (own GPU layers, lighter filters while animating) */
+.orb,.wand-scene .wand,.rune,.rays,.wand-scene .rings,.wand-scene .tome .halo{will-change:transform;backface-visibility:hidden}
+@supports (-moz-appearance:none){
+ .orb img{box-shadow:0 0 22px color-mix(in srgb,var(--c) 45%,transparent)}
+ .rune{filter:none}
+ .wand-scene .wand{filter:none}
+ .hero-sky{animation:none}
+}
 </style>
 
     <!-- Schema JSON-LD Block inside Head -->
@@ -715,7 +725,7 @@ div.bg-cardBg.rounded-2xl:not(.overflow-x-auto),div.bg-cardBg.rounded-3xl,.spec-
 
 <button type="button" id="theme-fab" onclick="toggleThemePop(event)" aria-haspopup="menu" aria-expanded="false" aria-controls="theme-pop" aria-label="Change theme"><img id="theme-fab-icon" src="/PriestClassIcon.png" alt="" draggable="false"><span id="theme-fab-name">Priest</span><i class="fa-solid fa-chevron-down"></i></button><div id="theme-pop" role="menu" aria-label="Choose a theme" hidden><div class="tp-title">Choose your path</div><button type="button" role="menuitemradio" class="theme-opt" data-theme-opt="priest" style="--tc:#F4CE63" aria-checked="false" onclick="setTheme('priest');closeThemePop()"><img src="/PriestClassIcon.png" alt="" draggable="false"><div><b>Priest</b><span>The Light and the Void, in balance</span></div><i class="fa-solid fa-check"></i></button><button type="button" role="menuitemradio" class="theme-opt" data-theme-opt="disc" style="--tc:#FFB74D" aria-checked="false" onclick="setTheme('disc');closeThemePop()"><img src="/Discipline.png" alt="" draggable="false"><div><b>Discipline</b><span>Ember and bronze</span></div><i class="fa-solid fa-check"></i></button><button type="button" role="menuitemradio" class="theme-opt" data-theme-opt="holy" style="--tc:#FFF59D" aria-checked="false" onclick="setTheme('holy');closeThemePop()"><img src="/Holy.png" alt="" draggable="false"><div><b>Holy</b><span>Radiant gold and white</span></div><i class="fa-solid fa-check"></i></button><button type="button" role="menuitemradio" class="theme-opt" data-theme-opt="shadow" style="--tc:#BA68C8" aria-checked="false" onclick="setTheme('shadow');closeThemePop()"><img src="/Shadow.png" alt="" draggable="false"><div><b>Shadow</b><span>Violet void</span></div><i class="fa-solid fa-check"></i></button></div><canvas id="embers"></canvas><div id="progress"></div>
 <div id="custom-wowhead-tooltip"><div class="tip-header"><img id="tip-icon" src="" alt="Spell Icon"><div><div id="tip-name" class="tip-title"></div><div id="tip-type" class="tip-type"></div></div></div><div id="tip-desc" class="tip-body"></div><div id="tip-rank" class="tip-footer"></div></div>
-<div id="topbar"><button onclick="toggleMobileMenu()" aria-label="Menu"><i class="fa-solid fa-bars" id="menu-icon"></i></button><span class="font-header text-gold-gradient">FOREVER PRIESTS</span><div style="display:flex;align-items:center;gap:14px"><button type="button" id="tb-theme" onclick="toggleThemePop(event)" aria-haspopup="menu" aria-expanded="false" aria-controls="theme-pop" aria-label="Change theme"><img id="tb-theme-icon" src="/PriestClassIcon.png" alt="" draggable="false"></button><a href="https://discord.gg/TaCD6yVhr" target="_blank"><i class="fa-brands fa-discord"></i></a></div></div>
+<div id="topbar"><button onclick="toggleMobileMenu()" aria-label="Menu"><i class="fa-solid fa-bars" id="menu-icon"></i></button><a href="/" id="tb-home" class="font-header text-gold-gradient" onclick="event.preventDefault();switchTab('home');if(document.getElementById('sidebar').classList.contains('open'))toggleMobileMenu();window.scrollTo(0,0)" aria-label="Forever Priests home">FOREVER PRIESTS</a><div style="display:flex;align-items:center;gap:14px"><button type="button" id="tb-theme" onclick="toggleThemePop(event)" aria-haspopup="menu" aria-expanded="false" aria-controls="theme-pop" aria-label="Change theme"><img id="tb-theme-icon" src="/PriestClassIcon.png" alt="" draggable="false"></button><a href="https://discord.gg/TaCD6yVhr" target="_blank"><i class="fa-brands fa-discord"></i></a></div></div>
 <div id="mobile-menu" class="hidden"></div><div id="scrim" onclick="toggleMobileMenu()"></div>
 <aside id="sidebar">
  <div class="sb-brand" onclick="switchTab('home')"><div class="sb-crest"><img src="/PriestClassIcon.png" draggable="false" alt="Priest"></div><div><b class="font-header text-gold-gradient">FOREVER<br>PRIESTS</b><small>WoW Forever · Sanctuary</small></div></div><div class="theme-box"><small>Theme: <b id="theme-name">Priest</b></small><div class="theme-row" role="group" aria-label="Site theme"><button type="button" class="theme-btn" data-theme-btn="priest" style="--tc:#F4CE63" onclick="setTheme('priest')" title="Priest theme" aria-label="Priest theme" aria-pressed="false"><img src="/PriestClassIcon.png" alt="" draggable="false"></button><button type="button" class="theme-btn" data-theme-btn="disc" style="--tc:#FFB74D" onclick="setTheme('disc')" title="Discipline theme" aria-label="Discipline theme" aria-pressed="false"><img src="/Discipline.png" alt="" draggable="false"></button><button type="button" class="theme-btn" data-theme-btn="holy" style="--tc:#FFF59D" onclick="setTheme('holy')" title="Holy theme" aria-label="Holy theme" aria-pressed="false"><img src="/Holy.png" alt="" draggable="false"></button><button type="button" class="theme-btn" data-theme-btn="shadow" style="--tc:#BA68C8" onclick="setTheme('shadow')" title="Shadow theme" aria-label="Shadow theme" aria-pressed="false"><img src="/Shadow.png" alt="" draggable="false"></button></div></div>
