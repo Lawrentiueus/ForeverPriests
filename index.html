@@ -547,6 +547,28 @@ div.bg-cardBg.rounded-2xl:not(.overflow-x-auto),div.bg-cardBg.rounded-3xl,.spec-
 #tb-theme img{width:28px;height:28px;border-radius:50%;padding:3px;border:1px solid var(--gold);background:var(--bg-deep);object-fit:contain}
 @media(max-width:1023px){#theme-fab{display:none}#theme-pop{position:fixed;top:62px;right:10px}}
 
+
+/* ===== Listen (text to speech) ===== */
+.tts-listen{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:99px;border:1px solid rgba(var(--g-rgb),.45);background:rgba(var(--g-rgb),.08);color:var(--gold);font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;transition:.2s;cursor:pointer}
+.tts-listen:hover{background:rgba(var(--g-rgb),.18);border-color:var(--gold);box-shadow:0 0 16px rgba(var(--g-rgb),.25)}
+.tts-listen.is-on{background:var(--gold);color:var(--on-gold)}
+.tts-listen-wrap{margin-top:14px}
+#tts-bar{position:fixed;left:50%;bottom:18px;transform:translate(-50%,140%);z-index:80;display:flex;align-items:center;gap:10px;padding:8px 10px 8px 14px;max-width:calc(100vw - 24px);border-radius:99px;background:var(--noise),var(--panel);border:1px solid rgba(var(--g-rgb),.5);box-shadow:inset 0 0 0 1px rgba(0,0,0,.6),0 14px 40px rgba(0,0,0,.7),0 0 24px rgba(var(--g-rgb),.15);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+#tts-bar.show{transform:translate(-50%,0)}
+#tts-bar .tts-eq{display:flex;gap:2px;align-items:flex-end;height:16px;flex:none}
+#tts-bar .tts-eq i{width:3px;background:var(--gold);border-radius:2px;animation:ttsEq 1s ease-in-out infinite;height:30%}
+#tts-bar .tts-eq i:nth-child(2){animation-delay:-.3s}#tts-bar .tts-eq i:nth-child(3){animation-delay:-.6s}
+#tts-bar.paused .tts-eq i{animation-play-state:paused}
+@keyframes ttsEq{0%,100%{height:25%}50%{height:100%}}
+#tts-bar .tts-info{min-width:0;line-height:1.15}
+#tts-bar .tts-info b{display:block;font-family:Cinzel,serif;font-size:.72rem;color:var(--gold);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:42vw}
+#tts-bar .tts-info span{font-size:.62rem;color:#9ca3af;letter-spacing:.08em}
+#tts-bar button{flex:none;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);border:1px solid rgba(var(--g-rgb),.35);transition:.2s;font-size:.8rem}
+#tts-bar button:hover{background:rgba(var(--g-rgb),.15);border-color:var(--gold)}
+#tts-bar #tts-play{background:var(--gold);color:var(--on-gold);border-color:var(--gold)}
+#tts-bar #tts-speed{width:auto;padding:0 10px;border-radius:99px;font-size:.65rem;font-weight:800}
+.tts-reading{outline:2px solid rgba(var(--g-rgb),.55);outline-offset:4px;border-radius:4px;background:rgba(var(--g-rgb),.06);transition:outline-color .2s}
+@media(max-width:640px){#tts-bar{bottom:12px;gap:6px;padding:6px 6px 6px 10px}#tts-bar .tts-info b{max-width:34vw}}
 </style>
 
     <!-- Schema JSON-LD Block inside Head -->
@@ -707,7 +729,8 @@ div.bg-cardBg.rounded-2xl:not(.overflow-x-auto),div.bg-cardBg.rounded-3xl,.spec-
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-wowGold selection:text-black">
 
-<button type="button" id="theme-fab" onclick="toggleThemePop(event)" aria-haspopup="menu" aria-expanded="false" aria-controls="theme-pop" aria-label="Change theme"><img id="theme-fab-icon" src="/PriestClassIcon.png" alt="" draggable="false"><span id="theme-fab-name">Priest</span><i class="fa-solid fa-chevron-down"></i></button><div id="theme-pop" role="menu" aria-label="Choose a theme" hidden><div class="tp-title">Choose your path</div><button type="button" role="menuitemradio" class="theme-opt" data-theme-opt="priest" style="--tc:#F4CE63" aria-checked="false" onclick="setTheme('priest');closeThemePop()"><img src="/PriestClassIcon.png" alt="" draggable="false"><div><b>Priest</b><span>The Light and the Void, in balance</span></div><i class="fa-solid fa-check"></i></button><button type="button" role="menuitemradio" class="theme-opt" data-theme-opt="disc" style="--tc:#FFB74D" aria-checked="false" onclick="setTheme('disc');closeThemePop()"><img src="/Discipline.png" alt="" draggable="false"><div><b>Discipline</b><span>Ember and bronze</span></div><i class="fa-solid fa-check"></i></button><button type="button" role="menuitemradio" class="theme-opt" data-theme-opt="holy" style="--tc:#FFF59D" aria-checked="false" onclick="setTheme('holy');closeThemePop()"><img src="/Holy.png" alt="" draggable="false"><div><b>Holy</b><span>Radiant gold and white</span></div><i class="fa-solid fa-check"></i></button><button type="button" role="menuitemradio" class="theme-opt" data-theme-opt="shadow" style="--tc:#BA68C8" aria-checked="false" onclick="setTheme('shadow');closeThemePop()"><img src="/Shadow.png" alt="" draggable="false"><div><b>Shadow</b><span>Violet void</span></div><i class="fa-solid fa-check"></i></button></div><canvas id="embers"></canvas><div id="progress"></div>
+<button type="button" id="theme-fab" onclick="toggleThemePop(event)" aria-haspopup="menu" aria-expanded="false" aria-controls="theme-pop" aria-label="Change theme"><img id="theme-fab-icon" src="/PriestClassIcon.png" alt="" draggable="false"><span id="theme-fab-name">Priest</span><i class="fa-solid fa-chevron-down"></i></button><div id="theme-pop" role="menu" aria-label="Choose a theme" hidden><div class="tp-title">Choose your path</div><button type="button" role="menuitemradio" class="theme-opt" data-theme-opt="priest" style="--tc:#F4CE63" aria-checked="false" onclick="setTheme('priest');closeThemePop()"><img src="/PriestClassIcon.png" alt="" draggable="false"><div><b>Priest</b><span>The Light and the Void, in balance</span></div><i class="fa-solid fa-check"></i></button><button type="button" role="menuitemradio" class="theme-opt" data-theme-opt="disc" style="--tc:#FFB74D" aria-checked="false" onclick="setTheme('disc');closeThemePop()"><img src="/Discipline.png" alt="" draggable="false"><div><b>Discipline</b><span>Ember and bronze</span></div><i class="fa-solid fa-check"></i></button><button type="button" role="menuitemradio" class="theme-opt" data-theme-opt="holy" style="--tc:#FFF59D" aria-checked="false" onclick="setTheme('holy');closeThemePop()"><img src="/Holy.png" alt="" draggable="false"><div><b>Holy</b><span>Radiant gold and white</span></div><i class="fa-solid fa-check"></i></button><button type="button" role="menuitemradio" class="theme-opt" data-theme-opt="shadow" style="--tc:#BA68C8" aria-checked="false" onclick="setTheme('shadow');closeThemePop()"><img src="/Shadow.png" alt="" draggable="false"><div><b>Shadow</b><span>Violet void</span></div><i class="fa-solid fa-check"></i></button></div><div id="tts-bar" role="region" aria-label="Audio reader" aria-hidden="true"><div class="tts-eq" aria-hidden="true"><i></i><i></i><i></i></div><div class="tts-info"><b id="tts-title">Reading</b><span id="tts-progress">1 / 1</span></div><button type="button" id="tts-prev" onclick="ttsSkip(-1)" aria-label="Previous paragraph"><i class="fa-solid fa-backward-step"></i></button><button type="button" id="tts-play" onclick="ttsPlayPause()" aria-label="Pause"><i class="fa-solid fa-pause"></i></button><button type="button" id="tts-next" onclick="ttsSkip(1)" aria-label="Next paragraph"><i class="fa-solid fa-forward-step"></i></button><button type="button" id="tts-speed" onclick="ttsSpeed()" aria-label="Reading speed">1x</button><button type="button" id="tts-stop" onclick="ttsStop()" aria-label="Stop reading"><i class="fa-solid fa-xmark"></i></button></div>
+<canvas id="embers"></canvas><div id="progress"></div>
 
 <div id="topbar"><button onclick="toggleMobileMenu()" aria-label="Menu"><i class="fa-solid fa-bars" id="menu-icon"></i></button><a href="/" id="tb-home" class="font-header text-gold-gradient" onclick="event.preventDefault();switchTab('home');window.scrollTo(0,0)" aria-label="Forever Priests home">FOREVER PRIESTS</a><div style="display:flex;align-items:center;gap:14px"><button type="button" id="tb-theme" onclick="toggleThemePop(event)" aria-haspopup="menu" aria-expanded="false" aria-controls="theme-pop" aria-label="Change theme"><img id="tb-theme-icon" src="/PriestClassIcon.png" alt="" draggable="false"></button><a href="https://discord.gg/TaCD6yVhr" target="_blank"><i class="fa-brands fa-discord"></i></a></div></div>
 <div id="mobile-menu" class="hidden"></div><div id="scrim" onclick="toggleMobileMenu()"></div>
@@ -2662,6 +2685,7 @@ div.bg-cardBg.rounded-2xl:not(.overflow-x-auto),div.bg-cardBg.rounded-3xl,.spec-
                     <span>•</span>
                     <span id="modal-date">Date</span>
                 </div>
+                <div class="tts-listen-wrap"><button type="button" class="tts-listen" data-tts="article" onclick="ttsToggle('article', this)" aria-label="Listen to this article"><i class="fa-solid fa-headphones"></i><span>Listen</span></button></div>
             </div>
             <div id="modal-image-container" class="hidden">
                 <img id="modal-image" src="" draggable="false" oncontextmenu="return false;" alt="Article Image" class="w-full h-auto max-h-80 object-cover rounded-xl border border-cardBorder">
@@ -3609,6 +3633,166 @@ const schemaData = {
 /* Local preview: when the file is opened straight from your computer (file://), "/Image.png" points at the drive root.
    Point images back at the folder this file lives in. On the live site this does nothing. */
 if(location.protocol==='file:'){document.querySelectorAll('img[src^="/"]').forEach(function(i){i.src=i.getAttribute('src').slice(1)});}
+</script>
+<script>
+/* ===== Listen: reads guides and articles aloud with the browser's built-in voice (free, no API) ===== */
+(function(){
+ const synth = window.speechSynthesis;
+ const SUPPORTED = !!(synth && window.SpeechSynthesisUtterance);
+ const SKIP_TABS = ['tab-home','tab-calculator','tab-wand','tab-supporters','tab-macros','tab-spells','tab-wands'];
+ const SPEEDS = [1, 1.25, 1.5, 1.75, 2, 0.75];
+ let speedIdx = 0; try { const sv = parseFloat(localStorage.getItem('fp-tts-speed')); const k = SPEEDS.indexOf(sv); if (k >= 0) speedIdx = k; } catch(e) {}
+ let queue = [], pos = 0, playing = false, source = null, activeBtn = null, voice = null, runId = 0;
+
+ function pickVoice(){
+  const vs = synth.getVoices().filter(v => /^en(-|_|$)/i.test(v.lang));
+  if (!vs.length) return null;
+  const score = v => { const n = v.name.toLowerCase(); let sc = 0;
+   if (/natural|neural|online/.test(n)) sc += 50;
+   if (/aria|jenny|guy|davis|ana|samantha|ava|allison|google us english|google uk english/.test(n)) sc += 20;
+   if (/en-us/i.test(v.lang)) sc += 5; if (v.localService === false) sc += 3; if (v.default) sc += 1; return sc; };
+  return vs.sort((a,b) => score(b) - score(a))[0];
+ }
+ if (SUPPORTED) { voice = pickVoice(); synth.onvoiceschanged = () => { voice = pickVoice(); }; }
+
+ const visible = el => !!(el.offsetParent || el.getClientRects().length);
+ const SKIP_SEL = 'table,pre,code,button,svg,select,input,textarea,.build-talents,.tts-listen-wrap,[data-tts-skip],.sr-only,script,style,nav';
+ function clean(t){
+  return t.replace(/\s+/g,' ').replace(/[→←◆•·]/g,' ').replace(/(\d)\s*[–—-]\s*(\d)/g,'$1 to $2')
+   .replace(/\s[–—]\s/g,', ').replace(/\b5SR\b/g,'five second rule').replace(/\bPvP\b/g,'P V P').replace(/\bPvE\b/g,'P V E')
+   .replace(/\bAoE\b/g,'A O E').replace(/\bDoTs?\b/g, m => m.length > 3 ? 'dots' : 'dot').replace(/\bMP5\b/g,'M P 5').replace(/\bCC\b/g,'crowd control').trim();
+ }
+ // Break the visible content into readable blocks (headings, paragraphs, list items).
+ function collect(root){
+  const out = [];
+  const start = root.querySelector('h1');   // skip the little badge above the page title
+  root.querySelectorAll('h1,h2,h3,h4,p,li,blockquote,dd,dt,div').forEach(el => {
+   if (!visible(el) || el.closest(SKIP_SEL)) return;
+   if (start && el !== start && (start.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_PRECEDING)) return;
+   if (el.parentElement && el.parentElement.closest('li,p,h1,h2,h3,h4,blockquote')) return; // already read as part of its parent
+   if (el.tagName === 'DIV') {                                     // only "leaf" boxes of text, e.g. tip cards
+    if (el.querySelector('div,p,li,ul,ol,h1,h2,h3,h4,table,section,button,img')) return;
+    if ((el.innerText || '').trim().length < 12) return;
+   } else if (!/^H\d$/.test(el.tagName) && el.querySelector('p,li,h1,h2,h3,h4')) return; // container, read children instead
+   const t = clean(el.textContent || '');
+   if (t.length < 2) return;
+   splitText(t).forEach(c => out.push({ el, text: c }));
+  });
+  return out;
+ }
+ // Browsers cut off very long utterances, so speak in sentence-sized pieces.
+ function splitText(t){
+  if (t.length <= 220) return [t];
+  const parts = t.match(/[^.!?;:]+[.!?;:]*\s*/g) || [t], res = []; let cur = '';
+  parts.forEach(p => { if ((cur + p).length > 220 && cur) { res.push(cur.trim()); cur = ''; } cur += p; });
+  if (cur.trim()) res.push(cur.trim());
+  return res.flatMap(x => x.length > 260 ? x.match(/.{1,220}(\s|$)/g).map(y => y.trim()) : [x]);
+ }
+ function highlight(){
+  document.querySelectorAll('.tts-reading').forEach(e => e.classList.remove('tts-reading'));
+  const it = queue[pos]; if (!it || !playing) return;
+  it.el.classList.add('tts-reading');
+  const r = it.el.getBoundingClientRect(), vh = innerHeight;
+  if (r.top < 70 || r.bottom > vh - 90) it.el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+ }
+ function updateBar(){
+  const bar = document.getElementById('tts-bar'); if (!bar) return;
+  const on = queue.length > 0;
+  bar.classList.toggle('show', on); bar.setAttribute('aria-hidden', on ? 'false' : 'true');
+  bar.classList.toggle('paused', !playing);
+  document.getElementById('tts-progress').textContent = on ? `${Math.min(pos + 1, queue.length)} / ${queue.length}` : '';
+  const pb = document.getElementById('tts-play');
+  pb.innerHTML = playing ? '<i class="fa-solid fa-pause"></i>' : '<i class="fa-solid fa-play"></i>';
+  pb.setAttribute('aria-label', playing ? 'Pause' : 'Play');
+  document.getElementById('tts-speed').textContent = SPEEDS[speedIdx] + 'x';
+  document.querySelectorAll('.tts-listen').forEach(b => {
+   const mine = b === activeBtn && on;
+   b.classList.toggle('is-on', mine);
+   b.querySelector('span').textContent = mine ? (playing ? 'Pause' : 'Resume') : 'Listen';
+   b.querySelector('i').className = 'fa-solid ' + (mine && playing ? 'fa-pause' : 'fa-headphones');
+  });
+ }
+ function speakCurrent(){
+  const my = ++runId;
+  synth.cancel();
+  if (pos >= queue.length) { ttsStop(); return; }
+  const u = new SpeechSynthesisUtterance(queue[pos].text);
+  if (voice) u.voice = voice; u.lang = (voice && voice.lang) || 'en-US';
+  u.rate = SPEEDS[speedIdx]; u.pitch = 1;
+  u.onend = () => { if (my !== runId || !playing) return; pos++; speakCurrent(); };
+  u.onerror = e => { if (my !== runId || !playing) return; if (e.error === 'interrupted' || e.error === 'canceled') return; pos++; speakCurrent(); };
+  highlight(); updateBar();
+  setTimeout(() => { if (my === runId && playing) synth.speak(u); }, 60); // small gap avoids a Chrome cancel/speak race
+ }
+ function sourceRoot(key){
+  if (key === 'article') return document.querySelector('#article-modal .space-y-6') || document.getElementById('article-modal');
+  return document.getElementById(key);
+ }
+ function sourceTitle(key){
+  if (key === 'article') return document.getElementById('modal-title').textContent;
+  const sec = document.getElementById(key); const h = sec && sec.querySelector('h1');
+  let t = h ? h.textContent : 'This page';
+  const subOn = sec && sec.querySelector('[id*="-panel-"]:not(.hidden) h2, [id*="-panel-"]:not(.hidden) h1');
+  return subOn ? subOn.textContent : t;
+ }
+ window.ttsToggle = function(key, btn){
+  if (!SUPPORTED) return;
+  if (activeBtn === btn && queue.length) { ttsPlayPause(); return; }
+  ttsStop();
+  queue = collect(sourceRoot(key)); pos = 0; source = key; activeBtn = btn;
+  if (!queue.length) { queue = []; updateBar(); return; }
+  document.getElementById('tts-title').textContent = sourceTitle(key).replace(/\s+/g,' ').trim();
+  playing = true; speakCurrent();
+ };
+ window.ttsPlayPause = function(){
+  if (!queue.length) return;
+  if (playing) { playing = false; runId++; synth.cancel(); highlight(); updateBar(); }
+  else { playing = true; speakCurrent(); }
+ };
+ window.ttsSkip = function(d){
+  if (!queue.length) return;
+  let i = pos + d;
+  // jump a whole paragraph, not just one sentence piece
+  if (d > 0) { const el = queue[pos].el; while (i < queue.length && queue[i].el === el) i++; }
+  else { const el = queue[Math.max(0, pos - 1)] && queue[Math.max(0, pos - 1)].el; while (i > 0 && queue[i - 1].el === el) i--; }
+  pos = Math.max(0, Math.min(queue.length - 1, i));
+  if (playing) speakCurrent(); else { highlight(); updateBar(); }
+ };
+ window.ttsSpeed = function(){
+  speedIdx = (speedIdx + 1) % SPEEDS.length;
+  try { localStorage.setItem('fp-tts-speed', SPEEDS[speedIdx]); } catch(e) {}
+  if (playing) speakCurrent(); else updateBar();
+ };
+ window.ttsStop = function(){
+  playing = false; runId++; if (SUPPORTED) synth.cancel();
+  queue = []; pos = 0; source = null;
+  document.querySelectorAll('.tts-reading').forEach(e => e.classList.remove('tts-reading'));
+  updateBar(); activeBtn = null; updateBar();
+ };
+ // Add a Listen button under the title of every guide page.
+ function addButtons(){
+  if (!SUPPORTED) return;
+  document.querySelectorAll('section.tab-content').forEach(sec => {
+   if (SKIP_TABS.includes(sec.id) || sec.querySelector(':scope .tts-listen')) return;
+   const h1 = sec.querySelector('h1'); if (!h1) return;
+   const wrap = document.createElement('div'); wrap.className = 'tts-listen-wrap';
+   wrap.innerHTML = `<button type="button" class="tts-listen" aria-label="Listen to this page"><i class="fa-solid fa-headphones"></i><span>Listen</span></button>`;
+   wrap.firstChild.addEventListener('click', e => ttsToggle(sec.id, e.currentTarget));
+   const after = h1.nextElementSibling && h1.nextElementSibling.tagName === 'P' ? h1.nextElementSibling : h1;
+   after.insertAdjacentElement('afterend', wrap);
+  });
+ }
+ if (!SUPPORTED) document.querySelectorAll('.tts-listen').forEach(b => b.closest('.tts-listen-wrap').style.display = 'none');
+ addButtons();
+ // Stop reading when the visitor leaves the page, article or sub-tab being read.
+ const _sw = window.switchTab; window.switchTab = function(){ ttsStop(); return _sw.apply(this, arguments); };
+ const _close = window.hideArticleModal; if (_close) window.hideArticleModal = function(){ if (source === 'article') ttsStop(); return _close.apply(this, arguments); };
+ ['showLevelingSpec','showRotationSpec','showOverviewTab','showProfLevel'].forEach(fn => {
+  const f = window[fn]; if (typeof f === 'function') window[fn] = function(){ if (source && source !== 'article') ttsStop(); return f.apply(this, arguments); };
+ });
+ window.addEventListener('beforeunload', () => { if (SUPPORTED) synth.cancel(); });
+ document.addEventListener('visibilitychange', () => { /* keep reading in the background like a podcast */ });
+})();
 </script>
 </body>
 </html>
