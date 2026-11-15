@@ -1,3 +1,11 @@
 {
-  "twitchLive": "auto"
+  "twitchLive": "auto",
+  "toyDrive": {
+    "goal": 50,
+    "collected": 0,
+    "wishlist": "",
+    "status": "",
+    "updated": "",
+    "photos": []
+  }
 }
