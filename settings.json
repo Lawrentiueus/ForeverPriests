@@ -1,9 +1,9 @@
 {
   "twitchLive": "auto",
   "toyDrive": {
-    "goal": 50,
-    "collected": 0,
-    "wishlist": "",
+    "goal": 100,
+    "raised": 0,
+    "driveUrl": "",
     "status": "",
     "updated": "",
     "photos": []
