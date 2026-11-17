@@ -1,5 +1,45 @@
 [
   {
+    "id": 15,
+    "title": "Blizzard Cracks Down on Blackmaw Hold Gold Exploit",
+    "category": "WoW News", "Dungeons",
+    "author": "Lawrentiueus",
+    "date": "Nov 17, 2026",
+    "imageUrl": "",
+    "summary": "Following a weekend loot table bug in Blackmaw Hold, Blizzard has patched the dungeon, stripped illicit gold from exploiters, and issued account suspensions.",
+    "content": "<p>Preserving the game economy is a top priority for the development team as players push into higher-level content in <em>World of Warcraft: Forever</em>. Over the weekend, players discovered a large pack of non-elite enemies inside the Blackmaw Hold dungeon that were mistakenly dropping full elite-level loot tables. Blizzard quickly patched the bug out early yesterday, and they have since been investigating the overall economic fallout.</p><p>If you happened to run the dungeon a couple of times naturally and benefited from the extra drops, your account is completely safe. However, a couple hundred players worldwide realized the loot drops were broken and spent hours exclusively farming those specific mobs to vendor the drops for massive gold payouts.</p><p>Blizzard placed temporary economy locks on those accounts yesterday while calculating the total exploitative gains. Today, the team is actively stripping away all gold earned from the exploit and handing out account suspensions to the most egregious abusers, sending a clear warning against farming obvious bugs.</p>"
+  },
+  {
+  "id": 14,
+    "title": "New Cosmetic Hearthstone Discovered in WoW: Forever",
+    "category": "WoW News",
+    "author": "Lawrentiueus",
+    "date": "Nov 17, 2026",
+    "imageUrl": "",
+    "summary": "Players have uncovered the Scarlet Hearthstone in WoW: Forever, a new cosmetic Toy Box addition dropping from High General Abbendis in the Eastern Plaguelands.",
+    "content": "<p>Cosmetic Hearthstones are officially live in <em>World of Warcraft: Forever</em>, offering unique visual animations during your 10-second cast time. The very first one has now been tracked down by players: the <strong>Scarlet Hearthstone</strong>.</p><p>Reportedly dropping from High General Abbendis in the Eastern Plaguelands, this item goes straight into your Toy Box. There is a minor catch for inventory management, though. Rather than casting directly from the Toy Box, activating the toy conjures a physical Scarlet Hearthstone item on a one-hour cooldown, meaning it will still occupy a bag slot while you carry it around. Activating it engulfs your character in scarlet flames to send you back to your home inn.</p><p>As the first cosmetic Hearthstone uncovered in <em>Forever</em>, it almost certainly will not be the last, leaving players on the lookout for whatever other hidden variations might be tucked away across the world.</p>"
+  },
+  {
+    "id": 13,
+    "title": "November 16 Hotfixes Bring Another Priest Adjustment in WoW: Forever",
+    "category": "Priest News",
+    "author": "Lawrentiueus",
+    "date": "Nov 17, 2026",
+    "imageUrl": "",
+    "summary": "The November 16 hotfixes reduce Vampiric Embrace party healing from 20% to 10% while doubling self-healing to keep solo survivability intact, alongside Dark Inspiration and item fixes.",
+    "content": "<p>Priests continue to see their toolkit tweaked in the latest batch of live hotfixes deployed on November 16, 2026. While solo players will not feel a difference, Shadow Priests running in groups are seeing a notable adjustment to their passive healing output:</p><ul><li><strong>Vampiric Embrace Nerf (With Scheduled Maintenance):</strong> Healing is being reduced from 20% down to 10% of the Shadow damage dealt by the casting Priest. To compensate, the Priest receives 100% increased healing from the effect, keeping solo survivability completely intact while toning down party-wide passive healing.</li><li><strong>Dark Inspiration Fix:</strong> Resolved an issue where Dark Inspiration was improperly stacking when multiple Shadow Priests were in the same party.</li><li><strong>Item Fixes:</strong> <em>Formula: Enchant Boots - Speed</em> from reputation vendors is now properly Bind-on-Pickup, Outrider’s Gloves are functioning correctly, and The Violet Tragan will no longer break crowd control effects.</li></ul><p>Once again, Priest group utility gets scaled back while solo play remains unchanged, continuing the ongoing trend of constant class tuning across Azeroth.</p>"
+  },
+  {
+    "id": 12,
+    "title": "Tight on Gold? Upgrade Your Bags Through Quests and Bosses in WoW: Forever",
+    "category": "Leveling",
+    "author": "Lawrentiueus",
+    "date": "Nov 17, 2026",
+    "imageUrl": "",
+    "summary": "Save your gold for skills, Dual Spec, and mounts by targeting these guaranteed quest reward bags and high-drop-rate boss containers while leveling in WoW: Forever.",
+    "content": "<p>With skill upgrades draining your wallet every two levels, alongside Dual Spec and Mount Training looming at level 40, spending precious gold on the Auction House for storage is tough to justify. Starting out with four 6-slot bags only gives you 42 total slots, which fills up fast when you are hoarding consumables, quest items, and vendor trash.</p><p>Instead of buying bags, target these guaranteed quest rewards and high-drop-rate boss items as you level up. Keep in mind that several of these quests are tough to tackle solo right at their minimum level requirement.</p><h2>Quest Bag Rewards</h2><table><thead><tr><th>Bag Name</th><th>Slots</th><th>Quest &amp; Level</th></tr></thead><tbody><tr><td><strong>Wizbang's Gunnysack</strong></td><td>8</td><td>Buzzbox 525 (Level 7)</td></tr><tr><td><strong>Old Blanchy's Feed Pouch</strong></td><td>8</td><td>Poor Old Blanchy (Level 9)</td></tr><tr><td><strong>Scuffed Shipping Crate</strong></td><td>8</td><td>Parts and Pieces (Level 9)</td></tr><tr><td><strong>Captain Sander's Booty Bag</strong></td><td>8</td><td>Captain Sander's Hidden Treasure (Level 10)</td></tr><tr><td><strong>Deviate Hide Pack</strong></td><td>10</td><td>Deviate Hides (Level 13)</td></tr><tr><td><strong>Old Toolbox</strong></td><td>12</td><td>Stepping Stones - Sleeping Bag chain (Level 14)</td></tr><tr><td><strong>Hunting Satchel</strong></td><td>10</td><td>Vyrin's Revenge (Level 15)</td></tr><tr><td><strong>Gunnysack of the Night Watch</strong></td><td>10</td><td>The Night Watch (Level 18)</td></tr><tr><td><strong>Ooze-covered Bag</strong></td><td>10</td><td>Digging Through the Ooze (Level 19)</td></tr><tr><td><strong>Spidersilk Pouch</strong></td><td>12</td><td>Stronger than Steel - Mulgore (Level 29)</td></tr><tr><td><strong>Explorer's Knapsack</strong></td><td>14</td><td>Cortello's Riddle (Level 35)</td></tr><tr><td><strong>Thawpelt Sack</strong></td><td>14</td><td>The Platinum Discs (Level 40)</td></tr><tr><td><strong>Demon Hide Sack</strong></td><td>16</td><td>You Are Rakh'likh, Demon (Level 45)</td></tr><tr><td><strong>Red Bag</strong></td><td>16</td><td>Red Bag Blues (Level 55)</td></tr><tr><td><strong>Hyjal Postal Satchel</strong></td><td>18</td><td>Top of the Post (Level 56)</td></tr></tbody></table><h2>Boss Drop Bags</h2><table><thead><tr><th>Bag Name</th><th>Slots</th><th>Boss &amp; Location</th></tr></thead><tbody><tr><td><strong>Gnoll Hide Sack</strong></td><td>8</td><td>Fedfennel (Elwynn Forest)</td></tr><tr><td><strong>Fel Steed Saddlebags</strong></td><td>10</td><td>Fel Steed (Shadowfang Keep)</td></tr><tr><td><strong>Large Rucksack</strong></td><td>10</td><td>Foe Reaper 4000 (Westfall)</td></tr><tr><td><strong>Murloc Skin Bag</strong></td><td>10</td><td>Gelihast (Blackfathom Deeps)</td></tr><tr><td><strong>Snakeskin Bag</strong></td><td>10</td><td>Lady Anacondra (Wailing Caverns)</td></tr><tr><td><strong>Sturdy Lunchbox</strong></td><td>12</td><td>Venture Co. Foreman (Stranglethorn Vale)</td></tr><tr><td><strong>Wayfarer's Knapsack</strong></td><td>16</td><td>Ribbly Screwspigot (Blackrock Depths)</td></tr></tbody></table><p>Saving gold early on makes a massive difference by the time you reach level 40, so grabbing these free upgrades as you pass through each zone is well worth the extra detour.</p>"
+  },
+  {
   "id": 11,
   "title": "The new Dungeon XP Buff Is Not Enough: WoW Forever's Dungeon Design Is Alienating New and Returning Players",
   "category": "Dungeons",
